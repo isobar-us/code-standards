@@ -246,6 +246,8 @@ body {
 /* `Topper + Header (who called it a topper in old version? lol)
 ----------------------------------------------------------------------------------------------------*/
 
+body .fork { position: fixed; top: 0; right: 0; z-index: 10; width: 149px; height: 149px; background: url(../img/fork-me.png) no-repeat; }
+
 header { 
 	height: 60px;
 	width: 100%;
@@ -317,7 +319,7 @@ header #social li a {
 header #social #facebook { background-position: -5px -5px; }
 header #social #facebook:hover { background-position: -5px -47px; }
 
-header #social #twitter	{ background-position: -46px -5px; }
+header #social #twitter { background-position: -46px -5px; }
 header #social #twitter:hover { background-position: -46px -47px; }
 
 header #social #delicious { background-position: -88px -5px; }
@@ -328,10 +330,11 @@ header #social #linkback	{
 	font-family: Georgia, serif;
 	font-size: 12px;
 	font-style: italic;
-	margin-top: 20px;
+	margin: 0;
 	text-decoration: none;
+	text-align: center;
 	float: left;
-	width: 150px;
+	width: 60px;
 	height: 15px;
     background: none;
 }
