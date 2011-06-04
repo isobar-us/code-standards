@@ -31,8 +31,6 @@ This is also part of what we consider a best practice when dealing with large pr
 
 Each of these files include content wrapped within <section>s. This should be self-explanatory I think. In each section, we make use of all h1-h6 heading tags multiple times since HTML5 lets you use as many as you like. Of course, we try to always use them and all other HTML5 tags appropriately, and making use of semantic tags where they are best suited.
 
-There are many ways to structure a page using HTML5 tags. Not everyone will have the same views about when to use each tag. If you feel there is a better way to do something, open a new issue and let us know. We welcome any and all feedback you may have, and are open to discussing best practices or standards. 
-
 
 
 
