@@ -286,8 +286,10 @@ $(document).ready(UTIL.loadEvents);
 				});
 					
 				var main = document.querySelector('#main'), 
-					canvas = document.querySelector('#logo');
-				canvas.style.visibility = 'hidden'; 
+					logo = document.querySelector('#logo'),
+					can = document.querySelector('#canvas-logo');
+				logo.style.visibility = 'hidden';
+				can.style.visibility = 'visible';
 				main.firstElementChild.style.visibility = 'hidden';
 				main.firstElementChild.nextElementSibling.style.visibility = 'hidden';
 				

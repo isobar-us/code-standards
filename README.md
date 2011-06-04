@@ -22,3 +22,18 @@ we want you to fork us, discuss additions, send us pull requests, and add issues
 We hope to encourage other developers to think about how to best standardize their approaches to development, to propose their own ideas for debate 
 and for inclusion in our version of the document, and to adapt our standards for their own unique development practices. What better way of achieving consensus 
 on how best to develop in our discipline than through feedback from members of that discipline themselves?
+
+## Structure of  Page Content
+
+The index.php file is used to include each of the .html files contained within the /sections/ directory. 
+We have separated the different sections that make up the page into individual files so that it is easier to edit, basically making the content of the page more modular.
+This is also part of what we consider a best practice when dealing with large projects, as if it were an application involving lots of code, that several people work on.
+
+Each of these files include content wrapped within <section>s. This should be self-explanatory I think. In each section, we make use of all h1-h6 heading tags multiple times since HTML5 lets you use as many as you like. Of course, we try to always use them and all other HTML5 tags appropriately, and making use of semantic tags where they are best suited.
+
+There are many ways to structure a page using HTML5 tags. Not everyone will have the same views about when to use each tag. If you feel there is a better way to do something, open a new issue and let us know. We welcome any and all feedback you may have, and are open to discussing best practices or standards. 
+
+
+
+
+
