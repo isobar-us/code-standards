@@ -246,7 +246,15 @@ body {
 /* `Topper + Header (who called it a topper in old version? lol)
 ----------------------------------------------------------------------------------------------------*/
 
-body .fork { position: fixed; top: 0; right: 0; z-index: 10; width: 149px; height: 149px; background: url(../img/fork-me.png) no-repeat; }
+body .fork { 
+	position: fixed; 
+	top: 0; 
+	right: -15px; 
+	z-index: 2; 
+	width: 149px; 
+	height: 149px; 
+	background: url(../img/fork-me.png) no-repeat -15px top;
+}
 
 header { 
 	height: 60px;
@@ -323,20 +331,18 @@ header #social #twitter { background-position: -46px -5px; }
 header #social #twitter:hover { background-position: -46px -47px; }
 
 header #social #delicious { background-position: -88px -5px; }
-header #social #delicious:hover	{ background-position: -88px -47px; }
+header #social #delicious:hover { background-position: -88px -47px; }
 
-header #social #linkback	{
-	color: #ccc;
-	font-family: Georgia, serif;
-	font-size: 12px;
-	font-style: italic;
-	margin: 0;
-	text-decoration: none;
-	text-align: center;
-	float: left;
-	width: 60px;
-	height: 15px;
-    background: none;
+header #social #linkback { 
+	color: #ccc; 
+	font-family: Georgia, serif; 
+	font-size: 12px; 
+	font-style: italic; 
+	text-decoration: none; 
+	text-align: center; 
+	width: 60px; 
+	height: 15px; 
+	background: none;
 }
 
 header #social #linkback:hover { color: #dcdcdc; }

@@ -28,7 +28,7 @@ ISOBAR = {
 					toc.innerHTML += '<li class="' + tag + '"><a href="#' + anchor + '">' + the_text + '</a></li>';
 				}
 				
-				console.log({ 'a': anchor, 'tag': tag, 'hx': hx[i] });
+				//console.log({ 'a': anchor, 'tag': tag, 'hx': hx[i] });
 				
 				if (tag === 'h1') {
 					hx[i].innerHTML += '<a href="#" class="backAnchor" title="Top">Back to Top</a>';
@@ -286,10 +286,9 @@ $(document).ready(UTIL.loadEvents);
 				});
 					
 				var main = document.querySelector('#main'), 
-					logo = document.querySelector('#logo'),
-					can = document.querySelector('#canvas-logo');
+					logo = document.querySelector('#logo')
 				logo.style.visibility = 'hidden';
-				can.style.visibility = 'visible';
+				canvas.style.visibility = 'visible';
 				main.firstElementChild.style.visibility = 'hidden';
 				main.firstElementChild.nextElementSibling.style.visibility = 'hidden';
 				
