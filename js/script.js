@@ -12,14 +12,15 @@ ISOBAR = {
 		toc : function(){
 			var main = document.querySelector('#main'),
 				toc = document.querySelector('#toc'),
-				hx = document.querySelectorAll('section h1, section h2'),
+				hx = document.querySelectorAll('section h1, section h2, section h3, section h4, section h5'),
+				frag = document.createDocumentFragment(),
 				hx_len = hx.length,
 				anchor, tag, the_text;
 				
 			for (var i = 0, j = hx_len; i < j; i++) {
 				tag = hx[i].tagName.toLowerCase();
 
-				if (tag === 'h1' || tag == 'h2') {
+				if (tag === 'h1' || tag == 'h2' || tag == 'h3' || tag == 'h4' || tag == 'h5') {
 					the_text = $.trim( hx[i].innerHTML );
 					anchor = '_' + the_text.replace(/\s+|\-/g, '_').replace(/[^A-Z0-9_]/gi, '').replace(/_+/g, '_').toLowerCase();
 
