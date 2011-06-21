@@ -32,15 +32,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- Place favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
-        <link rel="shortcut icon" href="http://na.isobar.com/wp-content/themes/IsoBlog/favicon.ico" />
+        
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
         <!-- CSS: implied media="all" -->
         <link rel="stylesheet" href="css/style.css">
-
-        <!-- Uncomment if you are specifically targeting less enabled mobile browsers
-        <link rel="stylesheet" media="handheld" href="css/handheld.css">  -->
-
         <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
         <script src="js/libs/modernizr-1.7.min.js">
         </script>
