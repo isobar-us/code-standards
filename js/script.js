@@ -1,7 +1,8 @@
+"use strict";
 /**
  * Author: Isobar North America
  */
-ISOBAR = {
+var ISOBAR = {
 	common : {
 		init: function(){
 			this.toc();
@@ -56,7 +57,7 @@ ISOBAR = {
 	}
 };
 
-UTIL = {
+var UTIL = {
 	fire : function(func,funcname, args){
 		var namespace = ISOBAR;  // indicate your obj literal namespace here
 		funcname = (funcname === undefined) ? 'init' : funcname;
@@ -92,7 +93,7 @@ $(document).ready(UTIL.loadEvents);
 		dots = [],
 		numDots = 1,
 		time = 0,
-		body = document.body;
+		body = document.body,
 		img = new Image();
 		
 	// Constructor that defines new Dots
