@@ -12,7 +12,7 @@ include_once('layout/header.php');
 		<div id="container">
 		
 			<header role="banner">
-				<h1><a id="logo" href="<?php echo $page_root; ?>">Isobar North America</a></h1>
+				<h1><a id="logo" href="<?php echo $page_root; ?>">Isobar US</a></h1>
 				
 				<canvas id="canvas-logo" width="500" height="300">
 					<strong>Your browser cannot handle the awesomeness of this!</strong>
