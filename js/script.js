@@ -1,7 +1,8 @@
+//"use strict";
 /**
  * Author: Isobar North America
  */
-ISOBAR = {
+var ISOBAR = {
 	common : {
 		init: function(){
 			this.toc();
@@ -10,9 +11,9 @@ ISOBAR = {
 		},
 		// generate table of contents
 		toc : function(){
-			var main = document.querySelector('#main'),
-				toc = document.querySelector('#toc'),
-				hx = document.querySelectorAll('section h1, section h2, section h3, section h4, section h5'),
+			var main = document.getElementById('main'),
+				toc = document.getElementById('toc'),
+				hx = $('section h1, section h2, section h3, section h4, section h5'),
 				frag = document.createDocumentFragment(),
 				hx_len = hx.length,
 				anchor, tag, the_text;
@@ -39,7 +40,7 @@ ISOBAR = {
 		},
 		// just hooking up back to top
 		stuff : function(){
-			jQuery('a.backAnchor').live('click',function(){
+			$('a.backAnchor').live('click',function(){
 				window.scrollTo(0, 0);
 				return false;
 			});
@@ -56,7 +57,7 @@ ISOBAR = {
 	}
 };
 
-UTIL = {
+var UTIL = {
 	fire : function(func,funcname, args){
 		var namespace = ISOBAR;  // indicate your obj literal namespace here
 		funcname = (funcname === undefined) ? 'init' : funcname;
@@ -84,7 +85,8 @@ $(document).ready(UTIL.loadEvents);
  */
  
 (function($) {
-	var canvas = document.querySelector('#canvas-logo'),
+	if(Modernizr.canvas){	  
+	var canvas = document.getElementById('canvas-logo'),
 		con = canvas.getContext('2d'),
 		w = canvas.width,
 		h = canvas.height,
@@ -92,7 +94,7 @@ $(document).ready(UTIL.loadEvents);
 		dots = [],
 		numDots = 1,
 		time = 0,
-		body = document.body;
+		body = document.body,
 		img = new Image();
 		
 	// Constructor that defines new Dots
@@ -286,8 +288,8 @@ $(document).ready(UTIL.loadEvents);
 					play = false;
 				});
 					
-				var main = document.querySelector('#main'), 
-					logo = document.querySelector('#logo')
+				var main = document.getElementById('main'), 
+					logo = document.getElementById('logo')
 				logo.style.visibility = 'hidden';
 				canvas.style.visibility = 'visible';
 				main.firstElementChild.style.visibility = 'hidden';
@@ -500,7 +502,7 @@ $(document).ready(UTIL.loadEvents);
 		this.deg = deg || 1;
 		return this.deg * (Math.PI / 180); // 0.0175 radians
 	}
-
+	}
 		
 })(jQuery);
 
