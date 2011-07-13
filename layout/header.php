@@ -4,8 +4,7 @@
 <!--[if IE 7]>    <html class="no-js ie ie7" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
 <!--[if IE 9]>    <html class="no-js ie9" lang="en"> <![endif]-->
-<!--[if IE 10]>    <html class="no-js ie10" lang="en"> <![endif]-->
-<!--[if gt IE 10]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
     <head><meta charset="utf-8">
 
 
