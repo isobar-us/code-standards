@@ -30,16 +30,15 @@
 		<li>Name variables and functions logically: For example: <code>popUpWindowForAd</code> rather than <code>myWindow</code>.</li>
         <li>Don't manually minify. With the exception of the traditional <code>i</code>, etc. for <code>for</code> loops, variables should be long enough to be meaningful.</li>
 		<li>Documentation should follow <a href="http://www.naturaldocs.org/documenting.html">NaturalDocs</a> structure.</li>
-		<li>Large blocks of code should be separated by flowerbox comments to indicate chapters of the file.</li>
 		<li>Constants or configuration variables (like animation durations, etc.) should be at the top of the file.</li>
 
 		<li>Strive to create functions which can be generalized, take parameters, and return values. This allows for substantial code reuse and, when combined with includes or external scripts, can reduce the overhead when scripts need to change. For example, instead of hard coding a pop-window with window size, options, and url, consider creating a function which takes size, url, and options as variables.
 		</li>
 		<li>Comment your code! It helps reduce time spent troubleshooting JavaScript functions.</li>
 		<li>Don't waste your time with <code>&lt;!-- --&gt;</code> comments surrounding your inline javascript, unless you care about Netscape 4.&nbsp;:)</li>
-		<li>It's preferred to have code organized in an <a href="https://wiki.molecular.com/wiki/Javascript_Architecture">Object Literal/Singleton, the Module Pattern, or Objects with constructors</a>.</li>
+		<li>Organize your code as an <a href="http://kaijaeger.com/articles/the-singleton-design-pattern-in-javascript.html">Object Literal/Singleton</a>, in the <a href="http://www.yuiblog.com/blog/2007/06/12/module-pattern/">Module Pattern</a>, or as an <a href="http://mckoss.com/jscript/object.htm">Object with constructors</a></a>.</li>
 	
-		<li>Minimize global variables - the less globals you create, the better. Generally one, for your application namespace, is a good number. 
+	  <li>Minimize global variables - the less globals you create, the better. Generally one, for your application namespace, is a good number. 
 			<figure class="preCode">When specifying any global variable, clearly identify it</figure>		
 			<textarea class="brush:js">
 			window.globalVar = { ... }
@@ -72,10 +71,7 @@
 	
 	<figure class="preCode">Also incorrect</figure>
 	<textarea class="brush:js">
-		for(var i=0,j=arr.length;i<j;i++){
-			// Do something.
-		}
-	</textarea>
+		for(var i=0,j=arr.length;i</textarea>
 
 
 	<h3>plugins.js and script.js</h3>
