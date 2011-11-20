@@ -1,0 +1,115 @@
+<!-- #### ACCESSIBILITY SECTION #### -->
+
+<section id="accessibility">
+
+	<div class="intro has-icon">
+		<img class="icon" src="img/layout/icon-curly.png" alt="{}" />
+
+		<h1>Accessibility</h1>
+		
+		<p>This is a rather broad subject, one that is apart of everything that goes into a web site. <a href="http://www.w3.org/WAI/" target="_blank">Accessibility</a> has to do with everything from how content is written to the structure of HTML markup, appearance and styling, progressive enhancement and graceful degradation, plus how semantic and meaningful your code is when it is read by browsers.</p>	
+	</div>
+
+	<p><a href="http://www.section508.gov/index.cfm?FuseAction=Content&ID=12#Web">Section 508 Standards for intranet and internet information and applications</a>.</p>
+	
+	<p class="indent">&mdash; Interfaces developed by Isobar should meet Section 508 standards.</p>
+
+	<p><a href="http://www.w3.org/TR/WCAG10/full-checklist.html">W3C checklist of checkpoints for accessibility</a>.</p>
+	
+	<p class="indent">&mdash; Interfaces developed by Isobar should meet Priority 1 guidelines.</p>
+	
+	<p class="indent">&mdash; <a href="http://www.w3.org/TR/1999/WAI-WEBCONTENT-19990505/#Guidelines">The WCAG 1.0 Guidelines</a>.</p>
+
+
+
+	<p>We bring people and brands together, like never before. It is important that we reach as many people possible to provide new and exciting 'like never before' experiences. Some areas to consider for better accessibility during the development of any project are:</p>
+
+	<ul>
+		<li>Markup and semantics</li>
+		<li>Usability of the interface, via keyboard and with JS disabled</li>
+		<li>Correct usage of tags, attributes and descriptions</li>
+		<li>Text content for all non-text content</li>
+		<li>Summary content for screen-readers</li>
+	</ul>
+
+	<p>These areas are all closely related so it can be easier to break them down based on project types. Here is a list of things that you must do to achieve an accessible web page:</p>
+	
+	
+	<h3>Skip Navigation</h3>
+
+	<p>If your site has navigation elements before the main content, provide a "Skip to main content" link for screen readers. This is a link that is usually hidden using CSS, but will be available to a screen reader to jump past the navigation and go straight to the content. Sometimes it can be helpful to include a skip link to the footer or sitemap.</p>
+	
+	<textarea class="brush:css">
+	.skipnav { text-align: left; }
+	.skipnav a {
+		position: absolute;
+		left: -10000px; 
+		width: 1px; 
+		height: 1px; 
+		overflow: hidden;
+	}
+	.skipnav a:focus, .skipnav a:active { 
+		position: static; 
+		left: 0; 
+		width: auto; 
+		height: auto; 
+		overflow: visible; 
+		text-decoration: underline;
+	}
+	</textarea>
+	
+	<textarea class="brush:html">
+		<div class="skipnav">
+			<a href="#maincontent">Skip to main content</a>
+			<a href="#sitemap">Skip to footer site map</a>
+		</div>
+	</textarea>
+
+
+	<h3>Tab Index</h3>
+
+	<p>The tab index of a document starts with the first link in the document and works through them all in the source order until the end. This is often unusable and counter-intuitive to how elements appear on screen. So ensure that the tabbing order of links and active elements is logical, by using the <code>tabindex</code> attribute. Form elements should be tabbed through in the order a user expects to complete it, not necessarily in the order of the tags in the HTML.</p>
+
+
+	<h3>Acronyms/Abbreviations</h3>
+
+	<p>If your content uses abbreviations or acronyms, they must be expanded using abbr and acronym tags Images.</p>
+
+	<p>All images must have an alt attribute. Alt attributes should be meaningful and describe the contents of the picture without being verbose. If the image is purely decorative, alt attributes should be marked as empty using <code>alt=""</code>. Don't put something like <code>alt="This image is for decoration only"</code> as it will be read by the screen-reader and is intensely annoying..</p>
+	
+	<p>Do not use images for spacing or other similar effects – all these should be done using CSS.</p>
+
+
+	<h3>Image Replacement Techniques</h3>
+	
+	<p>There are a number of clever CSS techniques that allow the use of graphical text for headers but leave the unformatted text in the HTML for search engine and accessibility purposes. These techniques can be used, but make sure the CSS for hiding the HTML text does not use <code>display:none</code> or <code>visibility: hidden</code> as some screen-readers will not read the text with those attributes. Instead, absolutely position the element off screen.</p>
+	
+
+	<h3>Tables</h3>
+
+	<p>When using tables, ensure it's purely for tabular data. Do not use for presentation purposes. You should also:</p>
+
+	<ul>
+		<li>Use the <code>th</code> element for table headers. If the headers themselves are abbreviated, use the <code>abbr</code> attribute to expand them.</li>
+		<li>For complex tables, use the <code>scope</code> attribute on table headers to indicate what they pertain to, and the headers attribute on table cells where there is not an obvious correlation with a given header.</li>
+	</ul>
+
+
+	<h3>Color</h3>
+
+	<p>Use of color should fulfill the following criteria:</p>
+
+	<ul>
+		<li>Text should be readable with high contrast. Either use a light background with dark text or vice-versa. Very light text on a light background is virtually impossible to read for most people, it can be even worse for those with color-blindness.</li>
+		<li>Do not use red and green together to make distinctions between key functionality - a small percentage of people will not be able to perceive the distinction. Instructing them to click the green box for yes or the red box for no, for example, should be avoided.</li>
+	</ul>
+	
+	<p>The <a href="http://www.w3.org/WAI/ER/existingtools.html" target="_blank">WAI site contains a list of color-blindness tools</a> that let you see sites as people with different types of colorblindness would.</p>
+
+
+	<h3>JavaScript</h3>
+
+	<p>Pages should still be functional with JavaScript disabled. Applications should degrade gracefully, or when possible make use of <a href="https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills">cross-browser polyfills</a> to add functionality to older browsers the features that may not be supported.</p>
+
+</section>
+

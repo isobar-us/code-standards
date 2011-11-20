@@ -31,12 +31,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- Place favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
-        
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
         <!-- CSS: implied media="all" -->
         <link rel="stylesheet" href="css/style.css">
         <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
-        <script src="js/libs/modernizr-1.7.min.js">
+        <script src="js/modernizr-2.0.6.min.js">
         </script>
     </head>

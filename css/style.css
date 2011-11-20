@@ -223,7 +223,7 @@ body, select, input, textarea {
 ----------------------------------------------------------------------------------------------------*/
 
 body {
-	background: #fff url('../img/layout/bg-body.gif') repeat-x; 
+	background: #fff url('img/bg-body.gif') repeat-x; 
 	color: #000;
 	min-width: 960px;
 }
@@ -253,7 +253,7 @@ body .fork {
 	z-index: 2; 
 	width: 149px; 
 	height: 149px; 
-	background: url(../img/fork-me.png) no-repeat -15px top;
+	background: url('img/fork-me.png') no-repeat -15px top;
 }
 
 header { 
@@ -292,7 +292,7 @@ header h1 a {
     width: 226px;
 }
 header h1 a { 
-    background: url("../img/isobar.png") no-repeat 0 0;
+    background: url('img/isobar.png') no-repeat 0 0;
     position: absolute;
 	text-indent: -9999em;
     height: 70px;
@@ -321,19 +321,19 @@ header #social li {
 
 header #social li a { 
 	width: 35px; 
-	background: url('../img/layout/sprite-social.png') no-repeat 0 0;
+	background: url('img/sprite-social.png') no-repeat 0 0;
 }
 
-header #social #facebook { background-position: -5px -5px; }
-header #social #facebook:hover { background-position: -5px -47px; }
+#facebook { background-position: -5px -5px; }
+#facebook:hover { background-position: -5px -47px; }
 
-header #social #twitter { background-position: -46px -5px; }
-header #social #twitter:hover { background-position: -46px -47px; }
+#twitter { background-position: -46px -5px; }
+#twitter:hover { background-position: -46px -47px; }
 
-header #social #delicious { background-position: -88px -5px; }
-header #social #delicious:hover { background-position: -88px -47px; }
+#delicious { background-position: -88px -5px; }
+#delicious:hover { background-position: -88px -47px; }
 
-header #social #linkback { 
+#linkback { 
 	color: #ccc; 
 	font-family: Georgia, serif; 
 	font-size: 12px; 
@@ -345,7 +345,7 @@ header #social #linkback {
 	background: none;
 }
 
-header #social #linkback:hover { color: #dcdcdc; }
+#linkback:hover { color: #dcdcdc; }
 
 /* Logo + Container + Main + Section + Aside 
 ----------------------------------------------------------------------------------------------------*/
@@ -382,19 +382,19 @@ header #social #linkback:hover { color: #dcdcdc; }
 
 #main > section { padding-bottom: 20px; }
 
-#main > section:last-child, #container > aside:last-child {
+#main > section:last-child,
+#container > aside:last-child {
 	border-bottom: none;
 }
 
-#main > section article {
+#main > section article, 
+.intro {
 	border-bottom: 1px #dcdcdc solid;
 	margin-bottom: 20px;
 }
 
 .intro { 
-	min-height: 120px; 
-	border-bottom: 1px #dcdcdc solid;
-	margin-bottom: 20px;	
+	min-height: 120px;
 }
 
 .intro .icon {
@@ -410,10 +410,9 @@ header #social #linkback:hover { color: #dcdcdc; }
 	margin: 0 20px 20px 0;
 }
 
-div.intro h1, div.intro h2,
-div.intro p, div.intro ol  { margin-left: 120px; }
-
-div.intro ol, div.intro ul  { list-style-position: inside; }
+.intro h1, .intro h2,
+.intro p, .intro ol { margin-left: 120px; }
+.intro ol, .intro ul { list-style-position: inside; }
 
 
 /* Shoes + Footer

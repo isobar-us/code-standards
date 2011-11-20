@@ -1,34 +1,14 @@
-<!-- #### ACCESSIBILITY SECTION #### -->
-
-<section id="accessibility">
-
-	<div class="intro has-icon">
-		<img class="icon" src="img/layout/icon-curly.png" alt="{}" />
-		<h1>Accessibility</h1>	
-	</div>
-
-	<p><a href="http://www.section508.gov/index.cfm?FuseAction=Content&ID=12#Web">Section 508 Standards for intranet and internet information and applications</a>.</p>
-	
-	<p class="indent">&mdash; Interfaces developed by Isobar should meet Section 508 standards.</p>
-
-	<p><a href="http://www.w3.org/TR/WCAG10/full-checklist.html">W3C checklist of checkpoints for accessibility</a>.</p>
-	
-	<p class="indent">&mdash; Interfaces developed by Isobar should meet Priority 1 guidelines.</p>
-	
-	<p class="indent">&mdash; <a href="http://www.w3.org/TR/1999/WAI-WEBCONTENT-19990505/#Guidelines">The WCAG 1.0 Guidelines</a>.</p>
-
-</section>
-
-
 <!-- ### CROSS-BROWSER + PERFORMANCE SECTION ### -->
 
 <section id="performance">
 
 	<div class="intro has-icon">
 		<img class="icon" src="img/layout/icon-curly.png" alt="{}" />
+		
 		<h1>Performance</h1>
 		<p>As we continue to push the limits of what the web can do, it remains just as important a web page can be used with minimal effort or wait time. The following section explains how web pages can be optimized to keep all audiences happy.</p>
 	</div>
+	
 	
 	<h3>Optimize Delivery of CSS and JavaScript</h3>
 	
@@ -77,66 +57,76 @@
 				 background: url(../img/sprite.png) no-repeat -50px -5px;  }
 	</textarea>
 	
-	<p>It's quite common to leverage sprites for :hover states. In that case you'll see something like:</p>
+	<p>It's quite common to leverage sprites for <code.:hover</code> states. In that case you'll see something like:</p>
 	
 	<textarea class="brush:css">
 	a.expandbox:hover { background-position: -50px -20px; }
 	</textarea>
 	
-	<p>Using sprites reduces total page weight and reduces HTTP connections which speeds up page load. <a href="http://css-tricks.com/css-sprites/">More on the general technique and overview at css-tricks.com</a></p>
+	<p>Using CSS sprites reduces total page weight and reduces HTTP connections which speeds up page load. <a href="http://css-tricks.com/css-sprites/">More on the general technique and overview of sprites.</a> It is just an overall best practice to make use of CSS sprite images whenever you can.</p>
 	
-	<p>Many developers use a vertically-oriented sprite in addition to the primary sprite. This vertical sprite will be <=100px wide (and tall) and contain icons that are typically placed next to text, such as list item bullets. Yahoo <a href="http://l.yimg.com/a/i/ww/sp/pa-icons3.gif ">uses a few such as this one</a>.</p>
+	<p>Many developers use a vertically-oriented sprite in addition to the primary sprite. This vertical sprite will be <strong>less than or equal to 100px wide</strong> (and tall) and contain icons that are typically placed next to text, such as list item bullets or call to action links and buttons. Yahoo uses a few <a href="http://l.yimg.com/a/i/ww/sp/pa-icons3.gif">such as this one</a>.</p>
 	
-	<p>The one consideration is to not make sprites too large, something over 1000px in either direction will end up using a sizeable amount of memory. <a href="http://blog.vlad1.com/2009/06/22/to-sprite-or-not-to-sprite/">More detail about sprites and memory usage here</a>.</p>
+	<p>The one consideration is to not make sprites too large, something over 1000px in either direction will end up using a sizeable amount of memory. Read more on <a href="http://blog.vlad1.com/2009/06/22/to-sprite-or-not-to-sprite/">when to use sprites and memory usage here</a>, and for more general tips and techniques on creating sprites check out the <a href="http://blog.mozilla.com/webdev/2009/03/27/css-spriting-tips/">Mozilla Dev Blog</a>.</p>
 
-	<p>Some general <a href="http://blog.mozilla.com/webdev/2009/03/27/css-spriting-tips/">tips and techniques</a> in sprite creation can be found on the <a href="http://blog.mozilla.com/webdev/2009/03/27/css-spriting-tips/">Mozilla Dev Blog</a>.</p>
 
 	<h3>Image formats</h3>
 	
 	<p>There are four main image formats that should be used, detailed here:</p>
 	
-	<ol>
-		<li><p><strong>JPEG.</strong> - This will cover all photography-based images, such as homepage and category page promo images, or anything with a very high color count.</p></li>
-		<li>
-			<p><strong>PNG24.</strong> This format, easily accessible in Photoshop, outputs high-color count imagery and fully supports graded opacity by pixel. Relatively, it's quite a heavy format as far as kilobyte weight. It is the only format that IE6 needs to execute a pngfix on. In that case, Isobar recommends the <a href="http://www.dillerdesign.com/experiment/DD_belatedPNG/">DD_belatedPNG script</a> (A pngfix fixes the issue where PNG24's appear to have a gray or light-blue background in IE6. They are not always compatible with background-position).</p>
-			<p>In many cases, you can use a GIF fallback for IE6, in place of a PNG24. This is especially true if any sprites need to be done in PNG24. All pngfixes are very slow and expensive, so it's best to avoid using them.</p>
-		</li>
-		<li><p><strong>PNG8.</strong> - A surprising diversity of color can be captured inside 256 colors, so it's worth trying PNG before heading JPG. PNG also is a lot more compressible than GIF (using tools like pngcrush and pngquant). This format allows graded opacity in nearly all browsers, but in IE6, those semi-opaque pixels are just shown 100% transparent. In many cases this is sufficient. It also does not require a pngfix script to be run, so it's optimized for speed.</p>
-			<p>Photoshop cannot output these semi-opaque files correctly but Fireworks can. More detail here: <a href="http://www.sitepoint.com/blogs/2007/09/18/png8-the-clear-winner/">http://www.sitepoint.com/blogs/2007/09/18/png8-the-clear-winner/</a></p>
-		</li>
-		<li><p><strong>Transparent GIF 89a.</strong> - GIF 89a offers the flexibility of transparency and wide browser support, but the constraints of no graded opacity nor a color depth above 256. In our experience, color depths of 64 still provide very good quality thumbnails, and keep the file size comparably very small.</p>
+	<dl>
+		<dt>JPEG</dt> 
+		<dd>This will cover all photography-based images, such as homepage and category page promo images, or anything with a very high color count.</dd>
+
+		<dt>PNG24</dt> 
+		<dd>
+			<p>This format is easily accessible in Photoshop outputs high-color count imagery and fully supports graded opacity by pixel. Relatively, it's quite a heavy format as far as weight in kilobytes. It is the only format that IE6 needs to execute a pngfix on. When projects require support of IE6, we use the <a href="http://www.dillerdesign.com/experiment/DD_belatedPNG/">DD_belatedPNG script</a> (A pngfix fixes the issue where PNG24's appear to have a gray or light-blue background in IE6. They are not always compatible with background-position).</p>
+		
+			<p>In many cases you can use a GIF fallback for IE6 in place of a PNG24. This is especially true if any sprites need to be done in PNG24. All pngfixes are very slow and expensive, so it's best to avoid using them.</p>
+		</dd>
+
+		<dt>PNG8</dt>
+		<dd>
+			<p>A surprising diversity of color can be captured inside 256 colors, so it's worth trying PNG before heading JPG. PNG also is a lot more compressible than GIF. This format allows graded opacity in nearly all browsers, but in IE6, those semi-opaque pixels are just shown 100% transparent. In many cases this is sufficient. It also does not require a pngfix script to be run, so it's optimized for speed.</p>
+			
+			<p>Photoshop cannot output these semi-opaque files correctly but Fireworks can. <a href="http://www.sitepoint.com/blogs/2007/09/18/png8-the-clear-winner/">http://www.sitepoint.com/blogs/2007/09/18/png8-the-clear-winner/</a></p>
+		</dd>
+		
+		<dt>Transparent GIF 89a</dt>
+		<dd>
+			<p>GIF 89a offers the flexibility of transparency and wide browser support, but the constraints of no graded opacity nor a color depth above 256. In our experience, color depths of 64 still provide very good quality thumbnails, and keep the file size comparably very small.</p>
+		
 			<p>All low-color count imagery such as icons or thematic graphics should be done in PNG8, as it's the most size-efficient of these four. PNG8 is our primary recommendation for most site graphics.</p>
-		</li>
-	</ol>
+		</dd>
+	</dt>
 	
-	<p>Detailed information on the PNG format, browser support, and the pros and cons of each can be <a href="http://calendar.perfplanet.com/2010/png-that-works/">found in this excellent article</a>.</p>
+	<p>Detailed information on the PNG format, browser support, and the pros and cons of each <a href="http://calendar.perfplanet.com/2010/png-that-works/">is covered in this article</a>.</p>
 	
 	<p>For further optimization all of these formats, taking them through <a href="http://developer.yahoo.com/yslow/smushit/">Yahoo's Smush.It</a> will reveal how they can be smaller.</p>
 	
 	
 	<h3>Caching</h3>
 	
-	<p>For static content, the browser should cache the file locally as long as is reasonable.
-	Content that should have far future caching includes:</p>
+	<p>For static content, the browser should cache the file locally as long as it's reasonable. Content that should have caching set further in the future includes things like:</p>
 	
 	<ul>
-		<li>CSS and JavaScript</li>
+		<li>CSS and JavaScript files</li>
 		<li>product images</li>
 		<li>thematic graphics</li>
 		<li>favicon.ico</li>
-		<li>flash .swf's</li>
-		<li>promo images (lighter caching likely)</li>
+		<li>flash .swf's and videos</li>
+		<li>promotional images (lighter caching likely)</li>
 	</ul>
 	
-	<p>For the best caching, leverage the Expires http header. This is a far future Expires header, telling the browser that this response won't be stale until April 15, 2015.</p>
+	<p>For the best caching, leverage the <code>Expires http header</code>. This is a far future Expires header, telling the browser that this response won't be stale until April 15, 2015.</p>
 	
 	<pre>Expires: Thu, 15 Apr 2015 20:00:00 GMT</pre>
 	
-	<p>If your server is Apache, use the ExpiresDefault directive to set an expiration date relative to the current date. This example of the ExpiresDefault directive sets the Expires date 1 year out from the time of the request.</p>
+	<p>If your server is Apache, use the <code>ExpiresDefault</code> directive to set an expiration date relative to the current date. This example of the <code>ExpiresDefault</code> directive sets the Expires date 1 year out from the time of the request.</p>
 	
 	<pre>ExpiresDefault "access plus 1 year"</pre>
 	
-	<p>Expires http header should be set to a value between one month from present to a year (far future) from present. Caching only applies to that exact URL, so a change in the filename of any asset will start a fresh copy. Many developers use a build process to add a version number or timestamp to their assets. Each subsequent build will start a brand new cached version, allowing you to use far future cache dates without worry. <a href="http://code.google.com/speed/page-speed/docs/caching.html#LeverageBrowserCaching ">Google has a lot more detail on browser caching</a>.</p>
+	<p><code>Expires http header</code> should be set to a value between one month from present to a year (far future) from present. Caching only applies to that exact URL, so a change in the filename of any asset will start a fresh copy. Many developers use a build process to add a version number or timestamp to their assets, one example of this is the HTML5 Boilerplate. Each subsequent build will start a brand new cached version allowing you to use far future cache dates without worry. <a href="http://code.google.com/speed/page-speed/docs/caching.html#LeverageBrowserCaching ">Google has a lot more detail on browser caching</a>.</p>
 	
 	
 	<h3>Shard resources across domains</h3>
