@@ -300,7 +300,7 @@ header h1 a {
 	display: block;
 }
 
-header #social {
+#social {
     background: rgba(64, 64, 64, 0.9);
     float: right;
     margin-bottom: 0;
@@ -312,28 +312,28 @@ header #social {
     z-index: 1;
 }
 
-header #social li {
+#social li {
     display: inline-block;
     height: 35px;
     margin-left: 6px;
     vertical-align: top;
 }
 
-header #social li a { 
+#social li a { 
 	width: 35px; 
 	background: url('img/sprite-social.png') no-repeat 0 0;
 }
 
-#facebook { background-position: -5px -5px; }
-#facebook:hover { background-position: -5px -47px; }
+#social #facebook { background-position: -5px -5px; }
+#social #facebook:hover { background-position: -5px -47px; }
 
-#twitter { background-position: -46px -5px; }
-#twitter:hover { background-position: -46px -47px; }
+#social #twitter { background-position: -46px -5px; }
+#social #twitter:hover { background-position: -46px -47px; }
 
-#delicious { background-position: -88px -5px; }
-#delicious:hover { background-position: -88px -47px; }
+#social #delicious { background-position: -88px -5px; }
+#social #delicious:hover { background-position: -88px -47px; }
 
-#linkback { 
+#social #linkback { 
 	color: #ccc; 
 	font-family: Georgia, serif; 
 	font-size: 12px; 
@@ -345,7 +345,7 @@ header #social li a {
 	background: none;
 }
 
-#linkback:hover { color: #dcdcdc; }
+#social #linkback:hover { color: #dcdcdc; }
 
 /* Logo + Container + Main + Section + Aside 
 ----------------------------------------------------------------------------------------------------*/
@@ -385,6 +385,13 @@ header #social li a {
 #main > section:last-child,
 #container > aside:last-child {
 	border-bottom: none;
+}
+
+#authors, #team {
+	display: inline-block;
+	width: 50%;
+	height: 250px;
+	float: left;
 }
 
 #main > section article, 
@@ -584,12 +591,6 @@ p code, li code, table code {
 	color: #fff;
 	text-decoration: none;
 }
-
-
-/* `Misc
-----------------------------------------------------------------------------------------------------*/
-
-
 
 /* Alignments
 ----------------------------------------------------------------------------------------------------*/
@@ -818,6 +819,7 @@ html body div.syntaxhighlighter * {
 .clearfix:after { clear: both; }
 /* Fix clearfix: blueprintcss.lighthouseapp.com/projects/15318/tickets/5-extra-margin-padding-bottom-of-page */
 .clearfix { zoom: 1; }
+
 
 
 

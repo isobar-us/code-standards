@@ -22,7 +22,7 @@ include_once('layout/header.php');
 					<li><a class="icon" href="http://www.shareaholic.com/api/share/?v=1&apitype=1&apikey=8943b7fd64cd8b1770ff5affa9a9437b&service=5&title=Isobar%20North%20America's%20Coding%20Standards%20and%20Frontend%20development%20Best%20Practices&link=http://na.isobar.com/standards/&source=Shareaholic" id="facebook"></a></li>
 					<li><a class="icon" href="http://www.shareaholic.com/api/share/?v=1&apitype=1&apikey=8943b7fd64cd8b1770ff5affa9a9437b&service=7&title=Isobar%20North%20America's%20Coding%20Standards%20and%20Frontend%20development%20Best%20Practices&link=http://na.isobar.com/standards/&source=Shareaholic" id="twitter"></a></li>
 					<li><a class="icon" href="http://www.shareaholic.com/api/share/?v=1&apitype=1&apikey=8943b7fd64cd8b1770ff5affa9a9437b&service=2&title=Isobar%20North%20America's%20Coding%20Standards%20and%20Frontend%20development%20Best%20Practices&link=http://na.isobar.com/standards/&source=Shareaholic" id="delicious"></a></li>
-					<li><a href="http://na.isobar.com" id="linkback">Return to Isobar NA</a></li>
+					<li><a href="http://na.isobar.com" id="linkback">Return to Isobar US</a></li>
 				</ul>
 			</header>
 
@@ -35,6 +35,7 @@ include_once('layout/header.php');
 				include_once('sections/markup.html');
 				include_once('sections/css.html');
 				include_once('sections/javascript.html');
+				include_once('sections/accessibility.html');
 				include_once('sections/performance.html');
 				include_once('sections/browsers.html');
 				include_once('sections/seo.html');
@@ -64,13 +65,13 @@ include_once('layout/header.php');
 		<!-- JavaScript at the bottom for fast page loading -->
 
 		<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
 		<script>
-			window.jQuery || document.write("<script src='js/libs/jquery-1.5.2.min.js'>\x3C/script>")
+			window.jQuery || document.write("<script src='js/jquery-1.6.3.min.js'>\x3C/script>")
 		</script>
 		<!-- scripts concatenated and minified via ant build script-->
-		<script src="js/plugins.js"></script>
-		<script src="js/script.js"></script>
+		<script defer src="js/plugins.js"></script>
+		<script defer src="js/script.js"></script>
    
 		<!-- end scripts-->
 
@@ -78,6 +79,20 @@ include_once('layout/header.php');
 		<script src="js/libs/dd_belatedpng.js"></script>
 		<script>DD_belatedPNG.fix("img, .png_bg"); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
 		<![endif]-->
+
+  <script>
+    var _gaq=[['_setAccount','UA-1745698-2'],['_trackPageview'],['_trackPageLoadTime']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script>
+
+  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7 ]>
+    <script defer src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
 		
-	</body>
+</body>
 </html>

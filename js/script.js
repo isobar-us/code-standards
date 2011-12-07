@@ -8,6 +8,12 @@ var ISOBAR = {
 			this.toc();
 			this.syntax();
 			this.stuff();
+			
+			$('#toc').delegate('a', 'click', function(e) {
+				var a = $(this).attr('href');
+				$(window).scrollTo(a);
+				e.preventDefault();
+			});
 		},
 		// generate table of contents
 		toc : function(){
