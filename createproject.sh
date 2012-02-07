@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/bin/sh
 
 #Generate a new project from your HTML5 Boilerplate repo clone
 #by: Rick Waldron & Michael Cetrulo
@@ -27,51 +27,87 @@
 #
 
 # find project root (also ensure script is ran from within repo)
-src=$(git rev-parse --show-toplevel) || {
-  echo "try running the script from within html5-boilerplate directories." >&2
-  exit 1
+
+version="1.0"
+print_version() {
+	echo "$0 (c) 2011 by Rick Waldron & Michael Cetrulo version $version"
 }
 
-if [ ! -d $src ]; then
-  echo "fatal: could not determine html5-boilerplate's root directory." >&2
-  echo "try updating git." >&2
-  exit 1
-fi
+print_help() {
+	print_version
+	echo "USAGE: $0 [--src SRC] [--dst DST] NAME"
+	echo "OPTIONS:"
+	echo "--src -s SRC \t set the source directory where your html5boilerplate lives"
+	echo "--dst -d DST \t set the destination directory in which to create your project"
+	echo ""
+	echo "If --src is not set it will use the toplevel dir of the current git dir"
+	echo "this behaviour expects that you are in the git repository of h5bp under /build"
+	echo ""
+	echo "If --dst is not set it will try to create the directory in the current directory"
+}
 
-if [ $# -eq 1 ]
-then
-    # get a name for new project from command line arguments
-    name="$1"
-fi
+# this will be overridden if --src is set on the commandline
+src="./"
+dst="../"
+project_name=""
 
-# get a name for new project from input
-while [ -z $name ]
+while test "$1" != "" 
 do
-    echo "To create a new html5-boilerplate project, enter a new directory name:"
-    read name || exit
+	case $1 in
+		--help|-h)
+			print_help
+			exit 0
+			;;
+		--version|-v)
+			print_version
+			exit 0
+			;;
+		--src|-s)
+			shift
+			if [ -d $1 ]
+			then
+				src="$1"
+			fi
+			;;
+		--dst|-d)
+			shift
+			if [ -d "$1" ]
+			then
+				dst="$1"			
+			fi
+			;;
+		*)
+			project_name="$1"
+			shift
+			;;
+	esac
+
 done
 
-if [ "$name" = /* ]
-then
-    dst=$name
-else
-    dst=$src/../$name
+if [ ! -d "$src" ]; then
+	src=$(git rev-parse --show-toplevel) || {
+      		echo "fatal: could not determine html5-boilerplate's root directory." >&2
+		exit 1
+	}
 fi
+
+dst="$dst/$project_name/"
 
 if [ -d $dst ]
 then
-    echo "$dst exists"
-else
-    #create new project
-    mkdir -p -- "$dst" || exit 1
-
-    #success message
-    echo "Created Directory: $dst"
-
-    cd -- "$src"
-    cp -vr -- css js img build *.html *.xml *.txt *.png *.ico .htaccess "$dst"
-
-    #success message
-    echo "Created Project: $dst"
+	echo "ERROR: Project $project_name already exists at $dst"
+	exit 1
 fi
+
+#create new project
+mkdir -p -- "$dst" || exit 1
+
+#success message
+echo "Created Directory: $dst" 
+
+cd -- "$src"
+cp -vr -- css js img build *.html *.xml *.txt *.png *.ico .htaccess "$dst"
+
+#success message
+echo "Created Project: $dst"
 
