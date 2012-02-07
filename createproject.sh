@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/sh
 
 #Generate a new project from your HTML5 Boilerplate repo clone
 #by: Rick Waldron & Michael Cetrulo
@@ -31,11 +31,12 @@ src=$(git rev-parse --show-toplevel) || {
   echo "try running the script from within html5-boilerplate directories." >&2
   exit 1
 }
-[[ -d $src ]] || {
+
+if [ ! -d $src ]; then
   echo "fatal: could not determine html5-boilerplate's root directory." >&2
   echo "try updating git." >&2
   exit 1
-}
+fi
 
 if [ $# -eq 1 ]
 then
@@ -44,20 +45,20 @@ then
 fi
 
 # get a name for new project from input
-while [[ -z $name ]]
+while [ -z $name ]
 do
     echo "To create a new html5-boilerplate project, enter a new directory name:"
     read name || exit
 done
 
-if [[ "$name" = /* ]]
+if [ "$name" = /* ]
 then
     dst=$name
 else
     dst=$src/../$name
 fi
 
-if [[ -d $dst ]]
+if [ -d $dst ]
 then
     echo "$dst exists"
 else
