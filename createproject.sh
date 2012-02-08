@@ -89,13 +89,13 @@ do
 			;;
 		--commit|-c)
 			commit_init="yes"
+			shift
 			;;
 		*)
 			project_name="$1"
 			shift
 			;;
 	esac
-
 done
 
 if [ ! -d "$src" ]; then
@@ -114,29 +114,28 @@ then
 fi
 
 #create new project
-mkdir -p -- "$dst" || exit 1
+mkdir -p "$dst" || exit 1
 
 #success message
 echo "Created Directory: $dst" 
 
-cd -- "$src"
-cp -vr -- css js img build *.html *.xml *.txt *.png *.ico .htaccess "$dst"
+cp -vr -- $src/css $src/js $src/img $src/build $src/*.html $src/*.xml $src/*.txt $src/*.png $src/*.ico $src/.htaccess "$dst"
 
-if [ "$with_vcs" == "yes" ]
+if [ "$with_vcs" = "yes" ]
 then
-	if [ "$which_vcs" == "git" ]
+	if [ "$which_vcs" = "git" ]
 	then
 	       	git init $dst
-		if [ "$commit_init" == "yes" ]
+		if [ "$commit_init" = "yes" ]
 		then
 			cd $dst
 			git add css js img build *.html *.xml *.txt *.png *.ico .htaccess
 			git commit -am 'initial commit'
 		fi
-	elif [ "$which_vcs" == "hg" ]
+	elif [ "$which_vcs" = "hg" ]
 	then
 		hg init $dst
-		if [ "$commit_init" == "yes" ]
+		if [ "$commit_init" = "yes" ]
 		then
 			cd $dst
 			hg add css js img build *.html *.xml *.txt *.png *.ico .htaccess
