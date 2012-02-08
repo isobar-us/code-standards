@@ -39,6 +39,10 @@ print_help() {
 	echo "OPTIONS:"
 	echo "--src -s SRC \t set the source directory where your html5boilerplate lives"
 	echo "--dst -d DST \t set the destination directory in which to create your project"
+	echo "--vcs VCS    \t make the new location a VCS repository. Currently supported"
+	echo "             \t VCSs are: git and hg(mercurial)."
+	echo "--commit -c  \t if set will commit the copied h5bp sources into the VCS."
+	echo "             \t this only works with the --vcs option set"
 	echo ""
 	echo "If --src is not set it will use the toplevel dir of the current git dir"
 	echo "this behaviour expects that you are in the git repository of h5bp under /build"
@@ -50,7 +54,9 @@ print_help() {
 src="./"
 dst="../"
 project_name=""
-
+with_vcs="no"
+which_vcs=""
+commit_init="no"
 while test "$1" != "" 
 do
 	case $1 in
@@ -75,6 +81,14 @@ do
 			then
 				dst="$1"			
 			fi
+			;;
+		--vcs)
+			with_vcs="yes"
+			shift
+			which_vcs=$1
+			;;
+		--commit|-c)
+			commit_init="yes"
 			;;
 		*)
 			project_name="$1"
@@ -107,6 +121,29 @@ echo "Created Directory: $dst"
 
 cd -- "$src"
 cp -vr -- css js img build *.html *.xml *.txt *.png *.ico .htaccess "$dst"
+
+if [ "$with_vcs" == "yes" ]
+then
+	if [ "$which_vcs" == "git" ]
+	then
+	       	git init $dst
+		if [ "$commit_init" == "yes" ]
+		then
+			cd $dst
+			git add css js img build *.html *.xml *.txt *.png *.ico .htaccess
+			git commit -am 'initial commit'
+		fi
+	elif [ "$which_vcs" == "hg" ]
+	then
+		hg init $dst
+		if [ "$commit_init" == "yes" ]
+		then
+			cd $dst
+			hg add css js img build *.html *.xml *.txt *.png *.ico .htaccess
+			hg commit -m 'initial commit' css js img build *.html *.xml *.txt *.png *.ico .htaccess
+		fi
+	fi
+fi
 
 #success message
 echo "Created Project: $dst"
