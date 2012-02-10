@@ -16,21 +16,19 @@
 .settings
 nbproject
 thumbs.db
-
 # Dreamweaver added files
 _notes
 dwsync.xml
-
 # Komodo
 *.komodoproject
 .komodotools
-
 # Folders to ignore
 .hg
 .svn
 publish
 .idea
-
 # build script local files
 build/buildinfo.properties
 build/config/buildinfo.properties
+/PENDIENTE.txt
+/committ messages.txt
