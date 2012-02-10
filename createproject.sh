@@ -52,7 +52,7 @@ print_help() {
 
 # this will be overridden if --src is set on the commandline
 src="./"
-dst="../"
+dst="./"
 project_name=""
 with_vcs="no"
 which_vcs=""
