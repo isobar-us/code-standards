@@ -48,6 +48,19 @@ print_help() {
 	echo "this behaviour expects that you are in the git repository of h5bp under /build"
 	echo ""
 	echo "If --dst is not set it will try to create the directory in the current directory"
+	echo "You can also set the same options in the ~/.h5bprc file"
+	echo "Here are the possible options:"
+	echo "\tsrc\t\t-\tThe source directory from where h5bp is located"
+	echo "\tdst\t\t-\tThe destination in which the new project shoul be created"
+	echo "\twhich_vcs\t-\tThe vcs you want to use"
+	echo "\tcommit_init\t-\tset this to \"yes\" if you want to commit the contents of the new project"
+	echo "Here is an example for the syntax(It is basically how shell variables are set):"
+	echo ""
+	echo "src=\"~/src/html5boilerplate\""
+	echo "dst=\"~/src\""
+	echo "which_vcs=\"git\""
+	echo "commit_init=\"yes\""
+	echo ""
 }
 
 # this will be overridden if --src is set on the commandline
@@ -57,6 +70,11 @@ project_name=""
 with_vcs="no"
 which_vcs=""
 commit_init="no"
+
+if [ -e $HOME/.h5bprc ]; then
+	. $HOME/.h5bprc
+fi
+
 while test "$1" != "" 
 do
 	case $1 in
