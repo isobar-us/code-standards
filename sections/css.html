@@ -56,6 +56,7 @@
 	
 	<p>At minimum, format CSS with selectors on one line and each property on its own line. The declarations are indented. </p>
 	<p>As an enhancement to that style, related or child styles and additional 2 or 4 spaces. That allows for hierarchical scanning and organization and makes (for some people) an easier-to-read style sheet.</p>
+	<p>Also, if you specify multiple selectors, it's a good idea to start each on new line. This prevents lines from growing long and improves readability as well as version control workflow.</p>
     <textarea class="brush:css">
     .post-list li a{
 		color:#A8A8A8;
@@ -64,7 +65,8 @@
         	color:#000;
         	text-decoration:none;
      	}
-     	.post-list li .author a, .post-list li .author a:hover{
+     	.post-list li .author a, 
+     	.post-list li .author a:hover{
         	 color:#F30;
        		 text-transform:uppercase;
      	}
