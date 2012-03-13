@@ -115,7 +115,7 @@
 	
 	<p>IDs have a higher specificity than attribute selectors do, and class selectors have higher specificity than any number of element selectors. Always try to use IDs to increase the specificity. There are times when we may try to apply a CSS rule to an element and it does not work no matter what we try. This is likely because the specificity of the selector used is lower than another one and the properties of the higher one are taking precedence over those you want to apply. This is more common in working with larger more complex stylesheets. It isn't a big issue with smaller projects usually.</p>
 	
-	<h5>Calculating specifity</h5>
+	<h5>Calculating specifiсity</h5>
 	
 	<p>When working with a large and complex stylesheet it helps to know how to calculate the value of a selector's specificity, to save you time and to make your selectors more efficient.</p>
 	
@@ -215,6 +215,18 @@
 			</ul>
 		</li>
 	</ul>
+<h3>Color Management</h3>
+    <ul>
+        <li>Verify that all members on your team have consistent color management settings.</li>
+           <ul>
+               <li>Any given two monitors most likely display the colors differently, but sRGB color profile must be your default.</li>
+               <li>When you open files in Photoshop, pay attention to Color Profile warnings and notify team members when Photoshop is suggesting to convert an image to a different profile.</li> 
+			</ul>
+        <li>Never embed a color profile in your images.
+            <ul>
+				<li>When you Save for Web and Devices from Photoshop, be sure to uncheck &quot;Embed Color Profile.&quot;</li>
+			</ul> </li>
+    </ul>
 
 	<hr />
 	
