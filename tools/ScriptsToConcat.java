@@ -47,6 +47,6 @@ public class ScriptsToConcat extends ParserCallback {
             System.exit(1);
         }
         FileReader fr = new FileReader(args[0]);
-        new ParserDelegator().parse(fr, new MinifyScripts(), true);
+        new ParserDelegator().parse(fr, new ScriptsToConcat(), true);
     }
 }
