@@ -975,9 +975,12 @@
                     <fileset dir="./${dir.source}/${dir.images}/" includes="**/*.png"  excludes="${images.bypass}, ${images.default.bypass}"/>
                     <arg value="-quiet"/>
                     <arg value="-o7"/>
-                    <arg value="${strip-meta-tags}"/>
+                    <!--
+                       Temporarily fixes #39
+                       <arg value="${strip-meta-tags}"/>
+                    -->
                     <arg value="-out"/>	
-					<targetfile/>
+		    <targetfile/>
                     <srcfile/>
                     <mapper type="identity"/>
                 </apply>
@@ -1003,7 +1006,7 @@
                         <fileset dir="./${dir.source}/${dir.images}/" includes="**/*.png"  excludes="${images.bypass}, ${images.default.bypass}"/>
                         <arg value="-quiet"/>
                         <arg value="-o7"/>
-						<arg value="${strip-meta-tags}"/>
+		        <arg value="${strip-meta-tags}"/>
                         <arg value="-out"/>
                         <targetfile/>
                         <srcfile/>
@@ -1074,7 +1077,7 @@
 
 
 	<!-- Import project.xml (put any custom build targets in this file so that they aren't overwritten when build.xml is updated) -->
-	<!-- See: https://github.com/h5bp/html5-boilerplate/issues/704 -->
+	<!-- See: https://github.com/h5bp/html5-boilerplate/issues/704 for discussion of the original pull request-->
 	<import file="./project.xml" />
 
 </project>
