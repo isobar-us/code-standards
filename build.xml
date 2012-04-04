@@ -649,6 +649,8 @@
           <fileset dir="${dir.intermediate}" includes="${page-files}"/>
       </replaceregexp>
 
+      <foreach list="${file.stylesheets}" param="css_file" target="-css-remove-concatenated-stylesheets" />
+
   </target>
 
 
@@ -791,7 +793,7 @@
 
     <target name="-css-remove-concatenated-stylesheets">
             <echo>Removing ${css_file} from html</echo>
-            <replaceregexp match="&lt;link.+href=&quot;.*${css_file}&quot;.*&gt;" replace="  ">
+            <replaceregexp match="&lt;link.+href=&quot;.*${css_file}&quot;.*&gt;" replace="  " byline="true">
                 <fileset dir="${dir.intermediate}" includes="${page-files}"/>
             </replaceregexp>
     </target>
@@ -935,7 +937,6 @@
             <mapper type="glob" from="*.css" to="${basedir}/${dir.publish}/${dir.css}/*.css"/>
             <targetfile/>
         </apply>
-        <foreach list="${file.stylesheets}" param="css_file" target="-css-remove-concatenated-stylesheets" />
     </target>
 
 
