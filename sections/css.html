@@ -9,7 +9,7 @@
 		
 		<p>The second component of a web page is the presentation information contained in the Cascading Style Sheet (<abbr title="Cascading Style Sheets">CSS</abbr>.) Web browsers successful implementation of CSS has given a whole generation of web authors site-wide control over the look and feel of their web sites.</p>
 		
-		<p>Just as the information on a web page is semantically described in the <a href="#markup">HTML Markup</a>, CSS describes all presentation aspects of the page via a description of it's visual properties. CSS is powerful in that these properties are mixed and matched via identifiers to control the page's layout and visual characteristics through the layering of style rules (the "cascade").</p>
+		<p>Just as the information on a web page is semantically described in the <a href="#markup">HTML Markup</a>, CSS describes all presentation aspects of the page via a description of its visual properties. CSS is powerful in that these properties are mixed and matched via identifiers to control the page's layout and visual characteristics through the layering of style rules (the "cascade").</p>
 	</div>
 
 	<h3>General Coding Principles</h3>
@@ -31,7 +31,7 @@
 			</li>
 
 		<li>Don't include styles inline in the document, either in a style tag or on the elements. It's harder to track down style rules.</li>	
-		<li>Use a reset CSS file (like the one present in H5BP or the <a href="http://meyerweb.com/eric/tools/css/reset/">Eric Meyers reset</a>) to zero our cross-browser weirdness.</li>
+		<li>Use <a href="http://necolas.github.com/normalize.css/">normalize.css</a> to make rendering more consistent across browsers.</li>
 		<li>Use a font-normalization file like <a href="http://developer.yahoo.com/yui/fonts/">YUI fonts.css</a></li>	
 		<li>Elements that occur only once inside a document should use IDs, otherwise, use classes.</li>
 		<li>Understand <a href="http://www.stuffandnonsense.co.uk/archives/css_specificity_wars.html">cascading and selector specificity</a> so you can write very terse and effective code.</li>
