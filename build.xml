@@ -486,14 +486,18 @@
 
   <!-- JAVASCRIPT -->
   <target name="-js.main.concat" depends="-js.all.minify" description="(PRIVATE) Concatenates the JS files in dir.js">
-      <echo message="Concatenating Main JS scripts..."/>
+      <filelist id="file.root" dir="${basedir}" files="${file.root.page}"/>
+      <echo message="Concatenating Main JS scripts based on ${file.root.page}..."/>
 
-      <exec executable="java" outputproperty="scripts.ordered">
+      <apply executable="java" parallel="false" 
+          outputproperty="scripts.ordered">
           <arg value="-cp"/>
           <arg value="./${dir.build.tools}"/>
           <arg value="ScriptsToConcat"/>
-          <arg value="${basedir}/index.html"/>
-      </exec>
+          <first>
+              <filelist refid="file.root"/>
+          </first>
+      </apply>
 
       <filelist id="scripts.toconcat" dir="./${dir.intermediate}/" files="${scripts.ordered}">
           <file name="${dir.js}/plugins.js"/>
