@@ -486,7 +486,7 @@
 
   <!-- JAVASCRIPT -->
   <target name="-js.main.concat" depends="-js.all.minify" description="(PRIVATE) Concatenates the JS files in dir.js">
-      <filelist id="file.root" dir="${basedir}" files="${file.root.page}"/>
+      <filelist id="file.root" dir="${dir.source}" files="${file.root.page}"/>
       <echo message="Concatenating Main JS scripts based on ${file.root.page}..."/>
 
       <apply executable="java" parallel="false" 
