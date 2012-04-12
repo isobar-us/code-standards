@@ -486,13 +486,26 @@
 
   <!-- JAVASCRIPT -->
   <target name="-js.main.concat" depends="-js.all.minify" description="(PRIVATE) Concatenates the JS files in dir.js">
-      <echo message="Concatenating Main JS scripts..."/>
+      <filelist id="file.root" dir="${dir.source}" files="${file.root.page}"/>
+      <echo message="Concatenating Main JS scripts based on ${file.root.page}..."/>
+
+      <apply executable="java" parallel="false" 
+          outputproperty="scripts.ordered">
+          <arg value="-cp"/>
+          <arg value="./${dir.build.tools}"/>
+          <arg value="ScriptsToConcat"/>
+          <first>
+              <filelist refid="file.root"/>
+          </first>
+      </apply>
+
+      <filelist id="scripts.toconcat" dir="./${dir.intermediate}/" files="${scripts.ordered}">
+          <file name="${dir.js}/plugins.js"/>
+      </filelist>
+
       <!-- overwrite=no here means not to overwrite if the target is newer than the sources -->
       <concat destfile="./${dir.intermediate}/${dir.js}/scripts-concat.min.js" overwrite="no">
-          <fileset dir="./${dir.intermediate}/">
-              <include name="${dir.js}/plugins.js"/>
-              <include name="${dir.js}/${file.root.script}"/>
-          </fileset>
+          <filelist refid="scripts.toconcat"/>
       </concat>
   </target>
 
@@ -522,7 +535,7 @@
           <property name="modules.js.dir" value="${dir.js}/${modules.sha}" />
           <move file="${dir.publish}/${dir.js.modules}/" tofile="${dir.publish}/${dir.js}/${modules.sha}/" />
           <copy todir="${dir.publish}/${dir.js}/${modules.sha}/" >
-          	<fileset dir="${dir.intermediate}/${dir.js.modules}" includes="**/**.js" excludes="_all.js" />
+            <fileset dir="${dir.intermediate}/${dir.js.modules}" includes="**/**.js" excludes="_all.js" />
           </copy>
         </then>
       </if>
