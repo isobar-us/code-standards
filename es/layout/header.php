@@ -5,7 +5,7 @@
 <!--[if IE 8]>    <html class="no-js ie8" lang="es"> <![endif]-->
 <!--[if IE 9]>    <html class="no-js ie9" lang="es"> <![endif]-->
 <!--[if gt IE 9]><!--><html class="no-js" lang="es"><!--<![endif]-->
-    <head><meta charset="utf-8">
+<head><meta charset="utf-8">
 
 
 
@@ -19,23 +19,24 @@
     -->
 
 
-        <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
-        Remove this if you use the .htaccess -->
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+	Remove this if you use the .htaccess -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-		<title><?php echo $page_title; ?> | Isobar North America</title>
-        <meta name="description" content="<?php echo $page_description; ?>">
-        <meta name="author" content="Isobar North America">
-        
-        <!-- Mobile viewport optimized: j.mp/bplateviewport -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><?php echo $page_title; ?> | Roundarch Isobar</title>
+	<meta name="description" content="<?php echo $page_description; ?>">
+	<meta name="author" content="Roundarch Isobar">
+	
+	<!-- Mobile viewport optimized: j.mp/bplateviewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- Place favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+	<!-- Place favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+	<link rel="apple-touch-icon" href="../favicon.png">
 
-        <!-- CSS: implied media="all" -->
-        <link rel="stylesheet" href="css/style.css">
-        <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
-        <script src="js/modernizr-2.0.6.min.js">
-        </script>
-    </head>
+	<!-- CSS: implied media="all" -->
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/handheld.css" media="handheld">
+
+	<!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
+	<script src="../js/libs/modernizr-2.0.6.min.js"></script>
+</head>
