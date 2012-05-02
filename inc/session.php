@@ -1,6 +1,16 @@
 <?php
 require_once('lang.class.php');	
 
+if (isset ($_POST['pathList'])) {
+	$html = '';
+	
+	foreach ($_POST['pathList'] as $value) {
+		//print_r($value);
+		readfile('../'. $value);
+	}
+
+}
+
 // if session isn't set 
 if (!isset ($_SESSION['mylang'])) {
 	$_SESSION['mylang'] = 'en';
@@ -23,5 +33,6 @@ if (isset ($_GET['locale'])) {
 	var_dump($mylang->get_sections());
 }
 //$mylang->set_language($_SESSION['mylang']);
+
 
 ?>

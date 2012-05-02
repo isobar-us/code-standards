@@ -1,21 +1,19 @@
 <?php 
 // Define words
-define('page_lang', 'es');
-define('content_path', 'es/sections/');
+define('LOCALE', 'es');
+define('DIRECTORY', 'sections/es/');
 
-define('page_title', 'Estándares y Prácticas Recomendadas de Desarrollo Front-end');
-define('page_keywords', 'Estándares de código Isobar, estándares de código, desarrollo frontend, prácticas recomendadas de frontend, mejores prácticas de frontend, estándares de código html, estándares de código html5, estándares de código css, prácticas recomendadas de código, mejores prácticas de código, desarrollo');
-define('page_description', 'Estándares de Código y Prácticas Recomendadas de Desarrollo Front-end de Roundarch Isobar');
+define('PAGE_TITLE', 'Estándares y Prácticas Recomendadas de Desarrollo Front-end');
+define('PAGE_KEYWORDS', 'Estándares de código Isobar, estándares de código, desarrollo frontend, prácticas recomendadas de frontend, mejores prácticas de frontend, estándares de código html, estándares de código html5, estándares de código css, prácticas recomendadas de código, mejores prácticas de código, desarrollo');
+define('PAGE_DESCRIPTION', 'Estándares de Código y Prácticas Recomendadas de Desarrollo Front-end de Roundarch Isobar');
 
-define('navTitle', 'Tabla de Contenido');
-define('linkBack', 'Regresar a Isobar US');
-define('noCanvas', '¡Su navegador no puede manejar esta maravilla!');
-define('noJavascript', 'Por favor, habilite JavaScript');
+define('NAV_TITLE', 'Tabla de Contenido');
+define('LINKBACK', 'Regresar a Isobar US');
 
-define('copyright', 'Roundarch Isobar. Todos los derechos reservados.');
-define('creativeCommons', 'Todo el contenido esta licenciado bajo <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">Licencia de Atribución 3.0 de Creative Commons</a>');
+define('NO_CANVAS', '¡Su navegador no puede manejar esta maravilla!');
+define('NO_JAVASCRIPT', 'Por favor, habilite JavaScript');
 
-// Some basic protocol and path to page settings 
-$protocol = (strstr('https', $_SERVER['SERVER_PROTOCOL']) === false) ? 'http' : 'https'; 
-define('page_root', $protocol . '://' . $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI']));
+define('COPYRIGHT', 'Roundarch Isobar. Todos los derechos reservados.');
+define('CREATIVE_COMMONS', 'Todo el contenido esta licenciado bajo <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">Licencia de Atribución 3.0 de Creative Commons</a>');
+
 ?>

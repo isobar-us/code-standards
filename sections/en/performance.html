@@ -17,7 +17,6 @@
 		
 		<li>Set caching headers appropriately.</li>
 		<li>Consider a cookie-less subdomain for static assets</li>
-		<li>Avoid inline &lt;script&gt; blocks.</li>
 		
 		<li>CSS should be located in the <code>&lt;head></code> of the document, Javascript should be right before the <code>&lt;/body></code> tag.</li>
 		<li>Both CSS and JavaScript should be served minified. Most people use the <a href="http://developer.yahoo.com/yui/compressor/">YUI Compressor</a> for this.</li>
@@ -123,7 +122,7 @@
 	
 	<pre>ExpiresDefault "access plus 1 year"</pre>
 	
-	<p><code>Expires http header</code> should be set to a value between one month from present to a year (far future) from present. Caching only applies to that exact URL, so a change in the filename of any asset will start a fresh copy. Many developers use a build process to add a version number or timestamp to their assets, one example of this is the HTML5 Boilerplate. Each subsequent build will start a brand new cached version allowing you to use far future cache dates without worry. <a href="http://code.google.com/speed/page-speed/docs/caching.html#LeverageBrowserCaching ">Google has a lot more detail on browser caching</a>.</p>
+	<p><code>Expires http header</code> should be set to a value between one month from present to a year (far future) from present. Caching only applies to that exact URL, so a change in the filename of any asset will start a fresh copy. Many developers use a build process to add a version number or timestamp to their assets, one example of this is the HTML5 Boilerplate. Each subsequent build will start a brand new cached version allowing you to use far future cache dates without worry. <a href="http://code.google.com/speed/page-speed/docs/caching.html#LeverageBrowserCaching ">Google has a lot more detail on browser caching</a>, and <a href="http://yuiblog.com/blog/2007/01/04/performance-research-part-2/">Yahoo has done some interesting research on browser caching as well</a>.</p>
 	
 	
 	<h3>Shard resources across domains</h3>
