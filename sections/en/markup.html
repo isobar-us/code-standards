@@ -28,63 +28,32 @@
 	
 	<p>A nice aspect of HTML5 is that it streamlines the amount of code that is required. Meaningless attributes have been dropped, and the <code>DOCTYPE</code> declaration has been simplified significantly. Additionally, there is no need to use <code>CDATA</code> to escape inline JavaScript, formerly a requirement to meet XML strictness in XHTML.</p>
 	
-	<figure class="preCode">HTML5 Doctype</figure>
-	<textarea class="brush:html">
-		<!DOCTYPE html>
-	</textarea>
-	
+	<script src="https://gist.github.com/2943998.js"></script>
+
 	<h3>Character Encoding</h3>
 
 	<p>All markup should be delivered as UTF-8, as its the most friendly for internationalization. It should be designated in both the HTTP header and the head of the document.</p>
 	
-	<p>Setting the character set using &lt;meta&gt; tags.</p>
-	<textarea class="brush:html">
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	</textarea>
-	
-	<p>In HTML5, just do:</p>
-	<textarea class="brush:html">
-		<meta charset="utf-8">
-	</textarea>
+	<script src="https://gist.github.com/2944001.js"></script>
 
-	<!--<h3>Use of new semantic elements</h3>
+	<h3>Use of HTML5 semantic elements</h3>
 	
 	<p>Elements such as <code>header, footer, section, article</code>, and others, can be used multiple times on a page, and more than once within one or the other even. In cases where there will be more than one of the same element, that is used for the same thing such as using <code>article</code> for each blog post of a page and each article having a <code>header</code> and <code>footer</code>, adding a class to them can help separate them from any other places you may use these elements on the page. That way you can target the elements more specifically in your CSS. However this is not always necessary, depending on the structure of the page and the way you define your selectors.</p>
 	
-	<textarea class="brush:html">
-		<header>
-			<h1>Our Blog</h1>
-		</header>
-		
-		<article>
-			<header>
-				<h1>This is the best blog title ever</h1>			
-			</header>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-		</article>
-		<article>
-			<header>
-				<h1>This is the second best blog title</h1>
-			</header>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-		</article>
-	</textarea>
+	<script src="https://gist.github.com/2944031.js"></script>
 	
 	<p>Structuring pages cleanly allows for simplified selectors which keep the specificity level low making it easier to override selectors later on as the stylesheet grows.</p>
 	
-	<textarea class="brush:css">
-	header h1 { color: red; }
-	article header h1 { color: blue; }
-	</textarea>-->
+	<script src="https://gist.github.com/2944034.js"></script>
 
 	<h2>General Markup Guidelines</h2>
 
 	<p>The following are general guidelines for structuring your HTML markup. Authors are reminded to always use markup which represents the semantics of the content in the document being created.</p>
 	
 	<ul>
-		<li>Use actual P elements for paragraph delimiters as opposed to multiple BR tags.</li>
+		<li>Use actual <code>P</code> elements for paragraph delimiters as opposed to multiple <code>BR</code> tags.</li>
 		<li>Make use of DL (definition lists) and BLOCKQUOTE, when appropriate.</li>
-		<li>Items in list form should always be housed in a UL, OL, or DL, never a set of DIVs or Ps.</li>
+		<li>Items in list form should always be housed in a UL, OL, or DL, never a set of DIVs or P.</li>
 		<li>Use <code>label</code> fields to label each form field, the <code>for</code> attribute should associate itself with the input field, so users can click the labels. 
 			<code>cursor:pointer;</code> on the label is wise, as well. <sup><a href="http://www.accessifyforum.com/viewtopic.php?t=1926#14178">note 1</a> 
 			<a href="http://www.accessifyforum.com/viewtopic.php?t=6738">note 2</a></sup>
@@ -95,23 +64,7 @@
 		<li>Use <a href="http://en.wikipedia.org/wiki/Microformat">microformats</a> and/or Microdata where appropriate, specifically hCard and adr.</li>
 		<li>Make use of THEAD, TBODY, and TH tags (and Scope attribute) when appropriate.
 
-			<figure class="preCode">Table markup with proper syntax (THEAD,TBODY,TH [scope])</figure>
-			<textarea class="brush:html">
-				<table summary="This is a chart of year-end returns for 2005.">
-					<thead>
-						<tr>
-							<th scope="col">Table header 1</th>
-							<th scope="col">Table header 2</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Table data 1</td>
-							<td>Table data 2</td>
-						</tr>
-					</tbody>
-				</table>
-			</textarea>
+			<script src="https://gist.github.com/2944005.js"></script>
 		</li>
 	
 		<li>Always use title-case for headers and titles. Do not use all caps or all lowercase titles in markup, instead apply the CSS property <code>text-transform:uppercase/lowercase</code>.</li>
@@ -119,10 +72,8 @@
 
 	<h3>Quoting Attributes</h3>
 	
-	<p>The HTML5 specification defines quotes around attributes as optional. For consistency with attributes that accept whitespace, all attributes should be quoted. </p> 
+	<p>The HTML5 specification defines quotes around attributes as optional. For consistency with attributes that accept whitespace, all attributes should be quoted.</p> 
 	
-	<textarea class="brush:html">
-		<p class="line note" data-attribute="106">This is my paragraph of special text.</p>
-	</textarea>
+	<script src="https://gist.github.com/2944009.js"></script>
 	
 </section>
