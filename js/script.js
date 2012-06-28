@@ -15,7 +15,7 @@ var isobar = {
 			this.toc();
 			this.syntax();
 			this.backLink();
-			
+
 			if (isobar.common.locale !== null) {
 				//console.log(isobar.common.locale);
 				isobar.common.storeLocal();
@@ -36,8 +36,6 @@ var isobar = {
 				e.preventDefault();
 			});
 			
-			
-
 			window.applicationCache.addEventListener('updateready', isobar.common.onUpdateReady, false);
 			if (window.applicationCache.status === window.applicationCache.UPDATEREADY) {
 				isobar.common.onUpdateReady();
@@ -49,7 +47,6 @@ var isobar = {
 				$(window).scrollTo(a);
 				e.preventDefault();
 			});			
-			
 		},
 		storeLocal: function() {
 			if ('localStorage' in window && window['localStorage'] !== null) {

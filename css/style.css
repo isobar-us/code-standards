@@ -410,8 +410,12 @@ header h1 a {
 }
 
 #authors, 
-#team {
+#team,
+#revisions {
 	display: inline-block;
+}
+#authors, 
+#team {
 	width: 50%;
 	height: 250px;
 	float: left;
