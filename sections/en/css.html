@@ -17,17 +17,24 @@
 		<li>Add CSS through external files, minimizing the # of files, if possible. It should always be in the HEAD of the document.</li>
 		<li>Use the LINK tag to include, <a href="http://blog.amodernfable.com/2008/01/21/thoughts-on-linking-to-stylesheets/">never the @import.</a>
 	
-			<script src="https://gist.github.com/2944013.js"> </script>
+			<figure class="preCode">Including a stylesheet</figure>
+			<textarea class="brush:html">
+				<link rel="stylesheet" type="text/css" href="myStylesheet.css" />
+			</textarea>
 	
-			<script src="https://gist.github.com/2944014.js"> </script>			
-		</li>
+			<figure class="preCode">Don't use inline styling</figure>
+			<textarea class="brush:html">
+				<p style="font-size: 12px; color: #FFFFFF">This is poor form, I say</p>
+			</textarea>
+			
+			</li>
 
 		<li>Don't include styles inline in the document, either in a style tag or on the elements. It's harder to track down style rules.</li>	
 		<li>Use <a href="http://necolas.github.com/normalize.css/">normalize.css</a> to make rendering more consistent across browsers.</li>
 		<li>Use a font-normalization file like <a href="http://developer.yahoo.com/yui/fonts/">YUI fonts.css</a></li>	
 		<li>Elements that occur only once inside a document should use IDs, otherwise, use classes.</li>
 		<li>Understand <a href="http://www.stuffandnonsense.co.uk/archives/css_specificity_wars.html">cascading and selector specificity</a> so you can write very terse and effective code.</li>
-		<li>Write selectors that are optimized for speed. Where possible, avoid expensive CSS selectors. For example, avoid the * wildcard selector and don't qualify ID selectors (e.g. <code>div#myid</code>) or class selectors (e.g. <code>table.results</code>.) This is especially important with web applications where speed is paramount and there can be thousands or even tens of thousands of DOM elements. More on <a href="https://developer.mozilla.org/en/Writing_Efficient_CSS">writing efficient CSS on the MDC</a>.</li>
+		<li>Write selectors that are optimized for speed. Where possible, avoid expensive CSS selectors. For example, avoid the * wildcard selector and don't qualify ID selectors (e.g. <code>div#myid</code>) or class selectors (e.g. <code>table.results</code>.)  This is especially important with web applications where speed is paramount and there can be thousands or even tens of thousands of DOM elements. More on <a href="https://developer.mozilla.org/en/Writing_Efficient_CSS">writing efficient CSS on the MDC</a>.</li>
 	</ul>
 	
 	<h3>CSS Box Model</h3>
@@ -41,31 +48,43 @@
 	
 	<h3>CSS Validation</h3>
 	
-	<p>We typically don't use the <a href="http://jigsaw.w3.org/css-validator/">W3C validator</a>, though it can be helpful sometimes when you are unable to find syntax errors such as missing or improperly formed punctuation.</p>
+	<p>We typically don't use the <a href="http://jigsaw.w3.org/css-validator/">W3C validator</a>.</p>
 	
 	
 	<h3>CSS Formatting</h3>
 	
-	<p>At minimum, format CSS with selectors on one line and each property on its own line. The declarations are indented.</p>
-
+	<p>At minimum, format CSS with selectors on one line and each property on its own line. The declarations are indented. </p>
 	<p>As an enhancement to that style, related or child styles and additional 2 or 4 spaces. That allows for hierarchical scanning and organization and makes (for some people) an easier-to-read style sheet.</p>
-	
 	<p>Also, if you specify multiple selectors, it's a good idea to start each on new line. This prevents lines from growing long and improves readability as well as version control workflow.</p>
-    
-    <script src="https://gist.github.com/2944027.js"></script>
-
-    <p>For multiple author environments, single line CSS should be avoided because it can cause issues with version control.</p>
-	
+    <textarea class="brush:css">
+    .post-list li a{
+		color:#A8A8A8;
+	}
+    	.post-list li a:hover{
+        	color:#000;
+        	text-decoration:none;
+     	}
+     	.post-list li .author a, 
+     	.post-list li .author a:hover{
+        	 color:#F30;
+       		 text-transform:uppercase;
+     	}
+    </textarea>
+    <p>For multiple author environments, single line CSS should be avoided because it can cause issues with version control. </p>
 	<h4>Alphabetize</h4>
-    
-    <p>If you're performance obsessed <a href="http://www.barryvan.com.au/2009/08/css-minifier-and-alphabetiser/">alphabetizing CSS properties increases the odds of larger repeatable patterns being present to aid in GZIP compression</a>.</p>
-	
-	<h3>Classes vs. IDs</h3>
+    <p>If you're performance obsessed <a href="http://www.barryvan.com.au/2009/08/css-minifier-and-alphabetiser/">alphabetizing CSS properties increases the odds of larger repeatable patterns being present to aid in GZIP compression</a>. </p> 
+<h3>Classes vs. IDs</h3>
 	
 	<p>You should only give elements an ID attribute if they are unique. They should be applied to that element only and nothing else. Classes can be applied to multiple elements that share the same style properties. Things that should look and work in the same way can have the same class name.</p>
 	
-	<script src="https://gist.github.com/2944048.js"></script>
-
+	<textarea class="brush:html">
+		<ul id="categories">
+			<li class="item">Category 1</li>
+			<li class="item">Category 2</li>
+			<li class="item">Category 3</li>
+		</ul>
+	</textarea>
+	
 	<h3>Naming Conventions for Selectors</h3>
 	
 	<p>It is always preferable to name something, be it an ID or a class, by the nature of <strong>what it is</strong> rather than by <strong>what it looks like</strong>. For instance, a class name of <code>bigBlueText</code> for a special note on a page is quite meaningless if it has been changed to have a small red text color. Using a more intelligent convention such as <code>noteText</code> is better because when the  visual style changes it still makes sense.</p>
@@ -89,13 +108,12 @@
 
 	
 	
-	<h4>Specificity</h4>
+<h4>Specificity</h4>
 	
 	<p>Browsers <a href="http://www.w3.org/TR/2009/PR-css3-selectors-20091215/">calculate a selector's specificity</a> to determine which CSS rule should apply. If two selectors apply to the same element, the one with the <strong>higher specificity wins</strong>.</p>
 	
 	<p>IDs have a higher specificity than attribute selectors do, and class selectors have higher specificity than any number of element selectors. Always try to use IDs to increase the specificity. There are times when we may try to apply a CSS rule to an element and it does not work no matter what we try. This is likely because the specificity of the selector used is lower than another one and the properties of the higher one are taking precedence over those you want to apply. This is more common in working with larger more complex stylesheets. It isn't a big issue with smaller projects usually.</p>
 	
-
 	<h5>Calculating specifiсity</h5>
 	
 	<p>When working with a large and complex stylesheet it helps to know how to calculate the value of a selector's specificity, to save you time and to make your selectors more efficient.</p>
@@ -124,23 +142,54 @@
 	
 	<p>We use the <code>px</code> unit of measurement to define <code>font size</code>, because it offers absolute control over text. We realize that using the <code>em</code> unit for font sizing used to be popular, to accommodate for Internet Explorer 6 not resizing pixel based text. However, all major browsers (including <abbr title="Internet Explorer 7">IE7</abbr> and <abbr title="Internet Explorer 8">IE8</abbr>) now support text resizing of pixel units and/or full-page zooming. Since <abbr title="Internet Explorer 6">IE6</abbr> is largely considered deprecated, pixels sizing is preferred. Additionally, unit-less <code>line-height</code> is preferred because it does not inherit a percentage value of its parent element, but instead is based on a multiplier of the <code>font-size</code>.</p>
 	
-	<script src="https://gist.github.com/2944070.js"></script>
+	
+	<figure class="preCode">Correct</figure>
+	<textarea class="brush:css">
+		#selector {
+			font-size: 13px;
+			line-height: 1.5;  /*  13 * 1.5 = 19.5 ~ Rounds to 20px. */
+		}
+	</textarea>
+	
+	<figure class="preCode">Incorrect</figure>
+	<textarea class="brush:css">
+		/*  Equivalent to 13px font-size and 20px line-height, but only if the browser default text size is 16px. */
+		#selector {
+			font-size: 0.813em;
+			line-height: 1.25em;
+		}
+	</textarea>
+	
 	
 	<h3>Internet Explorer Bugs</h3>
 	
 	<p>Inevitably, when all other browsers appear to be working correctly, any and all versions of Internet Explorer will introduce a few nonsensical bugs, delaying time to deployment. While we encourage troubleshooting and building code that will work in all browsers without special modifications, sometimes it is necessary to use conditional <code>if IE</code> comments for CSS hooks we can use in our stylesheets. <a href="http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/">Read more on paulirish.com</a></p>
 	
-	<script src="https://gist.github.com/2944074.js"></script>
 	
-	<script src="https://gist.github.com/2944076.js"></script>
-
-
+	<figure class="preCode">Fixing IE</figure>
+	<textarea class="brush:html">
+		<!--[if lt IE 7 ]> <body class="ie6"> <![endif]-->
+		<!--[if IE 7 ]>    <body class="ie7"> <![endif]-->
+		<!--[if IE 8 ]>    <body class="ie8"> <![endif]-->
+		<!--[if IE 9 ]>    <body class="ie9"> <![endif]-->
+		<!--[if !IE]><!--> <body> <!--<![endif]-->
+	</textarea>
+	
+	<textarea class="brush:css">
+		.box { float: left; margin-left: 20px; }
+		.ie6 .box { margin-left: 10px; }
+	</textarea>
+	
 	<p>If you're using HTML5 (and the <a href="#h5bp">HTML5 Boilerplate</a>) we encourage the use of the <a href="http://www.modernizr.com/">Modernizer</a> JavaScript library and this pattern:</p>
 	 
-	<script src="https://gist.github.com/2944078.js"></script>
-
-
-	<h3>Shorthand</h3>
+	<textarea class="brush:html">
+		<!--[if lt IE 7]> <html class="no-js ie ie6" lang="en"> <![endif]-->
+		<!--[if IE 7]>    <html class="no-js ie ie7" lang="en"> <![endif]-->
+		<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+		<!--[if IE 9]>    <html class="no-js ie9" lang="en"> <![endif]-->
+		<!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
+	</textarea>
+<h3>Shorthand</h3>
 	
 	<p>In general, CSS shorthand is preferred because of its terseness, and the ability to later go back and add in values that are already present, such as the case with margin and padding. Developers should be aware of the <abbr title="Top Right Bottom Left">TRBL</abbr> acronym, denoting the order in which the sides of an element are defined, in a clock-wise manner: Top, Right, Bottom, Left. If <em>bottom</em> is undefined, it inherits its value from <em>top</em>. Likewise, if <em>left</em> is undefined, it inherits its value from <em>right</em>. If only the <em>top</em> value is defined, all sides inherit from that one declaration.</p>
 	
@@ -152,7 +201,6 @@
 		<li><a href="http://dustindiaz.com/css-shorthand">http://dustindiaz.com/css-shorthand</a></li>
 	</ul>
 	
-
 	<h3>Images</h3>
 	
 	<ul>
@@ -166,27 +214,21 @@
 			</ul>
 		</li>
 	</ul>
-
-
-	<h3>Color Management</h3>
-    
+<h3>Color Management</h3>
     <ul>
-        <li>Verify that all members on your team have consistent color management settings.
+        <li>Verify that all members on your team have consistent color management settings.</li>
            <ul>
                <li>Any given two monitors most likely display the colors differently, but sRGB color profile must be your default.</li>
                <li>When you open files in Photoshop, pay attention to Color Profile warnings and notify team members when Photoshop is suggesting to convert an image to a different profile.</li> 
 			</ul>
-		</li>
         <li>Never embed a color profile in your images.
             <ul>
 				<li>When you Save for Web and Devices from Photoshop, be sure to uncheck &quot;Embed Color Profile.&quot;</li>
-			</ul>
-		</li>
+			</ul> </li>
     </ul>
 
 	<hr />
 	
-
 	<h3>General Text and Font Styling</h3>
 	
 	<h4>Headings</h4>
@@ -203,7 +245,6 @@
 		<li>Default styles for links should be declared and different from the main text styling, and with differing styles for hover state.</li>
 		<li>When styling links with underlines use <code>border-bottom</code> and some padding with <code>text-decoration: none;</code>. This just looks better.</li>
 	</ul>
-
 
 	<!-- #### WEB TYPOGRAPHY SECTION #### -->
 	
@@ -245,25 +286,36 @@
 	
 	<p>For full cross-browser compatibility use Fontsprings' new <a href="http://www.fontspring.com/blog/further-hardening-of-the-bulletproof-syntax">bulletproof @font-face syntax</a> (<em>latest version as of 2/21/11</em>).</p>
 	
-	<script src="https://gist.github.com/2944083.js"></script>
-
+	<textarea class="brush:css">
+		@font-face {
+			font-family: 'MyFontFamily';
+			src: url('myfont-webfont.eot'); 					/* IE9 Compat Modes */
+			src: url('myfont-webfont.eot?iefix') format('eot'),	/* IE6-IE8 */
+			   url('myfont-webfont.woff') format('woff'),		/* Modern Browsers */
+			   url('myfont-webfont.ttf') format('truetype'),		/* Safari, Android, iOS */
+			   url('myfont-webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+			font-weight: <font-weight>;
+			font-style: <font-style>;
+			// etc.
+		}
+	</textarea>
+	
 	<p>Here's a <a href="http://www.thecssninja.com/demo/css_fontface/">working demo</a> using this version of implementation.</p>
 	
-
 	<h4>Cross-Browser Compatibility</h4>
 	
 	<p>Safari, <abbr title="Internet Explorer version 6-9">IE 6-9</abbr>, <abbr title="Internet Explorer Compatibility Modes">IE 9 Compatibility Modes</abbr>, Firefox, Chrome, iOS, Android, Opera</p>
-	
 	
 	<h4>Prevent Compatibility Mode</h4>
 	
 	<p>Sometimes <abbr title="Internet Explorer">IE</abbr> can have a mind of its own and will switch to compatibility mode without you knowing. Include the following in the site <code>&lt;head&gt;</code> to prevent your site from defaulting to compatibility mode:</p>
 	
-	<script src="https://gist.github.com/2944087.js"> </script>
+	<textarea class="brush:html">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	</textarea>
 	
 	<hr />
 	
-
 	<h4>Tips for @font-face</h4>
 	
 	<ul>
@@ -301,25 +353,48 @@
 	
 	<p><a href="https://code.google.com/apis/webfonts/docs/getting_started.html">Google's Webfonts API</a> essentially does the same thing as <code>@font-face</code>, it just does all the hard work for you, providing wider browser support.The major drawback to this method is the very small font library it uses. To make it work all you need to do is include the stylesheet + the font name.</p>
 	
-	<script src="https://gist.github.com/2944088.js"></script>
-
+	<textarea class="brush:html">
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Font+Name">
+	</textarea>
 	
 	<p class="normalize">Then define a style for the selector you want to apply the font to:</p>
 	
-	<script src="https://gist.github.com/2944089.js"></script>
-
-
+	<textarea class="brush:css">
+		CSS selector {
+			font-family: 'Font Name', serif;
+		}
+	</textarea>
+	
 	<h3>Webfont Loader</h3>
 	
 	<p>Another option Google offers is the <a href="https://code.google.com/apis/webfonts/docs/webfont_loader.html">Webfont Loader</a> which is a JavaScript library that allows for more control than the font API does. You can also use multiple webfont providers like Typekit. To use it include the script in your page:</p>
 	
-	<script src="https://gist.github.com/2944093.js"></script>
-
-
+	<textarea class="brush:javascript">
+		<script type="text/javascript">
+			WebFontConfig = { google: { families: [ 'Tangerine', 'Cantarell' ]} };
+			(function() {
+				var wf = document.createElement('script');
+				wf.src = ('https:' == document.location.protocol ? 'https' : 'http') + 
+						  '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+				wf.type = 'text/javascript';
+				wf.async = 'true';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(wf, s);
+			})();
+		</script>
+	</textarea>
+	
 	<p class="normalize">Including the webfont.js file this way is faster if not already using the Ajax APIs. Otherwise you should use this:</p>
 	
-	<script src="https://gist.github.com/2944094.js"></script>
-
+	<textarea class="brush:javascript">
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		<script type="text/javascript">
+			google.load("webfont", "1");
+			google.setOnLoadCallback(function() {
+				WebFont.load({ google: { families: [ 'Tangerine', 'Cantarell' ]} });
+			});
+		</script>
+	</textarea>
 	
 	<p>By using the Webfont Loader you have more ability to customize things including the use of more fonts, not just those in the Google Webfont library which is not large. However, it then requires you to load JavaScript, sacrificing one thing for another.</p>
 	
@@ -348,7 +423,14 @@
 	
 	<p>If you choose to use Cufon, it is highly recommended you use the <a href="http://cufon.shoqolate.com/js/cufon-yui.js">Cufon compressed version</a>. You will need to convert your font using the <a href="http://cufon.shoqolate.com/generate/">generator</a>.</p>
 	
-	<script src="https://gist.github.com/2944098.js"></script>
+	<textarea class="brush:javascript">
+		<script src="cufon-yui.js" type="text/javascript"></script>
+		<script src="YourFont.font.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			Cufon.replace('h1');		// Works without a selector engine
+			Cufon.replace('#sub1'); 	// Requires a selector engine for IE 6-7
+		</script>
+	</textarea>
 	
 	<p>We recommend using Cufon sparingly since it can cause a lot of overhead if applied to a large amount of text. For more info visit the <a href="https://github.com/sorccu/cufon/wiki/">Cufon Wiki</a>.</p>
 	
@@ -362,6 +444,7 @@
 		<li>Easy to implement</li>
 	</ul>
 	
+	
 	<strong>Cons</strong>
 	
 	<ul>
@@ -373,7 +456,6 @@
 	</ul>
 	
 	<hr />
-	
 	
 	<h3>Typekit</h3>
 	
@@ -403,7 +485,6 @@
 	
 	<hr />
 	
-
 	<h3>Scalable Inman Flash Replacement (sIFR)</h3>
 	
 	<p>We do not recommend that you use this method but because of how widely used it is we felt it was necessary to include so you could make a properly informed decision when choosing which method to go with for customized webfonts.</p>
@@ -439,7 +520,6 @@
 	<p>Even though you can transform just about any font into a web font file, you should still make sure it is legally okay for you to do so. Many foundries have updated their conditions to specify how their fonts can be used on the web. View <a href="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&item_id=UNESCO_Font_Lic">Font Licensing and Protection Details</a> for more information.</p>
 	
 	<hr />
-
 	
 	<h3>Specifications &amp; Font File Formats</h3>
 	
@@ -458,8 +538,10 @@
 	<h3>Use CSS3</h3>
 	
 	<p>You can do a lot of new things with the added features in the CSS3 spec, many of which are not yet fully supported by all the major browsers. That doesn't 
-	mean they can't be used today. For the things that aren't supported there are fallback libraries or other 'polyfills' which you can use to fill in the holes where browsers may be lacking some support of a new feature.</p>
+	mean they can't be used today. For the things that aren't supported there are fallback libraries or other 'polyfills' which you can use to fill in the holes where
+	browsers may be lacking some support of a new feature.</p>
 	
-	<p>There are also browser specific properties or prefixes that can be used to style things too. We recommend using <a href="http://prefixr.com">Prefixr.com</a> to make sure you include all the different prefixed browser properties for the sake of cross-browser support.</p>
+	<p>There are also browser specific properties or prefixes that can be used to style things too. We recommend using <a href="http://prefixr.com">Prefixr.com</a> to 
+	make sure you include all the different prefixed browser properties for the sake of cross-browser support.</p>
 	
 </section>

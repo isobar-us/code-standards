@@ -1,407 +1,70 @@
 <!-- #### CANVAS SECTION #### -->
 
-<!-- Last edited by jared (5/21/2012) --> 
+<!-- Last edited by jared (4/22/2012) --> 
 
 <section id="canvas">
 
 	<div class="intro has-icon">
 		<h1>Canvas</h1>
-
-		<p>With Canvas being still very new to internet, and no signs of it ever getting old that I can see in the future, there are not too many documented "best practices" or any really important tips that developers must know and should follow, and certainly not in any one place. Most of the Canvas best practices and must know development tips are pretty scattered around and many times on lesser known sites.</p>
-
-		<p>There is quite a lot still to be explored and experimented with, and implemented in browsers even. As the Canvas world progresses, these practices will grow and possibly change over time. Think of this as a place for starting what may become the Standard.</p>
 	</div>
 	
-	<h3>Indent Your Code</h3>
-
-	<p>It is a common practice when writing code to make things more readable by indenting code. Writing code with any other language which indenting code has become a known best practice for, why should it be any different when writing code for Canvas? When working on a complex canvas app or just a basic animation even, things can get a little confusing when dealing with several different contexts and saved/restore states, or otherwise multiple lines which use <code>ctx.<em>method</em>()</code>. Not to mention the code can be somewhat harder to read and follow.</p>
-
-	<p>As with most languages, indented code is usually to differentiate between dependant or nested bits of code from what it is wrapped by. In Canvas code, what you indent is more up to you really. How you choose to show the dependancies is your choice. Some examples of how you can do it are below.</p>
-
-	<h4>Indent all dependencies</h4>
-
-	<textarea class="brush:javascript">
-		ctx.fillStyle = 'red';
-			ctx.fill();
-
-		ctx.save();
-			if (thing &lt; 3) {
-				ctx.beginPath();
-					ctx.arc(2, 6, 11, 0, Math.PI*2, true);
-				ctx.closePath();
-				ctx.beginPath();
-					ctx.moveTo(20, 40);
-						ctx.lineTo(10, 200);
-					ctx.moveTo(20, 40);
-						ctx.lineTo(100, 40);
-				ctx.closePath();
-				
-				ctx.save();
-					ctx.fillStyle = 'blue'
-						ctx.fill();
-				ctx.restore();
-			}
-		ctx.restore();
-		ctx.drawRect();
-			ctx.fill();
-	</textarea>
-
-	<h4>Indent based on context changes</h4>
-
-	<textarea class="brush:javascript">
-		ctx.save();
-			ctx.beginPath();
-				ctx.arc(2, 6, 11, 0, Math.PI*2, true);
-			ctx.closePath();
-
-			ctx.beginPath();
-				ctx.moveTo(20, 40);
-				ctx.lineTo(10, 200);
-				ctx.moveTo(20, 40);
-				ctx.lineTo(100, 40);
-			ctx.closePath();
-		ctx.restore();
-	</textarea>
 	
-	<h4>Indenting vs Not Indenting</h4>
+http://jsfiddle.net/jaredwilli/HRHJL/
 
-	<p>If you're working on a complex peice of code for a Canvas application, the code complexity can become hard to follow and the actual state of the context stack can be easily lost when you do not indent the code. For example:</p>
+# Redraw Regions
 
-	<textarea class="brush:javascript">
-		ctx.save();
-		    if (thing &lt; 3) {
-		        // indenting
-		        ctx.beginPath();
-		            ctx.arc(2, 6, 11, 0, Math.PI*2, true);
-		        ctx.closePath();
-		        ctx.beginPath();
-		            ctx.moveTo(20, 40);
-		            ctx.lineTo(10, 200);
-		            ctx.moveTo(20, 40);
-		            ctx.lineTo(100, 40);
-		        ctx.closePath();
-		        ctx.save();
-		            ctx.fillStyle = 'blue'
-		            ctx.fill();
-		        ctx.restore();
-		    } else { 
-		        // no indenting
-		       	ctx.beginPath();
-		        ctx.arc(2, 6, 11, 0, Math.PI*2, true);
-		        ctx.closePath();
-		        ctx.beginPath();
-		        ctx.moveTo(20, 40);
-		        ctx.lineTo(10, 200);
-		        ctx.moveTo(20, 40);
-		        ctx.lineTo(100, 40);
-		        ctx.closePath();
-		        ctx.save();
-		        ctx.fillStyle = 'blue'
-		        ctx.fill();
-		        ctx.restore();
-		    }
-		ctx.restore();
-	</textarea>
+The best canvas optimization technique for animations is to limit the amount of pixels that get cleared/painted on each frame. The easiest solution to implement is resetting the entire canvas element and drawing everything over again but that is an expensive operation for your browser to process.
 
-	<p>Indented code is much easier to follow, and writing code for Canvas should be no different than other languages.</p>
+Reuse as many pixels as possible between frames. What that means is the fewer pixels that need to be processed each frame, the faster your program will run. For example, when erasing pixels with the clearRect(x, y, w, h) method, it is very beneficial to clear and redraw only the pixels that have changed and not the full canvas.
 
+# Procedural Sprites
 
-	<h3>Use requestAnimationFrame instead of <code>setInterval</code> / <code>setTimeout</code></h3>
+Generating graphics procedurally is often the way to go, but sometimes that's not the most efficient one. If you're drawing simple shapes with solid fills then drawing them procedurally is the best way do so. But if you're drawing more detailed entities with strokes, gradient fills and other performance sensitive make-up you'd be better off using image sprites.
 
-	<p><code>setInterval</code> and <code>setTimeout</code> were never intended to be used as animation timers, they're just generic methods for calling functions after a time delay. If you set an interval for 20ms in the future, but your queue of functions takes longer than that to execute, your timer won't fire until after these functions have completed. That could be a while, which isn't ideal where animation is concerned.</p>
+It is possible to get away with a mix of both. Draw graphical entities procedurally on the canvas once as your application starts up. After that you can reuse the same sprites by painting copies of them instead of generating the same drop-shadow, gradient and strokes repeatedly.
 
-		RequestAnimationFrame is a method which tells the browser that an animation is taking place, so it can optimize repaints accordingly. It also throttles the animation for inactive tabs, so it won't kill your mobile device's battery if you leave it open in the background.
+# State Stack & Transformation
 
-	Nicholas Zakas wrote a hugely detailed and informative [article about requestAnimationFrame](http://www.nczonline.net/blog/2011/05/03/better-javascript-animations-with-requestanimationframe/) on his blog which is well worth reading. If you want some hard and fast implementation instructions, then [Paul Irish has written a requestAnimationFrame shim](http://paulirish.com/2011/requestanimationframe-for-smart-animating/) – this is what I've used in every one of the Canvas apps I have made.
+The canvas can be manipulated via transformations such as rotation and scaling, resulting in a change to the canvas coordinate system. This is where it's important to know about the state stack for which two methods are available: context.save() (pushes the current state to the stack) and context.restore() (reverts to the previous state). This enables you to apply transformation to a drawing and then restore back to the previous state to make sure the next shape is not affected by any earlier transformation. The states also include properties such as the fill and stroke colors.
 
-	##ACTUALLY
+# Compositing
 
-	Even better than using requestAnimationFrame in place of setTimeout and setInterval, Joe Lambert has written a [NEW and improved shim](http://blog.joelambert.co.uk/2011/06/01/a-better-settimeoutsetinterval/) called requestInterval and requestTimeout, which he explains what issues exist when using requestAnimFrame.
-	You can view the [gist of the script](https://gist.github.com/1002116#file_request_interval.js).
+A very powerful tool at hand when working with canvas is compositing modes which, amongst other things, allow for masking and layering. There's a wide array of available composite modes and they are all set through the canvas context's globalCompositeOperation property. The composite modes are also part of the state stack properties, so you can apply a composite operation, stack the state and apply a different one, and restore back to the state before where you made the first one. This can be especially useful.
 
-	##ACTUALLY x2
+# Anti-Aliasing
 
-	Now that all the browsers have caught up on the spec for this, there has been an [update to the requestAnimFrame() polyfill](http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating), one which will probably remain the one to use to cover all vendors. 
+To allow for sub-pixel drawings, all browser implementations of canvas employ anti-aliasing (although this does not seem to be a requirement in the HTML5 spec). Anti-aliasing can be important to keep in mind if you want to draw crisp lines and notice the result looks blurred. This occurs because the browser will interpolate the image as though it was actually between those pixels. It results in a much smoother animation (you can genuinely move at half a pixel per update) but it'll make your images appear fuzzy.
 
+To work around this you will need to either round to whole integer values or offset by half a pixel depending on if you're drawing fills or strokes.
 
-	<h3>Use More than One Canvas</h3>
 
-	If you draw too many pixels to the same canvas at the same time, your frame rate will fall through the floor. In these circumstances, it's better to use multiple canvasses layered on top of one another. Take Breakout for example. Trying to draw the bricks, the ball, the paddle, any power-ups or weapons, and then each star in the background – this simply won't work, it takes too long to execute each of these instructions in turn. By splitting the starfield and the rest of the game onto separate canvases, you are able to ensure a decent framerate. This is a useful technique for animation-heavy games.
+## Using Whole Numbers for drawImage() x and y positions
 
-	##Render Elements Off-screen
+If you call drawImage on the Canvas element, it's much faster if you round the x and y position to a whole number. 
 
-	I have had to do this for a few apps I've made including [Samsung's Olympic Genome Project facebook app][1]. It's an extremely useful thing to know and to make use of whether it's needed or not. It decreases load time immensely, plus it can be a really useful technique to load images off screen since they can sometimes take a while.
+[Here's a test case on jsperf][1] showing how much faster using whole numbers is compared to using decimals.
 
-	<textarea class="brush:javascript">
-	    var tmpCanvas = document.createElement('canvas'),
-	        tmpCtx = tmpCanvas.getContext('2d'),
-	        img = document.createElement('img');
-	    
-	    img.onload = function() {
-	        tmpCtx.drawImage(thumbImg, 0, 0, 200, 200);
-	    };
-	    img.src = '/some/image/source.png';
-	</textarea>
+So round your x and y position to whole numbers before rendering. 
 
-	Notice that the <code>src</code> of the image is set after it is loaded. This is a key thing to remember to do too. Once the images are done loading and drawn into these temp canvases, you can then draw them to your main canvas by using the same <code>ctx.drawImage()</code>, but instead of putting the image as the first argument, you use <code>tmpCtx.canvas</code> to reference the temporary canvas.
+### Faster than Math.round()
 
+[Another jsperf test shows][2] that Math.round() is not necessarily the fastest method for rounding numbers. Using a bitwise hack actually turns out to be faster than the built in method.
 
-	###Other tips, tricks and resources
+[Canvas Sprite Optimization][3]
 
-	 - **[Canvas test cases](http://philip.html5.org/tests/canvas/suite/tests/)**
-	 - **[Some more canvas and JS tests](http://kangax.github.com/jstests/)**
-	 - **[HTML5Rocks performance Improving](http://www.html5rocks.com/en/tutorials/canvas/performance/)**
+# Clearing the Canvas
 
+To clear the entire canvas of any existing pixels context.clearRect(x, y, w, h) is typically used – but there is another option available. Whenever the width/height of the canvas are set, even if they are set to the same value repeatedly, the canvas is reset. This is good to know when working with a dynamically sized canvas as you will notice drawings disappearing.
 
-	###Canvas has a back-reference
+# Computation Distribution
 
-	The 2d context has a back reference to it's associated DOM element:
+The Chrome Developer Tools profiler is very useful for finding out what your performance bottlenecks are. Depending on your application you may need to refactor some parts of your program to improve the performance and how browsers handle specific parts of your code.
 
-	<textarea class="brush:javascript">
-    	var ctx = doc.getElementById('canvas').getContext('2d');
-    	console.log(ctx.canvas);    // HTMLCanvasElement
-	</textarea>
+http://hakim.se/thoughts/canvas-optimization
 
 
-	I'd love to hear more from other people on this. I am working on making a list of things that we should standardize to add a new section to my company's [Front-end Code Standards and Best Practices](http://na.standards.com/standards). I'd love to get as much feedback on this as I can.
-
-
-	  [1]: http://www.facebook.com/samsunggenomeproject/app_197458140327772
-
-
-
-	<h3>Redraw Regions</h3>
-
-	The best canvas optimization technique for animations is to limit the amount of pixels that get cleared/painted on each frame. The easiest solution to implement is resetting the entire canvas element and drawing everything over again but that is an expensive operation for your browser to process.
-
-	Reuse as many pixels as possible between frames. What that means is the fewer pixels that need to be processed each frame, the faster your program will run. For example, when erasing pixels with the <code>clearRect(x, y, w, h)</code> method, it is very beneficial to clear and redraw only the pixels that have changed and not the full canvas.
-
-	<h3>Procedural Sprites</h3>
-
-	Generating graphics procedurally is often the way to go, but sometimes that's not the most efficient one. If you're drawing simple shapes with solid fills then drawing them procedurally is the best way do so. But if you're drawing more detailed entities with strokes, gradient fills and other performance sensitive make-up you'd be better off using image sprites.
-
-	It is possible to get away with a mix of both. Draw graphical entities procedurally on the canvas once as your application starts up. After that you can reuse the same sprites by painting copies of them instead of generating the same drop-shadow, gradient and strokes repeatedly.
-
-	<h3>State Stack &amp; Transformation</code>
-
-	The canvas can be manipulated via transformations such as rotation and scaling, resulting in a change to the canvas coordinate system. This is where it's important to know about the state stack for which two methods are available: <code>context.save()</code> (pushes the current state to the stack) and <code>context.restore()</code> (reverts to the previous state). This enables you to apply transformation to a drawing and then restore back to the previous state to make sure the next shape is not affected by any earlier transformation. The states also include properties such as the fill and stroke colors.
-
-	<h3>Compositing</h3>
-
-	A very powerful tool at hand when working with canvas is compositing modes which, amongst other things, allow for masking and layering. There's a wide array of available composite modes and they are all set through the canvas context's <code>globalCompositeOperation</code> property. The composite modes are also part of the state stack properties, so you can apply a composite operation, stack the state and apply a different one, and restore back to the state before where you made the first one. This can be especially useful.
-
-	<h3>Anti-Aliasing</h3>
-
-	To allow for sub-pixel drawings, all browser implementations of canvas employ anti-aliasing (although this does not seem to be a requirement in the HTML5 spec). Anti-aliasing can be important to keep in mind if you want to draw crisp lines and notice the result looks blurred. This occurs because the browser will interpolate the image as though it was actually between those pixels. It results in a much smoother animation (you can genuinely move at half a pixel per update) but it'll make your images appear fuzzy.
-
-	To work around this you will need to either round to whole integer values or offset by half a pixel depending on if you're drawing fills or strokes.
-
-
-	## Using Whole Numbers for <code>drawImage()</code> coordinate positions
-
-	If you call <code>drawImage()</code> on the Canvas element, it's much faster if you round the x and y position to a whole number. 
-
-	[Here's a test case on jsperf][1] showing how much faster using whole numbers is compared to using decimals.
-
-	So round your x and y position to whole numbers before rendering. 
-
-	### Faster than Math.round()
-
-	[Another jsperf test shows][2] that <code>Math.round()</code> is not necessarily the fastest method for rounding numbers. Using a bitwise hack actually turns out to be faster than the built in method.
-
-	[Canvas Sprite Optimization][3]
-
-	<h3>Clearing the Canvas</h3>
-
-	To clear the entire canvas of any existing pixels <code>context.clearRect(x, y, w, h)</code> is typically used – but there is another option available. Whenever the width/height of the canvas are set, even if they are set to the same value repeatedly, the canvas is reset. This is good to know when working with a dynamically sized canvas as you will notice drawings disappearing.
-
-	<h3>Computation Distribution</h3>
-
-	The Chrome Developer Tools profiler is very useful for finding out what your performance bottlenecks are. Depending on your application you may need to refactor some parts of your program to improve the performance and how browsers handle specific parts of your code.
-
-	[Optimization techniques][4]
-
-
-	  [1]: http://jsperf.com/drawimage-whole-pixels
-	  [2]: http://jsperf.com/math-round-vs-hack/3
-	  [3]: http://sebleedelisle.com/2011/02/html5-canvas-sprite-optimisation/
-	  [4]: http://hakim.se/thoughts/canvas-optimization
-	  
-
-	  
-	  Here's some more tips and suggestions I put into a list last night worth sharing.
-
-	 - **Don't include jQuery unless you need to do more than just selecting the <code>&lt;canvas&gt;</code>.**
-	   
-	   I've managed to get by without it for almost everything I've made in canvas
-
-	 - **[Create abstracted functions][1]** and **decouple your code**. Separate functionality from appearance or initial draw state. 
-	   
-	   Make common functions reusable as much as possible. Ideally, you should use a module pattern, which you can create a utils object that contains common functions.
-
-	 - **Use single and double letter variable names when it makes sense** (*x, y, z*).
-
-	   The coordinate system in Canvas adds more single letters that are
-	   commonly declared as variables. Which can lead to creating multiple
-	   single/double variables (*dX, dY, aX, aY, vX, vY*) as part of an element.
-
-	   I suggest you type out or abbr. the word (*dirX, accelX, velX*) or be descriptive, otherwise things could get pretty confusing for you later on, trust me.
-
-	 - Create constructor functions which can be invoked as needed for making game elements. You can add custom methods and properties within the constructor, and create any number of you may need and they all will have their own properties and methods.
-
-	   **Example of a Ball constructor function I made:**
-
-    <textarea class="brush:javascript">
-    	// Ball constructor
-    	var Ball = function(x, y) {
-    		this.x = x;
-    		this.y = y;
-    		
-    		this.radius = 10;
-    		this.color = '#fff';
-    		
-    		// Direction and min, max x,y
-    		this.dX = 15;
-    		this.dY = -15;
-    		
-    		this.minX = this.minY = 20 + this.radius;
-    		this.maxX = this.radius - (canvasWidth - 20);
-    		this.maxY = this.radius + canvasHeight;
-    		
-    		this.draw = function(ctx) {
-    			ctx.beginPath();
-    				ctx.arc(this.x, this.y, this.radius, 0, twoPI, true);
-    			ctx.closePath();
-    			ctx.save();
-    				ctx.fillStyle = this.color;
-    				ctx.fill();
-    			ctx.restore();
-    		};
-    	};
-    </textarea>
-
-	Creating the Ball
-
-	<textarea class="brush:javascript">
-    	ball = new Ball(centerX, canvasHeight - paddle.height - 30);
-    	ball.draw(ctx);
-	</textarea>
-    			
-
-	  [1]: http://en.wikipedia.org/wiki/Abstraction_%28computer_science%29
-
-	 - A good base to work with is to create 3 functions:
-	 		<code>init()</code> - do all the initial work, and setup the base vars and event handlers etc...
-			<code>draw()</code> - called once to begin the game and draws the first frame of the game, including the creation of elements that may be changing or need constructing.
-			<code>update()</code> - called at the end of <code>draw()</code> and within itself via requestAnimFrame. Updates properties of changing elements, only do what you need to do here.
-
-	 - **Do the least amount of work within the loop, making updates to the changing parts or elements**. Create the game elements do any other UI work outside the animation loop. 
-
-	   The animation loop is often a recursive function, meaning it calls itself rapidly and repeatedly during the animation to draw each frame.
-	   
-	   If there are many elements being animated at once, you might want to first create the elements using a constructor function if your not already, and then within the constructor make a <code>timer()</code> method that has <code>requestAnimFrame/setTimeout</code> using it just how you would normally within any animation loop, but effects this element specifically only.
-	   
-	   **You could make each game element have it's own timer, draw, and animate methods** in the constructor. 
-
-	   Doing this gives you full separation of control for each element and one big animation loop will not be necessary at all since the loop is broken up into each element and you start/stop at will.
-
-	Or another option:
-
-	 - **Create a <code>Timer()</code> constructor function** which you can use and give each animating element individually, thereby minimizing work load within animation loops
-
-	One way I have seen it implemented is by using an animations array to allow for per-animation intervals. This explains how you would do that: planetb.ca/2012/03/… The Adobe Illustrator to Canvas plugin from Visitmix actually has a much more involved and complex implementation of this technique for animating individual objects. You can see a demo of something which uses it is here: visitmix.com/labs/ai2canvas/common/tutorials/part09/export/… 
-
-	If you look into the source code of the visitmix animation you will find the constructor function called Clock, and subsequent prototypes of it which inherit and extend each new clock created for the different objects of the animation. 
-
-	One other possible technique which I've been working on creating involves the use of constructor functions which are used to create the element(s) you need, which you can create a method which controls <code>this</code> elements' clock timer for it's own animation.
-
-
-
-	1) Use <code>clearRect()</code> to clear the canvas instead of <code>canvas.width=canvas.width</code>, because latter resets the canvas states
-
-	2) If you are using mouse events on the canvas use following function, its is reliable and works in most of the cases.
-
-	<textarea class="brush:css">
-	    /**  
-	     @returns the xy point where the mouse event was occured. 
-	     @param ev The event object.
-	    */
-	    function getXY(ev){
-		   return getMousePosition(ev, ev.srcElement || ev.originalTarget);
-	    }
-
-	     /**  returns the top-left point of the element
-	           @param elem The element
-	       */
-	    function getElementPos(elem){
-	       var obj = elem;
-	       var top = 0;
-	       var left = 0;
-	       while (obj && obj.tagName != "BODY") {
-	          top += obj.offsetTop-obj.scrollTop;
-	          left += obj.offsetLeft -obj.scrollLeft ;
-	          obj = obj.offsetParent;
-	       }
-	      return {
-	        top: top,
-	        left: left
-	        };
-	    };
-
-	    /**  returns the xy point where the mouse event was occured inside an element. 
-	     @param ev The event object.
-	     @param elem The element
-	    */
-	    function getMousePosition(evt, elem){
-			var pageX, pageY;
-			if(typeof(window.pageYOffset)=='number') {
-				pageX=window.pageXOffset;
-				pageY=window.pageYOffset;
-			}else{
-				pageX=document.documentElement.scrollLeft;
-				pageY=document.documentElement.scrollTop;
-			}
-		    var mouseX = evt.clientX - getElementPos(elem).left + pageX;
-		    var mouseY = evt.clientY - getElementPos(elem).top + pageY;
-		    return {
-		        x: mouseX,
-		        y: mouseY
-		    };
-	    };
-	</textarea>
-
-
-	3) Use ExCanvas if you want to support IE7
-
-	4) Instead of clearing the whole canvas clear only the part which is needed to be cleaned. Its good for performance.
-
-
-	Excanvas is a good library for supporting IE, but also another good one is Flashcanvas. I've used both, the choice should depend on your needs for a project
-
-	I have noticed that Flashcanvas has better support of more things in Canvas, but one thing that I did run into is it's lack of support for doing things off screen in temporary canvases, and then using <code>drawImage()</code> to draw the temporary canvases into the main context. It is not able to do it unless those canvases are not off-screen. FxCanvas claims to have support for this, but I was not able to get it to work in the time period I had to try and get it working before a launch
-
-
-
-	After having worked on a [recently launched Facebook app that uses Canvas][1] and users Facebook profile information (the amount of data it must accommodate is massive for some) to match you and friends of yours also using the app, to Olympic athletes like a 6 degrees of separation type of thing, there's quite a lot I have learned in my extensive efforts to do everything I could possibly try for increasing performance within the app.
-	 
-	I literally spent months, and days at a time just working to re-factor the code which I knew already so well, and believed it to be the most optimal way to do things.
-
-
-	## Use DOM Elements Whenever Possible
-
-	The fact is, browsers are still just not ready to handle more intensive running applications in Canvas, especially if you're required to develop the app with support for IE 8. There are sometimes cases where the DOM is faster than the current implementation of the Canvas API at the time of writing this. *At least I've found it to be while working on a massively complex single page animating html5 and canvas application for Samsung.*
-
-	We were able to do quite well at improving the performance of things while still using Canvas to do some complex work to crop images into circles, which would've probably been ok to stick with how we were doing it.
-
-	Days before the launch, we decided to try a different technique, and rather than create temporary canvases off-screen which were placed on the visible canvas once cropped into circles etc.., we just appended Image DOM elements on the Canvas, using the x and y coordinates that we had been using for placing the temp canvases before. 
-
-	For cropping the images into circles, well that was simple, we just used the CSS3 border-radius property to do it which was far less work than the complex series of state changes and while ingenious and creative yet over-use of the <code>.clip()</code> method. 
-
-	Once they are placed in the DOM, the animation of images the occurs, and the DOM nodes for each image are animated as separate entities of the Canvas. Ones that we can have full control over the styling off easily through CSS.
-
-	This technique is similar to another method for doing this type of work that is quite good to know as well, which involves layering Canvases on top of each other, rather than draw them to one context.
-
-
-	  [1]: http://apps.facebook.com/samsunggenomeproject/
-
+  [1]: http://jsperf.com/drawimage-whole-pixels
+  [2]: http://jsperf.com/math-round-vs-hack/3
+  [3]: http://sebleedelisle.com/2011/02/html5-canvas-sprite-optimisation/
+  
 </section>
