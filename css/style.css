@@ -422,17 +422,29 @@ header h1 a {
 }
 
 .intro {
-	background: url('img/icon-curly_50.png') no-repeat 0px 0px;
 	border-bottom: 1px #dcdcdc solid;
 	margin-bottom: 20px;
-	padding: 0 0 0 60px;
-	min-height: 60px;
-	position: relative;
+}
+
+.intro { 
+	min-height: 120px;
+}
+
+.intro .icon {
+	border-radius: 100px; 
+	-moz-border-radius: 100px;
+	-webkit-border-radius: 100px;
+	-o-border-radius: 100px;
+	height: 100px;
+	width: 100px;
+	background: #f30;
+	float: left;
+	display: inline;
+	margin: 0 20px 20px 0;
 }
 
 .intro h1, .intro h2,
 .intro p, .intro ol { margin-left: 10px; }
-.intro h1, .intro h2 { line-height: 1.5em; }
 .intro ol, .intro ul { list-style-position: inside; }
 
 
@@ -706,7 +718,7 @@ a[href^="https://wiki"], a[href^="http://repo"], a[href^="https://fusion"] { bac
     z-index: 100;
     position: relative;
     top: 0;
-	float: right;
+	/* float: right; */
 }
 
 .backAnchor, .backAnchor a {
