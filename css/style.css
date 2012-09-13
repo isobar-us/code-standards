@@ -719,7 +719,7 @@ a[href^="https://wiki"], a[href^="http://repo"], a[href^="https://fusion"] { bac
     z-index: 100;
     position: relative;
     top: 0;
-	float: right;
+	/* float: right; */
 }
 
 .backAnchor, .backAnchor a {
