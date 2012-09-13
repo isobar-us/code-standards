@@ -445,7 +445,6 @@ header h1 a {
 
 .intro h1, .intro h2,
 .intro p, .intro ol { margin-left: 10px; }
-.intro h1, .intro h2 { line-height: 1.5em; }
 .intro ol, .intro ul { list-style-position: inside; }
 
 

@@ -12,7 +12,7 @@ var isobar = {
 		],
 		init: function() {
 			// TODO: Need to re-run these methods after the ajax request returns the language content
-			this.toc();
+			// this.toc();
 			this.syntax();
 			this.backLink();
 
