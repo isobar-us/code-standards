@@ -39,5 +39,5 @@
 	<link rel="stylesheet" href="css/handheld.css" media="handheld">
 	
 	<!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
-	<script src="js/libs/modernizr-2.0.6.min.js"></script>
+	<script src="js/modernizr-2.0.6.min.js"></script>
 </head>

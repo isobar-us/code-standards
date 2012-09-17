@@ -139,14 +139,16 @@ button, input, select, textarea { margin: 0; }
 /* Colors for form validity */
 input:valid, textarea:valid   { }
 input:invalid, textarea:invalid {
-   border-radius: 1px;
-   -moz-border-radius: 1px;
-   -webkit-border-radius: 1px;
-   -o-border-radius: 1px;
-   box-shadow: 0 0 5px red;
-   -moz-box-shadow: 0 0 5px red;
-   -webkit-box-shadow: 0 0 5px red;
-   -o-box-shadow: 0 0 5px red;
+	-ms-border-radius: 1px;
+	-moz-border-radius: 1px;
+	-webkit-border-radius: 1px;
+	-o-border-radius: 1px;
+	border-radius: 1px;
+
+	-moz-box-shadow: 0 0 5px red;
+	-webkit-box-shadow: 0 0 5px red;
+	-o-box-shadow: 0 0 5px red;
+	box-shadow: 0 0 5px red;
 }
 
 .no-boxshadow input:invalid, .no-boxshadow textarea:invalid { background-color: #f0dddd; }
@@ -155,8 +157,8 @@ input:invalid, textarea:invalid {
 /* These selection declarations have to be separate
    No text-shadow: twitter.com/miketaylr/status/12228805301
    Also: hot pink! */
-::-moz-selection{ background: #FC861E; color: #fff; text-shadow: none; }
-::selection { background: #FC861E; color: #fff; text-shadow: none; }
+::-moz-selection{ background: #FF5E99; color: #fff; text-shadow: none; }
+::selection { background: #FF5E99; color: #fff; text-shadow: none; }
 
 /* j.mp/webkit-tap-highlight-color */
 a:link { -webkit-tap-highlight-color: #FC861E; }
@@ -247,20 +249,20 @@ body {
 ----------------------------------------------------------------------------------------------------*/
 
 body .fork { 
+	background: url('img/fork-me.png') no-repeat -15px top;
 	position: fixed; 
 	top: 0; 
 	right: -15px; 
 	z-index: 2; 
 	width: 149px; 
 	height: 149px; 
-	background: url('img/fork-me.png') no-repeat -15px top;
 }
 
 header { 
+	border-bottom: 3px solid #eee;
 	height: 60px;
 	width: 100%;
 	position: relative;
-	border-bottom: 3px solid #eee;
 }
 
 header a { 
@@ -270,6 +272,7 @@ header a {
 }
 
 header h1 {
+    background: url('img/isobar.png') no-repeat 0 0;
 	position: absolute;
 	top: 60px;
 	width: 137px;
@@ -292,7 +295,6 @@ header h1 a {
     width: 226px;
 }
 header h1 a { 
-    background: url('img/isobar.png') no-repeat 0 0;
     position: absolute;
 	text-indent: -9999em;
     height: 70px;
@@ -300,6 +302,26 @@ header h1 a {
 	display: block;
 }
 
+#flags {
+	margin: 25px 0 0;
+	height: 25px;
+	list-style: none;
+	display: inline-block;
+}
+#flags li {
+	display: inline-block;
+	width: 25px;
+	position: relative;
+}
+#flags li a {
+	cursor: pointer;
+}
+#flags lihover {
+	-moz-opacity: 0.8;
+	-ms-filter: "alpha(opacity=80)";
+    filter: alpha(opacity=80);
+	opacity: 0.8;
+}
 #social {
     background: rgba(64, 64, 64, 0.9);
     float: right;
@@ -320,8 +342,8 @@ header h1 a {
 }
 
 #social li a { 
-	width: 35px; 
 	background: url('img/sprite-social.png') no-repeat 0 0;
+	width: 35px; 
 }
 
 #social #facebook { background-position: -5px -5px; }
@@ -359,7 +381,7 @@ header h1 a {
 
 #main {
 	border-right: 1px #dcdcdc solid;
-	display: inline;
+	display: inline-block;
 	float: left;
 	overflow: hidden;
 	padding: 50px 29px 60px 0;
@@ -367,7 +389,7 @@ header h1 a {
 }
 
 #side {
-	display: inline;
+	display: inline-block;
 	float: left;
 	font-size: 13px;	
 	padding: 0;
@@ -387,14 +409,18 @@ header h1 a {
 	border-bottom: none;
 }
 
-#authors, #team {
+#authors, 
+#team,
+#revisions {
 	display: inline-block;
+}
+#authors, 
+#team {
 	width: 50%;
 	height: 250px;
 	float: left;
 }
 
-#main > section article, 
 .intro {
 	border-bottom: 1px #dcdcdc solid;
 	margin-bottom: 20px;
@@ -418,7 +444,7 @@ header h1 a {
 }
 
 .intro h1, .intro h2,
-.intro p, .intro ol { margin-left: 120px; }
+.intro p, .intro ol { margin-left: 10px; }
 .intro ol, .intro ul { list-style-position: inside; }
 
 
@@ -441,31 +467,33 @@ footer p {
 	padding: 5px 0;
 }
 
+footer a { color: #cdcdcd; }
+footer a:hover { color: #f30; }
+
 figure {
 	background: #fff;
-	border: 3px solid;
+	border: 2px solid;
 	border-color: #ddd #999 #666;
 	display: block;
-	margin: -15px -2px 10px;
+	margin: 10px 2px;
 	padding: 1px;
 	text-align: center;
-	box-shadow: #ccc 0 1px 3px;
-	-moz-box-shadow: #ccc 0 1px 3px;
-	-webkit-box-shadow: #ccc 0 1px 3px;
-	-o-box-shadow: #ccc 0 1px 3px;
+
+	-moz-box-shadow: 0 1px 3px 0 #ccc;
+	-webkit-box-shadow: 0 1px 3px 0 #ccc ;
+	-o-box-shadow: 0 1px 3px 0 #ccc;
+	box-shadow: 0 1px 3px 0 #ccc;
 }
 
 figure.extra { margin-top: 10px; }
 
 figcaption {
-	font-size: 10px; 
+	font-size: 10px;
 	font-style: italic;
 	text-align: left;
 }
 
-p {
-	margin: 0 0 10px 0;
-}
+p { margin: 0 0 10px 0; }
 
 p, ol, ul {
 	font-size: 14px;
@@ -474,8 +502,7 @@ p, ol, ul {
 
 abbr { border-bottom: 1px dotted; }
 
-a { color: #f30; /* #09f */ }
-
+a { color: #f30; }
 a:hover { color: #333; }
 
 p, dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address, fieldset {
@@ -505,18 +532,15 @@ h1 {
 	line-height: 1.1em;
 	margin-bottom: 14px;
 }
-
 h2 {
 	color: #000;
 	font-size: 24px;
 	margin-bottom: 12px;
 }
-
 h3 {
 	font-size: 22px;
 	margin-bottom: 11px;
 }
-
 h4 {
 	font-family: 'Times New Roman', Times, serif;
 	font-size: 20px;
@@ -524,7 +548,6 @@ h4 {
 	color: #555;
 	margin-bottom: 8px;
 }
-
 h6, figure.preCode {
 	background: #eeeee0;
 	color: #333;
@@ -538,10 +561,11 @@ figure.preCode {
 	display: block;
 	margin: 8px 0 0 0;
 	text-align: inherit;
-	box-shadow: none;
+
 	-moz-box-shadow: none;
 	-webkit-box-shadow: none;
 	-o-box-shadow: none;
+	box-shadow: none;
 }
 
 textarea[class~="brush:js"], textarea[class~="brush:css"], 
@@ -571,13 +595,15 @@ p code, li code, table code {
 }
 
 #criteria_options a {
-	border-radius: 20px;
-	-moz-border-radius: 20px;
-	-webkit-border-radius: 20px;
 	display: block;
 	font-weight: bold;
 	outline: 0;
 	padding: 5px 15px;
+
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	-ms-border-radius: 20px;
+	border-radius: 20px;
 }
 
 #criteria_options a:hover {
@@ -599,30 +625,6 @@ p code, li code, table code {
 .float_left { float: left; }
 .float_right { float: right; }
 
-.box, .box_notice {
-	background: #f6f6f6;
-	border: 1px solid;
-	border-color: #ddd #ccc #999;
-	box-shadow: #ccc 0 1px 3px;
-	-moz-box-shadow: #ccc 0 1px 3px;
-	-webkit-box-shadow: #ccc 0 1px 3px;
-	margin: 0 0 20px;
-	padding: 20px 20px 0.01em;
-}
-
-.box_notice { background: #ffd; }
-
-.box_title {
-	background: #777;
-	background: rgba(0, 0, 0, 0.5);
-	color: #fff;
-	font-size: 13px;
-	font-weight: bold;
-	margin: -19px -19px 20px;
-	padding: 5px 10px;
-	text-shadow: #000 0 1px 1px;
-}
-
 .normalize { margin-bottom: 5px; }
 
 dl { margin-left: 15px; }
@@ -640,7 +642,6 @@ a[href^="https://wiki"], a[href^="http://repo"], a[href^="https://fusion"] { bac
 
 #side .toc-title {
 	border-bottom: 1px solid gainsboro;
-/*  border-top: 50px solid rgba(64, 64, 64, .9); */
 	border-top: 10px solid #FF3300;
 	font-family: 'Calibri','AlexandriaBold';
 	font-size: 30px;
@@ -657,7 +658,7 @@ a[href^="https://wiki"], a[href^="http://repo"], a[href^="https://fusion"] { bac
     padding: 0;
     position: fixed;
     top: 125px;
-	width: 300px;
+	width: 290px;
 }
 
 #toc li {
@@ -671,10 +672,10 @@ a[href^="https://wiki"], a[href^="http://repo"], a[href^="https://fusion"] { bac
     text-decoration: none;
 }
 #toc li a:hover {
-	cursor: pointer; 
-	background: hsla(0, 0%, 40%, 1); 
-	color: #fff; 
+	background: #f30;
+	color: #fff;
 	text-shadow: 0 -1px 1px rgba(0, 0, 0, .5);
+	cursor: pointer;
 }
 
 #toc .h1 {
@@ -713,11 +714,11 @@ a[href^="https://wiki"], a[href^="http://repo"], a[href^="https://fusion"] { bac
     color: rgba(137, 137, 137, 0.4);
     font-size: 20px;
     font-weight: normal;
-    position: relative;
     text-decoration: none;
-    top: 0;
-    left: 5px;
     z-index: 100;
+    position: relative;
+    top: 0;
+	/* float: right; */
 }
 
 .backAnchor, .backAnchor a {
@@ -867,7 +868,7 @@ html body div.syntaxhighlighter * {
 body { width: 80%; font-family: Calibri, Arial, Helvetica, sans-serif; }
 header { width: 100%; }
 
-header #logo { background: url("../img/isobar.png") no-repeat 0 0; }
+header #logo { background: url("img/isobar.png") no-repeat 0 0; }
 
 h1, h2, h3, h4, h5, h6 { }
 
