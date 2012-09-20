@@ -1,14 +1,16 @@
-#  Roundarch Isobar Front-end Development Standards and Guidelines [http://na.isobar.com/standards](http://na.isobar.com/standards)
+#  Roundarch Isobar Front-end Development Standards and Guidelines [http://isobar-idev.github.com/code-standards](http://isobar-idev.github.com/code-standards)
 
 ## License:
 
 All content licensed under Creative Commons Attribution 3.0 Unported License
 
-## Work in Progress (Fall 2012)
+## Please Update Your Bookmarks
 
-We're currently working on a rather large set of changes to this document in both the build structure and content. Please keep your eyes open for some updates.
+It is important that anyone who follows these standards note that as of mid-September 2012, the [old link](http://na.isobar.com/standards) has been retired in favor of the new Github-hosted version of the documents. 
 
-This includes proper integration of the multi-lingual translations, as we're not happy with the current implementation (and was never even pushed live). Also, naturally, some more guidelines document and a general code cleanup.
+> **New Link:** [Roundarch Isobar Front End Code Standards & Guidelines](http://isobar-idev.github.com/code-standards)
+
+The Roundarch Isobar Front End Code Standards & Guidelines document is a living document that has many changes on the way. We're also going to be making some subtle changes to the Github repo structure so please keep your eyes open.
 
 ## Summary:
 
