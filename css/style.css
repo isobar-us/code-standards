@@ -179,33 +179,6 @@ button { width: auto; overflow: visible; }
 /* Fix clearfix: blueprintcss.lighthouseapp.com/projects/15318/tickets/5-extra-margin-padding-bottom-of-page */
 .clearfix { zoom: 1; }
 
-/**
- * You might tweak these..
- */
-
-/* New bulletproof @font-face by fontspring:
-   http://www.fontspring.com/blog/further-hardening-of-the-bulletproof-syntax/ */
-@font-face {
-    font-family: 'Alexandria';
-    src: url('fonts/alexandriaflf-webfont.eot'); /* IE9 Compat Modes */
-    src: url('fonts/alexandriaflf-webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('fonts/alexandriaflf-webfont.woff') format('woff'), /* Modern Browsers */
-         url('fonts/alexandriaflf-webfont.ttf') format('truetype'), /* Safari, Android, iOS */
-         url('fonts/alexandriaflf-webfont.svg#Alexandria') format('svg'); /* Legacy iOS */
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'AlexandriaBold';
-    src: url('fonts/alexandriaflf-bold-webfont.eot');
-    src: url('fonts/alexandriaflf-bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/alexandriaflf-bold-webfont.woff') format('woff'),
-         url('fonts/alexandriaflf-bold-webfont.ttf') format('truetype'),
-         url('fonts/alexandriaflf-bold-webfont.svg#AlexandriaBold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
 body, select, input, textarea {
   /* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */
   color: #444;
