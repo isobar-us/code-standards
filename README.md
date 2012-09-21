@@ -12,6 +12,14 @@ It is important that anyone who follows these standards note that as of mid-Sept
 
 The Roundarch Isobar Front End Code Standards & Guidelines document is a living document that has many changes on the way. We're also going to be making some subtle changes to the Github repo structure so please keep your eyes open.
 
+## Master Branch Madness
+
+There was an errant series of commits to the master branch of this repo earlier this year, which resulted in the HTML5 Boilerplate history being brought into the repo.
+
+Due to the extent of the issues and subsequent conflicts in trying to rebase based on prior commits, we opted for the extreme measure of replacing/renaming the `master` branch on this repo.
+
+> Apologies in advance. This may result in some FORKS or local CLONES looking woefully out of date (in the order of 300 commits). The best thing for users to do is to fork again, rebase, or just start with a fresh master locally.
+
 ## Summary:
 
 This document contains guidelines for web applications built by the Creative Technology (front end engineering) practice of Roundarch Isobar (previously Isobar & Molecular). It is to be readily available to anyone who wishes to check or contribute to the iterative progress of our discipline's best practices.
