@@ -4,6 +4,10 @@
 
 All content licensed under Creative Commons Attribution 3.0 Unported License
 
+## Branch Updates
+
+Update: 1/28/13 - The vast majority of the merge issues have been resolved at this point, save for some changes we have coming from a private repository. In the process of removing the PHP files as well as we're fully migrating to Github hosted pages. A Grunt.js build process is on the way as well as a mobile/responsive layout. Keep your eyes open and touch base if you'd like to help! We have several issues open in the issue tracker.
+
 ## Please Update Your Bookmarks
 
 It is important that anyone who follows these standards note that as of mid-September 2012, the [old link](http://na.isobar.com/standards) has been retired in favor of the new Github-hosted version of the documents. 
