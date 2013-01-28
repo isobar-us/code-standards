@@ -3,8 +3,8 @@
 <section id="seo">
 
 	<div class="intro has-icon">
-		<img class="icon" src="css/img/icon-curly.png" alt="{}" />
-
+		<img class="icon" src="img/layout/icon-curly.png" alt="{}" />
+		
 		<h1>Search Engine Optimization</h1>		
 		
 		<p>An essential part of good web design and development is SEO. Well-structured code is the key to ensuring that a web page not only gets properly indexed by search engines, but made accessible to those with limited web capabilities as well.</p>
@@ -50,7 +50,26 @@
 	<pre>http://domain.com/mens-shoes/basketball/jordan/jordan-mens-ajf-6-basketball-shoe/</pre>	
 	<p><strong>vs</strong></p>
 	<pre>http:// domain.com/ecomm.cfm?view=prod&prodId=23425</pre>
-		
+	
+	
+	<h4>Flash and Image Replacement</h4>
+
+	<p>Always use backup HTML content for flash. All promo images should use CSS-based image replacement instead of alt tags.</p>
+
+	<figure class="preCode">>Fallback non-flash version:</figure>
+	<textarea class="brush:html">
+		<a href="/nike/morethanagame/" id="morethan">
+		  <h4>Nike: More Than A Game</h4>
+		  <h5>Experience the movement and view apparel</h5>
+		</a>
+	</textarea>
+	
+	<br />
+	<textarea class="brush:css">
+		a#more than { background:url(/promos/nikegame.jpg) no-repeat; width: 200px; height: 100px;
+					 text-indent: -999px; overflow:hidden; display:block; }
+	</textarea>
+	
 	<h3>Google's SEO Report Card</h3>
 
 	<p><a href="http://googlewebmastercentral.blogspot.com/2010/03/googles-seo-report-card.html">Google's SEO Report Card</a> is an effort to provide Google's product teams with ideas. on how they can improve their products' pages using simple and accepted optimizations. These optimizations are intended to not only help search engines understand the content of their pages better, but also to improve their our users' experience.</p>

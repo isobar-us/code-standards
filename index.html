@@ -1,0 +1,1801 @@
+---
+layout: main
+title: Front-end Code Standards &amp; Best Practices
+meta:
+    description: Roundarch Isobar's Coding Standards and Frontend development Best Practices
+    keywords: Roundarch Isobar code standards, coding standards, frontend development, frontend best practices, html code standards, html5 code standards, css code standards, best code practices, development, frontend development
+---
+
+<!-- #### GENERAL SECTION #### -->
+
+<h1>Front-end Code Standards &amp; Best Practices</h1>
+
+<h2>Overview</h2>
+
+<p>This document contains guidelines for web applications built by the Creative Technology (front end engineering) practice of Roundarch Isobar. It is to be readily available to anyone who wishes to check the iterative progress of our best practices.</p>
+
+<p>This document's primary motivation is two- fold: <tt>1)</tt> code consistency and <tt>2)</tt> best practices. By maintaining consistency in coding styles and conventions, we can ease the burden of legacy code maintenance, and mitigate risk of breakage in the future. By adhering to best practices, we ensure optimized page loading, performance and maintainable code.</p>
+
+
+<section id="general">
+
+	<div class="intro has-icon">
+		<img class="icon" src="img/layout/icon-curly.png" alt="{}" />
+		<h1>General Guidelines</h1>
+	</div>
+	
+	<h2>Pillars of Front-end Development</h2>
+	
+	<ol>
+		<li>Separation of presentation, content, and behavior.</li>
+		<li><a href="http://www.bbc.co.uk/guidelines/futuremedia/technical/semantic_markup.shtml">Markup should be well-formed, semantically correct</a> and <a href="#_appendix_a_validators">generally valid</a>.</li>
+		<li><a href="http://icant.co.uk/articles/pragmatic-progressive-enhancement/">Javascript should progressively enhance the experience</a>.</li>
+	</ol>
+	
+	
+	<h2>General Practices</h2>
+	
+	<h3>Indentation</h3>
+	
+	<p>For all code languages, we require indentation to be done via soft tabs (using the space character). Hitting <em>Tab</em> in your text editor shall be equivalent to <b>four spaces</b>.</p>
+	
+	
+	<h3>Readability vs Compression</h3>
+	
+	<p>We prefer readability over file-size savings when it comes to maintaining existing files. Plenty of whitespace is encouraged, along with ASCII art, where appropriate. There is no need for any developer to purposefully compress HTML or CSS, nor obfuscate JavaScript.</p>
+	
+	<p>We will use server-side or build processes to automatically minify and gzip all static client-side files, such as CSS and JavaScript.</p>
+
+</section>
+<!-- #### MARKUP SECTION #### -->
+
+<section id="markup">
+
+	<div class="intro has-icon">
+		<img class="icon" src="img/layout/icon-curly.png" alt="{}" />
+		<h1>Markup</h1>
+		
+		<p>The first component of any web page is the tag-based markup language of <abbr title="HypterText Markup Language">HTML</abbr>. The Hyper Text Markup Language (HTML) has a sordid history but has come into its own in the last few years. After a lengthy experimentation with the XML-based  XHTML variant the industry has accepted that HTML is the future of the web.</p>
+		
+		<p>Markup defines the structure and outline of a document and offers a structured content. Markup is not intended to define the look and feel of the content on the page beyond rudimentary concepts such as headers, paragraphs, and lists. The presentation attributes of HTML have all been deprecated and style should be contained in <a href="#css">style sheets</a>.</p>
+	</div>
+	
+	<h2 id="html5">HTML5</h2>
+	
+	<p><a href="http://www.ibm.com/developerworks/library/wa-webstandards/index.html">HTML5</a> is a new version of HTML and XHTML. The <a href="http://www.w3.org/TR/html5/">HTML5 draft</a> specification defines a single language that can be written in HTML and XML. It attempts to solve issues found in previous iterations of HTML and addresses the needs of <em>web applications</em>, an area previously not adequately covered by HTML. (<a href="http://html5.org/">source</a>).</p>
+	
+	<p>We will use the HTML5 Doctype and HTML5 features when appropriate.</p>
+	
+	<p>We will test our markup against the <a href="http://validator.w3.org/">W3C validator</a>, to ensure that the markup is well formed. 100% valid code is not a goal, but validation certainly helps to write more maintainable sites as well as debugging code. <b>Roundarch Isobar does not guarantee code is 100% valid, but instead assures the cross-browser experience is fairly consistent</b>.</p>
+
+	<h3 id="h5bp">Template</h3>
+	
+	<p>For HTML5 Documents we use a fork of <a href="http://html5boilerplate.com/">H5BP</a> modified for our own project needs. <a href="https://github.com/isobar-idev/html5-boilerplate">Fork the Github repository</a>.</p>
+	
+	<h2>Doctype</h2>
+	
+	<p>A proper Doctype which triggers standards mode in your browser should always be used. Quirks mode should always be avoided.</p>
+	
+	<p>A nice aspect of HTML5 is that it streamlines the amount of code that is required. Meaningless attributes have been dropped, and the <code>DOCTYPE</code> declaration has been simplified significantly. Additionally, there is no need to use <code>CDATA</code> to escape inline JavaScript, formerly a requirement to meet XML strictness in XHTML.</p>
+	
+	<figure class="preCode">HTML5 Doctype</figure>
+	<textarea class="brush:html">
+		<!DOCTYPE html>
+	</textarea>
+	
+	<h3>Character Encoding</h3>
+
+	<p>All markup should be delivered as UTF-8, as its the most friendly for internationalization. It should be designated in both the HTTP header and the head of the document.</p>
+	
+	<p>Setting the character set using &lt;meta&gt; tags.</p>
+	<textarea class="brush:html">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</textarea>
+	
+	<p>In HTML5, just do:</p>
+	<textarea class="brush:html">
+		<meta charset="utf-8">
+	</textarea>
+
+	<!--<h3>Use of new semantic elements</h3>
+	
+	<p>Elements such as <code>header, footer, section, article</code>, and others, can be used multiple times on a page, and more than once within one or the other even. In cases where there will be more than one of the same element, that is used for the same thing such as using <code>article</code> for each blog post of a page and each article having a <code>header</code> and <code>footer</code>, adding a class to them can help separate them from any other places you may use these elements on the page. That way you can target the elements more specifically in your CSS. However this is not always necessary, depending on the structure of the page and the way you define your selectors.</p>
+	
+	<textarea class="brush:html">
+		<header>
+			<h1>Our Blog</h1>
+		</header>
+		
+		<article>
+			<header>
+				<h1>This is the best blog title ever</h1>			
+			</header>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+		</article>
+		<article>
+			<header>
+				<h1>This is the second best blog title</h1>
+			</header>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+		</article>
+	</textarea>
+	
+	<p>Structuring pages cleanly allows for simplified selectors which keep the specificity level low making it easier to override selectors later on as the stylesheet grows.</p>
+	
+	<textarea class="brush:css">
+	header h1 { color: red; }
+	article header h1 { color: blue; }
+	</textarea>-->
+
+	<h2>General Markup Guidelines</h2>
+
+	<p>The following are general guidelines for structuring your HTML markup. Authors are reminded to always use markup which represents the semantics of the content in the document being created.</p>
+	
+	<ul>
+		<li>Use actual P elements for paragraph delimiters as opposed to multiple BR tags.</li>
+		<li>Make use of DL (definition lists) and BLOCKQUOTE, when appropriate.</li>
+		<li>Items in list form should always be housed in a UL, OL, or DL, never a set of DIVs or Ps.</li>
+		<li>Use <code>label</code> fields to label each form field, the <code>for</code> attribute should associate itself with the input field, so users can click the labels. 
+			<code>cursor:pointer;</code> on the label is wise, as well. <sup><a href="http://www.accessifyforum.com/viewtopic.php?t=1926#14178">note 1</a> 
+			<a href="http://www.accessifyforum.com/viewtopic.php?t=6738">note 2</a></sup>
+		</li>
+		<li>Do not use the size attribute on your input fields. The size attribute is relative to the font-size of the text inside the input. Instead use css width.</li>
+		<li>Place an html comment on some closing div tags to indicate what element you're closing. It will help when there is lots of nesting and indentation.</li>
+		<li>Tables shouldn't be used for page layout.</li>
+		<li>Use <a href="http://en.wikipedia.org/wiki/Microformat">microformats</a> and/or Microdata where appropriate, specifically hCard and adr.</li>
+		<li>Make use of THEAD, TBODY, and TH tags (and Scope attribute) when appropriate.
+
+			<figure class="preCode">Table markup with proper syntax (THEAD,TBODY,TH [scope])</figure>
+			<textarea class="brush:html">
+				<table summary="This is a chart of year-end returns for 2005.">
+					<thead>
+						<tr>
+							<th scope="col">Table header 1</th>
+							<th scope="col">Table header 2</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Table data 1</td>
+							<td>Table data 2</td>
+						</tr>
+					</tbody>
+				</table>
+			</textarea>
+		</li>
+	
+		<li>Always use title-case for headers and titles. Do not use all caps or all lowercase titles in markup, instead apply the CSS property <code>text-transform:uppercase/lowercase</code>.</li>
+	</ul>	
+
+	<h3>Quoting Attributes</h3>
+	
+	<p>The HTML5 specification defines quotes around attributes as optional. For consistency with attributes that accept whitespace, all attributes should be quoted. </p> 
+	
+	<textarea class="brush:html">
+		<p class="line note" data-attribute="106">This is my paragraph of special text.</p>
+	</textarea>
+	
+</section>
+<!-- #### CSS SECTION #### -->
+
+
+<section id="css">
+
+	<div class="intro has-icon">
+		<img class="icon" src="img/layout/icon-curly.png" alt="{}" />
+		<h1>CSS</h1>
+		
+		<p>The second component of a web page is the presentation information contained in the Cascading Style Sheet (<abbr title="Cascading Style Sheets">CSS</abbr>.) Web browsers successful implementation of CSS has given a whole generation of web authors site-wide control over the look and feel of their web sites.</p>
+		
+		<p>Just as the information on a web page is semantically described in the <a href="#markup">HTML Markup</a>, CSS describes all presentation aspects of the page via a description of its visual properties. CSS is powerful in that these properties are mixed and matched via identifiers to control the page's layout and visual characteristics through the layering of style rules (the "cascade").</p>
+	</div>
+
+	<h3>General Coding Principles</h3>
+	
+	<ul>
+		<li>Add CSS through external files, minimizing the # of files, if possible. It should always be in the HEAD of the document.</li>
+		<li>Use the LINK tag to include, <a href="http://blog.amodernfable.com/2008/01/21/thoughts-on-linking-to-stylesheets/">never the @import.</a>
+	
+			<figure class="preCode">Including a stylesheet</figure>
+			<textarea class="brush:html">
+				<link rel="stylesheet" type="text/css" href="myStylesheet.css" />
+			</textarea>
+	
+			<figure class="preCode">Don't use inline styling</figure>
+			<textarea class="brush:html">
+				<p style="font-size: 12px; color: #FFFFFF">This is poor form, I say</p>
+			</textarea>
+			
+			</li>
+
+		<li>Don't include styles inline in the document, either in a style tag or on the elements. It's harder to track down style rules.</li>	
+		<li>Use <a href="http://necolas.github.com/normalize.css/">normalize.css</a> to make rendering more consistent across browsers.</li>
+		<li>Use a font-normalization file like <a href="http://developer.yahoo.com/yui/fonts/">YUI fonts.css</a></li>	
+		<li>Elements that occur only once inside a document should use IDs, otherwise, use classes.</li>
+		<li>Understand <a href="http://www.stuffandnonsense.co.uk/archives/css_specificity_wars.html">cascading and selector specificity</a> so you can write very terse and effective code.</li>
+		<li>Write selectors that are optimized for speed. Where possible, avoid expensive CSS selectors. For example, avoid the * wildcard selector and don't qualify ID selectors (e.g. <code>div#myid</code>) or class selectors (e.g. <code>table.results</code>.)  This is especially important with web applications where speed is paramount and there can be thousands or even tens of thousands of DOM elements. More on <a href="https://developer.mozilla.org/en/Writing_Efficient_CSS">writing efficient CSS on the MDC</a>.</li>
+	</ul>
+	
+	<h3>CSS Box Model</h3>
+
+	<p>Intimate knowledge and understanding of the CSS and browser-based box model is necessary for conquering the fundamentals of CSS layouts.</p>
+	
+	<figure class="extra">
+		<img src="img/box_model.png" alt="CSS Box Model" title="CSS Box Model" />
+		<figcaption><small>3D CSS Box Model</small> diagram by <a href="http://hicksdesign.co.uk/boxmodel/">Jon Hicks</a>.</small></figcaption>
+	</figure>
+	
+	<h3>CSS Validation</h3>
+	
+	<p>We typically don't use the <a href="http://jigsaw.w3.org/css-validator/">W3C validator</a>.</p>
+	
+	
+	<h3>CSS Formatting</h3>
+	
+	<p>At minimum, format CSS with selectors on one line and each property on its own line. The declarations are indented. </p>
+	<p>As an enhancement to that style, related or child styles and additional 2 or 4 spaces. That allows for hierarchical scanning and organization and makes (for some people) an easier-to-read style sheet.</p>
+	<p>Also, if you specify multiple selectors, it's a good idea to start each on new line. This prevents lines from growing long and improves readability as well as version control workflow.</p>
+    <textarea class="brush:css">
+    .post-list li a{
+		color:#A8A8A8;
+	}
+    	.post-list li a:hover{
+        	color:#000;
+        	text-decoration:none;
+     	}
+     	.post-list li .author a, 
+     	.post-list li .author a:hover{
+        	 color:#F30;
+       		 text-transform:uppercase;
+     	}
+    </textarea>
+    <p>For multiple author environments, single line CSS should be avoided because it can cause issues with version control. </p>
+	<h4>Alphabetize</h4>
+    <p>If you're performance obsessed <a href="http://www.barryvan.com.au/2009/08/css-minifier-and-alphabetiser/">alphabetizing CSS properties increases the odds of larger repeatable patterns being present to aid in GZIP compression</a>. </p> 
+<h3>Classes vs. IDs</h3>
+	
+	<p>You should only give elements an ID attribute if they are unique. They should be applied to that element only and nothing else. Classes can be applied to multiple elements that share the same style properties. Things that should look and work in the same way can have the same class name.</p>
+	
+	<textarea class="brush:html">
+		<ul id="categories">
+			<li class="item">Category 1</li>
+			<li class="item">Category 2</li>
+			<li class="item">Category 3</li>
+		</ul>
+	</textarea>
+	
+	<h3>Naming Conventions for Selectors</h3>
+	
+	<p>It is always preferable to name something, be it an ID or a class, by the nature of <strong>what it is</strong> rather than by <strong>what it looks like</strong>. For instance, a class name of <code>bigBlueText</code> for a special note on a page is quite meaningless if it has been changed to have a small red text color. Using a more intelligent convention such as <code>noteText</code> is better because when the  visual style changes it still makes sense.</p>
+	
+	
+	<h3>Selectors</h3>
+	
+	<p>The <a href="http://www.w3.org/TR/2009/PR-css3-selectors-20091215/">CSS Selectors Level 3</a> specification introduces a whole new set of <a href="http://www.w3.org/TR/css3-selectors/#selectors">CSS Selectors</a> that are extremely useful for better selection of elements.</p>
+	
+	
+	<h4>Pseudo-classes</h4>
+	
+	<p><a href="http://www.w3.org/TR/css3-selectors/#pseudo-classes">Pseudo-classes</a> enable you to dynamically style content. Some pseudo-classes have existed since CSS1 (<code>:visited, :hover</code>, etc.) and CSS2 (<code>:first-child, :lang</code>). As of CSS3, 16 new pseudo-classes have been added to the list and are especially useful for styling dynamic content. <a href="http://www.smashingmagazine.com/2011/03/30/how-to-use-css3-pseudo-classes/">Learn how to use pseudo-classes in-depth</a>.</p>
+	
+	
+	<h4>Combinators &amp; Attribute Selectors</h4>
+	
+	<p><a href="http://www.w3.org/TR/css3-selectors/#combinators">Combinators</a> provide shortcuts for selecting elements that are a descendant element, a child element, or an element's sibling.</p>
+	
+	<p><a href="http://www.w3.org/TR/css3-selectors/#attribute-selectors">Attribute Selectors</a> are great for finding elements that have a specific attribute and/or specific value. Knowledge of regular expressions helps with attribute selectors. </p>
+
+	
+	
+<h4>Specificity</h4>
+	
+	<p>Browsers <a href="http://www.w3.org/TR/2009/PR-css3-selectors-20091215/">calculate a selector's specificity</a> to determine which CSS rule should apply. If two selectors apply to the same element, the one with the <strong>higher specificity wins</strong>.</p>
+	
+	<p>IDs have a higher specificity than attribute selectors do, and class selectors have higher specificity than any number of element selectors. Always try to use IDs to increase the specificity. There are times when we may try to apply a CSS rule to an element and it does not work no matter what we try. This is likely because the specificity of the selector used is lower than another one and the properties of the higher one are taking precedence over those you want to apply. This is more common in working with larger more complex stylesheets. It isn't a big issue with smaller projects usually.</p>
+	
+	<h5>Calculating specificity</h5>
+	
+	<p>When working with a large and complex stylesheet it helps to know how to calculate the value of a selector's specificity, to save you time and to make your selectors more efficient.</p>
+	
+	<p>Specificity is calculated by counting various components of your CSS and expressing them in a form (a,b,c,d).</p>
+	
+	<ul>
+		<li>Element, Pseudo Element: d = 1 – (0,0,0,1)</li>
+		<li>Class, Pseudo class, Attribute: c = 1 – (0,0,1,0)</li>
+		<li>Id: b = 1 – (0,1,0,0)</li>
+		<li>Inline Style: a = 1 – (1,0,0,0)</li>
+	</ul>
+	
+	<p>However, it may be better to use a specificity calculator.</p>
+	
+	<ul>
+		<li><a href="">Specificity Calculator</a></li>
+		<li><a href="http://www.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/">Some things you should know about specificity</a></li>
+		<li><a href="http://www.brunildo.org/test/IEASpec.html#a">IE Specificity bugs</a></li>
+	</ul>
+	
+	<p>Using <code>!important</code> overrides all specificity no matter how high it is. We like to avoid using it for this reason. Most of the time it is not necessary. Even if you need to override a selector in a stylesheet you don't have access to, there are usually ways to override it without using !important. Avoid using it if possible.</p>
+
+
+	<h3>Pixels vs. Ems</h3>
+	
+	<p>We use the <code>px</code> unit of measurement to define <code>font size</code>, because it offers absolute control over text. We realize that using the <code>em</code> unit for font sizing used to be popular, to accommodate for Internet Explorer 6 not resizing pixel based text. However, all major browsers (including <abbr title="Internet Explorer 7">IE7</abbr> and <abbr title="Internet Explorer 8">IE8</abbr>) now support text resizing of pixel units and/or full-page zooming. Since <abbr title="Internet Explorer 6">IE6</abbr> is largely considered deprecated, pixels sizing is preferred. Additionally, unit-less <code>line-height</code> is preferred because it does not inherit a percentage value of its parent element, but instead is based on a multiplier of the <code>font-size</code>.</p>
+	
+	
+	<figure class="preCode">Correct</figure>
+	<textarea class="brush:css">
+		#selector {
+			font-size: 13px;
+			line-height: 1.5;  /*  13 * 1.5 = 19.5 ~ Rounds to 20px. */
+		}
+	</textarea>
+	
+	<figure class="preCode">Incorrect</figure>
+	<textarea class="brush:css">
+		/*  Equivalent to 13px font-size and 20px line-height, but only if the browser default text size is 16px. */
+		#selector {
+			font-size: 0.813em;
+			line-height: 1.25em;
+		}
+	</textarea>
+	
+	
+	<h3>Internet Explorer Bugs</h3>
+	
+	<p>Inevitably, when all other browsers appear to be working correctly, any and all versions of Internet Explorer will introduce a few nonsensical bugs, delaying time to deployment. While we encourage troubleshooting and building code that will work in all browsers without special modifications, sometimes it is necessary to use conditional <code>if IE</code> comments for CSS hooks we can use in our stylesheets. <a href="http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/">Read more on paulirish.com</a></p>
+	
+	
+	<figure class="preCode">Fixing IE</figure>
+	<textarea class="brush:html">
+		<!--[if lt IE 7 ]> <body class="ie6"> <![endif]-->
+		<!--[if IE 7 ]>    <body class="ie7"> <![endif]-->
+		<!--[if IE 8 ]>    <body class="ie8"> <![endif]-->
+		<!--[if IE 9 ]>    <body class="ie9"> <![endif]-->
+		<!--[if !IE]><!--> <body> <!--<![endif]-->
+	</textarea>
+	
+	<textarea class="brush:css">
+		.box { float: left; margin-left: 20px; }
+		.ie6 .box { margin-left: 10px; }
+	</textarea>
+	
+	<p>If you're using HTML5 (and the <a href="#h5bp">HTML5 Boilerplate</a>) we encourage the use of the <a href="http://www.modernizr.com/">Modernizer</a> JavaScript library and this pattern:</p>
+	 
+	<textarea class="brush:html">
+		<!--[if lt IE 7]> <html class="no-js ie ie6" lang="en"> <![endif]-->
+		<!--[if IE 7]>    <html class="no-js ie ie7" lang="en"> <![endif]-->
+		<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+		<!--[if IE 9]>    <html class="no-js ie9" lang="en"> <![endif]-->
+		<!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
+	</textarea>
+<h3>Shorthand</h3>
+	
+	<p>In general, CSS shorthand is preferred because of its terseness, and the ability to later go back and add in values that are already present, such as the case with margin and padding. Developers should be aware of the <abbr title="Top Right Bottom Left">TRBL</abbr> acronym, denoting the order in which the sides of an element are defined, in a clock-wise manner: Top, Right, Bottom, Left. If <em>bottom</em> is undefined, it inherits its value from <em>top</em>. Likewise, if <em>left</em> is undefined, it inherits its value from <em>right</em>. If only the <em>top</em> value is defined, all sides inherit from that one declaration.</p>
+	
+	<p class="normalize">For more on reducing stylesheet code redundancy, and using CSS shorthand in general:</p>
+	
+	<ul>
+		<li><a href="http://qrayg.com/journal/news/css-background-shorthand">http://qrayg.com/journal/news/css-background-shorthand</a></li>
+		<li><a href="http://sonspring.com/journal/css-redundancy">http://sonspring.com/journal/css-redundancy</a></li>
+		<li><a href="http://dustindiaz.com/css-shorthand">http://dustindiaz.com/css-shorthand</a></li>
+	</ul>
+	
+	<h3>Images</h3>
+	
+	<ul>
+		<li>For repeating images, use <a href="http://www.iandevlin.com/blog/2010/03/webdev/fading-issue-with-repeating-background-transparent-image-in-internet-explorer">something larger than 1x1 pixels</a></li>
+		<li>You should never be using spacer images.</li>
+		<li>Use <a href="#_leverage_css_sprites">CSS sprites generously</a>. They make hover states easy, improve page load time, and reduce carbon dioxide emissions.</li>
+
+		<li>Typically, all images should be sliced with a transparent background (PNG8). All should be cropped tightly to the image boundaries.
+			<ul>
+				<li>However, the logo should always have a background matte and have padding before the crop. (so other people can hotlink to the file)</li>
+			</ul>
+		</li>
+	</ul>
+<h3>Color Management</h3>
+    <ul>
+        <li>Verify that all members on your team have consistent color management settings.</li>
+           <ul>
+               <li>Any given two monitors most likely display the colors differently, but sRGB color profile must be your default.</li>
+               <li>When you open files in Photoshop, pay attention to Color Profile warnings and notify team members when Photoshop is suggesting to convert an image to a different profile.</li> 
+			</ul>
+        <li>Never embed a color profile in your images.
+            <ul>
+				<li>When you Save for Web and Devices from Photoshop, be sure to uncheck &quot;Embed Color Profile.&quot;</li>
+			</ul> </li>
+    </ul>
+
+	<hr />
+	
+	<h3>General Text and Font Styling</h3>
+	
+	<h4>Headings</h4>
+	
+	<ul>
+		<li>Define default styling for <code>h1-h6</code> headings including headings as links. It's helpful to declare these at the top of your CSS document, and modify them with as necessary for consistency across the site.</li>
+		<li>Headings should show a hierarchy indicating different levels of importance from the top down starting with h1 having the largest font size.</li>
+		<li>SEO: To get a rough idea of how your page hierarchy is organized and read, use your Developer Toolbar to disable CSS. You'll end up with a text-based view of all your <code>h1-h6</code> tags, <code>strong</code>, <code>em</code>, etc.</li>
+	</ul>
+	
+	<h4>Links</h4>
+	
+	<ul>
+		<li>Default styles for links should be declared and different from the main text styling, and with differing styles for hover state.</li>
+		<li>When styling links with underlines use <code>border-bottom</code> and some padding with <code>text-decoration: none;</code>. This just looks better.</li>
+	</ul>
+
+	<!-- #### WEB TYPOGRAPHY SECTION #### -->
+	
+	<!--========================*\
+	 oh rly?	ya rly!  
+	   \ ___,    ___ /   _,_  no rly?
+	    {O,0}   {-.-}   {o,O} /
+	    |)__)   |)~(|   (~~(|
+	-----"-"-----"-"-----"-"-----,_
+	=========================== -->
+
+	<h2>Web Typography</h2>
+
+	<p>The use of custom fonts and typefaces on the web has been growing more popular the past few years. with native browser support on the rise and several supporting services and APIs now available there is real momentum in this space. Each of these approaches have their own pros and cons. Before a project kicks off it's best to do research into technology and licensing limitations to choose the proper approach for the specific project.</p>
+
+	<p>All of these approaches have drawbacks in code overhead, development time and performance (clock and perceived). Familiarizing yourself with these issues and communicating them to the other members of the team and to the client will save significant problems later on in the project.</p>
+
+	<p>Listed here are some popular methods of embed custom fonts, list in the order of our preference for implementation.</p>
+	
+	<h3>@font-face</h3>
+	
+	<p>The <a href="http://www.w3.org/TR/2011/WD-css3-fonts-20110324/#font-face-rule">@font-face at-rule</a> allows you to define custom fonts. It was first defined in the CSS2 specification, but was removed from CSS2.1. Currently, it's a draft recommendation for CSS3.</p>
+	
+	<p>Our first and most preferred choice for customizing fonts on the web is @font-face, simply because it is part of the CSS Fonts Module working draft which means it will continue to grow in popularity as browser support grows, and ease of use for it improves as it becomes more stable.</p>
+	
+	<p>For now, when using <code>@font-face</code> it's recommended to declare the source for each font format. This is important if you want it to work in the most number of browsers, though it is not a requirement for use.</p>
+	
+	<p class="normalize">The font formats included in the specification are:</p>
+	
+	<ul>
+		<li><strong>woff</strong>: WOFF (Web Open Font Format)</li>
+		<li><strong>ttf</strong>: TrueType</li>
+		<li><strong>ttf</strong>, <strong>otf</strong>: OpenType</li>
+		<li><strong>eot</strong>: Embedded OpenType</li>
+		<li><strong>svg</strong>, <strong>svgz</strong>: SVG Font</li>
+	</ul>
+	
+	<h4>Bulletproof @font-face</h4>
+	
+	<p>For full cross-browser compatibility use Fontsprings' new <a href="http://www.fontspring.com/blog/further-hardening-of-the-bulletproof-syntax">bulletproof @font-face syntax</a> (<em>latest version as of 2/21/11</em>).</p>
+	
+	<textarea class="brush:css">
+		@font-face {
+			font-family: 'MyFontFamily';
+			src: url('myfont-webfont.eot'); 					/* IE9 Compat Modes */
+			src: url('myfont-webfont.eot?iefix') format('eot'),	/* IE6-IE8 */
+			   url('myfont-webfont.woff') format('woff'),		/* Modern Browsers */
+			   url('myfont-webfont.ttf') format('truetype'),		/* Safari, Android, iOS */
+			   url('myfont-webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+			font-weight: <font-weight>;
+			font-style: <font-style>;
+			// etc.
+		}
+	</textarea>
+	
+	<p>Here's a <a href="http://www.thecssninja.com/demo/css_fontface/">working demo</a> using this version of implementation.</p>
+	
+	<h4>Cross-Browser Compatibility</h4>
+	
+	<p>Safari, <abbr title="Internet Explorer version 6-9">IE 6-9</abbr>, <abbr title="Internet Explorer Compatibility Modes">IE 9 Compatibility Modes</abbr>, Firefox, Chrome, iOS, Android, Opera</p>
+	
+	<h4>Prevent Compatibility Mode</h4>
+	
+	<p>Sometimes <abbr title="Internet Explorer">IE</abbr> can have a mind of its own and will switch to compatibility mode without you knowing. Include the following in the site <code>&lt;head&gt;</code> to prevent your site from defaulting to compatibility mode:</p>
+	
+	<textarea class="brush:html">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	</textarea>
+	
+	<hr />
+	
+	<h4>Tips for @font-face</h4>
+	
+	<ul>
+		<li>IE 6–8 will only accept a TrueType font packaged as an EOT.</li>
+		<li>font-weight and font-style have different meanings within <code>@font-face</code>. 
+			Declarations where <code>font-weight:bold;</code> means this is the bold version of this typeface, rather than apply bold to this text</li>
+		<li><a href="http://paulirish.com/2010/font-face-gotchas/">@font-face gotchas</a></li>
+	</ul>
+	
+	<strong>Pros</strong>
+	
+	<ul>
+		<li>Easy to implement</li>
+		<li>Large variety of APIs</li>
+		<li>Customizable</li>
+		<li>Easy to add to elements</li>
+		<li>Nothing required besides CSS</li>
+		<li>Is currently part of the working draft of CSS Fonts Module 3</li>
+	</ul>
+	
+	<strong>Cons</strong>
+	
+	<ul>
+		<li>Limited browser support if used improperly</li>
+		<li>Some older versions of modern browsers (Chrome, Opera) don't always render well. Text can have rough edges. <em>**I have not been able to confirm whether this is still an issue now or not.</em></li>
+	</ul>
+	
+	<hr />	
+	
+	<h3>Google WebFonts API &amp; Font Loader</h3>
+	
+	<p>There are two options available with <a href="https://code.google.com/apis/webfonts/">Google Webfonts</a>. Both options have their downsides of course but they can be just as good to use as <code>@font-face</code>, it all depends on a projects needs.</p>
+	
+	<h4>Webfonts API</h4>
+	
+	<p><a href="https://code.google.com/apis/webfonts/docs/getting_started.html">Google's Webfonts API</a> essentially does the same thing as <code>@font-face</code>, it just does all the hard work for you, providing wider browser support.The major drawback to this method is the very small font library it uses. To make it work all you need to do is include the stylesheet + the font name.</p>
+	
+	<textarea class="brush:html">
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Font+Name">
+	</textarea>
+	
+	<p class="normalize">Then define a style for the selector you want to apply the font to:</p>
+	
+	<textarea class="brush:css">
+		CSS selector {
+			font-family: 'Font Name', serif;
+		}
+	</textarea>
+	
+	<h3>Webfont Loader</h3>
+	
+	<p>Another option Google offers is the <a href="https://code.google.com/apis/webfonts/docs/webfont_loader.html">Webfont Loader</a> which is a JavaScript library that allows for more control than the font API does. You can also use multiple webfont providers like Typekit. To use it include the script in your page:</p>
+	
+	<textarea class="brush:javascript">
+		<script type="text/javascript">
+			WebFontConfig = { google: { families: [ 'Tangerine', 'Cantarell' ]} };
+			(function() {
+				var wf = document.createElement('script');
+				wf.src = ('https:' == document.location.protocol ? 'https' : 'http') + 
+						  '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+				wf.type = 'text/javascript';
+				wf.async = 'true';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(wf, s);
+			})();
+		</script>
+	</textarea>
+	
+	<p class="normalize">Including the webfont.js file this way is faster if not already using the Ajax APIs. Otherwise you should use this:</p>
+	
+	<textarea class="brush:javascript">
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		<script type="text/javascript">
+			google.load("webfont", "1");
+			google.setOnLoadCallback(function() {
+				WebFont.load({ google: { families: [ 'Tangerine', 'Cantarell' ]} });
+			});
+		</script>
+	</textarea>
+	
+	<p>By using the Webfont Loader you have more ability to customize things including the use of more fonts, not just those in the Google Webfont library which is not large. However, it then requires you to load JavaScript, sacrificing one thing for another.</p>
+	
+	<strong>Pros</strong>
+	
+	<ul>
+		<li>Very easy to implement</li>
+		<li>Wide browser support</li>
+		<li>Can be combined with Typekit</li>
+		<li>Customizable when using the font loader</li>
+		<li>API does the same thing as <code>@font-face</code></li>
+	</ul>
+	
+	<strong>Cons</strong>
+	
+	<ul>
+		<li>Very small font library if using the font API</li>
+		<li>Using the Webfont Loader requires the use of JavaScript to work</li>
+		<li>Most browsers will load the rest of the page first, leaving a blank space where the text would be, or otherwise show the fallback option if one exists, until the page fully loads.</li>
+		<li>Some fonts in the webfont library render poorly on Windows</li>
+	</ul>
+	
+	<hr />
+	
+	<h3>Cufon</h3>
+	
+	<p>If you choose to use Cufon, it is highly recommended you use the <a href="http://cufon.shoqolate.com/js/cufon-yui.js">Cufon compressed version</a>. You will need to convert your font using the <a href="http://cufon.shoqolate.com/generate/">generator</a>.</p>
+	
+	<textarea class="brush:javascript">
+		<script src="cufon-yui.js" type="text/javascript"></script>
+		<script src="YourFont.font.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			Cufon.replace('h1');		// Works without a selector engine
+			Cufon.replace('#sub1'); 	// Requires a selector engine for IE 6-7
+		</script>
+	</textarea>
+	
+	<p>We recommend using Cufon sparingly since it can cause a lot of overhead if applied to a large amount of text. For more info visit the <a href="https://github.com/sorccu/cufon/wiki/">Cufon Wiki</a>.</p>
+	
+	
+	<strong>Pros</strong>
+	
+	<ul>
+		<li>Wide browser support</li>
+		<li>Renders well in supported browsers</li>
+		<li>Customizable</li>
+		<li>Easy to implement</li>
+	</ul>
+	
+	
+	<strong>Cons</strong>
+	
+	<ul>
+		<li>Requires use of JS to work</li>
+		<li>Text can't be selected that uses it</li>
+		<li>Not all characters can be used</li>
+		<li>Customization can be a pain</li>
+		<li>Not always easy to apply to multiple elements, especially when adding effects like hovers</li>
+	</ul>
+	
+	<hr />
+	
+	<h3>Typekit</h3>
+	
+	<p>Using <a href="https://typekit.com">Typekit</a> has its advantages and shouldn't be completely disregarded when choosing which method to use for adding custom fonts to a web site. It has strong platform integration and is a scalable and popular service. It can be used with Google Webfonts and is easily added to WordPress, Posterous, Typepad, and other similar CMS powered sites.</p>
+	
+	<p>However, full use of <a href="https://typekit.com/plans">Typekit doesn't come without a cost</a>. If you need to use it on more than 2 sites or on a site that gets a high amount of pageviews you will need to pay an annual cost of $49.99, and for sites with a million+ pageviews it costs twice as much. Though, you probably have the money to cover the cost if you're getting over a million pageviews. If not then you may want to rethink your business model.</p>
+	
+	
+	<strong>Pros</strong>
+	
+	<ul>
+		<li>Large font library, including Adobe fonts</li>
+		<li>Easy implementation</li>
+		<li>Google Webfont API and blogging platform integration</li>
+		<li>Free plan has limits but doesn't expire</li>
+	</ul>
+	
+	
+	<strong>Cons</strong>
+	
+	<ul>
+		<li>Requires JavaScript to use</li>
+		<li>Limited font library access without paying</li>
+		<li>Free and cheapest plans only allow use on 1-2 web sites and 2-5 fonts per site</li>
+		<li>You have to pay to use it on more than 1 site</li>
+	</ul>
+	
+	<hr />
+	
+	<h3>Scalable Inman Flash Replacement (sIFR)</h3>
+	
+	<p>We do not recommend that you use this method but because of how widely used it is we felt it was necessary to include so you could make a properly informed decision when choosing which method to go with for customized webfonts.</p>
+	
+	<p>Despite its wide popularity among web designers, and its decent support in most browsers, the drawbacks to its use outweigh its convenience. The biggest and most obvious reason to not use sIFR is the fact that it uses Flash. Plus, in order for the Flash to even work, it requires JavaScript and the scripts must be loaded before the text you use it on is visible on the page. Not to mention that it increases page load time, and can cause a slow site to be even slower.</p>
+	
+	<p class="normalize">We'll let you do the math here.</p>
+	
+	<strong>Pros</strong>
+	
+	<ul>
+		<li>Text can be selected</li>
+		<li>Support on most browsers</li>
+		<li>Renders okay on supported browsers</li>
+	</ul>
+	
+	
+	<strong>Cons</strong>
+	
+	<ul>
+		<li>It uses Flash</li>
+		<li>Requires JavaScript for the Flash to work</li>
+		<li>It's Flash!</li>
+		<li>Text doesn't appear until the scripts load</li>
+		<li>...and it's Flash...</li>
+	</ul>
+	
+	<hr />
+	
+	
+	<h3>Font Licensing</h3>
+	
+	<p>Even though you can transform just about any font into a web font file, you should still make sure it is legally okay for you to do so. Many foundries have updated their conditions to specify how their fonts can be used on the web. View <a href="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&item_id=UNESCO_Font_Lic">Font Licensing and Protection Details</a> for more information.</p>
+	
+	<hr />
+	
+	<h3>Specifications &amp; Font File Formats</h3>
+	
+	<ul>
+		<li><a href="http://www.w3.org/TR/1998/REC-CSS2-19980512/fonts.html#font-descriptions">CSS 2 Fonts</a> &ndash; May 1998 (Obsolete)</li>
+		<li><a href="http://www.w3.org/TR/css3-fonts/">CSS 3 Fonts</a> &ndash; Working Draft 2009 </li>
+		<li><a href="http://www.w3.org/TR/css3-fonts/">CSS Fonts Module</a> &ndash; W3C Working Draft March 2011</li>
+		<li><a href="http://www.w3.org/TR/WOFF/">WOFF Font Format</a> &ndash; Working Draft 2010</li>
+		<li><a href="http://www.w3.org/TR/SVG/fonts.html">SVG Font Format</a></li>
+		<li><a href="http://www.w3.org/Submission/EOT/">Embedded Open Type (EOT) File Format</a></li>
+		<li><a href="http://www.microsoft.com/typography/otspec/">Microsoft Open Type Specification</a></li>
+		<li><a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html#9.e">OpenType Feature File Specification</a> </li>
+		<li><a href="http://developer.apple.com/fonts/TTRefMan/">Apple True Type Reference</a> </li>
+	</ul>
+
+	<h3>Use CSS3</h3>
+	
+	<p>You can do a lot of new things with the added features in the CSS3 spec, many of which are not yet fully supported by all the major browsers. That doesn't 
+	mean they can't be used today. For the things that aren't supported there are fallback libraries or other 'polyfills' which you can use to fill in the holes where
+	browsers may be lacking some support of a new feature.</p>
+	
+	<p>There are also browser specific properties or prefixes that can be used to style things too. We recommend using <a href="http://prefixr.com">Prefixr.com</a> to 
+	make sure you include all the different prefixed browser properties for the sake of cross-browser support.</p>
+	
+</section>
+<!-- #### JAVSCRIPT SECTION #### -->
+
+<section id="js">
+
+	<div class="intro has-icon">
+		<img class="icon" src="img/layout/icon-curly.png" alt="{}" />
+		
+		<h1>JavaScript</h1>
+	
+		<p>JavaScript is the third major component of a web page. JavaScript code, when properly applied to a web page, enhances the overall user and browser-based experience through attaching to events and controlling the overall behavior layer.</p>
+
+		<p>JavaScript has seen an explosion in popularity in recent years as powerful new browser implementations have finally empowered the creation of full on browser-based web applications. Additionally, careful use of JavaScript allows for full manipulation and control over the other two components of web page authoring, <a href="#markup">HTML Markup</a> and <a href="#css">CSS</a>. Today the structure of pages and the visual styles of pages can be manipulated real time without full web page refreshes.</p>
+	</div>
+
+	<h2>JavaScript Libraries</h2>
+
+		<p class="normalize">We primarily develop new applications in <a href="http://api.jquery.com/">jQuery</a>, though we have expertise in plain JavaScript as well as all major modern javascript libraries.</p>
+	
+	<h2>General Coding Principles</h2>
+	
+	<ul>
+		<li>99% of code should be housed in external javascript files. They should be included at the END of the BODY tag for maximum page performance.</li>
+		<li>Don't rely on the user-agent string. Do proper feature detection. (More at <a href="http://diveintohtml5.info/detect.html">Dive Into HTML5: Detection</a> &amp; <a href="http://api.jquery.com/jQuery.support/">jQuery.support docs</a>)</li>
+		<li>Don't use document.write().</li>
+		<li>All Boolean variables should start with "is".
+			<figure class="preCode">Test for positive conditions</figure>
+			<textarea class="brush:js">
+			isValid = (test.value >= 4 && test.success);
+			</textarea>
+		</li>
+		<li>Name variables and functions logically: For example: <code>popUpWindowForAd</code> rather than <code>myWindow</code>.</li>
+        <li>Don't manually minify. With the exception of the traditional <code>i</code>, etc. for <code>for</code> loops, variables should be long enough to be meaningful.</li>
+		<li>Documentation should follow <a href="http://www.naturaldocs.org/documenting.html">NaturalDocs</a> structure.</li>
+		<li>Constants or configuration variables (like animation durations, etc.) should be at the top of the file.</li>
+
+		<li>Strive to create functions which can be generalized, take parameters, and return values. This allows for substantial code reuse and, when combined with includes or external scripts, can reduce the overhead when scripts need to change. For example, instead of hard coding a pop-window with window size, options, and url, consider creating a function which takes size, url, and options as variables.
+		</li>
+		<li>Comment your code! It helps reduce time spent troubleshooting JavaScript functions.</li>
+		<li>Don't waste your time with <code>&lt;!-- --&gt;</code> comments surrounding your inline javascript, unless you care about Netscape 4.&nbsp;:)</li>
+		<li>Organize your code as an <a href="http://kaijaeger.com/articles/the-singleton-design-pattern-in-javascript.html">Object Literal/Singleton</a>, in the <a href="http://www.yuiblog.com/blog/2007/06/12/module-pattern/">Module Pattern</a>, or as an <a href="http://mckoss.com/jscript/object.htm">Object with constructors</a></a>.</li>
+	
+	  <li>Minimize global variables - the less globals you create, the better. Generally one, for your application namespace, is a good number. 
+			<figure class="preCode">When specifying any global variable, clearly identify it</figure>		
+			<textarea class="brush:js">
+			window.globalVar = { ... }
+			</textarea>
+		</li>
+	</ul>
+	
+	
+	<h3>White-space</h3>
+	
+	<p>In general, the use of whitespace should follow longstanding English reading conventions. Such that, there will be one space after each comma and colon (and semi-colon where applicable), but no spaces immediately inside the right and left sides of parenthesis. In short, we advocate readability within reason. Additionally, braces should always appear on the same line as their preceding argument.</p>
+	
+	<p>Consider the following examples of a JavaScript for-loop...</p>
+	
+	
+	<figure class="preCode">Correct</figure>
+	<textarea class="brush:js">
+		for (var i = 0, j = arr.length; i < j; i++) {
+			// Do something.
+		}
+	</textarea>
+	
+	<figure class="preCode">Incorrect</figure>
+	<textarea class="brush:js">
+		for ( var i = 0, j = arr.length; i < j; i++ )
+		{
+			// Do something.
+		}
+	</textarea>
+	
+	<figure class="preCode">Also incorrect</figure>
+	<textarea class="brush:js">
+		for(var i=0,j=arr.length;i<j;i++){
+			// Do something.
+		}
+	</textarea>
+
+
+	<h3>plugins.js and script.js</h3>
+	
+	<p>Starting with H5BP we're presented with two files, plugins.js and script.js. This section outlines basic usage of these two files.</p>
+	
+	<h4>plugins.js</h4>
+	
+	<p>Plugins.js is meant to hold all of a sites plugin code. Instead of linking to many different files, we can improve performance by including plugin code directly in this one file. There can and should be exceptions to this usage. An extremely large plugin only used on one rarely visited page, for example, might be better off in a separate download, only accessed on the target page. Most of the time, however, it's safe to just paste in minified versions of all your plugins here for easy access. </p>
+	
+	<p>Here's what an example file might looks like, including a small table of contents. This can serve as a handy guide for what plugins are in use, including URLs for documentation, rationale for use and the like.</p>
+	
+	<textarea class="brush:js">
+	/* PLUGIN DIRECTORY
+	What you can find in this file [listed in order they appear]
+	
+		   1.) Animate Background Position - http://plugins.jquery.com/project/backgroundPosition-Effect
+		   2.) jQuery Easing Plugin - http://gsgd.co.uk/sandbox/jquery/easing/
+		   3.) jQuery Ajax Form plugin - http://jquery.malsup.com/form/#download            
+		   4.) jQuery validation plugin (form validation) - http://docs.jquery.com/Plugins/Validation
+			   -password strength
+		   5.) Styled Selects (lightweight) - http://code.google.com/p/lnet/wiki/jQueryStyledSelectOverview
+	*/
+	
+	/**
+	* 1.) Animate Background Position - http://plugins.jquery.com/project/backgroundPosition-Effect
+	* @author Alexander Farkas
+	* v. 1.21
+	*/
+	(function($) {
+	   if(!document.defaultView || !document.defaultView.getComputedStyle){ // IE6-IE8
+	   //SNIPPED
+	   };
+	})(jQuery);
+	
+	
+	/**
+	* 2.) jQuery Easing Plugin (we're not using jQuery UI as of yet) - http://gsgd.co.uk/sandbox/jquery/easing/
+	*/
+	
+	// t: current time, b: begInnIng value, c: change In value, d: duration
+	jQuery.easing['jswing'] = jQuery.easing['swing'];
+	
+	jQuery.extend( jQuery.easing,
+	{
+	   //SNIPPED
+	   
+	});
+	;(function($) {
+	   $.fn.ajaxSubmit = function(options) {
+	   //SNIPPED
+	   }
+	})(jQuery);
+	
+	/*
+	* jQuery Styled Select Boxes
+	* version: 1.1 (2009/03/24)
+	* @requires jQuery v1.2.6 or later
+	*
+	* Examples and documentation at: http://code.google.com/p/lnet/wiki/jQueryStyledSelectOverview
+	*
+	* Copyright (c) 2008 Lasar Liepins, liepins.org, liepins@gmail.com
+	*
+	* Permission is hereby granted, free of charge, to any person obtaining a copy
+	* of this software and associated documentation files (the "Software"), to deal
+	* in the Software without restriction, including without limitation the rights
+	* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	* copies of the Software, and to permit persons to whom the Software is
+	* furnished to do so, subject to the following conditions:
+	*
+	* The above copyright notice and this permission notice shall be included in
+	* all copies or substantial portions of the Software.
+	*
+	* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	* THE SOFTWARE.
+	*
+	*/
+	
+	jQuery.fn.styledSelect = function(settings) {
+	//SNIPPED
+		   return this;
+	};
+	</textarea>
+
+
+	<h4>Script.js</h4>
+
+	<p>Script.js is meant to hold your site or application code. Again, this isn't always the best solution as larger teams and or larger, more feature rich projects can really benefit from breaking out application code into module or feature specific files. For smaller sites, simpler applications, and initial prototyping, however, dropping your work into scripts.js makes sense.</p>
+	
+	<p>A simplified example, using the <a href='http://paulirish.com/2009/markup-based-unobtrusive-comprehensive-dom-ready-execution/'>Markup-based unobtrusive comprehensive DOM-ready execution</a> pattern, might look something like the following:</p>
+
+	<textarea class="brush:js">     
+	/* Name: Demo
+	Author: Demo King */
+	/*demo namespace*/
+	demo = {
+	 common : {
+	   init     : function(){
+		   //initialize
+	   },
+	   finalize : function(){
+		   //finalize
+	   },
+	   config : {
+		   prop : "my value",
+		   constant : "42"
+	   }
+	 },
+	 mapping : {
+	   init     : function(){
+		   //create a map
+	   },
+	   geolocate    : function(){
+		   //geolocation is cool
+	   },
+	   geocode : function(){
+		   //look up an address or landmark
+	   },
+	   drawPolylines : function(){
+		   //draw some lines on a map
+	   },
+	   placeMarker : function(){
+		   //place markers on the map
+	   }
+	 }
+	}
+	</textarea>
+
+	
+	<h2>Variables, ID &amp; Class</h2>
+	
+	<p>All JavaScript variables shall be written in either completely lowercase letter or camelCase. The one exception to this are Constructor functions, which are capitalized by tradition. All <code>id</code> and <code>class</code> declarations in CSS shall be written in only lowercase. Neither dashes nor underscores shall be used. </p>
+	
+	
+	<h3>Event Delegation</h3>
+	
+	<p>When assigning unobtrusive event listeners, it is typically acceptable to assign the event listener directly to the element(s) which will trigger some resulting action. However, occasionally there may be multiple elements which match the criteria for which you are checking, and attaching event listeners to each one might negatively impact performance. In such cases you should use event delegation instead.</p>
+	
+	<p>jQuery's <a href="http://api.jquery.com/delegate">delegate()</a> is preferred over <a href="http://api.jquery.com/live">live()</a> for performance reasons.</p>
+	
+	
+	<h3>Debugging</h3>
+	
+	<p>Even with the best of validators, inevitably browser quirks will cause issues. There are several invaluable tools which will help to refine code integrity and loading speed. It is important that you have all of these tools available to you, despite the browser you primarily use for development. We recommend developing for Firefox and Safari first, then Google Chrome and Opera, with additional tweaks via conditional comments just for Internet Explorer. The following is a list of helpful debuggers and speed analyzers...</p>
+	
+	<ul>
+		<li><strong>Firefox</strong>: <a href="http://getfirebug.com/">Firebug</a>, <a href="http://code.google.com/speed/page-speed/">Page Speed</a>, <a href="http://developer.yahoo.com/yslow/">YSlow</a></li>
+		<li><strong>Safari</strong>: <a href="http://developer.apple.com/safari/library/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/UsingtheWebInspector/UsingtheWebInspector.html">Web Inspector</a></li>
+		<li><strong>Google Chrome</strong>: <a href="http://google.com/chrome/intl/en/webmasters-faq.html#tools">Developer Tools</a></li>
+		<li><strong>Opera</strong>: <a href="http://opera.com/dragonfly/">Dragonfly</a></li>
+		<li><strong>Internet Explorer 6-7</strong>: <a href="http://microsoft.com/downloads/details.aspx?familyid=E59C3964-672D-4511-BB3E-2D5E1DB91038">Developer Toolbar</a></li>
+		<li><strong>Internet Explorer 8-10</strong>: <a href="http://msdn.microsoft.com/en-us/library/dd565625(v=VS.85).aspx">Developer Tools</a></li>	
+	</ul>
+	
+
+	<h3>Patterns for better JavaScript</h3>
+
+	<ul>
+		<li>Writing Maintainable Code</li>
+		<li>Single var Pattern</li>
+		<li>Hoisting: A Problem with Scattered vars</li>
+		<li>(Not) Augmenting Built-in Prototypes</li>
+		<li>Avoiding Implied Typecasting</li>
+		<li>Avoiding eval()</li>
+		<li>Number Conversions with parseInt()</li>
+		<li>Opening Brace Location</li>
+		<li>Capitalizing Constructors</li>
+		<li>Writing Comments</li>
+		<li>Avoid void</li>
+		<li>Avoid with Statement</li>
+		<li>Avoid continue Statement</li>
+		<li>Avoid Bitwise Operators if possible</li>
+	</ul>
+	
+	<p>Stoyan Stefanov covers these and more <a href="http://net.tutsplus.com/tutorials/javascript-ajax/the-essentials-of-writing-high-quality-javascript/">in detail here</a>.</p>
+	
+</section>
+<!-- #### ACCESSIBILITY SECTION #### -->
+
+<section id="accessibility">
+
+	<div class="intro has-icon">
+		<img class="icon" src="img/layout/icon-curly.png" alt="{}" />
+		<h1>Accessibility</h1>	
+	</div>
+
+	<p><a href="http://www.section508.gov/index.cfm?FuseAction=Content&ID=12#Web">Section 508 Standards for intranet and internet information and applications</a>.</p>
+	
+	<p class="indent">&mdash; Interfaces developed by Roundarch Isobar should meet Section 508 standards.</p>
+
+	<p><a href="http://www.w3.org/TR/WCAG10/full-checklist.html">W3C checklist of checkpoints for accessibility</a>.</p>
+	
+	<p class="indent">&mdash; Interfaces developed by Roundarch Isobar should meet Priority 1 guidelines.</p>
+	
+	<p class="indent">&mdash; <a href="http://www.w3.org/TR/1999/WAI-WEBCONTENT-19990505/#Guidelines">The WCAG 1.0 Guidelines</a>.</p>
+
+</section>
+
+
+<!-- ### CROSS-BROWSER + PERFORMANCE SECTION ### -->
+
+<section id="performance">
+
+	<div class="intro has-icon">
+		<img class="icon" src="img/layout/icon-curly.png" alt="{}" />
+		<h1>Performance</h1>
+		<p>As we continue to push the limits of what the web can do, it remains just as important a web page can be used with minimal effort or wait time. The following section explains how web pages can be optimized to keep all audiences happy.</p>
+	</div>
+	
+	<h3>Optimize Delivery of CSS and JavaScript</h3>
+	
+	<p>There are many optimizations that should be done for serving CSS and javascript in Production:</p>
+	
+	<ul>
+		<li>Follow the <a href="http://developer.yahoo.com/performance/">Yahoo Performance Guidelines</a></li>
+		<li>Smush images using <a href="http://developer.yahoo.com/yslow/smushit/">smush.it</a>. Also using <a href="http://developer.yahoo.com/yslow/">YSlow</a> can autosmush all your images for you.</li>
+		
+		<li>Set caching headers appropriately.</li>
+		<li>Consider a cookie-less subdomain for static assets</li>
+		<li>Avoid inline &lt;script&gt; blocks.</li>
+		
+		<li>CSS should be located in the <code>&lt;head></code> of the document, Javascript should be right before the <code>&lt;/body></code> tag.</li>
+		<li>Both CSS and JavaScript should be served minified. Most people use the <a href="http://developer.yahoo.com/yui/compressor/">YUI Compressor</a> for this.</li>
+	
+		<li>Both should be <a href="http://code.google.com/speed/page-speed/docs/payload.html#GzipCompression">served using gzip on the wire</a></li>
+		<li>CSS should be concatenated together. Obviously this can only be done for files that share the same media type (e.g. screen or print). The general goal here is to reduce the number of HTTP connections to dependencies during the loading of the page.</li>
+	
+		<li>JavaScript should be concatenated. While a ajax script dependency manager would be ideal (similar to the YUI 3 Loader), it's rather complicated to implement. In its place I'd recommend a singular download of most of the script used on the site. (Of course, proper caching should be used to retain the file as long as is reasonable).</li>
+	
+		<li>Concatenation and minification typically occur during an automated build process, when packaging the code for deployment on stage or production. Many use tools like <a href="http://ant.apache.org/">Ant</a> or <a href="http://maven.apache.org/">Maven</a> for this.</li>
+		<li>Avoid inline <code>&lt;script></code> blocks within the HTML. They block rendering and are quite devastating to page load time.</li>
+	</ul>
+	
+	
+	<h3>Optimize JavaScript execution</h3>
+	
+	<p>During a page load, there is typically a lot of script waiting to execute, but you can prioritize it. This order prioritizes based on user response:</p>
+	
+	<ol>
+		<li>Script that changes the visible nature of the page needs to fire absolutely first. This includes any font adjustment, box layout, or IE6 pngfixes.</li>
+		<li>Page content initialization</li>
+		<li>Page header, topnav and footer initialization</li>
+		<li>Attaching event handlers</li>
+		<li>Omniture, Doubleclick, and other 3rd party scripts</li>
+	</ol>
+	
+	
+	<h3>Leverage CSS Sprites</h3>
+	
+	<p>CSS Sprites basically take a number of image assets and merge them together into a singular image file. Each part of it is revealed using CSS background-position. Some typical CSS would look like:</p>
+	
+	<textarea class="brush:css">
+	a.expandbox { display:block; width: 75px; height: 15px; text-indent: -999px; overflow:hidden;
+				 background: url(../img/sprite.png) no-repeat -50px -5px;  }
+	</textarea>
+	
+	<p>It's quite common to leverage sprites for :hover states. In that case you'll see something like:</p>
+	
+	<textarea class="brush:css">
+	a.expandbox:hover { background-position: -50px -20px; }
+	</textarea>
+	
+	<p>Using sprites reduces total page weight and reduces HTTP connections which speeds up page load. <a href="http://css-tricks.com/css-sprites/">More on the general technique and overview at css-tricks.com</a>.  It is just an overall best practice to make use of CSS sprite images whenever you can.</p>
+	
+	<p>Many developers use a vertically-oriented sprite in addition to the primary sprite. This vertical sprite will be <strong>less than or equal to 100px wide</strong> (and tall) and contain icons that are typically placed next to text, such as list item bullets or call to action links and buttons. Yahoo uses a few <a href="http://l.yimg.com/a/i/ww/sp/pa-icons3.gif">such as this one</a>.</p>
+	
+	<p>The one consideration is to not make sprites too large, something over 1000px in either direction will end up using a sizeable amount of memory. Read more on <a href="http://blog.vlad1.com/2009/06/22/to-sprite-or-not-to-sprite/">when to use sprites and memory usage here</a>, and for more general tips and techniques on creating sprites check out the <a href="http://blog.mozilla.com/webdev/2009/03/27/css-spriting-tips/">Mozilla Dev Blog</a>.</p>
+
+	<p>Some general <a href="http://blog.mozilla.com/webdev/2009/03/27/css-spriting-tips/">tips and techniques</a> in sprite creation can be found on the <a href="http://blog.mozilla.com/webdev/2009/03/27/css-spriting-tips/">Mozilla Dev Blog</a>.</p>
+
+	<h3>Image formats</h3>
+	
+	<p>There are four main image formats that should be used, detailed here:</p>
+	
+	<ol>
+		<li><p><strong>JPEG.</strong> - This will cover all photography-based images, such as homepage and category page promo images, or anything with a very high color count.</p></li>
+		<li>
+			<p><strong>PNG24.</strong> This format, easily accessible in Photoshop, outputs high-color count imagery and fully supports graded opacity by pixel. Relatively, it's quite a heavy format as far as kilobyte weight. It is the only format that IE6 needs to execute a pngfix on. In that case, Roundarch Isobar recommends the <a href="http://www.dillerdesign.com/experiment/DD_belatedPNG/">DD_belatedPNG script</a> (A pngfix fixes the issue where PNG24's appear to have a gray or light-blue background in IE6. They are not always compatible with background-position).</p>
+			<p>In many cases, you can use a GIF fallback for IE6, in place of a PNG24. This is especially true if any sprites need to be done in PNG24. All pngfixes are very slow and expensive, so it's best to avoid using them.</p>
+		</li>
+		<li><p><strong>PNG8.</strong> - A surprising diversity of color can be captured inside 256 colors, so it's worth trying PNG before heading JPG. PNG also is a lot more compressible than GIF (using tools like pngcrush and pngquant). This format allows graded opacity in nearly all browsers, but in IE6, those semi-opaque pixels are just shown 100% transparent. In many cases this is sufficient. It also does not require a pngfix script to be run, so it's optimized for speed.</p>
+			<p>Photoshop cannot output these semi-opaque files correctly but Fireworks can. More detail here: <a href="http://www.sitepoint.com/png8-the-clear-winner/">http://www.sitepoint.com/png8-the-clear-winner/</a></p>
+		</li>
+		<li><p><strong>Transparent GIF 89a.</strong> - GIF 89a offers the flexibility of transparency and wide browser support, but the constraints of no graded opacity nor a color depth above 256. In our experience, color depths of 64 still provide very good quality thumbnails, and keep the file size comparably very small.</p>
+			<p>All low-color count imagery such as icons or thematic graphics should be done in PNG8, as it's the most size-efficient of these four. PNG8 is our primary recommendation for most site graphics.</p>
+		</li>
+	</ol>
+	
+	<p>Detailed information on the PNG format, browser support, and the pros and cons of each can be <a href="http://calendar.perfplanet.com/2010/png-that-works/">found in this excellent article</a>.</p>
+	
+	<p>For further optimization all of these formats, taking them through <a href="http://developer.yahoo.com/yslow/smushit/">Yahoo's Smush.It</a> will reveal how they can be smaller.</p>
+	
+	
+	<h3>Caching</h3>
+	
+	<p>For static content, the browser should cache the file locally as long as is reasonable.
+	Content that should have far future caching includes:</p>
+	
+	<ul>
+		<li>CSS and JavaScript</li>
+		<li>product images</li>
+		<li>thematic graphics</li>
+		<li>favicon.ico</li>
+		<li>flash .swf's</li>
+		<li>promo images (lighter caching likely)</li>
+	</ul>
+	
+	<p>For the best caching, leverage the Expires http header. This is a far future Expires header, telling the browser that this response won't be stale until April 15, 2015.</p>
+	
+	<pre>Expires: Thu, 15 Apr 2015 20:00:00 GMT</pre>
+	
+	<p>If your server is Apache, use the ExpiresDefault directive to set an expiration date relative to the current date. This example of the ExpiresDefault directive sets the Expires date 1 year out from the time of the request.</p>
+	
+	<pre>ExpiresDefault "access plus 1 year"</pre>
+	
+	<p>Expires http header should be set to a value between one month from present to a year (far future) from present. Caching only applies to that exact URL, so a change in the filename of any asset will start a fresh copy. Many developers use a build process to add a version number or timestamp to their assets. Each subsequent build will start a brand new cached version, allowing you to use far future cache dates without worry. <a href="http://code.google.com/speed/page-speed/docs/caching.html#LeverageBrowserCaching ">Google has a lot more detail on browser caching</a>.</p>
+	
+	
+	<h3>Shard resources across domains</h3>
+	
+	<p>Static content should certainly be served from a domain different than the one that serves HTML. This is optimal so that there are <a href="http://developer.yahoo.com/performance/rules.html#cookie_free">no extra cookies headers on all static content requests</a>. It's also much easier to write caching rules for the entire domain. (Also any subdomains of the current domain will inherit domain cookies, so it's worth using a completely new domain).</p>
+	
+	<p>However with enough assets (especially images) the number of requests grows enough to slow down the load of the page. Many browsers have a low constraint of how many assets they will download simultaneously per domain. (In IE6 and 7, it's only two). In this case, we can serve the assets from multiple subdomains such as:</p>
+	
+	<ul>
+		<li>static1.otherdomain.com</li>
+		<li>static2.otherdomain.com</li>
+		<li>static3.otherdomain.com</li>
+	</ul>
+
+	<p><a href="http://code.google.com/speed/page-speed/docs/rtt.html#ParallelizeDownloads">More information on domain sharding on Google Speed</a></p>
+	
+	
+	<h3>Avoid IFRAMEs</h3><!-- like the plague -->
+	
+	<p>Iframes are the most costly element to add to a given page. They block the page from firing the onload event until they are complete. Sometimes they are useful to let another agency handle tracking scripts. For example the Doubleclick floodlight tag is an iframe, and the admin can add tracking pixels into it from their dashboard. In any case where an iframe is added, it should be appended to the DOM dynamically after window onload has fired. <a href="http://developer.yahoo.com/performance/rules.html#iframes">More detail at Yahoo's Performance site.</a></p>
+	
+	
+	<h3>3rd Party Integration</h3>
+	
+	<h4>Omniture</h4>
+	
+	<p>We recommend to add the Omniture JavaScript code to the DOM using JavaScript after the page has loaded (either a DOM ready event or window's load event). Using this technique, there is no external domain script dependency, which can slow down (and potentially hang) a page load.</p>
+	
+	
+	<h4>Flash</h4>
+	
+	<p>Backup HTML content should be in place of the flash in all cases to maximize SEO value. For XML-driven flash, the backup HTML content should be leveraging the exact same XML file, to ensure data consistency.</p>
+	
+	<p>All replacements should be done using SWFObject but without inline script tags. SWFObject initialization should fire after the DOM Ready event. Minimum player version should be set to minimum v9, to ensure AS3 compatibility.</p>
+	
+
+
+		<h2 id="browserperformance">Cross-Browser Performance Strategy</h2>
+		<p>There are two major truths when it comes to in-browser experience:</p>
+
+		<ol>
+			<li>Everyone wants the most responsive experience possible.</li>
+			<li>Everything added to the page slows it down.</li>
+		</ol>
+
+		<p>So with these two facts of life, what steps do we need to take so everyone is happy?</p>
+	
+
+	<h3>Create success metrics with the client</h3>
+
+	<p>These should be customized to your client and project and done before the wireframing phase. These goals should be reasonable from a technical POV, as well as testable.</p>
+	
+	<strong>Some goals that would be appropriate:</strong>
+	
+	<ol>
+		<li>The slowest browser supported must go from an empty cache to fully loaded and initialized within 5 seconds.</li>
+		<li>Hover states (and other 'instant' changes) should respond within 100ms.</li>
+		<li>Animations should appear smooth, with jumpiness occurring &lt; 15% of the time (across all browsers).</li>
+	</ol>
+	
+	<p>For load-time based goals, it's important to define the benchmark system. Something like <a href="http://www.webpagetest.org/">PageTest</a> is a good option. Additionally, goals may be defined for multiple pages, for example: the two most popular landing pages (e.g. homepage and support).</p>
+	
+	<p>If the client has more aggressive goals than are reasonable with the intended design, expectations need to be set across the board, priming the team that performance goals are going to be paramount.</p>
+
+
+	<h3>Communicating the performance impact during design phase</h3>
+
+	<strong>Internally</strong>
+
+	<p>During IA, IxD, and visual design, it is the front end engineer's role to communicate the performance impact of interactive features or certain visual techniques on the target browsers. Give the designers constraints: "If we're using Cufon, we cannot have more than 10 elements of custom font per page."</p>
+
+	<strong>Externally</strong>
+
+	<p>Expectations need to be set that <strong>all browsers will not have the same experience</strong>. They won't perform as well as each other, nor may it make sense to have feature parity. It may be sensible to drop a few features from the IE7 experience. Features that could be considered to be dropped are: <em>shadows, transitions, rounded corners, opacity, gradients.</em></p>
+	
+	<strong>When communicating the impact of something:</strong>
+
+	<ul>
+		<li>Clarify the impact with as much detail as possible: "it will hurt page load" vs "it will add 2 seconds to page load in IE"</li>
+		<li>Provide a quick POC (proof of concept) if it's reasonable: "This similar-looking page without siFR loads in 2 seconds, with siFR it loads in 8 and has a delay to show during scrolling"</li>
+	</ul>
+	
+
+	<h3>Develop according to best practices</h3>
+
+	<p>Choose libraries and plugins that are performance optimized. Make wise architecture decisions based on performance goals. Also minimize DOM manipulation when possible, and write styles to <a href="http://paulirish.com/2009/avoiding-the-fouc-v3/">avoid visual changes</a> to the page as it loads and initializes.</p>
+
+
+	<h3>Measure performance during QA</h3>
+
+	<p>QA teams should also prioritize performance related tickets alongside visual, functional, and usability issues. Developers and QA should determine how that priority will be assigned. During QA, the success metrics should be tested regularly.</p>
+
+	<strong>Tools to test with</strong>
+
+	<ul>
+		<li><a href="http://developer.yahoo.com/yslow/">YSlow</a>, <a href="http://code.google.com/speed/page-speed/">Page Speed</a>, <a href="http://stevesouders.com/hammerhead/">Hammerhead</a>, <a href="http://msfast.myspace.com/">MSFast</a>, <a href="http://www.webpagetest.org/">PageTest</a></li>
+	</ul>
+
+	<strong>When performance goals aren't met, there are three options:</strong>
+
+	<ol>
+		<li><em>Redevelop the code</em> - profile, discover bottlenecks, refactor code, optimize to target faster execution in the browser</li>
+		<li><em>Drop the feature</em> - turn it off for slower browsers only</li>
+		<li><em>Redesign approach of the UI</em> - perhaps the design could use a tweak which would bypass the issue entirely</li>
+	</ol>
+
+	<p>With this approach, we think all parties have a better chance of having aligned expectations heading in as well as a more sensible workflow in dealing with performance challenges.</p>
+
+
+</section>
+<!-- #### BROWSERS SECTION (Resolution, Testing, etc.)#### -->
+
+<section id="browserTesting">
+
+	<div class="intro has-icon">
+		<img class="icon" src="img/layout/icon-curly.png" alt="{}" />
+		
+		<h1>Browser Testing and Support</h1>
+		
+		<p>Today's audience can choose from quite a large pool of web browsers, each providing a slightly (or dramatically) different experience. As developers, it is our responsibility to choose just how the web pages we build are displayed to those users. This section describes how we, at Roundarch Isobar, make some of these key decisions.</p>
+	</div>
+	
+
+	<h3>What we support</h3>
+
+	<figure>
+		<img src="img/browsers1.jpg" alt="Browsers" />
+	</figure>
+	
+	<p><strong>Roundarch Isobar supports any browser with an A-Grade in <a href="http://developer.yahoo.com/yui/articles/gbs/">Yahoo's Graded Browser Support</a>, with the exception of Opera. There may be exceptions to this, given regional markets and their particular metrics</strong>.</p>
+
+	<p>We will strive to support any other mission critical browsers mandated by the client (IE 5.5, Opera, Konqueror, Safari 3 on PC, etc), though we cannot guarantee all functionality is possible.</p>
+	
+	
+	<h3>How we test</h3>
+	
+	<p>Comprehensive browser testing is a must on every Roundarch Isobar web project. Considerable effort must be made to test across browsers and platforms to ensure a quality and consistent user experience. Setting up a testing environment can be a challenge but can be well worth it.</p>
+
+	<h4>On Microsoft Windows</h4>
+	
+	<h5 id="vhds">IE Testing</h5>
+	
+	<p>Since it's impossible to have more than a single copy of Microsoft Internet Explorer installed on a PC, testing for IE is a challenge. Fortunately, Microsoft has finally made available development versions of older Internet Explorer's available for downloading. These Virtual Hard Drives (VHD's) run stripped down versions of Microsoft Windows that expire (time out) over time. Setting them up again after a few months is typically required. Development copies of Microsoft Windows from your MSDN license (if available) may also be an option depending on what you have access to.</p>
+
+	<ul>
+		<li><a href="http://www.microsoft.com/windows/virtual-pc/default.aspx">Virtual PC</a> - Virtual PC must be installed on your computer, and if you are on Windows 7, you must use "XP Mode".</li>
+		<li><a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=21eabb90-958f-4b64-b5f1-73d0a413c8ef&displaylang=en">Microsoft Windows VPC Images</a> - Several varieties are available of the virtual hard drive images. You may need to install several to have a comprehensive test suite, depending on your project.</li>
+	</ul>
+
+	<p>Additionally, other less effective IE Testing options (not typically recommended) include <a href="http://www.my-debugbar.com/wiki/IETester/HomePage">IETester</a>, which is still better than <a href="http://tredosoft.com/Multiple_IE">Multiple_IE</a> and <a href="http://tredosoft.com/IE7_standalone">IE7 standalone</a>.</p>
+	
+	<h5>Firefox</h5>
+	
+	<ul>
+		<li><a href="http://www.mozilla.com/en-US/firefox/all-older.html">Firefox 3.6+</a> should be installed natively as well - with version 3.0 available through a <a href="http://portableapps.com/">portable apps</a> version. </li>
+		<li>If you're up to it, <a href="https://wiki.molecular.com/wiki/Install_Firefox_3">Install Firefox 3, 3.5, and/or 3.6 side-by-side with FF4</a>. The Firefox Profile Manager allows you to install to different directories and <a href="http://lifehacker.com/5481213/master-multiple-firefox-profiles-for-more-productive-browsing">maintain different profiles for each</a>.</li>
+	</ul>
+
+	<h5>Safari for the PC</h5>
+
+	<ul>
+		<li>Use <a href="http://www.apple.com/safari/">the newest release of Safari for the PC</a>. It is 98% consistent with Safari on OS X, but not completely, so test there if its a required platform.</li>
+	</ul>
+
+	<h5>Opera</h5>
+
+	<ul>
+		<li>You can download <a href="http://arc.opera.com/pub/opera/win/">old versions from their archive</a>. Install in different folders to run multiple versions</li>
+	</ul>
+
+	<h5>Google Chrome and Chrome Versions</h5>
+	
+	<p>Google Chrome updates itself and as luck would have it, most all users have the most recent version more often than not. If only every browser were this easy. No worries about old browsers based on Google Chrome.</p>
+
+	<h4>On Mac OS X</h4>
+
+	<p>For the core Mac OS X browsers, Mozilla Firefox, Google Chrome and Apple Safari offer virtually identical browser experiences to their Windows counterparts. That said, some OS level differences can be present and web sites should be tested on both platforms. Typical differences are around font rendering and thus spacing issues sometimes arise.</p>
+	
+	<h5>Testing for Windows on a Mac</h5>
+	
+	<p>There are a number of options for testing Windows-based browsers on the Mac OS. First, Mac computers offer a "<a href="http://en.wikipedia.org/wiki/Boot_Camp_(software)">boot camp</a>" partition which allow you to boot the Mac into a Microsoft Windows partition. This is a complex yet thorough testing environment. Once you've booted to Windows, the normal <a href="#vhds">Windows options exist</a>.</p>
+	
+	<p>Other options include virtualization of Windows inside Mac OS X, which allows you to literally run Windows inside of the Mac OS.</p>
+	
+	<p><a href="#vhds">The Microsoft VHD's</a> can be opened or converted on most of these options, therefore enabling the same degree of testing prowess that Windows users have available to them. Though since you can also test on the Mac simultaneously, some might argue you have more flexibility...</p>
+	
+	<ul>
+		<li><a href="http://www.parallels.com/products/desktop/">Parallels</a> - Parallels is available and may already be installed by the Roundarch Isobar IT department on your Mac.</li>
+		<li><a href="http://www.vmware.com/products/fusion/overview.html">VMWare Fusion</a> - VMWare Fusion offers the same level of Windows virtualization through their Fusion product.</li>
+	</ul>
+
+	<h5>Mozilla Firefox</h5>
+
+	<p>Just like on Windows, you can install and run multiple copies of Mozilla Firefox on a Mac, though it is a bit trickier to set up multiple profiles via the Profile Manager. That said, there are some tricks you can use with <a href="http://sonnygill.net/mac/mac-multiple-firefox-profiles/">Automator to make separate profiles and run them nicely</a>.</p>
+
+	<h3>Bugs in standalone IE versions</h3>
+
+	<p>Note: The IE6 standalone has a buggy implementation of opacity in some cases. This will result in any opacity applied with a CSS filter, like alpha opacity or a 24-bit PNG, to fail. In the case that opacity must be tested, you will need a native IE6 installation.</p>
+
+	<p>It has been noticed that IE 7 using the Vista platform does have differences from IE 7 on Windows XP, therefore, you might want to make sure that someone on your team has this configuration as well. <a href="http://www.my-debugbar.com/wiki/IETester/HomePage">IETester</a> is known to fix a number of these issues, as do the Xenocode browsers.</p>
+
+	<h2>Browser Resolution</h2>
+		<p>Along with catering to browsers, developers must stay conscious of the screen resolutions of their audience. As monitor screens get larger, the breadth of resolutions grows as well. Below are some guidelines to help you in working with resolutions.</p>
+	
+	<p><strong>1024px resolution</strong></p>
+	
+	<ul>
+		<li>Fold estimated at 570px.</li>
+		<li>Optimal width: 960px - Has comfortable padding on both sides, is divisible by many numbers, and also plays well with <a href="http://www.iab.net/iab_products_and_industry_services/1421/1443/1452">IAB ad standard widths</a></li>
+		<li>Larger width: 970px - Still has some padding on both sides in most browsers. The math plays well with the <a href="http://en.wikipedia.org/wiki/Golden_ratio">Golden Ratio</a></li>
+		<li>Maximum width: 996px - Without incurring any horizontal scrollbars in the major browsers. <a href="http://www.nealgrosskopf.com/tech/thread.php?pid=43">Based on the research here</a> the maximum is 1003 px wide if you don't want a horizontal scrollbar.</li>
+	</ul>
+	
+	
+	<p><strong>Current stats on window sizes</strong></p>
+	
+	<ul>
+		<li><a href="http://www.cameronmoll.com/archives/001220.html">Authentic Boredom - Optimal width for 1024px resolution?</a></li>
+		<li><a href="http://marketshare.hitslink.com/report.aspx?qprid=17&qpmr=100&qpdt=1&qpct=3&qptimeframe=M">Market share for browsers, operating systems and search engines</a></li><li><a href="http://www.w3counter.com/globalstats.php">Global Web Stats</a></li>
+	</ul>
+	
+	
+	<p><strong>System resolution is not, however, the same as browser size</strong></p>
+	
+	<ul>
+		<li><a href="http://mentalized.net/journal/2006/10/24/browser_size_does_matter_actual_numbers/">Browser size does matter - Actual numbers | mentalized</a></li>
+		<li><a href="http://www.baekdal.com/reports/actual-browser-sizes/abs-sizes/">What size do i need to support | baekdal</a></li>
+		<li><a href="http://www.456bereastreet.com/archive/200704/poll_results_504_of_respondents_maximise_windows/">Poll results: 50.4% of respondents maximise windows</a></li>
+		<li><a href="http://www.useit.com/alertbox/screen_resolution.html">Screen Resolution and Page Layout</a></li>
+	</ul>
+	
+</section>
+<!-- ### SEO SECTION ### -->
+
+<section id="seo">
+
+	<div class="intro has-icon">
+		<img class="icon" src="img/layout/icon-curly.png" alt="{}" />
+		
+		<h1>Search Engine Optimization</h1>		
+		
+		<p>An essential part of good web design and development is SEO. Well-structured code is the key to ensuring that a web page not only gets properly indexed by search engines, but made accessible to those with limited web capabilities as well.</p>
+	</div>
+
+	<h4>Be aware of SEO best practices</h4>
+
+	<ul>
+		<li><a href="http://24ways.org/2007/back-to-the-future-of-print">Print CSS best practices</a>.</li>
+		<li>Site/app will fit according to <a href="#_browser_resolution">Browser Resolution guidelines</a>.</li>
+		<li>Site/app will be compatible with browser requirements described in <a href="#_browser_testing_and_support">Browser Testing and Support</a>.</li>
+		<li>Be aware of Accessibility best practices, such as the 508 and WCAG standards: 
+			<ul>
+				<li><a href="http://www.section508.gov">http://www.section508.gov</a></li>
+				<li><a href="http://www.w3.org/TR/WCAG20/">http://www.w3.org/TR/WCAG20/</a>.</li>
+			</ul>
+		</li>
+	</ul>
+	
+
+	<h4>Indexability</h4>
+
+	<p>We must use semantic markup that's readable and logical when JavaScript and CSS are off. All page content must be in HTML; we don't want to use iframes or JavaScript for loading initial indexable content.</p>
+	
+	<figure class="preCode">All links should be to HTML destinations.</figure>
+	<textarea class="brush:html">
+		<a href="/shelf/jordan/page/2">
+	</textarea> 
+	
+	<figure class="preCode">Instead of</figure>
+	<textarea class="brush:html">
+		<a href="javascript:loadPage(2);">
+	</textarea>
+
+	<p>This lets the page get indexed correctly by search engines as well as allows users to open in new tabs and windows.</p>
+	
+	
+	<h4>Optimization</h4>
+	
+	<p>The title tag should feature target keywords for the unique page. The titles should be unique to each page. Headings (h1,h2,etc) should form an outline of the document and represent the most important keywords for that page. URLs should be human-readable with primary target keywords present in them:</p>
+
+	
+	<pre>http://domain.com/mens-shoes/basketball/jordan/jordan-mens-ajf-6-basketball-shoe/</pre>	
+	<p><strong>vs</strong></p>
+	<pre>http:// domain.com/ecomm.cfm?view=prod&prodId=23425</pre>
+	
+	
+	<h4>Flash and Image Replacement</h4>
+
+	<p>Always use backup HTML content for flash. All promo images should use CSS-based image replacement instead of alt tags.</p>
+
+	<figure class="preCode">>Fallback non-flash version:</figure>
+	<textarea class="brush:html">
+		<a href="/nike/morethanagame/" id="morethan">
+		  <h4>Nike: More Than A Game</h4>
+		  <h5>Experience the movement and view apparel</h5>
+		</a>
+	</textarea>
+	
+	<br />
+	<textarea class="brush:css">
+		a#more than { background:url(/promos/nikegame.jpg) no-repeat; width: 200px; height: 100px;
+					 text-indent: -999px; overflow:hidden; display:block; }
+	</textarea>
+	
+	<h3>Google's SEO Report Card</h3>
+
+	<p><a href="http://googlewebmastercentral.blogspot.com/2010/03/googles-seo-report-card.html">Google's SEO Report Card</a> is an effort to provide Google's product teams with ideas. on how they can improve their products' pages using simple and accepted optimizations. These optimizations are intended to not only help search engines understand the content of their pages better, but also to improve their our users' experience.</p>
+
+	<p>when visiting their sites. Simple steps such as fixing 404s and broken links, simplifying URL choice, and providing easier-to-understand titles and snippets for their pages can benefit both users and search engines.</p>
+
+
+</section>
+<!-- #### CODE REVIEWS SECTION #### -->
+
+<section id="codereviews">
+
+	<div class="intro has-icon">
+		<img class="icon" src="img/layout/icon-curly.png" alt="{}" />
+		
+		<h1>Code Reviews</h1>
+		
+		<p>A code review is the cornerstone of the formal process for ensuring the quality of user experiences developed by the Creative Technology team. This involves a meeting among authors of markup, reviewers and other stakeholders, with expected input and subsequent code revisions. Simply put, we encourage conducting code reviews to keep our tools sharp and clean.</p>
+	</div>
+	
+	<strong>Why should I have a code review?</strong>
+	<p>Code reviews are a strategic investment of time to mitigate risk on a project.</p>
+	
+	<p>Often times, interface developers are asked to author markup from wire frames or visual compositions. However, its possible that screens that are designed cannot be translated to markup easily, or without compromising quality. Code reviews provide an opportunity for this risk to be addressed and resolved before full production of pages begins.</p>
+	
+	
+	<strong>Code reviews increase the overall level of knowledge across projects</strong>
+	<p>Since code reviews involve members from within and outside a project team, techniques and best practices are easily shared throughout the entire Creative Technology team.</p>
+	
+	
+	<strong>Code reviews eliminate bugs before they are reproduced from a few templates into multiple pages</strong>
+	<p>Ideally, code reviews are conducted early in the development process, before full production of pages begins. When templates are reviewed by the team and run through multiple validation tools and browsers, bugs can and will appear. This is the ideal time for bugs to be fixed.</p>
+	
+	
+	<strong>Code reviews give a set of fresh eyes an opportunity to spot issues with code</strong>
+	<p>Reviewers from outside a project team can spot issues with code more easily than authors of markup, who have been working with code for a longer amount of time.</p>
+	
+	
+	<strong>Who should participate in a code review?</strong>
+	<p>Ultimately, the front end engineering  Lead on a project is required to ensure that proper code review procedures are followed.</p>
+	
+	<p>Ideally, a practice lead should act as facilitator for a code review session, unless the practice lead is also the interface developer whose code is under review. In this situation, a project manager can be brought in as a facilitator.</p>
+	
+	<p>The review team should include at least two senior members of the Interface Technology team versed in development and best practices.</p>
+	
+	
+	<strong>What is required for a code review?</strong>
+	<p>Before a code review is conducted, templates to be reviewed must be fully developed, validated, and tested against the browsers and platforms required by the project.</p>
+	
+	<p>A practice lead and/or interface developer must distribute the following 48 hours prior to the date of the code review:</p>
+	
+	<ul>
+		<li>Code for all pages, associated server-side includes, CSS, and JavaScript. These should be fully commented, printed out with line numbers along the left side, and the file/page name in the footer of each printed page.</li>
+		<li>Screenshots of each template</li>
+		<li>URLs of the templates, if applicable</li>
+		<li>A list of browsers and platforms supported by the project</li>
+		<li>A list of known issues/areas of concern</li>
+	</ul>
+	
+	<p>It is typical for code to be changed constantly until the code review is to take place. Unfortunately, this does not leave enough time for validation and testing. If this is the case, it is recommended that the code review be rescheduled to a date that ensures a proper code review.</p>
+	
+	<p>In addition, a practice lead and/or interface developer should book a conference room and call-in number for all attendees, since it is possible that members of either the project or code review team are off-site. An hour should provide enough time for review of two or three templates; however, time will vary depending on the volume and complexity of the templates.</p>
+	
+	<p>During the code review, a practice lead and/or interface developer should facilitate the meeting, while the practice lead or project manager takes notes and assigns action items. Reviewers should have reviewed the code and come prepared to ask questions or provide feedback.</p>
+	
+	<p>Notes and action items (including owners) should be distributed to all attendees after the code review. If substantial changes come out of a code review, or all code is not reviewed, it may be necessary to schedule a second code review. However, this should be discussed amongst the project team to determine feasibility.</p>
+
+</section>
+<!-- #### APPENDICES + RESOURCES SECTION #### -->
+
+<section id="appendices">
+	
+	<div class="intro has-icon">
+		<img class="icon" src="img/layout/icon-curly.png" alt="{}" />
+		
+		<h1>Appendices</h1>
+		
+		<p>Here are the references, tools and other things that relate to this document.</p>
+	</div>
+
+	<h2>Appendix A: Validators</h2>
+
+	<ul>
+		<li><a href="http://jigsaw.w3.org/css-validator/">W3C CSS Validation Service</a></li>
+		<li><a href="https://addons.mozilla.org/en-US/firefox/addon/249">HTML Validation firefox extension</a></li>
+		<li><a href="http://jigsaw.w3.org/css-validator/">CSS validator</a></li>
+		<li>Accessibility - <a href="http://bobby.watchfire.com/">Bobby Validation Service</a>
+			<ul>
+				<li>Tests individual pages for accessibility against either the W3C or Section 508 standards.</li>
+			</ul>
+		</li>
+		<li>Accessibility - <a href="http://www.cynthiasays.com/">Cynthia Says Portal</a>
+			<ul>
+				<li>Similar to Bobby, tests individual pages for accessibility against either the W3C or Section 508 standards.</li>
+			</ul>
+		</li>
+	</ul>
+
+
+	<h2>Appendix B: Tools</h2>
+	
+	<ul>
+		<li><a href="http://browsershots.org/">Browsershots</a> makes screenshots of your web design in different operating systems and browsers</li>
+		<li><a href="https://browserling.com/">Browserling</a> is an interactive cross-browser testing site. Fully interactive sessions, not static screenshots.</li>
+		<li>Accessibility - <a href="http://www.w3.org/WAI/ER/existingtools.html">Evaluation, Repair, and Transformation Tools for Web Content Accessibility</a> - lists validation tools for validating, testing and fixing web content to make it more accessible.</li>
+	</ul>
+	
+	
+	<h3>Code Editors</h3>
+	
+	<p>A great code editor can spark productivity in exceptional ways. Many developers prefer rudimentary text editors, others prefer powerful integraded development environments (IDEs). What follows is a general listing of some of the more well-known tools, it would be impossible to list them all.</p>
+	
+	<dl>
+		<dt>Aptana</dt>
+		<dd>
+			Aptana Studio is a powerful, free and open source Ajax development environment which runs stand-alone or within Eclipse. Aptana Studio offers tooling for Ajax including HTML, CSS, DOM, and JavaScript editing and debugging, plus support via additional free plugins for PHP, Ruby on Rails, Adobe AIR, Apple iPhone development. It also features full SVN repository integration for committing, branching, tagging, merging and repository browsing. <a href="http://aptana.com/">Aptana</a>. [Linux, Mac, Windows]
+		</dd>
+		
+		<dt>Geany</dt>
+		<dd>
+			Geany is a text editor using the GTK2 toolkit with basic features of an integrated development environment. It was developed to provide a small and fast IDE, which has only a few dependencies from other packages. It supports many filetypes and has some nice features. <a href="http://www.geany.org/">Geany</a>. [Linux, Mac, Windows]
+		</dd>
+		
+		<dt>Notepad ++</dt>
+		<dd>
+			Notepad++ is a free (free as in "free speech", but also as in "free beer") source code editor and Notepad replacement, which supports several programming languages, running under the MS Windows environment. <a href="http://notepad-plus.sourceforge.net/uk/about.php">Notepad ++</a>. [Windows]
+		</dd>
+		
+		<dt>e TextEditor</dt>
+		<dd>
+			E is a new text editor for Windows, with powerful editing features and quite a few unique abilities. It makes manipulating text fast and easy, and lets you focus on your writing by automating all the manual work. You can extend it in any language, and by supporting TextMate bundles, it allows you to tap into a huge and active community. <a href="http://www.e-texteditor.com/">e TextEditor</a>. [Windows]
+		</dd>
+
+		<dt>Edit Plus</dt>
+		<dd>
+			EditPlus is a text editor, HTML editor and programmers editor for Windows. While it can serve as a good Notepad replacement, it also offers many powerful features for Web page authors and programmers. <a href="http://www.editplus.com/">EditPlus</a>. [Windows]
+		</dd>
+
+		<dt>Homesite</dt>
+		<dd>
+			HomeSite 5.5 provides a lean, code-only editor for web development. Advanced coding features enable you to instantly create and modify HTML, CFML, JSP, and XHTML tags, while enhanced productivity tools allow you to validate, reuse, navigate, and format code more easily. Configure Adobe (formerly Macromedia) HomeSite to fit your needs by extending its functionality and customizing the interface. <a href="http://www.adobe.com/products/homesite/">Homesite</a>. [Windows]
+		</dd>
+		
+		<dt>TextMate</dt>
+		<dd>
+			TextMate claims to be the "Missing Editor" for Mac OS X. A general purpose editor with a sparse interface, the real power is in it's extensibility. Features column selections, recordable macros, snippets, auto-pairing of brackets and other characters, clipboard history, code folding, tab-triggers, tabbed placeholders and mirror typing. And that's just for starters. Anything that can be done via scripts through the Mac command line can be done through custom commands, allowing an extremely high degree of customization and expansion of the feature set. TextMate's "bundle" format has been adapted by many other code editors including the aforementioned e TextEditor. <a href="http://www.macromates.com">TextMate</a>. [Mac]
+		</dd>
+		
+		<dt>Espresso</dt>
+		<dd>
+			Espresso was created by the same fellow that created the innovative CSSEdit CSS editor. Espresso features syntax highlighting, code folding, code completion, document outliner/navigators, projects, powerful find features, and built-in file transfer publishing capabilities. Finally, it has a powerful "Sugar" feature set which allows the creation of custom commands and plugins. <a href="http://macrabbit.com/espresso/">Espresso</a>. [Mac]
+		</dd>
+		
+		<dt>BBEdit</dt>
+		<dd>
+			BBEdit is the grand-daddy of Mac code editors for web development. Features syntax highlighting, exceptionally powerful text manipulation tools, multi-file searches, a scriptable API, text clippings, and extensive Mac Automator features. <a href="http://www.barebones.com/products/bbedit/">BBEdit</a>. [Mac]
+		</dd>
+		
+		<dt>TextWrangler</dt>
+		<dd>
+			The free "little brother" of BBEdit, it is a powerful raw text editor with a massive text manipulation feature set. Searches, regular expressions, text transformations, syntax highlighting and code navigation tools for a variety of different language environments. <a href="http://www.barebones.com/products/textwrangler/">TextWrangler</a>. [Mac]
+		</dd>
+		
+		<dt>Coda</dt>
+		<dd>
+			Coda from Panic software is a powerful IDE with code editing, terminal, remote file management, and help documentation all built into one UI. Aiming to be a one stop shop for your web development workflow, it also features SVN integration and a new plug-in builder with powerful scripting support and TextMate bundle importing. Finally, code clips and live multi-user editing are also supported. <a href="http://www.panic.com/coda/">Coda</a>. [Mac]
+		</dd>
+		
+		<dt>UltraEdit</dt>
+		<dd>
+			Another editor that's been around for ages, this is an immensely robust and powerful text editor, able to open files limited only by the amount of memory on your computer. The feature list is virtually too much to list, with a massive list of text manipulation features, project support, powerful search and replace, hex editing, function lists, a massive list of languages supported (600+) remote file ftp, telnet, ssh, file comparison, scriptable macros, tools and compiler support, and much, much more.  <a href="http://www.ultraedit.com/products/ultraedit/">UltraEdit</a>. [Linux, Mac, Windows]
+		</dd>
+		
+		<dt>Sublime Text</dt>
+		<dd>
+			A relatively new editor, Sublime Text is a new approach in editors. "Open Anything" searches through file names and file contents, with remarkable efficiency. Incredibly powerful selection controls allow editing text in multiple locations at once and the "Minimap" gives you a bird's eye view of the open file so you can find your place easily. Actively being developed, new features are being added and the community around the editor is rapidly expanding. Macros, auto-complete, snippets, build tools, the list of features goes on and on. Supports Linux and Mac starting with version 2.
+<a href="http://www.sublimetext.com/">Sublime Text</a>. [Linux, Mac, Windows]
+		</dd>
+		
+		<dt>Vim</dt>
+		<dd>
+			If you have to ask, it's probably not for you. <a href="http://www.vim.org/">Vim</a> [Linux, Mac, Windows]
+		</dd>
+	</dl>
+	
+	<h3>Google Chrome Extensions</h3>
+	
+	<dl>
+		<dt>Developer Tools</dt>
+		<dd>
+			Not actually an extension for Chrome, but built right in (shares much with Safari's Web Inspector, both being derived from WebKit.) This suite of tools features a DOM inspector, basic JavaScript debugger, profiling tools, network loading inspector and timelines, page resources inspectors, and more.
+<a href="http://code.google.com/chrome/devtools/docs/overview.html">Developer Tools</a>.</dd>
+		
+		<dt>code cola</dt>
+		<dd>A pop-up panel with CSS editing tools for examining and modifying the styles on a given page. <a href="https://chrome.google.com/webstore/detail/lomkpheldlbkkfiifcbfifipaofnmnkn">code cola</a>.</dd>
+		
+		<dt>Firebug Lite for Google Chrome</dt>
+		<dd>
+			You really don't need to install an extension to use Firebug Lite with Chrome, though the extension is nice because it enables one-click application of the Firebug Lite script to any page you are working with. Not the full Firebug feature set, but close.
+			<a href="https://chrome.google.com/webstore/detail/bmagokdooijbeehmkpknfglimnifench">Firebug Lite</a>.
+		</dd>
+
+		<dt>HTML5 Outliner</dt>
+		<dd>
+			The HTML5 Outliner adds a pop-up with a generated HTML5 outline of the current page's header hierarchy. Helps for checking your pages' organization against the new HTML5 header outlining algorithms. 
+			<a href="https://chrome.google.com/webstore/detail/afoibpobokebhgfnknfndkgemglggomo">HTML5 Outliner</a>.
+		</dd>
+
+		<dt>Pendule</dt>
+		<dd>
+			Nice set of tools for showing data about and interacting with the current web page. Very similar to the <a href="http://chrispederick.com/work/web-developer/">original web developer toolbar for Firefox</a>.
+			<a href="https://chrome.google.com/webstore/detail/gbkffbkamcejhkcaocmkdeiiccpmjfdi">Pendule</a>.
+		</dd>
+		
+		<dt>Web Developer for Chrome</dt>
+		<dd>
+			Chris Pederick, the original developer of the original Web Developer toolbar for Firefox has ported the majority of it over to Chrome. There you have it.
+			<a href="http://chrispederick.com/work/web-developer/">Web Developer</a>.
+		</dd>
+		
+	</dl>
+
+	<h3>Firefox Plugins</h3>
+
+	<dl>
+		<dt>FireFTP</dt>
+		<dd>
+			FireFTP is a free, secure, cross-platform FTP client for Mozilla Firefox which provides easy and intuitive access to FTP servers. <a href="http://fireftp.mozdev.org/">FireFTP</a>.
+		</dd>
+		
+		<dt>Firebug</dt>
+		<dd>
+			Firebug integrates with Firefox to put a wealth of development tools at your fingertips while you browse. You can edit, debug, and monitor CSS, HTML, and JavaScript live in any web page. <a href="https://addons.mozilla.org/en-US/firefox/addon/1843">Firebug</a>.
+		</dd>
+		
+		<dt>Firequery</dt>
+		<dd>FireQuery is a collection of Firebug enhancements for jQuery integrated into Firebug. <a href="https://addons.mozilla.org/en-us/firefox/addon/firequery/">Firequery</a>.</dd>
+
+		<dt>Firecookie</dt>
+		<dd>
+			Firecookie adds cookie viewing, editing, and deletion to Firebug. <a href="https://addons.mozilla.org/en-US/firefox/addon/firecookie/">Firecookie</a>.
+		</dd>
+		
+		<dt>CSS Usage</dt>
+		<dd>
+			CSS Coverage is an extension for Firebug which allows you to scan multiple pages of your site to see which CSS rules are actually used in your site. <a href="https://addons.mozilla.org/en-us/firefox/addon/css-usage/">CSS Usage</a>.
+		</dd>
+		
+		<dt>Greasemonkey</dt>
+		<dd>Allows you to customize the way a web page displays using small bits of JavaScript. <a href="https://addons.mozilla.org/en-US/firefox/addon/748">GreaseMonkey</a>.</dd>
+
+		<dt>Web Developer Toolbar</dt>
+		<dd>Adds a menu and a toolbar with various web developer tools. <a href="https://addons.mozilla.org/en-US/firefox/addon/60">Web Developer Toolbar</a>.</dd>
+
+		<dt>JSView</dt>
+		<dd>
+			Adds an item in the status bar that displays all external JavaScript and CSS files loaded on a given page. Allows you to click on and view the files and things like their URLs. Great way to pull file URLs to put into Charles for remote debugging. <a href="https://addons.mozilla.org/en-US/firefox/addon/2076">JSView</a>.
+		</dd>
+
+		<dt>Live HTTP headers</dt>
+		<dd>
+			When running, captures all HTTP traffic from the browser, which enables you to see what files are being requested as well as information about the requests and server responses. <a href="https://addons.mozilla.org/en-US/firefox/addon/3829">Live HTTP Headers</a>.
+		</dd>
+
+		<dt>Quick Locale Switcher</dt>
+		<dd>
+			A tremendous help when doing internationalization, Quick Locale Switcher allows you to change the locale sent along in the browser's user-agent HTTP header, telling servers to display content for you in other locales. <a href="https://addons.mozilla.org/en-US/firefox/addon/1333">Quick Locale Switcher</a>.
+		</dd>
+
+		<dt>Screengrab</dt>
+		<dd>
+			Screengrab sits in the Firefox status bar, allowing you to capture and copy or save screen shots of everything from selections of a web page to the entire page, even parts displayed "below the fold." <a href="https://addons.mozilla.org/en-US/firefox/addon/1146">Screengrab</a>.
+		</dd>
+
+		<dt>Total Validator</dt>
+		<dd>
+			Enables one-click access to sending your page through a markup validator. No better way to quickly check for missing or mismatched tags! Also available as a standalone application. <a href="http://www.totalvalidator.com/tool/extension.html">Total Validator</a>.
+		</dd>
+	</dl>
+
+	
+	<h3>Opera Extensions</h3>
+	
+	<p><a href="http://www.opera.com/dragonfly/">Dragonfly</a> is Opera's developer tool similar to Firebug.</p>
+		
+	<h3>IE Plugins</h3>
+
+	<p><strong>CompanionJS, DebugBar, IE8 Dev tools</strong>.</p>
+
+	<h3>Charles Proxy</h3>
+	
+	<p><a href="http://www.charlesproxy.com/">Charles</a> watches all requests and can tell you a lot of information about them. Also supremely useful is <b>Map Local</b> which lets you use a local file in place of a given URL (good for replacing a minified js with a full one). </p>
+	<h3>Fiddler</h3>
+    <p>From the site: <a href="http://www.fiddler2.com/fiddler2/">&quot;Fiddler </a>is a Web Debugging Proxy which logs all HTTP(S)   		traffic between your computer and the Internet. Fiddler allows you to   		inspect traffic, set breakpoints, and &quot;fiddle&quot; with incoming or outgoing data.    		Fiddler includes a powerful event-based   		scripting subsystem, and can be extended using any .NET language.&quot;</p>
+    <h3>Speedlimit</h3>
+<p><a href="http://mschrag.github.com/">Speedlimit</a> is a Leopard (works in snow leopard) preference pane for limiting your network bandwidth to one of a couple different speeds—768k DSL, Edge, 3G, and Dialup. Good for testing your lowest supported speeds or when you want to know how your app will function in  real world speeds.</p>
+
+	<h3>Tutorials &amp; Tools:</h3>
+
+	<ul>
+		<li><a href="http://lesliefranke.com/files/reference/csscheatsheet.html">CSS Cheatsheet</a></li>
+		<li><a href="http://www.dezwozhere.com/links.html">CSS Links</a></li>
+		<li><a href="http://www.cleancss.com/">Clean CSS</a></li>
+		<li><a href="http://csswizardry.com/fluid-grids/">Fluid Grids Code Generator</a></li>
+	</ul>
+
+
+	<h3>Icons</h3>
+
+	<ul>
+		<li><a href="http://www.famfamfam.com/lab/icons/silk/">Famfamfam silk icons</a></li>
+		<li><a href="http://sublink.ca/icons/">Sweetie</a></li>
+		<li><a href="http://delicious.com/paul.irish/icons">Paul's bookmarks for more icons</a></li>
+		<li><a href="http://p.yusukekamiyamane.com/">Fugue Icons - 3,100 icons in PNG format.</a></li>
+	</ul>
+
+
+	<h2>Appendix C: Resources</h2>
+
+	<ul>
+		<li><a href="http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-262.pdf">ECMA 262 5th Edition December 2009</a></li>
+		<li><a href="http://dev.opera.com/articles/view/1-introduction-to-the-web-standards-cur/#toc">Opera's The Web Standards Curriculum</a> - basic articles about building with web standards.</li>
+		<li><a href="http://nettuts.com/html-css-techniques/10-principles-of-the-css-masters/">10 Principles of the CSS Masters</a> - all of this is smart advice.</li>
+		<li><a href="http://www.google.com">Google</a> - when in doubt, google it.</li>
+		<li><a href="http://lmgtfy.com/?q=front-end+development+coding+standards&l=1">Too lazy?</a> - let me google that for you then...</li>
+		<li><a href="http://developer.yahoo.com/performance/">Yahoo's Exceptional Performance </a>team has maintained one of the best summaries of performance advice.</li>
+		<li><a href="http://code.google.com/speed/page-speed/docs/rules_intro.html">Google now has a Speed site</a> with excellent detail. (Click All best practices).</li>
+		<li>There are many more excellent resources on <a href="http://delicious.com/paul.irish/optimization">page optimization</a> and <a href="http://delicious.com/paul.irish/performance">javascript performance</a>.</li>
+		<li><a href="http://wiki.mozilla.org/WebDev:FrontendCodeStandards">Mozilla's coding standards</a>.</li>
+		<li><a href="http://wiki.forum.nokia.com/index.php/JavaScript_Performance_Best_Practices">Nokia's JavaScript Performance Best Practices</a>.</li>
+	</ul>
+
+
+</section>
+<!-- #### AUTHORS + TEAM + REVISION HISTORY ASIDES #### -->
+
+
+<aside id="authors" role="comlimentary">
+
+	<h2>Authors</h2>
+	
+	<ul>
+		<li><a href="http://twitter.com/#%21/paul_irish">Paul Irish</a></li>
+		<li><a href="http://twitter.com/#%21/nickcooley">Nick Cooley</a></li>
+		<li><a href="http://twitter.com/#%21/_ajm">Adam McIntyre</a></li>
+		<li><a href="http://htmlcssjavascript.com/">Rob Larsen</a></li>
+		<li><a href="http://twitter.com/#%21/jayroh">Joel Oliviera</a></li>
+		<li><a href="http://twitter.com/#%21/jaredwilli">Jared Williams</a></li>
+		<li><a href="http://twitter.com/#%21/annettish">Annette Arabasz</a></li>
+		<li><a href="http://twitter.com/#%21/rcherny">Rob Cherny</a></li>
+	</ul>
+	
+</aside>
+	
+<aside id="revisions" role="comlimentary">
+
+	<h1>Revision History</h1>
+	
+	<ul>
+		<li>2012 Fall/Winter: Conversion to Github Hosted Version; general edits (larger edits coming soon!)</li>
+		<li>2011 May/June: Entire Standards page redesign. Coded with html5boilerplate.</li>
+		<li>2011 April: Web Typography document created.</li>
+		<li>2011 March: 2k11 clean up. Added contact info, etc. etc.</li>
+		<li>2010 April: Prep for public release.</li>
+		<li>2010 March: Merge with other documents and Fellowship's coding standards. HTML format.</li>
+		<li>2009 August: Performance Recommendation document created.</li>
+		<li>2008 July: <a href="https://wiki.molecular.com/wiki/Interface_Development_Coding_Standards">Reduce size of document</a></li>
+		<li>2008 July: <a href="https://wiki.molecular.com/w/index.php?title=Coding_Standards&amp;oldid=9956">Merge with new standards</a>.</li>
+		<li>2005 April: Original "how to write good markup" document. <a href="https://fusion.molecular.com/C14/Interface%20Development/Interface%20Development/UID_coding_standards.doc">UID_coding_standards.doc</a>.</li>
+	</ul>
+	
+</aside>
