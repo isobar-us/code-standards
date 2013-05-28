@@ -32,6 +32,7 @@ dwsync.xml
 publish
 .idea
 .sass-cache
+css/generated
 
 # build script local files
 build/buildinfo.properties
