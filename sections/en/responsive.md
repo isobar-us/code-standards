@@ -33,39 +33,50 @@ The Modernizr.mq() function can tell you what breakpoint the browser is in in yo
 
 # Responsive Images
 
-Techniques for developing responsive images are rapidly changing. Currently, there are no native browser implementations to handle it. We recommend using [Picturefill](https://github.com/scottjehl/picturefill) which is designed to mimic the proposed <picture> element. It supports specifying different images depending on resolution media query as well as pixel density. (Another proposed solution is using the @srcset attribute. If you want the full backstory, be prepared for [a lot of reading](http://blog.cloudfour.com/the-real-conflict-behind-picture-and-srcset/). Drawbacks for either of these solutions is that multiple versions of every image have to be generated, which may not be practical for every project.
+### Fluid Images
 
-###<picture> Example
-If the <picture> element is not supported, the browser will use the fallback <img src="small.jpg">. If it does support the element, it will examine each media query and download the image that matches.
+If your design calls for it, consider making your images automatically resize to the width of their container. This is achieivable through a simple snippet of CSS:
+```css
+img{
+  width:100%;
+}
+```
+
+### Advanced Techniques
+
+Techniques for developing responsive images are rapidly changing. Currently, there are no native browser implementations to handle it. We recommend using [Picturefill](https://github.com/scottjehl/picturefill) which is designed to mimic the proposed `<picture>` element. It supports specifying different images depending on resolution media query as well as pixel density. Another proposed solution is using the @srcset attribute. If you want the full backstory, be prepared for [a lot of reading](http://blog.cloudfour.com/the-real-conflict-behind-picture-and-srcset/). Drawbacks for either of these solutions is that multiple versions of every image have to be generated, which may not be practical for every project.
+
+#### `<picture>` Example
+If the `<picture>` element is not supported, the browser will use the fallback `<img src="small.jpg">`. If it does support the element, it will examine each media query and download the image that matches.
 ```html
 <picture width="500" height="500">
-   <source media="(min-width: 45em)" src="large.jpg">
-   <source media="(min-width: 18em)" src="med.jpg">
-   <source src="small.jpg">
-   <img src="small.jpg" alt="">
-   <p>Accessible text</p>
+  <source media="(min-width: 45em)" src="large.jpg">
+  <source media="(min-width: 18em)" src="med.jpg">
+  <source src="small.jpg">
+  <img src="small.jpg" alt="">
+  <p>Accessible text</p>
 </picture>
 ```
 
-###Picturefill Example
-Picturefill expands upon this syntax. If Javascript is not supported, the default small image will be displayed. This is an example from the MSG project
+#### Picturefill Example
+Picturefill expands upon this syntax. If Javascript is not supported, the default small image will be displayed. This is an example from the MSG project:
 ```html
 <div data-picture data-alt="Rangers Playoffs">
   <div data-src="rangers-small.jpg"></div>
   <div data-src="rangers-medium.jpg" data-media="(min-width:540px)"></div>
   <div data-src="rangers-large.jpg" data-media="(min-width:768px)"></div>
   <noscript>
-  	<img src="rangers-small.jpg" alt="Rangers Playoffs"/>
+    <img src="rangers-small.jpg" alt="Rangers Playoffs"/>
   </noscript>
 </div>
 ```
 
-###@srcset Attribute Example
+#### @srcset Attribute Example
 In this example, a banner that takes half the viewport is provided in two versions, one for wide screen and one for narrow screens.
 ```html
-<img alt="The Breakfast Combo"
-			src="banner.jpeg"
-			srcset="banner-HD.jpeg 2x, banner-phone.jpeg 100w, banner-phone-HD.jpeg 100w 2x">
+<img  alt="The Breakfast Combo"
+      src="banner.jpeg"
+      srcset="banner-HD.jpeg 2x, banner-phone.jpeg 100w, banner-phone-HD.jpeg 100w 2x">
 ```
 
 ### Compressive Images
@@ -92,6 +103,7 @@ Don't realy too heavily on Yepnope as it adds an extra HTTP request for each tes
 
 [Ress = REsponsive design & Server Side Components](http://www.netmagazine.com/tutorials/getting-started-ress)
 
+
 ## How the hell do I stay on top of this stuff?!
 
 * [A List Apart](alistapart.com)
@@ -99,4 +111,3 @@ Don't realy too heavily on Yepnope as it adds an extra HTTP request for each tes
 * [Brad Frost](http://twitter.com/brad_frost)
 * [Ethan Marcotte](http://twitter.com/beep)
 * [Responsive Web Design](http://twitter.com/rwd)
-
