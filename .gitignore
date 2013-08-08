@@ -33,6 +33,9 @@ publish
 .idea
 .sass-cache
 css/generated
+_site
+.jekyll
+node_modules
 
 # build script local files
 build/buildinfo.properties
