@@ -40,4 +40,16 @@ The index.php file is used to include each of the .html files contained within t
 
 Each of these files include content wrapped within sections. This should be self-explanatory I think. In each section, we make use of all h1-h6 heading tags multiple times since HTML5 lets you use as many as you like. Of course, we try to always use them and all other HTML5 tags appropriately, and making use of semantic tags where they are best suited.
 
+## Getting Started with the Build process
+
+Run 'npm install' from the command line of the project directory to install all the dependencies. You may need to occasionally re-run this command as new dependencies are added.
+
+Run 'bundle install' from the command line of the project directory to install jekyll's dependencies. This will allow you to build the jekyll site similiar to what we are hosting on github pages, and to run the server locally.
+
+Run 'grunt' from the command line of the project directory to run the build process.
+
+To run the jekyll server locally run 'jekyll serve' from the command line. You can then view the site at localhost:4000 
+
+We currently use the default jekyll configuration, so there is no configuration file.
+
 
