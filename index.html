@@ -1025,10 +1025,9 @@ meta:
 		<li>Follow the <a href="http://developer.yahoo.com/performance/">Yahoo Performance Guidelines</a></li>
 		<li>Smush images using <a href="http://developer.yahoo.com/yslow/smushit/">smush.it</a>. Also using <a href="http://developer.yahoo.com/yslow/">YSlow</a> can autosmush all your images for you.</li>
 		
+		<li>Avoid inline <code>&lt;script></code> blocks within the HTML. They block rendering and are quite devastating to page load time.</li>
 		<li>Set caching headers appropriately.</li>
 		<li>Consider a cookie-less subdomain for static assets</li>
-		<li>Avoid inline &lt;script&gt; blocks.</li>
-		
 		<li>CSS should be located in the <code>&lt;head></code> of the document, Javascript should be right before the <code>&lt;/body></code> tag.</li>
 		<li>Both CSS and JavaScript should be served minified. Most people use the <a href="http://developer.yahoo.com/yui/compressor/">YUI Compressor</a> for this.</li>
 	
@@ -1038,7 +1037,6 @@ meta:
 		<li>JavaScript should be concatenated. While a ajax script dependency manager would be ideal (similar to the YUI 3 Loader), it's rather complicated to implement. In its place I'd recommend a singular download of most of the script used on the site. (Of course, proper caching should be used to retain the file as long as is reasonable).</li>
 	
 		<li>Concatenation and minification typically occur during an automated build process, when packaging the code for deployment on stage or production. Many use tools like <a href="http://ant.apache.org/">Ant</a> or <a href="http://maven.apache.org/">Maven</a> for this.</li>
-		<li>Avoid inline <code>&lt;script></code> blocks within the HTML. They block rendering and are quite devastating to page load time.</li>
 	</ul>
 	
 	
