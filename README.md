@@ -17,35 +17,97 @@ By maintaining consistency in coding styles and conventions, we can ease the bur
 
 We hope to encourage other developers to think about how to best standardize their approaches to development, to propose their own ideas for debate and for inclusion in our version of the document, and to adapt our standards for their own unique development practices. What better way of achieving consensus on how best to develop in our discipline than through feedback from members of that discipline themselves?
 
-### Work in Progress
+## Intent for Build and Content
 
-The content and build process is a work in progress since the migration from our PHP hosted version to this Github Pages version.
+We hope to seperate the structure of the document from the content contained in the standards themselves. Effectively, our goal is to be able to easily update the content without having to worry about the structure.
+
+This also enables pull requests to focus on content and forks to the content to be easily re-branded.
+
+## Viewing the Document
+
+To view the latest, you can just clone locally:
+
+```bash
+git clone git://github.com/isobar-idev/code-standards.git
+```
+
+To make changes using the process in place, please use the build process. The next few sections describe this build process.
 
 ## Building the Document
 
-Prior to running these commands, make sure you have ruby 1.9.3 installed, ideally using RVM.
+### Requirements
+
+The build system uses [Grunt.js](http://gruntjs.com) via [Node.js](http://nodejs.org/) and [SASS](http://sass-lang.com/) via [Compass](http://compass-style.org/).
+
+Install [Node.js](http://nodejs.org) from their Web site.
+
+Prior to running the build commands, make sure you have ruby 1.9.3 installed, ideally using RVM.
+
+### Build Details
+
+We are using [Grunt](https://github.com/gruntjs/) to run the [Assemble](https://github.com/assemble/assemble/) task to parse, populate variables, and combine files for the HTML, Markdown, and [Handlebars](http://handlebarsjs.com/) templates.
+
+> Note: [Assemble](http://assemble.io) is an exceptionally active and flexible framework for building static HTML pages. It allows the usage of Handlebars, Markdown, and HTML files so we can gradually migrate to Markdown content files over time.
+
+> We suggest you check out [Assemble](http://assemble.io) as well.
+
+The Gruntfile (`grunt.js`) includes the build for the multi-lingual copies of the document. There is a variable for `standards.defaultLanguage` which will determine what language the default `index.html` is rendered in.
+
+To start with a clean slate, the Gruntfile has a `cleanup` task which will remove the previously generated `index.html` and associated language files.
+
+There is also a `watch` task if you like to work that way.
+
+### Execute the Build
 
 Run `'npm install'` from the command line of the project directory to install all the node dependencies. You may need to occasionally re-run this command as new dependencies are added.
 
-Run `'bundle install'` from the command line of the project directory to install ruby's dependencies. This will allow you to build the jekyll site similiar to what we are hosting on github pages, and to run the server locally. If you get a `'command not found'` error, run `'gem install bundler'` then try again.
-
 Run `'grunt'` from the command line of the project directory to run the build process.
-
-To run the jekyll server locally run `'jekyll serve --watch'` from the command line. You can then view the site at localhost:4000. Don't forget the `'--watch'` option as this enables auto-regeneration of the code.
-
-We currently use the default jekyll configuration, so there is no configuration file.
 
 ### Structure of Page Content
 
-The `index.html` file is generated via grunt and should not be edited directly. Each of the `.html` files contained within the `/sections/[lang]` directory is a portion of the final file. We have separated the different sections that make up the page into individual files so that it is easier to edit, basically making the content of the page more modular. This is also part of what we consider a best practice when dealing with large projects, as if it were an application involving lots of code, that several people work on. index.html is then served via jekyll using the layout located in `_layouts/main.html`.
+The `*.html` files in the root are generated via `grunt` and should not be edited directly. There is one file per language, by language code.
 
-Each of these files include content wrapped within sections. This should be self-explanatory I think. In each section, we make use of all h1-h6 heading tags multiple times since HTML5 lets you use as many as you like. Of course, we try to always use them and all other HTML5 tags appropriately, and making use of semantic tags where they are best suited.
+```
+./en.html
+./es.html
+./ru.html
+...
+```
+Finally, the `standards.defaultLanguage` setting determines which `*.html` file will be copied to the `index.html` file.
 
-To edit the main layout, edit the file in `_layouts/main.html`, to edit the content edit the relevant section in the sections folder. Do not edit `index.html`.
+> Note: In the near future the layout and templates will be updated to include the i18l language menus. 
+
+#### Content
+
+```
+./sections/[lang]/*.html
+./sections/[lang]/*.md
+```
+
+Each of the `.html` files (and soon `.md` - Markdown) contained within these directories is a portion of the final output file. We have separated the different sections that make up the page into individual files so that it is easier to edit.
+
+#### Including A Content File
+
+The content files are included as partials and the data and order is defined in the following folder and files:
+
+```
+./sections/[lang]/build/[lang].hbs
+./sections/[lang]/build/data.json
+```
+
+The `data.json` file has special significance to Assemble, *do not rename this file*.
+
+#### Page Layout (Presentation)
+
+The main layout is a Handlebars file that the content is injected into and language specific attributes are updated.
+
+The file is `./_layouts/main.hbs`.
 
 ### Structure of CSS
 
-The CSS files are generated via compass from the scss files located in the scss folder, which is run as part of the grunt task. Because github pages only serve static content, you must push your generated files to the gh-pages branch for updates to appear. 
+The CSS files are generated via Compass from the SCSS files located in the SCSS folder, which is run as part of the Grunt task. 
 
+### Deploy
 
+Because github pages only serve static content, you must push your generated files to the gh-pages branch for updates to appear online. 
 
