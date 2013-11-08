@@ -1,57 +1,51 @@
 /*global module:false*/
 module.exports = function(grunt) {
-    var metas = {
-        en: {
-            path: 'sections/en/',
-            files: ['_front_matter.txt', 'general.html', 'markup.html', 'css.html', 'javascript.html', 'performance.html', 'browsers.html', 'seo.html', 'codeReviews.html', 'appendices.html', 'revisionHistory.html']
-        }
-    }
 
-    function addBasePaths(basePath, fileArray){
-        var output = [];
+  'use strict';
 
-            fileArray.forEach(function(i){
-                output.push(basePath + i);
-                grunt.log.write("Including base path: " + basePath + i + '\n');//logging for debugging
-            });
-            
-        return output;
-    };
+  // @todo: move to json file
+  var standards = {
+    ourLanguages : ['en', 'es'],
+    defaultFile : 'index',
+    defaultExt : '.html',
+    // change this to have the 'index' file be another language
+    defaultLanguage : 'en'
+  };
+
   // Project configuration.
   grunt.initConfig({
     // Metadata.
     pkg: grunt.file.readJSON('package.json'),
-    // Task configuration.
-    concat: {
-      dist: {
-            src: ((function(){
-                var files = [];
-      
-                files = addBasePaths(metas.en.path, metas.en.files);
 
-                return files;
+    // clean up after the previous build
+    clean : {
+      build : (function(){
+        var arr = [];
 
-            })()),
-           dest: 'index.html'
-      }
+          // we iterate over the languages and create our list of output files
+          standards.ourLanguages.forEach(function(val){
+            arr.push(val + standards.defaultExt);
+          });
+
+          // add the default file to the list since it will be replaced by "copy"
+          arr.push(standards.defaultFile + standards.defaultExt);
+
+        return arr;
+      }())
     },
+
+    // watch the file system for new changes
     watch: {
-      options: {
-        livereload: true,
-      },
       css: {
         files: ['scss/*.scss'],
         tasks: ['compass']
       },
       html: {
-        files: ['sections/en/*.html'],
-        tasks: ['concat']
-      },
-      jekyll: {
-        files: ['index.html', '_layouts/*.html'],
-        tasks: ['jekyll']
+        files: ['sections/**/*.html', 'sections/**/*.html.md'],
+        tasks: ['default']
       }
     },
+
     compass: {
       dist: {
         options: {
@@ -59,27 +53,53 @@ module.exports = function(grunt) {
         }
       }
     },
-    /*todo: setup jekyll build to serve index.html*/
-    jekyll: {                             // Task
-      options: {                          // Universal options
-          bundleExec: true,
-          config: '_config.yml'
+
+    // combine our files into one file, language by language
+    assemble: {
+      options: {
+        layoutdir: './_layouts',
+        layout: 'main.hbs'
       },
-      build: {                            
-        options: {
-          drafts: false
+      en: {
+        options : {
+          data : 'sections/en/build/data.json',
+          partials: ['sections/en/*.html']
+        },
+        files : {
+          'en.html' : ['sections/en/build/en.hbs']
+        }
+      },
+      es: {
+        options : {
+          data : 'sections/es/build/data.json',
+          partials: ['sections/es/*.html']
+        },
+        files : {
+          'es.html' : ['sections/es/build/es.hbs']
         }
       }
+    },
+
+    // copy the specified default language to the specified file
+    copy : {
+      realeaseLanguage : {
+        src : standards.defaultLanguage + standards.defaultExt,
+        dest : standards.defaultFile + standards.defaultExt
+      }
     }
-  });
+
+});
 
   // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-jekyll');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('assemble');
 
   // Default task.
-  grunt.registerTask('default', ['concat', 'compass', 'jekyll']);
+  grunt.registerTask('cleanup', ['clean']);
+  grunt.registerTask('default', ['clean', 'compass', 'assemble', 'copy']);
+  grunt.registerTask('watch', ['watch']);
 
 };
