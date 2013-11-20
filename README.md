@@ -39,9 +39,9 @@ To make changes using the process in place, please use the build process. The ne
 
 The build system uses [Grunt.js](http://gruntjs.com) via [Node.js](http://nodejs.org/) and [SASS](http://sass-lang.com/) via [Compass](http://compass-style.org/).
 
-Install [Node.js](http://nodejs.org) from their Web site.
+First, install [Node.js](http://nodejs.org) from their Web site.
 
-Prior to running the build commands, make sure you have ruby 1.9.3 installed, ideally using RVM.
+Then, prior to running the build commands, make sure you have ruby 1.9.3 installed, ideally using [RVM](https://rvm.io/rvm/install) (Mac OS X and Linux) or [RubyInstaller](http://rubyinstaller.org/downloads/) (Windows).
 
 ### Build Details
 
@@ -60,6 +60,8 @@ There is also a `watch` task if you like to work that way.
 ### Execute the Build
 
 Run `'npm install'` from the command line of the project directory to install all the node dependencies. You may need to occasionally re-run this command as new dependencies are added.
+
+> Windows: You may need to manually run `npm install -g grunt` and `npm install -g grunt-cli` to correctly set the path variables required to run grunt from the command line.
 
 Run `'grunt'` from the command line of the project directory to run the build process.
 
