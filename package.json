@@ -1,6 +1,6 @@
 {
   "name": "code-standards",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "",
   "main": "Gruntfile.js",
   "scripts": {},
@@ -17,6 +17,8 @@
     "grunt-contrib-concat": "~0.2.0",
     "grunt-contrib-compass": "~0.5.0",
     "grunt-contrib-watch": "~0.5.1",
-    "grunt-jekyll": "~0.3.8"
+    "assemble": "~0.4.33",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-copy": "~0.4.1"
   }
 }
