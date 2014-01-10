@@ -40,21 +40,13 @@ header canvas {
 	top: -40px;
 }
 
-header h1 a {
-    display: block;
-    height: 70px;
-    position: absolute;
-    text-indent: -9999em;
-	width:365px
-}
-
 header h1 a { 
-	background:url("../../img/logo-roundarchisobar.png") no-repeat 0 0;
-    position: absolute;
-	text-indent: -9999em;
-    height: 70px;
-	width:365px;
-	display:block;
+	background:url("../../img/orange.svg") no-repeat 0 0;
+    background-size: auto 100%;
+ 	overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    display:block;
 }
 
 header #social {

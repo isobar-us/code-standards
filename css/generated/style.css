@@ -628,24 +628,15 @@ header canvas {
 
 /* line 43, ../../scss/global/_header.scss */
 header h1 a {
-  display: block;
-  height: 70px;
-  position: absolute;
-  text-indent: -9999em;
-  width: 365px;
-}
-
-/* line 51, ../../scss/global/_header.scss */
-header h1 a {
-  background: url("../../img/logo-roundarchisobar.png") no-repeat 0 0;
-  position: absolute;
-  text-indent: -9999em;
-  height: 70px;
-  width: 365px;
+  background: url("../../img/orange.svg") no-repeat 0 0;
+  background-size: auto 100%;
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
   display: block;
 }
 
-/* line 60, ../../scss/global/_header.scss */
+/* line 52, ../../scss/global/_header.scss */
 header #social {
   /* background:rgba(64,64,64,0.9); */
   float: right;
@@ -658,7 +649,7 @@ header #social {
   z-index: 1;
 }
 
-/* line 72, ../../scss/global/_header.scss */
+/* line 64, ../../scss/global/_header.scss */
 header #social li {
   display: inline-block;
   height: 35px;
@@ -666,43 +657,43 @@ header #social li {
   vertical-align: top;
 }
 
-/* line 79, ../../scss/global/_header.scss */
+/* line 71, ../../scss/global/_header.scss */
 header #social li a {
   width: 35px;
   background: url("../../img/layout/sprite-social.png") no-repeat 0 0;
 }
 
-/* line 84, ../../scss/global/_header.scss */
+/* line 76, ../../scss/global/_header.scss */
 header #social #facebook {
   background-position: -5px -5px;
 }
 
-/* line 85, ../../scss/global/_header.scss */
+/* line 77, ../../scss/global/_header.scss */
 header #social #facebook:hover {
   background-position: -5px -47px;
 }
 
-/* line 87, ../../scss/global/_header.scss */
+/* line 79, ../../scss/global/_header.scss */
 header #social #twitter {
   background-position: -46px -5px;
 }
 
-/* line 88, ../../scss/global/_header.scss */
+/* line 80, ../../scss/global/_header.scss */
 header #social #twitter:hover {
   background-position: -46px -47px;
 }
 
-/* line 90, ../../scss/global/_header.scss */
+/* line 82, ../../scss/global/_header.scss */
 header #social #delicious {
   background-position: -88px -5px;
 }
 
-/* line 91, ../../scss/global/_header.scss */
+/* line 83, ../../scss/global/_header.scss */
 header #social #delicious:hover {
   background-position: -88px -47px;
 }
 
-/* line 93, ../../scss/global/_header.scss */
+/* line 85, ../../scss/global/_header.scss */
 header #social #linkback {
   color: #ccc;
   font-family: Georgia, serif;
@@ -715,7 +706,7 @@ header #social #linkback {
   background: none;
 }
 
-/* line 105, ../../scss/global/_header.scss */
+/* line 97, ../../scss/global/_header.scss */
 header #social #linkback:hover {
   color: #dcdcdc;
 }
