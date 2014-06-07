@@ -10,7 +10,7 @@
 
 #### Inclusion
 
-Use the <span class="code">&lt;script&gt;</span> tag to include your JavaScript files at the bottom of your HTML document just before the closing <span class="code">&lt;/body&gt;</span> tag. For optimal page performance, concatenate your JavaScript into as few files as possible.
+Use the `<script>` tag to include your JavaScript files at the bottom of your HTML document just before the closing `</body>` tag. For optimal page performance, concatenate your JavaScript into as few files as possible.
 
 ```
 <script type="text/javascript" src="main.js"></script>
@@ -36,7 +36,7 @@ if ((allowUpdate) && ((user.isAdmin) || (user.role === item.owner))) {
 
 #### Variable Declaration
 
-To avoid confusion between global and local variables, we declare each variable on its own line with the <span class="code">var</span> keyword. We do not use a single <span class="code">var</span> keyword and then chain several variable declarations onto it separated by a comma.
+To avoid confusion between global and local variables, we declare each variable on its own line with the `var` keyword. We do not use a single `var` keyword and then chain several variable declarations onto it separated by a comma.
 
 ```
 var currentVal = $(this).val();
