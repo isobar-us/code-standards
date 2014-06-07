@@ -54,7 +54,29 @@ module.exports = function(grunt) {
     assemble: {
       options: {
         layoutdir: './_layouts',
-        layout: 'main.hbs'
+        layout: 'main.hbs',
+        marked: {
+          gfm: true,
+          tables: true,
+          breaks: false,
+          pedantic: false,
+          sanitize: false,
+          smartLists: true,
+          smartypants: false
+          // ,
+          // highlight: function (code, lang) {
+          //   try {
+          //     if (languages[lang]) {
+          //       lang = languages[lang];
+          //     } else {
+          //       return code;
+          //     }
+          //     return hljs.highlight(lang, code).value;
+          //   } catch(e) {
+          //     return hljs.highlightAuto(code).value;
+          //   }
+          // }
+        }
       },
       en: {
         options : {
