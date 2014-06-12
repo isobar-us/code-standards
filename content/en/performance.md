@@ -1,4 +1,3 @@
-<section>
 ## Performance
 
 ### Goals
@@ -14,6 +13,3 @@
 ...
 
 ### Resources
-
-</section>
-

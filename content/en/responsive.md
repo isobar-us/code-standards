@@ -1,5 +1,4 @@
 
-<section>
 ## Responsive Web Design
 
 (Get notes from nring)
@@ -18,5 +17,3 @@
 
 ### Resources
  Link to wiki...    
-
-</section>

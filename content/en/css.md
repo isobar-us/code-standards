@@ -1,4 +1,3 @@
-<section>
 ## CSS
 
 CSS is where the visual presentation logic of a website belongs. Well-written CSS makes good use of its cascading nature - general styles are applied first, and those styles are overridden for more specific instances as necessary.
@@ -86,5 +85,3 @@ Avoid using the `!important` keyword. Treat it like the nuclear option, only to 
 ### Resources
 
 Further reading on the wiki etc.
-
-</section>

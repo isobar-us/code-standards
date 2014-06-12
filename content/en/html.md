@@ -1,4 +1,3 @@
-<section>
 ## HTML
 
 HTML markup defines the content of a document and gives it a rudimentary structure such as headers, paragraphs, and lists. It provides a number of semantic constructs that allow automated tools like search engines and screen readers to make sense of the document and to understand relationships between pieces of content. A well-written HTML document will make appropriate use of these semantic elements and leave all responsibility for controlling the presentation of the document to the CSS stylesheet.
@@ -140,4 +139,3 @@ All input fields should be associated with a `<label>` element. The `for` attrib
 ### Resources
 Further information on the wiki...
 
-</section>

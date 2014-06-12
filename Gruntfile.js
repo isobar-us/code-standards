@@ -53,30 +53,11 @@ module.exports = function(grunt) {
     // combine our files into one file, language by language
     assemble: {
       options: {
-        layoutdir: './_layouts',
-        layout: 'main.hbs',
         marked: {
-          gfm: true,
-          tables: true,
-          breaks: false,
-          pedantic: false,
-          sanitize: false,
-          smartLists: true,
-          smartypants: false
-          // ,
-          // highlight: function (code, lang) {
-          //   try {
-          //     if (languages[lang]) {
-          //       lang = languages[lang];
-          //     } else {
-          //       return code;
-          //     }
-          //     return hljs.highlight(lang, code).value;
-          //   } catch(e) {
-          //     return hljs.highlightAuto(code).value;
-          //   }
-          // }
-        }
+          sanitize: false
+        },
+        flatten : true,
+        layout: './_layouts/main.hbs'
       },
       en: {
         options : {
@@ -100,12 +81,9 @@ module.exports = function(grunt) {
       nglayout: {
         options : {
           data : 'content/en/build/data.json'
-          // ,
-          // partials: ['content/en/*.md']
         },
-        files : {
-          'nglayout.html' : ['content/en/build/en.hbs']
-        }
+        src : 'content/en/build/en.hbs',
+        dest : 'nglayout.html'
       },
     },
 

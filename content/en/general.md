@@ -1,4 +1,3 @@
-<section>
 # Front-End Code Standards
 
 ## General
@@ -43,4 +42,3 @@ We encourage liberal use of whitespace, comments, and descriptive variable names
 ### Resources
 
 Further reading on the wiki
-</section>

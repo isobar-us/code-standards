@@ -1,4 +1,3 @@
-<section>
 ## JavaScript
 
 ### Goals
@@ -57,4 +56,3 @@ Always test for the existence of a browser API, function, or object property bef
 ### Resources
  - Links to wiki, etc.
 
-</section>
