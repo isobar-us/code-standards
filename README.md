@@ -19,7 +19,7 @@ We hope to encourage other developers to think about how to best standardize the
 
 ## Intent for Build and Content
 
-We hope to seperate the structure of the document from the content contained in the standards themselves. Effectively, our goal is to be able to easily update the content without having to worry about the structure.
+We hope to separate the structure of the document from the content contained in the standards themselves. Effectively, our goal is to be able to easily update the content without having to worry about the structure.
 
 This also enables pull requests to focus on content and forks to the content to be easily re-branded.
 
