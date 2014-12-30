@@ -1,6 +1,6 @@
 {
   "name": "code-standards",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "Gruntfile.js",
   "scripts": {},
@@ -8,21 +8,16 @@
     "type": "git",
     "url": "https://github.com/isobar-idev/code-standards.git"
   },
-  "author": "Roundarch Isobar",
+  "author": "Isobar",
   "bugs": {
     "url": "https://github.com/isobar-idev/code-standards/issues"
   },
-  "dependencies": {
-    "assemble": "~0.4.37"
-  },
   "devDependencies": {
-    "assemble-handlebars": "~0.2.0",
-    "assemble-yaml": "^0.1.8",
+    "assemble": "^0.4.42",
     "async": "^0.2.10",
     "chai": "^1.8.1",
     "frep": "^0.1.8",
-    "grunt": "^0.4.2",
-    "grunt-cli": "~0.1.13",
+    "grunt": "~0.4.5",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-compass": "^0.5.0",
     "grunt-contrib-concat": "^0.2.0",
