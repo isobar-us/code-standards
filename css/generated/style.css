@@ -25,7 +25,7 @@
  * v1.6.1 2010-09-17 | Authors: Eric Meyer & Richard Clark
  * html5doctor.com/html-5-reset-stylesheet/
  */
-/* line 16, ../../scss/global/_base.scss */
+/* line 8, ../../scss/global/_base.scss */
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
@@ -43,7 +43,7 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 26, ../../scss/global/_base.scss */
+/* line 25, ../../scss/global/_base.scss */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
@@ -54,7 +54,7 @@ blockquote, q {
   quotes: none;
 }
 
-/* line 33, ../../scss/global/_base.scss */
+/* line 32, ../../scss/global/_base.scss */
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: "";
@@ -63,15 +63,15 @@ q:before, q:after {
 
 /* line 35, ../../scss/global/_base.scss */
 ins {
-  background-color: #ffff99;
-  color: black;
+  background-color: #ff9;
+  color: #000;
   text-decoration: none;
 }
 
 /* line 37, ../../scss/global/_base.scss */
 mark {
-  background-color: #ffff99;
-  color: black;
+  background-color: #ff9;
+  color: #000;
   font-style: italic;
   font-weight: bold;
 }
@@ -98,7 +98,7 @@ hr {
   display: block;
   height: 1px;
   border: 0;
-  border-top: 1px solid #cccccc;
+  border-top: 1px solid #ccc;
   margin: 1em 0;
   padding: 0;
 }
@@ -233,7 +233,7 @@ button {
 ----------------------------------------------------------------------------------------------------*/
 /* line 120, ../../scss/global/_base.scss */
 body {
-  background: white url("../../img/layout/bg-body.gif") repeat-x;
+  background: #fff url("../../img/layout/bg-body.gif") repeat-x;
   color: #000;
   min-width: 960px;
 }
@@ -530,7 +530,7 @@ a[href^="https://wiki"], a[href^="http://repo"], a[href^="https://fusion"] {
 }
 
 /* line 21, ../../scss/global/_layout.scss */
-#side {
+.nav-toc {
   display: inline;
   float: left;
   font-size: 13px;
@@ -784,7 +784,7 @@ header #social #linkback:hover {
   margin: 0 20px 20px 0;
 }
 
-/* line 22, ../../scss/global/_intro.scss */
+/* line 21, ../../scss/global/_intro.scss */
 div.intro h1, div.intro h2,
 div.intro p, div.intro ol {
   margin-left: 120px;
@@ -972,7 +972,7 @@ div.intro ol, div.intro ul {
   text-decoration: none;
 }
 
-/* line 4, ../../scss/global/_syntaxhighlighter.scss */
+/* line 2, ../../scss/global/_syntaxhighlighter.scss */
 textarea[class~="brush:js"], textarea[class~="brush:css"],
 textarea[class~="brush:php"], textarea[class~="brush:html"],
 textarea[class~="brush:csharp"] {
@@ -1486,8 +1486,7 @@ html body div.syntaxhighlighter * {
 
   @page {
     margin: 0.5cm;
-}
-
+  }
   /* line 18, ../../scss/global/_print.scss */
   p, h2, h3 {
     orphans: 3;
@@ -1540,7 +1539,7 @@ html body div.syntaxhighlighter * {
   a, a:visited {
     text-decoration: none;
     /* color:#f30 */
-    color: #f74902;
+    color: #F74902;
   }
 
   /* line 55, ../../scss/global/_print.scss */
@@ -1550,7 +1549,7 @@ html body div.syntaxhighlighter * {
 
   /* line 59, ../../scss/global/_print.scss */
   .syntaxhighlighter {
-    background: #cccccc;
+    background: #ccc;
   }
 }
 /**

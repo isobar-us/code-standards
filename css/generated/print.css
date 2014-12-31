@@ -41,7 +41,7 @@ a, a:visited {
 }
 
 /* line 7, ../../scss/print.scss */
-body .fork, #side, header #social, canvas, .anchor_link, .backAnchor {
+body .fork, .nav-toc, header #social, canvas, .anchor_link, .backAnchor {
   visibility: hidden;
 }
 

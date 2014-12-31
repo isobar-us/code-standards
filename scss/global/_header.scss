@@ -49,7 +49,7 @@ header h1 a {
     display:block;
 }
 
-header #social {
+header .social {
 	/* background:rgba(64,64,64,0.9); */
     float: right;
     margin-bottom: 0;
@@ -61,28 +61,28 @@ header #social {
     z-index: 1;
 }
 
-header #social li {
+header .social li {
     display: inline-block;
     height: 35px;
     margin-left: 6px;
     vertical-align: top;
 }
 
-header #social li a { 
+header .social li a { 
 	width: 35px; 
 	background: url('../../img/layout/sprite-social.png') no-repeat 0 0;
 }
 
-header #social #facebook { background-position: -5px -5px; }
-header #social #facebook:hover { background-position: -5px -47px; }
+header .social #facebook { background-position: -5px -5px; }
+header .social #facebook:hover { background-position: -5px -47px; }
 
-header #social #twitter { background-position: -46px -5px; }
-header #social #twitter:hover { background-position: -46px -47px; }
+header .social #twitter { background-position: -46px -5px; }
+header .social #twitter:hover { background-position: -46px -47px; }
 
-header #social #delicious { background-position: -88px -5px; }
-header #social #delicious:hover { background-position: -88px -47px; }
+header .social #delicious { background-position: -88px -5px; }
+header .social #delicious:hover { background-position: -88px -47px; }
 
-header #social #linkback { 
+header .social #linkback { 
 	color: #ccc; 
 	font-family: Georgia, serif; 
 	font-size: 12px; 
@@ -94,4 +94,4 @@ header #social #linkback {
 	background: none;
 }
 
-header #social #linkback:hover { color: #dcdcdc; }
+header .social #linkback:hover { color: #dcdcdc; }

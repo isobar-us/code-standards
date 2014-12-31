@@ -2,14 +2,14 @@
 /* Logo + Container + Main + Section + Aside 
 ----------------------------------------------------------------------------------------------------*/
 
-#container { 
+.container { 
 	width: 960px;
 	margin: 0 auto;
 	position: relative;
 	overflow: hidden;
 }
 
-#main {
+main {
 	border-right: 1px #dcdcdc solid;
 	display: inline;
 	float: left;
@@ -18,7 +18,7 @@
 	width: 610px;
 }
 
-#side {
+.nav-toc {
 	display: inline;
 	float: left;
 	font-size: 13px;	
@@ -27,18 +27,18 @@
 	position: relative;
 }
 
-#main > section {
+main > section {
 	border-bottom: 1px solid #dcdcdc;
 	margin-bottom: 20px;
 }
 
-#main > section { padding-bottom: 20px; }
+main > section { padding-bottom: 20px; }
 
-#main > section:last-child, #container > aside:last-child {
+main > section:last-child, .container > aside:last-child {
 	border-bottom: none;
 }
 
-#main > section article {
+main > section article {
 	border-bottom: 1px #dcdcdc solid;
 	margin-bottom: 20px;
 }
