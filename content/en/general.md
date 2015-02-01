@@ -4,9 +4,9 @@
 
 This document contains the guidelines and best practices for the front-end web development team at Isobar. There are many ways of leveraging browser-based technologies to create a website. Each item here represents either:
 
-1. a decision we've made favoring one method over its alternatives,
-1. a reminder to follow existing standards or industry conventions, or
-1. guidance on what constitutes professional patterns and organization
+1. A decision we've made favoring one method over its alternatives,
+1. A reminder to follow existing standards or industry conventions, or
+1. Guidance on what constitutes professional patterns and organization
 
 What this document is _not_ is a series of explanations as to how front-end technologies work; a basic familiarity is assumed for the audience of this document. It also does _not_ provide evaluations of the pros and cons of various alternatives; when appropriate we pick what we consider to be the best solutions and present them. Issues that don't yet have a clear solution are considered flexible and may or may not be listed.
 
@@ -14,24 +14,26 @@ What this document is _not_ is a series of explanations as to how front-end tech
 
 Our motivations in creating this document are to:
 
-1. foster code consistency across our projects 
-1. to facilitate ease of maintenance, 
-1. guide staff onboarding or educate new developers, 
-1. on how to create professional, robust, performant, and accessible websites
+1. Foster code consistency across our projects 
+1. Facilitate ease of maintenance
+1. Guide staff on-boarding or educate new developers
+1. Ensure we create professional, robust, performant, and accessible websites
 
-This document is not intended to replace common sense, conventions adopted by particular clients, teams, or prevent expressive or creative solutions to problems. Team-specific agreements or client requests will always trump this document's content.
+This document is not intended to replace common sense, conventions requested by particular clients, teams, or prevent expressive or creative solutions to problems. Team or project-specific agreements or client requests will always supersede this document's content.
 
 ### Professional Responsibility
 
-We are hired as experts in our field, and we are creating solutions for our clients, their teams and target audiences, and not for ourselves. Every technology and coding choice needs to measured against the potential benefits to the project objectives versus maintainability as opposed to the _cool factor_ or how _trendy_ a particular solution may be. 
+We are experts in our field, and we are creating solutions for our clients, their teams and target audiences, and not for ourselves. Every technology and code choice needs to measured against the potential benefits to the project objectives versus maintainability as opposed to the _cool factor_ or how _trendy_ a particular solution may be. 
 
-Always remember that just because you _can_ does not mean you _should_. Some solutions are not reliable, may not perform well, or may be difficult to maintain over time or add more code to. Always remember your code may not be the last added to a project in that particular area.
+Our industry is wrought with the flavor of the month, so please be deliberate. 
+
+Always remember that just because you _can_ does not mean you _should_. Some solutions are not reliable, may not perform well, or may be difficult to maintain over time or add more code to. Always remember your code may not be the last added to a project in that particular feature area.
 
 ## Getting Started
 
 At the outset of the project it is essential to properly understand the goals of the project and identify the specific deliverables expected of the front-end team. Where your responsibilities begin and end should not be taken for granted or assumed.
 
-It's essential to understand how the development environment might work, what tools will be available, and what the differences between development, test, and production environments may ultimately be.
+It's important to understand how the development environment will work, what tools will be available, and what the differences between development, test, and production environments may ultimately be.
 
 Finally, all project teams should get a reasonable understanding of the what client's browser and device requirements are. Make no assumptions as to the technology available either from the client or their audience.
 
@@ -39,9 +41,9 @@ Finally, all project teams should get a reasonable understanding of the what cli
 
 Whenever possible, the front-end technology solutions produced shall adhere to an industry best practice honoring as strict a separation of concerns as possible between:
 
- - A semantic HyperText Markup Language (HTML) structure
- - Cascading Style Sheets (CSS) presentation
- - JavaScript (JS) behavior and interaction
+ - A semantic HyperText Markup Language (HTML) for structure
+ - Cascading Style Sheets (CSS) for presentation
+ - JavaScript (JS) for behavior and interaction
 
 ## General Standards
 
@@ -51,7 +53,7 @@ For any project:
  - Solutions should be as simple and clear as possible, while serving a specific purpose
  - Clever does not necessarily mean good; readability is critical
 
-Key hallmarks of professional software engineering includes a notion that while we are writing code that must reach a desired goal, we are also creating code that will be read and understood by others.
+A key hallmark of professional software engineering includes a notion that while we are writing code that must reach a desired goal, we are also creating code that must be read and understood by others.
 
 ### Consistency
 
@@ -71,9 +73,9 @@ If tab stops are favored by a team, the most important aspect is maintaining con
 
 We encourage liberal use of whitespace, comments, and descriptive variable names as appropriate for writing easy-to-read code. There is no need to write code in an obfuscated or compressed way for the purpose of file-size savings; we will use automated server-side or other build processes to concatenate, minify, and gzip all static client-side code (such as CSS and JavaScript).
 
-Un-minified libraries and third-party scripts should be leveraged in local development environments for easier debugging if necessary, and the code should be committed to source control in an unmodified state. The final products will be compressed with the rest of the source for delivery.
-
 ### Third-Party Libraries and Code
+
+Un-minified libraries and third-party scripts should be leveraged in local development environments for easier debugging if available, and the code should be committed to source control in an unmodified state. The final products will be compressed with the rest of the source for delivery.
 
 Likewise, third-party code and libraries should never be modified and their original source and license must be documented and be appropriate for a project. Any changes to third party code must be agreed upon and must be for specific reasons. If changes are mandated by bug fixes then the appropriate upstream project should have the changes submitted (assuming the code is part of an open source repository).
 
