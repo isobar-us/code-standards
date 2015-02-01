@@ -1,21 +1,49 @@
 ## HTML
 
-HTML markup defines the content of a document and gives it a rudimentary structure such as headers, paragraphs, and lists.
+HTML markup defines the content of a document and gives it a rudimentary structure such as section dividers, headers, paragraphs, lists, menus, and forms.
 
 ### Goals
 
-It provides a number of semantic constructs that allow automated tools like search engines and screen readers to make sense of the document and to understand relationships between pieces of content. A well-written HTML document will make appropriate use of these semantic elements and leave all responsibility for controlling the presentation of the document to the CSS stylesheet.
+Like with all languages used on a project consistency is critical. Please follow conventions established for a given project so all team members can have the same expectations around document structure and markup.
 
-### Goals
- - Consistency
- - Semantic Markup
- - Validation
+A clear, clean, and concise HTML structure is necessary for semantics, flexibility, and a reliable implementation in the ultimate deployment environment. Do **not** deviate from established templates or patterns without architect approval.
+
+Which markup is used actually does matter:
+
+- Use the most *meaningful* yet *minimal* markup required to present the styles and interaction required
+- Application-centric deliverables often have different types of requirements, please code accordingly 
+- Maintain the clear separation of concerns, avoid inline styles and inline JavaScript whenever possible
+- Have reference implementations so that each team member knows what sorts of structures are appropriate
+- Adhere to appropriate Web standards and avoid proprietary markup unless agreed upon
+- Build pages in such a way that blocks of code can be broken up and reused when implemented
+- Be sure front-end code is compatible with destination environments and delivery platforms
 
 ### Getting Started
- - Templates 
- - Frameworks
 
-### HTML Standards
+When crafting the HTML for a website, any number of environment and technical constraints may impact the type of markup that can be used. Please discuss the final delivery environment in depth with technical leads and clients so that pages are not structured or styled in some way that is not effective for the project solution. 
+
+Discuss types of:
+
+ - Templates 
+ - Frameworks, CSS grid systems (custom or otherwise)
+ - Server-Side delivery platforms
+
+Finally, take into account how the site will ultimately be maintained and who will be doing that work. 
+
+### General Standards
+
+As noted elsewhere the guidelines in this section may be discussed on a particular project and as long as consensus or project need determines a particular path, consistency is what matters most.
+
+#### Semantic Markup
+
+HTML provides a number of semantic constructs that allow automated tools like search engines and screen readers to make sense of the document and to understand relationships between pieces of content. Use *semantic* markup whenever possible — that is to say use elements with specific meanings for specific purposes to convey the spirit of the markup. 
+
+A well-written HTML document will make appropriate use of these semantic elements and leave all responsibility for controlling the presentation of the document to the CSS stylesheet. 
+
+#### Validation
+Valid markup is a goal but not a mandate. Please have reasons for invalid markup if this is a concern. 
+ 
+#### HTML Standards
  - HTML5 
     - Doctype
     - HTML5 Tags
@@ -46,6 +74,24 @@ All markup should be delivered as UTF-8, since it has the best support for inter
 <meta charset="UTF-8">
 ```
 
+#### Tags and Elements
+
+Generally speaking, self-closing XML (i.e. XHTML) style tags are not necessary.
+
+While current standards designate certain closing elements and even document level elements as optional, use all open and closing elements nested in the correct ways to ensure maximum compatibility and clarity of document structure. 
+
+#### HTML5 Elements
+
+To provide additional semantic value to our documents, we make use of HTML5 elements such as `<header>`, `<article>`, and `<section>` where appropriate. However, in order to ensure that our HTML is as backwards-compatible as possible, we do not apply IDs or classes to them, since older browsers do not understand these elements by default and will not apply styling to them.
+
+```
+<header>
+    <div class="site-header">
+        ...
+    </div>
+</header>
+```
+
 #### Attribute Values
 
 We use quotes to surround all attribute values in HTML, despite quotes being optional in HTML5. This maintains consistency between attribute values that contain whitespace and those that don't.
@@ -67,18 +113,6 @@ HTML elements can be identified by using the `id` and `class` attributes. An ID 
 ```
 
 When coming up with names for an ID or class, we use semantic names like &quot;secondary-nav&quot; or &quot;primary-button&quot; that describe what the element is, rather than names like &quot;left-nav&quot; or &quot;blue-button&quot; that describe what the element looks like, which can change over time. We also use lowercase names with hyphens separating words as opposed to camelCase or underscores. This matches the lowercase nature of HTML5 as well as the naming scheme for `data-xxx` attributes.
-
-#### Use of HTML5 Elements
-
-To provide additional semantic value to our documents, we make use of HTML5 elements such as `<header>`, `<article>`, and `<section>` where appropriate. However, in order to ensure that our HTML is as backwards-compatible as possible, we do not apply IDs or classes to them, since older browsers do not understand these elements by default and will not apply styling to them.
-
-```
-<header>
-    <div class="site-header">
-        ...
-    </div>
-</header>
-```
 
 #### Anchors
 
@@ -135,6 +169,8 @@ All input fields should be associated with a `<label>` element. The `for` attrib
 <label for="home-address">Home Address</label>
 <input id="home-address" type="text" />
 ```
+
+### Deliverables
 
 ### Next Steps
  - Templates
