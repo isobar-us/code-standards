@@ -11,9 +11,9 @@ A clear, clean, and concise HTML structure is necessary for semantics, flexibili
 Which markup is used actually does matter:
 
 - Use the most *meaningful* yet *minimal* markup required to present the styles and interaction required
-- Application-centric deliverables often have different types of requirements, please code accordingly 
+- Application-centric deliverables often have different types of requirements; please code accordingly 
 - Maintain the clear separation of concerns, avoid inline styles and inline JavaScript whenever possible
-- Have reference implementations so that each team member knows what sorts of structures are appropriate
+- Have reference implementations so that each team member knows what sorts of structures are appropriate, as well as where to add new code
 - Adhere to appropriate Web standards and avoid proprietary markup unless agreed upon
 - Build pages in such a way that blocks of code can be broken up and reused when implemented
 - Be sure front-end code is compatible with destination environments and delivery platforms

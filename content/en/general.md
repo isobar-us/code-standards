@@ -8,7 +8,10 @@ This document contains the guidelines and best practices for the front-end web d
 1. A reminder to follow existing standards or industry conventions, or
 1. Guidance on what constitutes professional patterns and organization
 
-What this document is _not_ is a series of explanations as to how front-end technologies work; a basic familiarity is assumed for the audience of this document. It also does _not_ provide evaluations of the pros and cons of various alternatives; when appropriate we pick what we consider to be the best solutions and present them. Issues that don't yet have a clear solution are considered flexible and may or may not be listed.
+What this document is _not_ is a series of explanations as to how front-end technologies work; a basic familiarity is assumed. It also does _not_ provide evaluations of the pros and cons of various alternatives; when appropriate we pick what we consider to be the best solutions and present them. Issues that don't yet have a clear solution are considered flexible and may or may not be listed.
+
+> It's recognized that the same conventions for all projects, clients, and teams isn't practical. For these reasons forks of this document are encouraged for various projects and teams. 
+What works well can be submitted and discussed as new recommendations moving forward. 
 
 ## Goals
 
@@ -23,7 +26,7 @@ This document is not intended to replace common sense, conventions requested by 
 
 ### Professional Responsibility
 
-We are experts in our field, and we are creating solutions for our clients, their teams and target audiences, and not for ourselves. Every technology and code choice needs to measured against the potential benefits to the project objectives versus maintainability as opposed to the _cool factor_ or how _trendy_ a particular solution may be. 
+We are experts in our field creating solutions for our clients and their target audiences, not for ourselves. Every technology and code choice needs to measured against the potential benefits to the project objectives versus maintainability as opposed to the _cool factor_ or how _trendy_ a particular solution may be. 
 
 Our industry is wrought with the flavor of the month, so please be deliberate. 
 
