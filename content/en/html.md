@@ -33,7 +33,7 @@ Discuss types of:
  - Frameworks, CSS grid systems (custom or otherwise)
  - Server-Side delivery platforms
 
-Note that it is vital to take into account how the site will ultimately be maintained and who will be doing that work. 
+*Note that it is vital to take into account how the site will ultimately be maintained and who will be doing that work.*
 
 ### General Markup Standards
 
@@ -68,6 +68,8 @@ Valid markup is a goal but not a mandate. Please have reasons for invalid markup
 
 All markup will be written using the latest HTML5 markup specifications from the W3C, as implemented by browsers and devices that meet project requirements. When creating markup be sure that the target environments support the techniques being implemented, or that there is a fall-back plan.
 
+Please use a common HTML5 polyfill or HTML5 Shiv to enable styling and recognition of HTML5 elements in older devices' browsers.
+
 #### Doctype
 
 Always include a proper doctype to trigger standards mode. Omitting the doctype triggers quirks mode and should always be avoided. The HTML5 doctype is simple and easy to remember.
@@ -101,8 +103,6 @@ To provide additional semantic value to our documents, make use of HTML5 element
     </div>
 </header>
 ```
-
-Please use a common HTML5 polyfill or HTML5 Shiv to enable styling and recognition of HTML5 elements in older devices' browsers.
 
 #### Attribute Values
 
