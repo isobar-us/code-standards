@@ -4,23 +4,23 @@ HTML markup defines the content of a document and gives it a rudimentary structu
 
 ### Goals
 
-Like with all languages used on a project consistency is critical. Please follow conventions established for a given project so all team members can have the same expectations around document structure and markup.
+Like with all code, consistency is critical. Please follow conventions established for a given project so all team members can have the same expectations around document structure and markup.
 
-A clear, clean, and concise HTML structure is necessary for semantics, flexibility, and a reliable implementation in the ultimate deployment environment. Do **not** deviate from established templates or patterns without architect approval.
+A clear, clean, and concise HTML structure is necessary for semantics, flexibility, and a reliable deployment environment. Do **not** deviate from established templates or patterns without architect approval.
 
 Which markup is used actually does matter:
 
 - Use the most *meaningful* yet *minimal* markup required to present the styles and interaction required
 - Application-centric deliverables often have different types of requirements; please code accordingly 
-- Maintain the clear separation of concerns, avoid inline styles and inline JavaScript whenever possible
+- Maintain a clear separation of concerns, avoid inline styles and inline JavaScript whenever possible
 - Have reference implementations so that each team member knows what sorts of structures are appropriate, as well as where to add new code
-- Adhere to appropriate Web standards and avoid proprietary markup unless agreed upon
+- Adhere to Web standards and avoid proprietary markup unless agreed upon
 - Build pages in such a way that blocks of code can be broken up and reused when implemented
 - Be sure front-end code is compatible with destination environments and delivery platforms
 
 ### Getting Started
 
-When crafting the HTML for a website, any number of environment and technical constraints may impact the type of markup that can be used. Please discuss the final delivery environment in depth with technical leads and clients so that pages are not structured or styled in some way that is not effective for the project solution. 
+When crafting the HTML for a website, environment or technical constraints may impact the type of markup that can be used. Please discuss the final delivery environment in depth with technical leads and clients so that pages are not structured or styled in some way that is not effective for the project solution. 
 
 Discuss types of:
 
@@ -32,7 +32,7 @@ Finally, take into account how the site will ultimately be maintained and who wi
 
 ### General Standards
 
-As noted elsewhere the guidelines in this section may be discussed on a particular project and as long as consensus or project need determines a particular path, consistency is what matters most.
+As noted these guidelines may be discussed on a particular project and as long as consensus or project need determines a particular path, consistency is what matters most.
 
 #### Semantic Markup
 
