@@ -3,7 +3,11 @@
 ### Goals
 
 ### Getting Started
+
  - JavaScript Libraries
+ - Single execution and entry point
+ - Control page life cycle
+ - Understand where your code will live vs. any code introduced in a destination environment
 
 ### JavaScript Standards
 
@@ -47,12 +51,18 @@ var max = parseInt($(this).attr('max'), 10);
 
 Always test for the existence of a browser API, function, or object property before you use it, and make sure the user experience is still functional (to the extent possible) if it's not found. We rely on JavaScript-based feature detection rather than server-side device detection because it's more robust, easily maintained, and future-proof.
 
+### Deliverables
+
+
+
 ### Next Steps
+
  - Debugging
  - Patterns for Better JavaScript
  - Unit Testing
  - Node.js
 
 ### Resources
- - Links to wiki, etc.
+
+For current links and references, please see our Wiki on Github.
 

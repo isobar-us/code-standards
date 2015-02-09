@@ -17,10 +17,10 @@ What works well can be submitted and discussed as new recommendations moving for
 
 Our motivations in creating this document are to:
 
-1. Foster code consistency across our projects 
-1. Facilitate ease of maintenance
-1. Guide staff on-boarding or educate new developers
-1. Ensure we create professional, robust, performant, and accessible websites
+ 1. Foster code consistency across our projects 
+ 1. Facilitate ease of maintenance
+ 1. Guide staff on-boarding or educate new developers
+ 1. Ensure we create professional, robust, performant, and accessible websites
 
 This document is not intended to replace common sense, conventions requested by particular clients, teams, or prevent expressive or creative solutions to problems. Team or project-specific agreements or client requests will always supersede this document's content.
 
