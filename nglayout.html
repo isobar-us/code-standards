@@ -25,12 +25,12 @@
 </head>
     <body>
         <a class="fork" href="https://github.com/isobar-idev/code-standards/" target="_blank"></a>
-        <div id="container">
+        <div class="container">
         
-            <header role=banner>
-                <h1><a id="logo" href="http://www.isobar.com/us/home">Isobar</a></h1>
+            <header role="banner">
+                <h1><a class="header-logo" href="http://www.isobar.com/us/home">Isobar</a></h1>
                 
-                <ul id="social">
+                <ul class="social">
                     <li><a class="icon" href="http://www.shareaholic.com/api/share/?v=1&apitype=1&apikey=8943b7fd64cd8b1770ff5affa9a9437b&service=5&title=Isobar%20North%20America's%20Coding%20Standards%20and%20Frontend%20development%20Best%20Practices&link=http://na.isobar.com/standards/&source=Shareaholic" id="facebook"></a></li>
                     <li><a class="icon" href="http://www.shareaholic.com/api/share/?v=1&apitype=1&apikey=8943b7fd64cd8b1770ff5affa9a9437b&service=7&title=Isobar%20North%20America's%20Coding%20Standards%20and%20Frontend%20development%20Best%20Practices&link=http://na.isobar.com/standards/&source=Shareaholic" id="twitter"></a></li>
                     <li><a class="icon" href="http://www.shareaholic.com/api/share/?v=1&apitype=1&apikey=8943b7fd64cd8b1770ff5affa9a9437b&service=2&title=Isobar%20North%20America's%20Coding%20Standards%20and%20Frontend%20development%20Best%20Practices&link=http://na.isobar.com/standards/&source=Shareaholic" id="delicious"></a></li>
@@ -39,7 +39,7 @@
             </header>
 
             
-            <div id="main" role="document">
+            <main role="document">
 
 <article>
 
@@ -123,7 +123,7 @@
 <pre><code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code></pre>
 <h4 id="attribute-values">Attribute Values</h4>
 <p>We use quotes to surround all attribute values in HTML, despite quotes being optional in HTML5. This maintains consistency between attribute values that contain whitespace and those that don&#39;t.</p>
-<pre><code>&lt;form class=&quot;registration module clearfix&quot; action=&quot;/register&quot; method=&quot;POST&quot;&gt;</code></pre>
+<pre><code>&lt;form class=&quot;registration module&quot; action=&quot;/register&quot; method=&quot;POST&quot;&gt;</code></pre>
 <h4 id="ids-vs-classes">IDs vs. Classes</h4>
 <p>HTML elements can be identified by using the <code>id</code> and <code>class</code> attributes. An ID is a unique identifier for that particular element; no other element on the page should use the same ID. This uniqueness allows <code>&lt;label&gt;</code> elements to associate themselves with a particular input and URLs to jump to a particular scroll position on a page. Classes are not unique. The same class can be used on multiple elements within a page, and a single element can have more than one class.</p>
 <pre><code>&lt;ul id=&quot;categories&quot;&gt;
@@ -389,9 +389,9 @@ var max = parseInt($(this).attr(&#39;max&#39;), 10);</code></pre>
 </section>
 
 </article>
-            </div>
+            </main>
             
-            <nav id="side" class="nav-right" role="navigation">
+            <nav class="nav-toc" role="navigation">
                 <h3 class="toc-title">Table of Contents</h3>
                 <ul id="toc" style="display:none"></ul>
                 <noscript><p><a href="http://enable-javascript.com">Please enable JavaScript</a>.</p></noscript>
@@ -400,10 +400,8 @@ var max = parseInt($(this).attr(&#39;max&#39;), 10);</code></pre>
         </div>
 
         <footer role="contentinfo">
-            <p>
-                <span class="float_left">2015 Isobar, All rights reserved.</span>
-                <span class="float_right">All content licensed under Creative Commons Attribution 3.0 Unported License</span>
-            </p>
+            <p class="copyright">2015 Isobar, All rights reserved.</p>
+            <p class="license">All content licensed under Creative Commons Attribution 3.0 Unported License</p>
         </footer>
         
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>

@@ -1,4 +1,4 @@
-@import 'colors';
+@import 'helpers/variables';
 /**
  * html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline)
  * v1.6.1 2010-09-17 | Authors: Eric Meyer & Richard Clark
@@ -118,23 +118,18 @@ button { width: auto; overflow: visible; }
 ----------------------------------------------------------------------------------------------------*/
 
 body {
-	background: #fff url('../../img/layout/bg-body.gif') repeat-x; 
-	color: #000;
+	background: $white; 
+	color: $default-2-text;
 	min-width: 960px;
 }
 
 figure {
-	background: #fff;
-	border: 3px solid;
-	border-color: #ddd #999 #666;
+	background: $gray-background;
 	display: block;
-	margin: -15px -2px 10px;
+	margin: 10px;
 	padding: 1px;
 	text-align: center;
-	box-shadow: #ccc 0 1px 3px;
-	-moz-box-shadow: #ccc 0 1px 3px;
-	-webkit-box-shadow: #ccc 0 1px 3px;
-	-o-box-shadow: #ccc 0 1px 3px;
+	@include box-shadow();
 }
 
 //todo: check what this is used for
@@ -153,7 +148,7 @@ p, dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address, fieldset {
 }
 
 //todo: check what this is used for
-p.indent { margin: -10px 0 5px 0; }
+p.indent { margin: 0 0 5px 0; }
 
 dl { margin-left: 15px; }
 dt { font-weight: bold; }

@@ -47,7 +47,7 @@ All markup should be delivered as UTF-8, since it has the best support for inter
 We use quotes to surround all attribute values in HTML, despite quotes being optional in HTML5. This maintains consistency between attribute values that contain whitespace and those that don't.
 
 ```
-<form class="registration module clearfix" action="/register" method="POST">
+<form class="registration module" action="/register" method="POST">
 ```
 
 #### IDs vs. Classes

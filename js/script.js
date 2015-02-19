@@ -33,14 +33,14 @@ var ISOBAR = {
 				///*console.log({ 'a': anchor, 'tag': tag, 'hx': hx[i] })*/;
 				
 				if (tag === 'h1') {
-					hx[i].innerHTML += '<a href="#" class="backAnchor" title="Top">Back to Top</a>';
+					hx[i].innerHTML += '<a href="#" class="back-anchor" title="Top">Back to Top</a>';
 				}
 			}
 			toc.style.display = 'block';
 		},
 		// just hooking up back to top
 		stuff : function(){
-			$('a.backAnchor').live('click',function(){
+			$('a.back-anchor').live('click',function(){
 				window.scrollTo(0, 0);
 				return false;
 			});

@@ -13,12 +13,11 @@ body .fork {
 }
 
 header { 
-	height: 60px;
-	width: 100%;
 	position: relative;
-	border-bottom: 3px solid #eee;
+	border-top: 5px solid $isobar-orange;
 }
 
+//social links in header?
 header a { 
 	width: 137px;
 	height: 39px;
@@ -26,13 +25,13 @@ header a {
 }
 
 header h1 {
-	position: absolute;
-	top: 60px;
 	width: 137px;
 	padding: 0;
 	height: 40px;
+	margin-left: 20px;
 }
 
+//todo: what is this for?
 header canvas {
 	position: absolute;
 	visibility: hidden;
@@ -42,14 +41,14 @@ header canvas {
 
 header h1 a { 
 	background:url("../../img/orange.svg") no-repeat 0 0;
-    background-size: auto 100%;
+  background-size: auto 100%;
  	overflow: hidden;
-    text-indent: 100%;
-    white-space: nowrap;
-    display:block;
+  text-indent: 100%;
+  white-space: nowrap;
+  display:block;
 }
 
-header #social {
+header .social {
 	/* background:rgba(64,64,64,0.9); */
     float: right;
     margin-bottom: 0;
@@ -61,32 +60,31 @@ header #social {
     z-index: 1;
 }
 
-header #social li {
+header .social li {
     display: inline-block;
     height: 35px;
     margin-left: 6px;
     vertical-align: top;
 }
 
-header #social li a { 
+header .social li a { 
 	width: 35px; 
 	background: url('../../img/layout/sprite-social.png') no-repeat 0 0;
 }
 
-header #social #facebook { background-position: -5px -5px; }
-header #social #facebook:hover { background-position: -5px -47px; }
 
-header #social #twitter { background-position: -46px -5px; }
-header #social #twitter:hover { background-position: -46px -47px; }
+//todo: clean up these selectors. should be something like .social-linkback-facebook
+header .social #facebook { background-position: -5px -5px; }
+header .social #facebook:hover { background-position: -5px -47px; }
 
-header #social #delicious { background-position: -88px -5px; }
-header #social #delicious:hover { background-position: -88px -47px; }
+header .social #twitter { background-position: -46px -5px; }
+header .social #twitter:hover { background-position: -46px -47px; }
 
-header #social #linkback { 
-	color: #ccc; 
-	font-family: Georgia, serif; 
-	font-size: 12px; 
-	font-style: italic; 
+header .social #delicious { background-position: -88px -5px; }
+header .social #delicious:hover { background-position: -88px -47px; }
+
+header .social #linkback { 
+	color: $medium-gray; 
 	text-decoration: none; 
 	text-align: center; 
 	width:110px;
@@ -94,4 +92,4 @@ header #social #linkback {
 	background: none;
 }
 
-header #social #linkback:hover { color: #dcdcdc; }
+header .social #linkback:hover { color: $dark-gray; }
