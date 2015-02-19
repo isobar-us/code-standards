@@ -10,7 +10,7 @@ header {
 }
 
 /* line 3, ../../scss/print.scss */
-header #logo {
+.header-logo {
   background: url("../img/isobar.png") no-repeat 0 0;
 }
 
@@ -41,7 +41,7 @@ a, a:visited {
 }
 
 /* line 7, ../../scss/print.scss */
-body .fork, .nav-toc, header #social, canvas, .anchor_link, .backAnchor {
+body .fork, .nav-toc, header #social, canvas, .anchor_link, .back-anchor {
   visibility: hidden;
 }
 
