@@ -93,12 +93,23 @@ module.exports = function(grunt) {
         src : standards.defaultLanguage + standards.defaultExt,
         dest : standards.defaultFile + standards.defaultExt
       }
+    },
+
+    connect: {
+      server: {
+        options: {
+          port: 8000,
+          hostname: '127.0.0.1',
+          keepalive: true
+        }
+      }
     }
 
 });
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
@@ -106,6 +117,7 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('cleanup', ['clean']);
+  grunt.registerTask('server', ['connect']);
   grunt.registerTask('default', ['clean', 'compass', 'assemble', 'copy']);
   grunt.registerTask('dev', ['watch']);
 
