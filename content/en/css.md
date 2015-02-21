@@ -3,15 +3,27 @@
 CSS is where the visual presentation logic of a website belongs. Well-written CSS makes good use of its cascading nature - general styles are applied first, and those styles are overridden for more specific instances as necessary.
 
 ### Goals
- - General coding principles
-    - Customization / Maintainabilty
-    - Components / Modules / OOCSS
+
+CSS is an unusual language which can easily lead to code bloat, inconsistent approaches, and regressions of a site-wide nature.
+
+Maintaining reference style implementations well into integration with server-side / back-end systems helps reduce regressions that can happen across the board as the code for the site evolves. Continue to test these reference implementations as they will be the "source of record" for the styles created on the site
+
+Always consider maintenance, next steps growth, and where and how new code for new enhancements might be added later.
 
 ### Getting Started
- - Grids
- - Frameworks
 
-### CSS Standards
+ - Patterns
+ - Division of site-wide styles, section-specific styles
+ - Grid Systems or frameworks — if you use a grid-system or framework, avoid modifying the original source and please simply extend it
+ - On a large site never develop using a single CSS style sheet, though a single file delivered via contatenation is best
+
+### General CSS Standards
+
+Try to segment code in logical ways:
+
+ - Separate structure from design
+ - Separate containers from content
+ - Create baseline components which may be extended, but rarely modified directly
 
 #### Inclusion
 
@@ -27,7 +39,7 @@ Do not put styling information into your HTML markup directly, either with the `
 
 #### Formatting
 
-We put each selector on its own line and each property on its own line for easy readability and so version control systems can clearly show which parts have changed. The attributes within a selector should be alphabetized for easy scanning and so that compression algorithms like gzip have a greater chance of finding repeatable patterns.
+Put each selector on its own line and each property on its own line for easy readability and so version control systems can clearly show which parts have changed. The attributes within a selector should be alphabetized for easy scanning and so that compression algorithms like gzip have a greater chance of finding repeatable patterns.
 
 ```
 #content {
@@ -42,7 +54,7 @@ We put each selector on its own line and each property on its own line for easy 
 }
 ```
 
-We do not indent child styles underneath their parent styles for a few reasons. When scanning through a CSS file to locate media queries, we generally look for indented styles, so indenting selectors that are not within a media query causes confusion. It also hinders maintainability. HTML and CSS structure can change frequently over the course of a project, quickly rendering obsolete the parent-child relationship the indentation used to represent. And the more levels of indentation there are, the harder it is to update.
+Do not indent child styles underneath their parent styles for a few reasons. When scanning through a CSS file to locate media queries, we generally look for indented styles, so indenting selectors that are not within a media query causes confusion. It also hinders maintainability. HTML and CSS structure can change frequently over the course of a project, quickly rendering obsolete the parent-child relationship the indentation used to represent. And the more levels of indentation there are, the harder it is to update.
 
 #### Box Model
 
@@ -76,12 +88,19 @@ button#back-button { ... }
 
 Avoid using the `!important` keyword. Treat it like the nuclear option, only to be used in the most extreme of cases. There is usually another way to achieve the same goal without causing headaches for developers in the future who are either trying to debug a styling issue or trying to use normal specificity to override a style for a particular element only to find that they can't.
 
+### Deliverables
+
+Please be aware of potential conflicts between the origional development environment for CSS and an ulitimate deployment to production systems, if continuous integration will allow the continued use of CSS preprocessors, or if there should a cross-platform development strategy.
+
 ### Next Steps
+
  - Compatibility
+ - CSS pre-processors
  - Internet Explorer Bugs
- - Use CSS3
+ - Usage of CSS3
+ - Vendor prefixes
  - Color Management
 
 ### Resources
 
-Further reading on the wiki etc.
+For current links and references, please see our Wiki on Github.

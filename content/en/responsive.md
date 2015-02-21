@@ -1,6 +1,20 @@
 
 ## Responsive Web Design
 
+### Goals
+...
+
+### Getting Started
+...
+
+### Standards For Responsive Web Development
+...
+
+### Next Steps
+... 
+
+### Resources
+ Link to wiki...    
 
 ### General Techniques
 
@@ -51,17 +65,4 @@
     + Grunticon / Grumpicon all the way http://www.filamentgroup.com/lab/grumpicon-workflow.html
 
 
-### Goals
-...
 
-### Getting Started
-...
-
-### Standards For Responsive Web Development
-...
-
-### Next Steps
-... 
-
-### Resources
- Link to wiki...    
