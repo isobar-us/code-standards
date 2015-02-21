@@ -2,43 +2,28 @@
 /* Logo + Container + Main + Section + Aside 
 ----------------------------------------------------------------------------------------------------*/
 
-#container { 
-	width: 960px;
+.container { 
 	margin: 0 auto;
 	position: relative;
 	overflow: hidden;
 }
 
-#main {
-	border-right: 1px #dcdcdc solid;
+main {
+	border-right: 1px $border-color solid;
 	display: inline;
 	float: left;
 	overflow: hidden;
-	padding: 50px 29px 60px 0;
+	padding: 50px 29px 60px 20px;
 	width: 610px;
 }
 
-#side {
+.nav-toc {
 	display: inline;
 	float: left;
 	font-size: 13px;	
-	padding: 0;
+	padding: 0 20px;
 	width: 300px;
 	position: relative;
 }
 
-#main > section {
-	border-bottom: 1px solid #dcdcdc;
-	margin-bottom: 20px;
-}
-
-#main > section { padding-bottom: 20px; }
-
-#main > section:last-child, #container > aside:last-child {
-	border-bottom: none;
-}
-
-#main > section article {
-	border-bottom: 1px #dcdcdc solid;
-	margin-bottom: 20px;
-}
+main > section { padding-bottom: 20px; }
