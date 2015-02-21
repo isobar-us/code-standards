@@ -37,7 +37,7 @@ module.exports = function(grunt) {
     // watch the file system for new changes
     watch: {
       css: {
-        files: ['scss/*.scss'],
+        files: ['scss/**/*.scss'],
         tasks: ['compass']
       }
     },
@@ -107,6 +107,6 @@ module.exports = function(grunt) {
   // Default task.
   grunt.registerTask('cleanup', ['clean']);
   grunt.registerTask('default', ['clean', 'compass', 'assemble', 'copy']);
-  grunt.registerTask('watch', ['watch']);
+  grunt.registerTask('dev', ['watch']);
 
 };

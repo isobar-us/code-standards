@@ -109,7 +109,7 @@ To provide additional semantic value to our documents, make use of HTML5 element
 Use quotes to surround all attribute values in HTML, despite quotes being optional in HTML5. This maintains consistency between attribute values that contain whitespace and those that don't.
 
 ```
-<form class="registration module clearfix" action="/register" method="POST">
+<form class="registration module" action="/register" method="POST">
 ```
 
 #### IDs vs. Classes
