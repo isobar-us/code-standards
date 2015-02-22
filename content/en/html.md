@@ -198,5 +198,6 @@ Considerations:
  4. Where new features will be added
  5. What the file system looks like for static site assets
  6. If a CDN is involved
+ 7. Naming conventions and organization of graphics and photography assets
 
 For current links and references, please see our Wiki on Github.

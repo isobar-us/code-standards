@@ -2,7 +2,9 @@
 
 ## General Introduction
 
-This document contains the guidelines and best practices for the front-end web development team at Isobar. There are many ways of leveraging browser-based technologies to create a website. Each item here represents either:
+This document contains the guidelines and best practices for the front-end web development team at Isobar. There are many ways of leveraging browser-based technologies to create a website. 
+
+Each item here represents either:
 
 1. A decision we've made favoring one method over its alternatives,
 1. A reminder to follow existing standards or industry conventions, or
@@ -78,7 +80,7 @@ We encourage liberal use of whitespace, comments, and descriptive variable names
 
 #### Third-Party Libraries
 
-Un-minified libraries and third-party scripts should be leveraged in local development environments for easier debugging if available, and the code should be committed to source control in an unmodified state. The final products will be compressed with the rest of the source for delivery.
+Un-minified libraries and third-party scripts should be leveraged in local development environments for easier debugging if available. The code should be committed to source control in an unmodified state, or simply referenced in dependency management components that resolve the files in a build. The final products will be compressed with the rest of the source for delivery.
 
 Likewise, third-party code and libraries should never be modified and their original source and license must be documented and be appropriate for a project. Any changes to third party code must be agreed upon and must be for specific reasons. If changes are mandated by bug fixes then the appropriate upstream project should have the changes submitted (assuming the code is part of an open source repository).
 
