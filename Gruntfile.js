@@ -39,6 +39,10 @@ module.exports = function(grunt) {
       css: {
         files: ['scss/**/*.scss'],
         tasks: ['compass']
+      },
+      html: {
+        files: ['content/en/**.*'],
+        tasks: ['assemble','copy']
       }
     },
 
@@ -109,7 +113,7 @@ module.exports = function(grunt) {
   // Default task.
   grunt.registerTask('cleanup', ['clean']);
   grunt.registerTask('server', ['connect']);
-  grunt.registerTask('default', ['clean', 'compass', 'assemble', 'copy']);
+  grunt.registerTask('default', ['clean', 'compass', 'assemble', 'copy', 'server']);
   grunt.registerTask('dev', ['watch']);
 
 };

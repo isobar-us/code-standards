@@ -44,85 +44,133 @@
 <article>
 
 <section><h1 id="front-end-code-standards">Front-End Code Standards</h1>
-<h2 id="general">General</h2>
-<p>This document contains the formatting guidelines and best practices for the front-end web development team at Isobar. There are many ways of leveraging HTML, CSS, and JavaScript to create a website - each item here represents either (1) a decision we&#39;ve made favoring one method over its alternatives or (2) a reminder to follow existing standards. What this document is <em>not</em> is a series of explanations as to how front-end technologies work; a basic familiarity is assumed. It also does <em>not</em> provide evaluations of the pros and cons of various alternatives; we pick what we consider to be the best one and run with it. Any issues that don&#39;t yet have a clear solution are not listed here.</p>
-<p>Our motivations in creating this document are to (1) foster code consistency across our projects to facilitate ease of maintenance and onboarding and (2) educate new developers on how best to create robust, performant, and accessible websites.</p>
+<h2 id="general-introduction">General Introduction</h2>
+<p>This document contains the guidelines and best practices for the front-end web development team at Isobar. There are many ways of leveraging browser-based technologies to create a website. Each item here represents either:</p>
+<ol>
+<li>A decision we&#39;ve made favoring one method over its alternatives,</li>
+<li>A reminder to follow existing standards or industry conventions, or</li>
+<li>Guidance on what constitutes professional patterns and organization</li>
+</ol>
+<p>What this document is <em>not</em> is a series of explanations as to how front-end technologies work; a basic familiarity is assumed. It also does <em>not</em> provide evaluations of the pros and cons of various alternatives; when appropriate we pick what we consider to be the best solutions and present them. Issues that don&#39;t yet have a clear solution are considered flexible and may or may not be listed.</p>
+<blockquote>
+<p>It&#39;s recognized that the same conventions for all projects, clients, and teams isn&#39;t practical. For these reasons forks of this document are encouraged for various projects and teams. 
+What works well can be submitted and discussed as new recommendations moving forward. </p>
+</blockquote>
 <h3 id="goals">Goals</h3>
+<p>Our motivations in creating this document are to:</p>
+<ol>
+<li>Foster code consistency across our projects </li>
+<li>Facilitate ease of maintenance</li>
+<li>Guide staff on-boarding or educate new developers</li>
+<li>Ensure we create professional, robust, performant, and accessible websites</li>
+</ol>
+<p>This document is not intended to replace common sense, conventions requested by particular clients, teams, or prevent expressive or creative solutions to problems. Team or project-specific agreements or client requests will always supersede this document&#39;s content.</p>
+<h4 id="professional-responsibility">Professional Responsibility</h4>
+<p>We are experts in our field creating solutions for our clients and their target audiences, not for ourselves. Every technology and code choice needs to measured against the potential benefits to the project objectives versus maintainability as opposed to the <em>cool factor</em> or how <em>trendy</em> a particular solution may be. </p>
+<p>Our industry is wrought with the flavor of the month, so please be deliberate. </p>
+<p>Always remember that just because you <em>can</em> does not mean you <em>should</em>. Some solutions are not reliable, may not perform well, or may be difficult to maintain over time or add more code to. Always remember your code may not be the last added to a project in that particular feature area.</p>
+<h3 id="getting-started-with-projects">Getting Started with Projects</h3>
+<p>At the outset of the project it is essential to properly understand the goals of the project and identify the specific deliverables expected of the front-end team. Where your responsibilities begin and end should not be taken for granted or assumed.</p>
+<p>It&#39;s important to understand how the development environment will work, what tools will be available, and what the differences between development, test, and production environments may ultimately be.</p>
+<p>Finally, all project teams should get a reasonable understanding of the what client&#39;s browser and device requirements are. Make no assumptions as to the technology available either from the client or their audience.</p>
+<h4 id="pillars-of-front-end-development">Pillars of Front-end Development</h4>
+<p>Whenever possible, the front-end technology solutions produced shall adhere to an industry best practice honoring as strict a separation of concerns as possible between:</p>
 <ul>
-<li>Consistency</li>
-<li>Professional standards</li>
-<li>Pillars of Front-end Development</li>
-<li>Architectural thinking</li>
-</ul>
-<h3 id="getting-started">Getting Started</h3>
-<ul>
-<li>Identify Deliverables</li>
-<li>Development vs Production</li>
-<li>Browser and device requirements  </li>
+<li>A semantic HyperText Markup Language (HTML) for structure</li>
+<li>Cascading Style Sheets (CSS) for presentation</li>
+<li>JavaScript (JS) for behavior and interaction</li>
 </ul>
 <h3 id="general-standards">General Standards</h3>
+<p>For any project:</p>
 <ul>
-<li>Compression</li>
-<li>Maintainabilty</li>
-<li>Readability</li>
-<li>Comments</li>
+<li>Consistency and conventions between team members is paramount</li>
+<li>Solutions should be as simple and clear as possible, while serving a specific purpose</li>
+<li>Clever does not necessarily mean good; readability is critical</li>
 </ul>
-<p>(redundant below)</p>
-<h3 id="formatting">Formatting</h3>
+<p>A key hallmark of professional software engineering includes a notion that while we are writing code that must reach a desired goal, we are also creating code that must be read and understood by others.</p>
+<h4 id="code-consistency">Code Consistency</h4>
+<p>Usage of the same patterns is critical between files, file types, and between team members so as to never deviate from expectations or cause confusion.</p>
+<p>It&#39;s worth establishing conventions at the project start or enabling automatic settings in the build or editor environments that might enforce particular rules.</p>
 <h4 id="indentation">Indentation</h4>
-<p>For all code languages, we use soft tabs comprised of four spaces per tab. Hitting the Tab key in your text editor should generate four space characters rather than one tab character. This results in our code appearing identical across platforms.</p>
+<p>Please consistently indent, nest, include braces, quotes, and new lines so that code is clear and can be read easily. New code that is added should never deviate from existing formatting conventions or change the indent levels.</p>
+<p>For all code languages, we recommend the use soft tabs comprised of four spaces per tab. Hitting the Tab key in your text editor should generate four space characters rather than one tab character. This results in our code appearing identical across platforms.</p>
+<p>If tab stops are favored by a team, the most important aspect is maintaining consistency for a project and it&#39;s deliverables so developers can make adjustments to their editing environments a single time.</p>
 <h4 id="readability">Readability</h4>
-<p>We encourage liberal use of whitespace, comments, and descriptive variable names as appropriate for writing easy-to-read code. There is no need to write code in an obfuscated or compressed way for the purpose of file-size savings; we will use automated server-side or build processes to concatenate, minify, and gzip all static client-side code (such as CSS and JavaScript).</p>
-<h3 id="next-steps">Next Steps</h3>
-<p>(knowledge transfer?)</p>
-<h3 id="resources">Resources</h3>
-<p>Further reading on the wiki</p>
+<p>We encourage liberal use of whitespace, comments, and descriptive variable names as appropriate for writing easy-to-read code. There is no need to write code in an obfuscated or compressed way for the purpose of file-size savings; we will use automated server-side or other build processes to concatenate, minify, and gzip all static client-side code (such as CSS and JavaScript).</p>
+<h4 id="third-party-libraries">Third-Party Libraries</h4>
+<p>Un-minified libraries and third-party scripts should be leveraged in local development environments for easier debugging if available, and the code should be committed to source control in an unmodified state. The final products will be compressed with the rest of the source for delivery.</p>
+<p>Likewise, third-party code and libraries should never be modified and their original source and license must be documented and be appropriate for a project. Any changes to third party code must be agreed upon and must be for specific reasons. If changes are mandated by bug fixes then the appropriate upstream project should have the changes submitted (assuming the code is part of an open source repository).</p>
+<p>Library code should be treated as an external dependency and should be considered something that may need to be wholesale updated or replaced at a later time.</p>
+<p>Inclusion of any third-party code should be carefully considered and verified with the project team as the appropriate solution to a given problem. &quot;Adding another plug-in&quot; is not always the best solution. Finally, selection of third party libraries should be done carefully and not be out of alignment with the nature of the problem being addressed. To be blunt, <em>use the right tool for the right job</em>.</p>
+<h3 id="deliverables">Deliverables</h3>
+<p>Quality deliverables are essential for professionals. Sloppy or messy deliverables are unprofessional and reflect poorly on the final product and the delivery team. Please remove legacy files, be certain the work is delivered in a clean file system, and in an orderly, logical structure that serves a clear purpose.</p>
 </section>
 <section><h2 id="html">HTML</h2>
-<p>HTML markup defines the content of a document and gives it a rudimentary structure such as headers, paragraphs, and lists. It provides a number of semantic constructs that allow automated tools like search engines and screen readers to make sense of the document and to understand relationships between pieces of content. A well-written HTML document will make appropriate use of these semantic elements and leave all responsibility for controlling the presentation of the document to the CSS stylesheet.</p>
-<h3 id="goals">Goals</h3>
+<p>HTML markup defines the content of a document and gives it a rudimentary structure such as section dividers, headers, paragraphs, lists, menus, and forms.</p>
+<h3 id="goals-for-markup">Goals for Markup</h3>
+<p>Please follow conventions established for a given project so all team members can have the same expectations around document structure and markup.</p>
+<p>Structural consistency is critical when talking about the types of pages being used on a site or in a Web app. The markup stucture provides all the necessary hooks for scripting and behavior, so it&#39;s important that the appropriate hooks are in place.</p>
+<p>A clear, clean, and concise HTML structure is also necessary for semantics, flexibility, and a reliable deployment environment. Do <strong>not</strong> deviate from established templates or patterns without architect approval.</p>
+<p>Which markup is used does matter:</p>
 <ul>
-<li>Consistency</li>
-<li>Semantic Markup</li>
-<li>Validation</li>
+<li>Use the most <em>meaningful</em> yet <em>minimal</em> markup required to present the styles and interaction required</li>
+<li>Application-centric deliverables often have different types of requirements; please code accordingly </li>
+<li>Maintain a clear separation of concerns, avoid inline styles and inline JavaScript whenever possible</li>
+<li>Have reference implementations so that each team member knows what sorts of structures are appropriate, as well as where to add new code</li>
+<li>Adhere to Web standards and avoid proprietary markup unless agreed upon</li>
+<li>Build pages in such a way that blocks of code can be broken up and reused when implemented</li>
+<li>Be sure front-end code is compatible with destination environments and delivery platforms</li>
 </ul>
-<h3 id="getting-started">Getting Started</h3>
+<p>The flexible nature of HTML markup and how losely browsers interpret markup sometimes lends itself to inconsistencies not always being discovered immediately. This belies the care necessary in crafting a document&#39;s structure and in following established patterns.</p>
+<h3 id="getting-started-on-markup">Getting Started on Markup</h3>
+<p>When crafting the HTML for a website, environment or technical constraints may impact the type of markup that can be used. Please discuss the final delivery environment in depth with technical leads and clients so that pages are not structured or styled in some way that is not effective for the project solution. </p>
+<p>Discuss types of:</p>
 <ul>
-<li>Templates </li>
-<li>Frameworks</li>
+<li>Templates and types of pages</li>
+<li>Which sections of pages are reused or managed by software vs. by hand</li>
+<li>Frameworks, CSS grid systems (custom or otherwise)</li>
+<li>Server-Side delivery platforms</li>
 </ul>
-<h3 id="html-standards">HTML Standards</h3>
-<ul>
-<li>HTML5 <ul>
-<li>Doctype</li>
-<li>HTML5 Tags</li>
-<li>Character Encoding</li>
-<li>Validation</li>
-</ul>
-</li>
-<li>General Markup</li>
-<li>Tags<ul>
-<li>Optional</li>
-<li>Self-closing</li>
-</ul>
-</li>
-<li>Attributes<ul>
-<li>Quoted</li>
-<li>Extending HTML5<ul>
-<li>Data attributes, etc</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+<p><em>Note that it is vital to take into account how the site will ultimately be maintained and who will be doing that work.</em></p>
+<h3 id="general-markup-standards">General Markup Standards</h3>
+<p>As noted these guidelines are flexible for projects as long as consensus or need determines a particular path, consistency is what matters most.</p>
+<p>Indent nested elements and tags with single indentation settings, whatever they may be, for each level in the hierarchy of the document.</p>
+<pre><code>&lt;div&gt;
+    &lt;p&gt;Lorem ipsumLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.&lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li&gt;tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,&lt;/li&gt;
+        &lt;li&gt;quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse&lt;/li&gt;
+        &lt;li&gt;cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non&lt;/li&gt;
+        &lt;li&gt;proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+<h4 id="semantic-markup">Semantic Markup</h4>
+<p>HTML provides a number of semantic constructs that allow automated tools like search engines and screen readers to make sense of the document and to understand relationships between pieces of content. Use <em>semantic</em> markup whenever possible — that is to say use elements with specific meanings for specific purposes to convey the spirit of the markup. </p>
+<p>A well-written HTML document will make appropriate use of these semantic elements and leave all responsibility for controlling the presentation of the document to the CSS stylesheet. </p>
+<h4 id="validation">Validation</h4>
+<p>Valid markup is a goal but not a mandate. Please have reasons for invalid markup if this is a concern. </p>
+<h4 id="html-standards-and-browser-support">HTML Standards and Browser Support</h4>
+<p>All markup will be written using the latest HTML5 markup specifications from the W3C, as implemented by browsers and devices that meet project requirements. When creating markup be sure that the target environments support the techniques being implemented, or that there is a fall-back plan.</p>
+<p>Please use a common HTML5 polyfill or HTML5 Shiv to enable styling and recognition of HTML5 elements in older devices&#39; browsers.</p>
 <h4 id="doctype">Doctype</h4>
-<p>We always include a proper doctype to trigger standards mode. Omitting the doctype triggers quirks mode and should always be avoided. The HTML5 doctype is simple and easy to remember.</p>
+<p>Always include a proper doctype to trigger standards mode. Omitting the doctype triggers quirks mode and should always be avoided. The HTML5 doctype is simple and easy to remember.</p>
 <pre><code>&lt;!doctype html&gt;</code></pre>
 <h4 id="character-encoding">Character Encoding</h4>
-<p>All markup should be delivered as UTF-8, since it has the best support for internationalization. The character encoding should be designated in both the HTTP header and the head of the document via a meta tag. If the server happens to omit the HTTP header, the browser takes a guess at the character encoding and begins parsing the markup, throwing away all that work and starting over if it encounters the meta tag and its guess was incorrect. Because of this, as a best practice, we always put the meta tag as early in the <code>&lt;head&gt;</code> tag as possible.</p>
+<p>All markup should be delivered as UTF-8, since it has the best support for internationalization. The character encoding should be designated in both the HTTP header and the head of the document via a meta tag. If the server happens to omit the HTTP header, browsers can take a guess at the character encoding and begins parsing and rendering the markup in a particular way. If there are inconsistencies, the browser will re-parse and re-render, throwing away all that work and starting over if it encounters the meta tag and its guess was incorrect. As a best practice, we always put the meta tag as early in the <code>&lt;head&gt;</code> tag as early as possible — however server-settings are ideal.</p>
 <pre><code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code></pre>
+<h4 id="optional-and-self-closing-tags">Optional and Self-closing Tags</h4>
+<p>While current standards designate certain closing elements and even document level elements as optional, use all open and closing elements nested in the correct ways to ensure maximum compatibility and clarity of document structure. </p>
+<p>Generally speaking, self-closing XML (i.e. XHTML, XML) style tags are not necessary.</p>
+<h4 id="html5-elements">HTML5 Elements</h4>
+<p>To provide additional semantic value to our documents, make use of HTML5 elements such as <code>&lt;header&gt;</code>, <code>&lt;article&gt;</code>, and <code>&lt;section&gt;</code> where appropriate. However, in cases where the HTML needs to be as backwards-compatible as possible, do not apply IDs or classes to them, since older browsers do not understand these elements by default and will not apply styling to them.</p>
+<pre><code>&lt;header&gt;
+    &lt;div class=&quot;site-header&quot;&gt;
+        ...
+    &lt;/div&gt;
+&lt;/header&gt;</code></pre>
 <h4 id="attribute-values">Attribute Values</h4>
-<p>We use quotes to surround all attribute values in HTML, despite quotes being optional in HTML5. This maintains consistency between attribute values that contain whitespace and those that don&#39;t.</p>
+<p>Use quotes to surround all attribute values in HTML, despite quotes being optional in HTML5. This maintains consistency between attribute values that contain whitespace and those that don&#39;t.</p>
 <pre><code>&lt;form class=&quot;registration module&quot; action=&quot;/register&quot; method=&quot;POST&quot;&gt;</code></pre>
 <h4 id="ids-vs-classes">IDs vs. Classes</h4>
 <p>HTML elements can be identified by using the <code>id</code> and <code>class</code> attributes. An ID is a unique identifier for that particular element; no other element on the page should use the same ID. This uniqueness allows <code>&lt;label&gt;</code> elements to associate themselves with a particular input and URLs to jump to a particular scroll position on a page. Classes are not unique. The same class can be used on multiple elements within a page, and a single element can have more than one class.</p>
@@ -131,23 +179,16 @@
     &lt;li class=&quot;category&quot;&gt;Accessories&lt;/li&gt;
     &lt;li class=&quot;category&quot;&gt;Shoes&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
-<p>When coming up with names for an ID or class, we use semantic names like &quot;secondary-nav&quot; or &quot;primary-button&quot; that describe what the element is, rather than names like &quot;left-nav&quot; or &quot;blue-button&quot; that describe what the element looks like, which can change over time. We also use lowercase names with hyphens separating words as opposed to camelCase or underscores. This matches the lowercase nature of HTML5 as well as the naming scheme for <code>data-xxx</code> attributes.</p>
-<h4 id="use-of-html5-elements">Use of HTML5 Elements</h4>
-<p>To provide additional semantic value to our documents, we make use of HTML5 elements such as <code>&lt;header&gt;</code>, <code>&lt;article&gt;</code>, and <code>&lt;section&gt;</code> where appropriate. However, in order to ensure that our HTML is as backwards-compatible as possible, we do not apply IDs or classes to them, since older browsers do not understand these elements by default and will not apply styling to them.</p>
-<pre><code>&lt;header&gt;
-    &lt;div class=&quot;site-header&quot;&gt;
-        ...
-    &lt;/div&gt;
-&lt;/header&gt;</code></pre>
+<p>When coming up with names for an ID or class, we use semantic names like &quot;secondary-nav&quot; or &quot;primary-button&quot; that describe what the element is, rather than names like &quot;left-nav&quot; or &quot;blue-button&quot; that describe what the element looks like, which can change over time. We also use <em>lowercase names with hyphens</em> separating words as opposed to camelCase or underscores.</p>
 <h4 id="anchors">Anchors</h4>
 <p>All anchor links should point to absolute or relative URLs with user-readable content. Do not link to XML or JSON resources that are designed to be Ajaxed by JavaScript instead of navigated to directly, and do not put JavaScript in an anchor&#39;s <code>href</code> attribute like <code>javascript:loadPage(2);</code>. This allows search engines to index the content, allows the user to open the links in a new tab or window, and means the links will still work when JavaScript is broken, disabled, or not supported. This will require that the back-end be able to return a full HTML page for each important content state (e.g. sorting a table column).</p>
 <h4 id="paragraphs">Paragraphs</h4>
-<p>Avoid using <code>&lt;br /&gt;</code> tags to separate paragraphs or lines of text. Use <code>&lt;p&gt;</code> instead.</p>
+<p>Avoid using <code>&lt;br&gt;</code> tags to separate paragraphs or lines of text. Use <code>&lt;p&gt;</code> instead with proper opening and closing elements.</p>
 <h4 id="definition-lists">Definition Lists</h4>
-<p>We use definition lists to display a single record of name-value pairs, like a contact card.</p>
+<p>Use definition lists to display a single record of name-value pairs, like a contact card.</p>
 <h4 id="tables">Tables</h4>
-<p>Tables should not be used for page layout; only use them when you need to display tabular data. They provide an important semantic association (used mostly by screen readers for the sight-impaired) between row/column headers and their data, so use <code>&lt;table&gt;</code> rather than other elements when displaying multiple records of data.</p>
-<p>The <code>&lt;caption&gt;</code> element is the recommended way to describe a table for both sighted and sight-impaired users, though this can also be done less semantically in the normal page text around the table. We use the <code>&lt;thead&gt;</code> and <code>&lt;tbody&gt;</code> elements to denote which row contains column headers so when a user prints the website and the table runs onto another page, browsers can display the <code>&lt;thead&gt;</code> on each page for easier readability. Remember to use the <code>scope</code> attribute on the <code>&lt;th&gt;</code> element to indicate whether the header applies to the row or column.</p>
+<p>Tables should not be used for page layout; only use them when you need to display tabular data. Tables provide an important semantic association (used mostly by screen readers for the sight-impaired) between row/column headers and their data, so use <code>&lt;table&gt;</code> rather than other elements when displaying multiple records of data.</p>
+<p>The <code>&lt;caption&gt;</code> element is the recommended way to describe a table for both sighted and sight-impaired users, though this can also be done less semantically in the normal page text around the table. Use the <code>&lt;thead&gt;</code> and <code>&lt;tbody&gt;</code> elements to denote which row contains column headers so when a user prints the website and the table runs onto another page, browsers can display the <code>&lt;thead&gt;</code> on each page for easier readability. Remember to use the <code>scope</code> attribute on the <code>&lt;th&gt;</code> element to indicate whether the header applies to the row or column.</p>
 <pre><code>&lt;table&gt;
     &lt;caption&gt;First two U.S. presidents&lt;/caption&gt;
     &lt;thead&gt;
@@ -172,41 +213,53 @@
 &lt;/table&gt;</code></pre>
 <h4 id="forms">Forms</h4>
 <p>For both semantic and functional reasons, we make full use of the <code>&lt;form&gt;</code> tag for all sections requiring user input. All form <code>action</code> attributes should point to URLs with user-readable content, so they will still work if the form is submitted by the user before JavaScript has loaded on a page, or if JavaScript is broken, disabled, or not supported. This will require that the back-end be able to return a full HTML page for form submission (e.g. registering a new user, editing the quantity in a shopping cart).</p>
+<p>Do not nest HTML form elements.</p>
 <h4 id="input-labels">Input Labels</h4>
 <p>All input fields should be associated with a <code>&lt;label&gt;</code> element. The <code>for</code> attribute of the <code>&lt;label&gt;</code> element should contain the ID of the corresponding input field. This means the input field will receive focus when a user clicks the label and also enables screen readers for sight-impaired users to read out an appropriate description of the input field.</p>
 <pre><code>&lt;label for=&quot;home-address&quot;&gt;Home Address&lt;/label&gt;
-&lt;input id=&quot;home-address&quot; type=&quot;text&quot; /&gt;</code></pre>
-<h3 id="next-steps">Next Steps</h3>
-<ul>
-<li>Templates</li>
-<li>Break down (CMS, templates, re-use)</li>
-</ul>
-<h3 id="resources">Resources</h3>
-<p>Further information on the wiki...</p>
+&lt;input id=&quot;home-address&quot; type=&quot;text&quot;&gt;</code></pre>
+<h3 id="markup-deliverables">Markup Deliverables</h3>
+<p>Typically HTML deliverables are incorporated into Content Management Systems or application delivery platforms as templates. A plan for incorporation of templates that leverage patterns created during the markup creation phase should be followed and matching types of pages to templates that were created, so that an association between the source markup and the destination markup can be maintained over time.</p>
+<h3 id="next-steps-on-markup">Next Steps on Markup</h3>
+<p>Considerations:</p>
+<ol>
+<li>Site maintenance procedures</li>
+<li>Browser testing strategies</li>
+<li>How new features will be added</li>
+<li>Where new features will be added</li>
+<li>What the file system looks like for static site assets</li>
+<li>If a CDN is involved</li>
+</ol>
+<h3 id="markup-resources">Markup Resources</h3>
+<p>For current links and references, please see our Wiki on Github.</p>
 </section>
 <section><h2 id="css">CSS</h2>
 <p>CSS is where the visual presentation logic of a website belongs. Well-written CSS makes good use of its cascading nature - general styles are applied first, and those styles are overridden for more specific instances as necessary.</p>
-<h3 id="goals">Goals</h3>
+<h3 id="goals-for-css">Goals for CSS</h3>
+<p>CSS is an unusual language which can easily lead to code bloat, inconsistent approaches, and regressions of a site-wide nature.</p>
+<p>Maintaining reference style implementations well into integration with server-side / back-end systems helps reduce regressions that can happen across the board as the code for the site evolves. Continue to test these reference implementations as they will be the &quot;source of record&quot; for the styles created on the site</p>
+<p>Always consider maintenance, next steps growth, and where and how new code for new enhancements might be added later.</p>
+<h3 id="getting-started-with-css">Getting Started with CSS</h3>
 <ul>
-<li>General coding principles<ul>
-<li>Customization / Maintainabilty</li>
-<li>Components / Modules / OOCSS</li>
+<li>Patterns</li>
+<li>Division of site-wide styles, section-specific styles</li>
+<li>Grid Systems or frameworks — if you use a grid-system or framework, avoid modifying the original source and please simply extend it</li>
+<li>On a large site never develop using a single CSS style sheet, though a single file delivered via contatenation is best</li>
 </ul>
-</li>
-</ul>
-<h3 id="getting-started">Getting Started</h3>
+<h3 id="general-css-standards">General CSS Standards</h3>
+<p>Try to segment code in logical ways:</p>
 <ul>
-<li>Grids</li>
-<li>Frameworks</li>
+<li>Separate structure from design</li>
+<li>Separate containers from content</li>
+<li>Create baseline components which may be extended, but rarely modified directly</li>
 </ul>
-<h3 id="css-standards">CSS Standards</h3>
 <h4 id="inclusion">Inclusion</h4>
 <p>Use the <code>&lt;link&gt;</code> tag to include all your stylesheets in the <code>&lt;head&gt;</code> of the document. For optimal page performance, concatenate your CSS into as few files as possible and do not use the <code>@import</code> command to include other stylesheets, as this will fire an additional HTTP request and block page rendering until its completion.</p>
 <pre><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;main.css&quot; /&gt;</code></pre>
 <h4 id="inline-styling">Inline Styling</h4>
 <p>Do not put styling information into your HTML markup directly, either with the <code>style</code> attribute that accepts CSS or with deprecated attributes such as <code>align</code>, <code>border</code>, or <code>width</code>. These are difficult to maintain and make it harder to track down what is causing an element to appear as it does.</p>
 <h4 id="formatting">Formatting</h4>
-<p>We put each selector on its own line and each property on its own line for easy readability and so version control systems can clearly show which parts have changed. The attributes within a selector should be alphabetized for easy scanning and so that compression algorithms like gzip have a greater chance of finding repeatable patterns.</p>
+<p>Put each selector on its own line and each property on its own line for easy readability and so version control systems can clearly show which parts have changed. The attributes within a selector should be alphabetized for easy scanning and so that compression algorithms like gzip have a greater chance of finding repeatable patterns.</p>
 <pre><code>#content {
     margin-left: -2%;
 }
@@ -217,7 +270,7 @@
     padding-left: 2%;
     width: 33.3333333%;
 }</code></pre>
-<p>We do not indent child styles underneath their parent styles for a few reasons. When scanning through a CSS file to locate media queries, we generally look for indented styles, so indenting selectors that are not within a media query causes confusion. It also hinders maintainability. HTML and CSS structure can change frequently over the course of a project, quickly rendering obsolete the parent-child relationship the indentation used to represent. And the more levels of indentation there are, the harder it is to update.</p>
+<p>Do not indent child styles underneath their parent styles for a few reasons. When scanning through a CSS file to locate media queries, we generally look for indented styles, so indenting selectors that are not within a media query causes confusion. It also hinders maintainability. HTML and CSS structure can change frequently over the course of a project, quickly rendering obsolete the parent-child relationship the indentation used to represent. And the more levels of indentation there are, the harder it is to update.</p>
 <h4 id="box-model">Box Model</h4>
 <p>To simplify CSS authoring, we set the <code>box-sizing</code> attribute to <code>border-box</code> for all page elements. This enables us to use round numbers for width like 50% and then apply a padding or border to that same element without needing to (1) adjust the width accordingly using calc (since borders use pixels rather than percents) or (2) create an element inside it to take the padding and border. This is the only case where we use the inefficient universal selector (<code>*</code>).</p>
 <pre><code>* {
@@ -238,21 +291,28 @@ button#back-button { ... }
 .popular-link { ... }
 .popular-link { ... }</code></pre>
 <p>Avoid using the <code>!important</code> keyword. Treat it like the nuclear option, only to be used in the most extreme of cases. There is usually another way to achieve the same goal without causing headaches for developers in the future who are either trying to debug a styling issue or trying to use normal specificity to override a style for a particular element only to find that they can&#39;t.</p>
-<h3 id="next-steps">Next Steps</h3>
+<h3 id="css-deliverables">CSS Deliverables</h3>
+<p>Please be aware of potential conflicts between the origional development environment for CSS and an ulitimate deployment to production systems, if continuous integration will allow the continued use of CSS preprocessors, or if there should a cross-platform development strategy.</p>
+<h3 id="next-steps-for-css">Next Steps for CSS</h3>
 <ul>
 <li>Compatibility</li>
+<li>CSS pre-processors</li>
 <li>Internet Explorer Bugs</li>
-<li>Use CSS3</li>
+<li>Usage of CSS3</li>
+<li>Vendor prefixes</li>
 <li>Color Management</li>
 </ul>
-<h3 id="resources">Resources</h3>
-<p>Further reading on the wiki etc.</p>
+<h3 id="css-resources">CSS Resources</h3>
+<p>For current links and references, please see our Wiki on Github.</p>
 </section>
 <section><h2 id="javascript">JavaScript</h2>
 <h3 id="goals">Goals</h3>
 <h3 id="getting-started">Getting Started</h3>
 <ul>
 <li>JavaScript Libraries</li>
+<li>Single execution and entry point</li>
+<li>Control page life cycle</li>
+<li>Understand where your code will live vs. any code introduced in a destination environment</li>
 </ul>
 <h3 id="javascript-standards">JavaScript Standards</h3>
 <h4 id="inclusion">Inclusion</h4>
@@ -274,6 +334,7 @@ var min = parseInt($(this).attr(&#39;min&#39;), 10);
 var max = parseInt($(this).attr(&#39;max&#39;), 10);</code></pre>
 <h4 id="feature-detection">Feature Detection</h4>
 <p>Always test for the existence of a browser API, function, or object property before you use it, and make sure the user experience is still functional (to the extent possible) if it&#39;s not found. We rely on JavaScript-based feature detection rather than server-side device detection because it&#39;s more robust, easily maintained, and future-proof.</p>
+<h3 id="deliverables">Deliverables</h3>
 <h3 id="next-steps">Next Steps</h3>
 <ul>
 <li>Debugging</li>
@@ -282,11 +343,19 @@ var max = parseInt($(this).attr(&#39;max&#39;), 10);</code></pre>
 <li>Node.js</li>
 </ul>
 <h3 id="resources">Resources</h3>
-<ul>
-<li>Links to wiki, etc.</li>
-</ul>
+<p>For current links and references, please see our Wiki on Github.</p>
 </section>
 <section><h2 id="responsive-web-design">Responsive Web Design</h2>
+<h3 id="goals">Goals</h3>
+<p>...</p>
+<h3 id="getting-started">Getting Started</h3>
+<p>...</p>
+<h3 id="standards-for-responsive-web-development">Standards For Responsive Web Development</h3>
+<p>...</p>
+<h3 id="next-steps">Next Steps</h3>
+<p>... </p>
+<h3 id="resources">Resources</h3>
+<p> Link to wiki...    </p>
 <h3 id="general-techniques">General Techniques</h3>
 <ul>
 <li>Mobile First<ul>
@@ -365,16 +434,6 @@ var max = parseInt($(this).attr(&#39;max&#39;), 10);</code></pre>
 </ul>
 </li>
 </ul>
-<h3 id="goals">Goals</h3>
-<p>...</p>
-<h3 id="getting-started">Getting Started</h3>
-<p>...</p>
-<h3 id="standards-for-responsive-web-development">Standards For Responsive Web Development</h3>
-<p>...</p>
-<h3 id="next-steps">Next Steps</h3>
-<p>... </p>
-<h3 id="resources">Resources</h3>
-<p> Link to wiki...    </p>
 </section>
 <section><h2 id="performance">Performance</h2>
 <h3 id="goals">Goals</h3>

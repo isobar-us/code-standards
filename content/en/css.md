@@ -2,7 +2,7 @@
 
 CSS is where the visual presentation logic of a website belongs. Well-written CSS makes good use of its cascading nature - general styles are applied first, and those styles are overridden for more specific instances as necessary.
 
-### Goals
+### Goals for CSS
 
 CSS is an unusual language which can easily lead to code bloat, inconsistent approaches, and regressions of a site-wide nature.
 
@@ -10,7 +10,7 @@ Maintaining reference style implementations well into integration with server-si
 
 Always consider maintenance, next steps growth, and where and how new code for new enhancements might be added later.
 
-### Getting Started
+### Getting Started with CSS
 
  - Patterns
  - Division of site-wide styles, section-specific styles
@@ -88,11 +88,11 @@ button#back-button { ... }
 
 Avoid using the `!important` keyword. Treat it like the nuclear option, only to be used in the most extreme of cases. There is usually another way to achieve the same goal without causing headaches for developers in the future who are either trying to debug a styling issue or trying to use normal specificity to override a style for a particular element only to find that they can't.
 
-### Deliverables
+### CSS Deliverables
 
 Please be aware of potential conflicts between the origional development environment for CSS and an ulitimate deployment to production systems, if continuous integration will allow the continued use of CSS preprocessors, or if there should a cross-platform development strategy.
 
-### Next Steps
+### Next Steps for CSS
 
  - Compatibility
  - CSS pre-processors
@@ -101,6 +101,6 @@ Please be aware of potential conflicts between the origional development environ
  - Vendor prefixes
  - Color Management
 
-### Resources
+### CSS Resources
 
 For current links and references, please see our Wiki on Github.

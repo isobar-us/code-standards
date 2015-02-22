@@ -3,7 +3,7 @@
  * v1.6.1 2010-09-17 | Authors: Eric Meyer & Richard Clark
  * html5doctor.com/html-5-reset-stylesheet/
  */
-/* line 8, ../../scss/global/_base.scss */
+/* line 16, ../../scss/global/_base.scss */
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
@@ -21,7 +21,7 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 25, ../../scss/global/_base.scss */
+/* line 26, ../../scss/global/_base.scss */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
@@ -32,7 +32,7 @@ blockquote, q {
   quotes: none;
 }
 
-/* line 32, ../../scss/global/_base.scss */
+/* line 33, ../../scss/global/_base.scss */
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: "";
@@ -41,15 +41,15 @@ q:before, q:after {
 
 /* line 35, ../../scss/global/_base.scss */
 ins {
-  background-color: #ff9;
-  color: #000;
+  background-color: #ffff99;
+  color: black;
   text-decoration: none;
 }
 
 /* line 37, ../../scss/global/_base.scss */
 mark {
-  background-color: #ff9;
-  color: #000;
+  background-color: #ffff99;
+  color: black;
   font-style: italic;
   font-weight: bold;
 }
@@ -211,7 +211,7 @@ button {
 ----------------------------------------------------------------------------------------------------*/
 /* line 120, ../../scss/global/_base.scss */
 body {
-  background: #fff;
+  background: white;
   color: #444444;
   min-width: 960px;
 }
@@ -223,10 +223,10 @@ figure {
   margin: 10px;
   padding: 1px;
   text-align: center;
-  box-shadow: #ccc 0 1px 3px;
-  -moz-box-shadow: #ccc 0 1px 3px;
-  -webkit-box-shadow: #ccc 0 1px 3px;
-  -o-box-shadow: #ccc 0 1px 3px;
+  box-shadow: #cccccc 0 1px 3px;
+  -moz-box-shadow: #cccccc 0 1px 3px;
+  -webkit-box-shadow: #cccccc 0 1px 3px;
+  -o-box-shadow: #cccccc 0 1px 3px;
 }
 
 /* line 136, ../../scss/global/_base.scss */
@@ -339,7 +339,7 @@ pre {
   word-wrap: break-word;
   padding: 15px;
   background: #1e1e1e;
-  color: #ffffff;
+  color: white;
   padding: 10px;
   display: block;
   margin: 8px 0 20px 0;
@@ -384,7 +384,7 @@ h3, h4, h5, h6 {
 
 /* line 66, ../../scss/global/_typography.scss */
 h1 {
-  color: #000;
+  color: black;
   font-size: 34px;
   font-weight: 700;
   line-height: 1.1em;
@@ -393,27 +393,27 @@ h1 {
 
 /* line 74, ../../scss/global/_typography.scss */
 h2 {
-  color: #000;
+  color: black;
   font-size: 24px;
   margin-bottom: 12px;
 }
 
 /* line 80, ../../scss/global/_typography.scss */
 h3 {
-  font-size: 22px;
+  font-size: 20px;
   margin-bottom: 11px;
 }
 
 /* line 85, ../../scss/global/_typography.scss */
 h4 {
-  font-size: 20px;
+  font-size: 18px;
   color: #999999;
   margin-bottom: 8px;
 }
 
 /* line 2, ../../scss/global/_links.scss */
 a {
-  color: #000;
+  color: black;
   /* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
 }
 /* line 5, ../../scss/global/_links.scss */
@@ -422,11 +422,11 @@ a:hover, a:active {
 }
 /* line 8, ../../scss/global/_links.scss */
 a:hover {
-  color: #F74902;
+  color: #f74902;
 }
 
 /* Thanks for the icon! http://p.yusukekamiyamane.com/ */
-/* line 14, ../../scss/global/_links.scss */
+/* line 16, ../../scss/global/_links.scss */
 a[href^="https://wiki"],
 a[href^="http://repo"],
 a[href^="https://fusion"] {
@@ -472,8 +472,8 @@ main > section {
 ----------------------------------------------------------------------------------------------------*/
 /* line 5, ../../scss/global/_footer.scss */
 footer {
-  background: #333;
-  color: #fff;
+  background: #333333;
+  color: white;
   font-size: 11px;
   margin: 0;
   overflow: hidden;
@@ -609,7 +609,7 @@ header .social #linkback {
 
 /* line 95, ../../scss/global/_header.scss */
 header .social #linkback:hover {
-  color: #333;
+  color: #333333;
 }
 
 /* Alignments
@@ -619,23 +619,23 @@ header .social #linkback:hover {
   background: #f0f0f0;
   margin: 0 0 20px;
   padding: 20px 20px 0.01em;
-  box-shadow: #ccc 0 1px 3px;
-  -moz-box-shadow: #ccc 0 1px 3px;
-  -webkit-box-shadow: #ccc 0 1px 3px;
-  -o-box-shadow: #ccc 0 1px 3px;
+  box-shadow: #cccccc 0 1px 3px;
+  -moz-box-shadow: #cccccc 0 1px 3px;
+  -webkit-box-shadow: #cccccc 0 1px 3px;
+  -o-box-shadow: #cccccc 0 1px 3px;
 }
 
 /* line 13, ../../scss/global/_alignments.scss */
 .box_notice {
   background: #f23109;
-  color: #ffffff;
+  color: white;
 }
 
 /* line 18, ../../scss/global/_alignments.scss */
 .box_title {
   background: #1e1e1e;
   background: rgba(10, 10, 10, 0.5);
-  color: #fff;
+  color: white;
   font-size: 13px;
   font-weight: bold;
   margin: 20px;
@@ -659,7 +659,7 @@ header .social #linkback:hover {
 /* line 16, ../../scss/global/_table_of_contents.scss */
 .back-anchor, .back-anchor a {
   display: inline-block;
-  color: #333;
+  color: #333333;
   font-size: 12px;
   margin: 0;
   padding: 3px 4px;
@@ -670,6 +670,13 @@ header .social #linkback:hover {
 /* line 26, ../../scss/global/_table_of_contents.scss */
 .no-anchor .back-anchor {
   display: none;
+}
+
+/* temp style for nav to "work" */
+/* line 29, ../../scss/global/_table_of_contents.scss */
+.h3 {
+  font-size: 90%;
+  text-indent: 5%;
 }
 
 /**
@@ -729,7 +736,8 @@ header .social #linkback:hover {
 
   @page {
     margin: 0.5cm;
-  }
+}
+
   /* line 18, ../../scss/global/_print.scss */
   p, h2, h3 {
     orphans: 3;
@@ -782,7 +790,7 @@ header .social #linkback:hover {
   a, a:visited {
     text-decoration: none;
     /* color:#f30 */
-    color: #F74902;
+    color: #f74902;
   }
 
   /* line 55, ../../scss/global/_print.scss */
@@ -792,7 +800,7 @@ header .social #linkback:hover {
 
   /* line 59, ../../scss/global/_print.scss */
   .syntaxhighlighter {
-    background: #ccc;
+    background: #cccccc;
   }
 }
 /**

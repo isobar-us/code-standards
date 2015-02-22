@@ -2,7 +2,7 @@
 
 HTML markup defines the content of a document and gives it a rudimentary structure such as section dividers, headers, paragraphs, lists, menus, and forms.
 
-### Goals
+### Goals for Markup
 
 Please follow conventions established for a given project so all team members can have the same expectations around document structure and markup.
 
@@ -22,7 +22,7 @@ Which markup is used does matter:
 
 The flexible nature of HTML markup and how losely browsers interpret markup sometimes lends itself to inconsistencies not always being discovered immediately. This belies the care necessary in crafting a document's structure and in following established patterns.
 
-### Getting Started
+### Getting Started on Markup
 
 When crafting the HTML for a website, environment or technical constraints may impact the type of markup that can be used. Please discuss the final delivery environment in depth with technical leads and clients so that pages are not structured or styled in some way that is not effective for the project solution. 
 
@@ -184,11 +184,11 @@ All input fields should be associated with a `<label>` element. The `for` attrib
 <input id="home-address" type="text">
 ```
 
-### Deliverables
+### Markup Deliverables
 
 Typically HTML deliverables are incorporated into Content Management Systems or application delivery platforms as templates. A plan for incorporation of templates that leverage patterns created during the markup creation phase should be followed and matching types of pages to templates that were created, so that an association between the source markup and the destination markup can be maintained over time.
 
-### Next Steps
+### Next Steps on Markup
 
 Considerations:
 
@@ -199,7 +199,7 @@ Considerations:
  5. What the file system looks like for static site assets
  6. If a CDN is involved
 
-### Resources
+### Markup Resources
 
 For current links and references, please see our Wiki on Github.
 
