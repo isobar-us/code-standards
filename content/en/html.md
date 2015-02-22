@@ -188,7 +188,7 @@ All input fields should be associated with a `<label>` element. The `for` attrib
 
 Typically HTML deliverables are incorporated into Content Management Systems or application delivery platforms as templates. A plan for incorporation of templates that leverage patterns created during the markup creation phase should be followed and matching types of pages to templates that were created, so that an association between the source markup and the destination markup can be maintained over time.
 
-### Next Steps on Markup
+### Next Steps &amp; HTML5 Resources
 
 Considerations:
 
@@ -199,9 +199,4 @@ Considerations:
  5. What the file system looks like for static site assets
  6. If a CDN is involved
 
-### Markup Resources
-
 For current links and references, please see our Wiki on Github.
-
-
-

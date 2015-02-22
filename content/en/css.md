@@ -92,7 +92,7 @@ Avoid using the `!important` keyword. Treat it like the nuclear option, only to 
 
 Please be aware of potential conflicts between the origional development environment for CSS and an ulitimate deployment to production systems, if continuous integration will allow the continued use of CSS preprocessors, or if there should a cross-platform development strategy.
 
-### Next Steps for CSS
+### Next Steps &amp; CSS Resources
 
  - Compatibility
  - CSS pre-processors
@@ -100,7 +100,5 @@ Please be aware of potential conflicts between the origional development environ
  - Usage of CSS3
  - Vendor prefixes
  - Color Management
-
-### CSS Resources
 
 For current links and references, please see our Wiki on Github.

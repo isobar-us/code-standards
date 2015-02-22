@@ -53,16 +53,14 @@ Always test for the existence of a browser API, function, or object property bef
 
 ### Deliverables
 
+ - ...
 
-
-### Next Steps
+### Next Steps &amp; JavaScript Resources
 
  - Debugging
  - Patterns for Better JavaScript
  - Unit Testing
  - Node.js
-
-### Resources
 
 For current links and references, please see our Wiki on Github.
 

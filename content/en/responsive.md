@@ -2,37 +2,34 @@
 ## Responsive Web Design
 
 ### Goals
+
 ...
 
 ### Getting Started
-...
 
-### Standards For Responsive Web Development
-...
+... define device compatibility
 
-### Next Steps
-... 
+### Standards For Mobile Development
 
-### Resources
- Link to wiki...    
-
-### General Techniques
-
-- Mobile First
+#### Mobile First
     + Serve the least amount of js to browsers that need it
     + Start with global styles then work your way up to each additional breakpoint with min-width media queries
-- Breakpoints
+
+#### Breakpoints
     + Don’t specify device-specific widths (ipad portrait, ipad landscape)
         * Popular devices will come and go
     + Instead, let the content then the design dictate the breakpoints.
         * For example: MSG’s breakpoints had the iphone5 in landscape mode rendering as a tablet device. This shouldn’t be!
-- Speed is a feature
+
+#### Speed is a feature
     + Serve the bare minimum to mobile devices and scale up from there
     + Consider every HTTP request
     + Advanced CSS3 techniques are easy to implement, but when you start combining them, rendering and scrolling performance is affected
-- Resources
+
+#### Resources
     + http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/ Excellent article that still holds up.
-- Media Queries
+
+#### Media Queries
     + Media Queries are supported by most browsers
     + IE8 and below are problematic.
         * IE8 doesn’t support Media Queries.
@@ -48,7 +45,8 @@
         * NOTE: This intentionally doesn’t work in IE8.
         * The creators of this plugin generally advise against the use of complex polyfills to enable support in older versions of IE. THe primary reason is that it will cause yet another performance hit in an already slow Javascript and rendering engine. Instead, craft your code so that IE8 defaults to the desktop version.
         * Modernize has Modernizr.mq(), but its support is flaky in <= IE8.
-- Responsive Images
+
+#### Responsive Images
     + Rapidly evolving solutions
     + Recommend you use Picturefill
         * Polyfill designed to mimic the proposed <picture> element
@@ -61,8 +59,15 @@
     + Drawbacks
         * The browser tends to use significantly more memory when storing and resizing these higher resolution images than scaling them to fit a container
     + What’s important to realize is that this is changing faster than we can develop. What you do now will be obsolete very soon, so be sure to stay on top of current trends
-- Icons
+
+#### Icons
     + Grunticon / Grumpicon all the way http://www.filamentgroup.com/lab/grumpicon-workflow.html
+
+### Next Steps &amp; Resources for Mobile
+
+... 
+
+For current links and references, please see our Wiki on Github.
 
 
 

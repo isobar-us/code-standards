@@ -32,7 +32,7 @@ Our industry is wrought with the flavor of the month, so please be deliberate.
 
 Always remember that just because you _can_ does not mean you _should_. Some solutions are not reliable, may not perform well, or may be difficult to maintain over time or add more code to. Always remember your code may not be the last added to a project in that particular feature area.
 
-### Getting Started with Projects
+### Getting Started
 
 At the outset of the project it is essential to properly understand the goals of the project and identify the specific deliverables expected of the front-end team. Where your responsibilities begin and end should not be taken for granted or assumed.
 

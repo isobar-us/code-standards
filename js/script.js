@@ -18,6 +18,7 @@ var ISOBAR = {
 				hx_len = hx.length,
 				anchor, tag, the_text;
 
+			// this code is awful. talk about a set up for multiple dom updates...
 			for (var i = 0, j = hx_len; i < j; i++) {
 				tag = hx[i].tagName.toLowerCase();
 

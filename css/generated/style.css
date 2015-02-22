@@ -672,7 +672,7 @@ header .social #linkback:hover {
   display: none;
 }
 
-/* temp style for nav to "work" */
+/* @todo - temp style for nav to "work" */
 /* line 29, ../../scss/global/_table_of_contents.scss */
 .h3 {
   font-size: 90%;
