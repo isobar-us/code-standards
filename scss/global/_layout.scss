@@ -2,6 +2,12 @@
 /* Logo + Container + Main + Section + Aside 
 ----------------------------------------------------------------------------------------------------*/
 
+.box-sizing{
+box-sizing: border-box;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+}
+
 .container { 
 	margin: 0 auto;
 	position: relative;
@@ -9,21 +15,26 @@
 }
 
 main {
-	border-right: 1px $border-color solid;
-	display: inline;
+	display: block;
 	float: left;
 	overflow: hidden;
-	padding: 50px 29px 60px 20px;
-	width: 610px;
+	padding: 10px 29px 60px 30px;
+	max-width: 810px;
+	width: 80%;
+	margin-left: 20%;
 }
 
 .nav-toc {
-	display: inline;
-	float: left;
+	display: block;
+	position: absolute;
 	font-size: 13px;	
-	padding: 0 20px;
-	width: 300px;
-	position: relative;
+	padding: 20px 20px;
+	width: 20%;
+	max-width: 340px;
+	height: 100%;
+	top: 95px;
+	left: 0px;
+	background-color: #f5f5f5;
 }
 
 main > section { padding-bottom: 20px; }

@@ -3,7 +3,7 @@
  * v1.6.1 2010-09-17 | Authors: Eric Meyer & Richard Clark
  * html5doctor.com/html-5-reset-stylesheet/
  */
-/* line 16, ../../scss/global/_base.scss */
+/* line 8, ../../scss/global/_base.scss */
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
@@ -21,7 +21,7 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 26, ../../scss/global/_base.scss */
+/* line 25, ../../scss/global/_base.scss */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
@@ -32,7 +32,7 @@ blockquote, q {
   quotes: none;
 }
 
-/* line 33, ../../scss/global/_base.scss */
+/* line 32, ../../scss/global/_base.scss */
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: "";
@@ -41,15 +41,15 @@ q:before, q:after {
 
 /* line 35, ../../scss/global/_base.scss */
 ins {
-  background-color: #ffff99;
-  color: black;
+  background-color: #ff9;
+  color: #000;
   text-decoration: none;
 }
 
 /* line 37, ../../scss/global/_base.scss */
 mark {
-  background-color: #ffff99;
-  color: black;
+  background-color: #ff9;
+  color: #000;
   font-style: italic;
   font-weight: bold;
 }
@@ -211,7 +211,7 @@ button {
 ----------------------------------------------------------------------------------------------------*/
 /* line 120, ../../scss/global/_base.scss */
 body {
-  background: white;
+  background: #fff;
   color: #444444;
   min-width: 960px;
 }
@@ -223,10 +223,10 @@ figure {
   margin: 10px;
   padding: 1px;
   text-align: center;
-  box-shadow: #cccccc 0 1px 3px;
-  -moz-box-shadow: #cccccc 0 1px 3px;
-  -webkit-box-shadow: #cccccc 0 1px 3px;
-  -o-box-shadow: #cccccc 0 1px 3px;
+  box-shadow: #ccc 0 1px 3px;
+  -moz-box-shadow: #ccc 0 1px 3px;
+  -webkit-box-shadow: #ccc 0 1px 3px;
+  -o-box-shadow: #ccc 0 1px 3px;
 }
 
 /* line 136, ../../scss/global/_base.scss */
@@ -339,7 +339,7 @@ pre {
   word-wrap: break-word;
   padding: 15px;
   background: #1e1e1e;
-  color: white;
+  color: #ffffff;
   padding: 10px;
   display: block;
   margin: 8px 0 20px 0;
@@ -384,7 +384,7 @@ h3, h4, h5, h6 {
 
 /* line 66, ../../scss/global/_typography.scss */
 h1 {
-  color: black;
+  color: #000;
   font-size: 34px;
   font-weight: 700;
   line-height: 1.1em;
@@ -393,7 +393,7 @@ h1 {
 
 /* line 74, ../../scss/global/_typography.scss */
 h2 {
-  color: black;
+  color: #000;
   font-size: 24px;
   margin-bottom: 12px;
 }
@@ -429,7 +429,7 @@ h2::before {
 
 /* line 2, ../../scss/global/_links.scss */
 a {
-  color: black;
+  color: #000;
   /* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
 }
 /* line 5, ../../scss/global/_links.scss */
@@ -438,11 +438,11 @@ a:hover, a:active {
 }
 /* line 8, ../../scss/global/_links.scss */
 a:hover {
-  color: #f74902;
+  color: #F74902;
 }
 
 /* Thanks for the icon! http://p.yusukekamiyamane.com/ */
-/* line 16, ../../scss/global/_links.scss */
+/* line 14, ../../scss/global/_links.scss */
 a[href^="https://wiki"],
 a[href^="http://repo"],
 a[href^="https://fusion"] {
@@ -453,33 +453,45 @@ a[href^="https://fusion"] {
 /* Logo + Container + Main + Section + Aside 
 ----------------------------------------------------------------------------------------------------*/
 /* line 5, ../../scss/global/_layout.scss */
+.box-sizing {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+/* line 11, ../../scss/global/_layout.scss */
 .container {
   margin: 0 auto;
   position: relative;
   overflow: hidden;
 }
 
-/* line 11, ../../scss/global/_layout.scss */
+/* line 17, ../../scss/global/_layout.scss */
 main {
-  border-right: 1px #f0f0f0 solid;
-  display: inline;
+  display: block;
   float: left;
   overflow: hidden;
-  padding: 50px 29px 60px 20px;
-  width: 610px;
+  padding: 10px 29px 60px 30px;
+  max-width: 810px;
+  width: 80%;
+  margin-left: 20%;
 }
 
-/* line 20, ../../scss/global/_layout.scss */
+/* line 27, ../../scss/global/_layout.scss */
 .nav-toc {
-  display: inline;
-  float: left;
+  display: block;
+  position: absolute;
   font-size: 13px;
-  padding: 0 20px;
-  width: 300px;
-  position: relative;
+  padding: 20px 20px;
+  width: 20%;
+  max-width: 340px;
+  height: 100%;
+  top: 95px;
+  left: 0px;
+  background-color: #f5f5f5;
 }
 
-/* line 29, ../../scss/global/_layout.scss */
+/* line 40, ../../scss/global/_layout.scss */
 main > section {
   padding-bottom: 20px;
 }
@@ -488,8 +500,8 @@ main > section {
 ----------------------------------------------------------------------------------------------------*/
 /* line 5, ../../scss/global/_footer.scss */
 footer {
-  background: #333333;
-  color: white;
+  background: #333;
+  color: #fff;
   font-size: 11px;
   margin: 0;
   overflow: hidden;
@@ -511,7 +523,7 @@ body .fork {
   position: fixed;
   top: 0;
   right: -15px;
-  z-index: 2;
+  z-index: 102;
   width: 149px;
   height: 149px;
   background: url(../../img/fork-me.png) no-repeat -15px top;
@@ -521,16 +533,22 @@ body .fork {
 header {
   position: relative;
   border-top: 5px solid #f23109;
+  border-bottom: 1px solid #f5f5f5;
+  height: 90px;
+  top: 0px;
+  width: 100%;
+  z-index: 101;
+  background-color: #ffffff;
 }
 
-/* line 21, ../../scss/global/_header.scss */
+/* line 28, ../../scss/global/_header.scss */
 header a {
   width: 137px;
   height: 39px;
   display: inline-block;
 }
 
-/* line 27, ../../scss/global/_header.scss */
+/* line 34, ../../scss/global/_header.scss */
 header h1 {
   width: 137px;
   padding: 0;
@@ -538,7 +556,7 @@ header h1 {
   margin-left: 20px;
 }
 
-/* line 35, ../../scss/global/_header.scss */
+/* line 42, ../../scss/global/_header.scss */
 header canvas {
   position: absolute;
   visibility: hidden;
@@ -546,7 +564,7 @@ header canvas {
   top: -40px;
 }
 
-/* line 42, ../../scss/global/_header.scss */
+/* line 49, ../../scss/global/_header.scss */
 header h1 a {
   background: url("../../img/orange.svg") no-repeat 0 0;
   background-size: auto 100%;
@@ -556,7 +574,7 @@ header h1 a {
   display: block;
 }
 
-/* line 51, ../../scss/global/_header.scss */
+/* line 58, ../../scss/global/_header.scss */
 header .social {
   /* background:rgba(64,64,64,0.9); */
   float: right;
@@ -569,7 +587,7 @@ header .social {
   z-index: 1;
 }
 
-/* line 63, ../../scss/global/_header.scss */
+/* line 70, ../../scss/global/_header.scss */
 header .social li {
   display: inline-block;
   height: 35px;
@@ -577,43 +595,43 @@ header .social li {
   vertical-align: top;
 }
 
-/* line 70, ../../scss/global/_header.scss */
+/* line 77, ../../scss/global/_header.scss */
 header .social li a {
   width: 35px;
   background: url("../../img/layout/sprite-social.png") no-repeat 0 0;
 }
 
-/* line 77, ../../scss/global/_header.scss */
+/* line 84, ../../scss/global/_header.scss */
 header .social #facebook {
   background-position: -5px -5px;
 }
 
-/* line 78, ../../scss/global/_header.scss */
+/* line 85, ../../scss/global/_header.scss */
 header .social #facebook:hover {
   background-position: -5px -47px;
 }
 
-/* line 80, ../../scss/global/_header.scss */
+/* line 87, ../../scss/global/_header.scss */
 header .social #twitter {
   background-position: -46px -5px;
 }
 
-/* line 81, ../../scss/global/_header.scss */
+/* line 88, ../../scss/global/_header.scss */
 header .social #twitter:hover {
   background-position: -46px -47px;
 }
 
-/* line 83, ../../scss/global/_header.scss */
+/* line 90, ../../scss/global/_header.scss */
 header .social #delicious {
   background-position: -88px -5px;
 }
 
-/* line 84, ../../scss/global/_header.scss */
+/* line 91, ../../scss/global/_header.scss */
 header .social #delicious:hover {
   background-position: -88px -47px;
 }
 
-/* line 86, ../../scss/global/_header.scss */
+/* line 93, ../../scss/global/_header.scss */
 header .social #linkback {
   color: #4b4b4b;
   text-decoration: none;
@@ -623,9 +641,9 @@ header .social #linkback {
   background: none;
 }
 
-/* line 95, ../../scss/global/_header.scss */
+/* line 102, ../../scss/global/_header.scss */
 header .social #linkback:hover {
-  color: #333333;
+  color: #333;
 }
 
 /* Alignments
@@ -635,23 +653,23 @@ header .social #linkback:hover {
   background: #f0f0f0;
   margin: 0 0 20px;
   padding: 20px 20px 0.01em;
-  box-shadow: #cccccc 0 1px 3px;
-  -moz-box-shadow: #cccccc 0 1px 3px;
-  -webkit-box-shadow: #cccccc 0 1px 3px;
-  -o-box-shadow: #cccccc 0 1px 3px;
+  box-shadow: #ccc 0 1px 3px;
+  -moz-box-shadow: #ccc 0 1px 3px;
+  -webkit-box-shadow: #ccc 0 1px 3px;
+  -o-box-shadow: #ccc 0 1px 3px;
 }
 
 /* line 13, ../../scss/global/_alignments.scss */
 .box_notice {
   background: #f23109;
-  color: white;
+  color: #ffffff;
 }
 
 /* line 18, ../../scss/global/_alignments.scss */
 .box_title {
   background: #1e1e1e;
   background: rgba(10, 10, 10, 0.5);
-  color: white;
+  color: #fff;
   font-size: 13px;
   font-weight: bold;
   margin: 20px;
@@ -675,7 +693,7 @@ header .social #linkback:hover {
 /* line 16, ../../scss/global/_table_of_contents.scss */
 .back-anchor, .back-anchor a {
   display: inline-block;
-  color: #333333;
+  color: #333;
   font-size: 12px;
   margin: 0;
   padding: 3px 4px;
@@ -752,8 +770,7 @@ header .social #linkback:hover {
 
   @page {
     margin: 0.5cm;
-}
-
+  }
   /* line 18, ../../scss/global/_print.scss */
   p, h2, h3 {
     orphans: 3;
@@ -806,7 +823,7 @@ header .social #linkback:hover {
   a, a:visited {
     text-decoration: none;
     /* color:#f30 */
-    color: #f74902;
+    color: #F74902;
   }
 
   /* line 55, ../../scss/global/_print.scss */
@@ -816,7 +833,7 @@ header .social #linkback:hover {
 
   /* line 59, ../../scss/global/_print.scss */
   .syntaxhighlighter {
-    background: #cccccc;
+    background: #ccc;
   }
 }
 /**
