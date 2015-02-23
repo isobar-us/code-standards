@@ -78,13 +78,27 @@ h2 {
 }
 
 h3 {
-	font-size: 22px;
+	font-size: 20px;
 	margin-bottom: 11px;
 }
 
 h4 {
-	font-size: 20px;
+	font-size: 18px;
 	color: $default-3-text;
 	margin-bottom: 8px;
 }
 
+h2::before{
+    content: '{ }';
+    font-family: Calibri,AlexandriaBold,Arial,Helvetica,sans-serif;
+    color: white;
+    border-radius: 100px;
+    padding-top: 6px;
+    padding-left: 20px;
+    height: 94px;
+    font-size:65px;
+    width: 80px;
+    background: none repeat scroll 0% 0% #F74902;
+    float: left;
+    margin: 0px 20px 20px 0px;
+}
