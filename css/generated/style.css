@@ -468,6 +468,9 @@ a[href^="https://fusion"] {
 
 /* line 17, ../../scss/global/_layout.scss */
 main {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   display: block;
   float: left;
   overflow: hidden;
@@ -477,8 +480,11 @@ main {
   margin-left: 20%;
 }
 
-/* line 27, ../../scss/global/_layout.scss */
+/* line 30, ../../scss/global/_layout.scss */
 .nav-toc {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   display: block;
   position: absolute;
   font-size: 13px;
@@ -491,7 +497,7 @@ main {
   background-color: #f5f5f5;
 }
 
-/* line 40, ../../scss/global/_layout.scss */
+/* line 46, ../../scss/global/_layout.scss */
 main > section {
   padding-bottom: 20px;
 }
@@ -507,13 +513,14 @@ footer {
   overflow: hidden;
   line-height: 35px;
   width: 100%;
+  padding: 20px 0px;
 }
 
-/* line 15, ../../scss/global/_footer.scss */
+/* line 16, ../../scss/global/_footer.scss */
 footer p {
   width: 960px;
-  margin: 0 auto;
-  padding: 5px 0;
+  margin: 0px 0px 0px 20%;
+  padding: 10px 0px;
 }
 
 /* `Topper + Header (who called it a topper in old version? lol)

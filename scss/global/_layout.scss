@@ -15,6 +15,9 @@ box-sizing: border-box;
 }
 
 main {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
 	display: block;
 	float: left;
 	overflow: hidden;
@@ -25,6 +28,9 @@ main {
 }
 
 .nav-toc {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
 	display: block;
 	position: absolute;
 	font-size: 13px;	
