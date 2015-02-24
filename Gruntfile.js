@@ -113,7 +113,7 @@ module.exports = function(grunt) {
   // Default task.
   grunt.registerTask('cleanup', ['clean']);
   grunt.registerTask('server', ['connect']);
-  grunt.registerTask('default', ['clean', 'compass', 'assemble', 'copy', 'server']);
+  grunt.registerTask('default', ['clean', 'compass', 'assemble', 'copy']);
   grunt.registerTask('dev', ['watch']);
 
 };
