@@ -21,8 +21,9 @@ header {
 	width: 100%;
 	z-index: 101;
 	background-color: #ffffff;
-
 }
+
+
 
 //social links in header?
 header a { 
@@ -38,6 +39,10 @@ header h1 {
 	margin-left: 20px;
 }
 
+.tablet header h1{
+	margin-left: 80px;
+}
+
 //todo: what is this for?
 header canvas {
 	position: absolute;
@@ -46,6 +51,42 @@ header canvas {
 	top: -40px;
 }
 
+#menu-button{
+	display: none;
+	height: 40px;
+	width: 40px;
+	position: absolute;
+	top: 31px;
+	left: 10px;
+	span{
+		box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		display:block;
+		width: 100%;
+		height: 5px;
+		background-color: $isobar-orange;
+		margin-bottom: 6px;
+		border-right: 25px solid #cccccc;
+		border-left: 0px solid #cccccc;
+		-webkit-transition: border .5s;
+		-moz-transition: border .5s;
+		transition: border .5s;
+
+	}
+}
+.menu-open{
+	#menu-button{
+		span{
+				border-right: 0px solid #cccccc;
+				border-left: 25px solid #cccccc;
+			}
+	}
+}
+
+.tablet #menu-button{
+	display: block;
+}
 header h1 a { 
 	background:url("../../img/orange.svg") no-repeat 0 0;
   background-size: auto 100%;

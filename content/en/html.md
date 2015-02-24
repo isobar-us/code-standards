@@ -41,7 +41,7 @@ As noted these guidelines are flexible for projects as long as consensus or need
 
 Indent nested elements and tags with single indentation settings, whatever they may be, for each level in the hierarchy of the document.
 
-```
+```HTML
 <div>
     <p>Lorem ipsumLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
     <ul>

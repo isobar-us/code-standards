@@ -34,7 +34,7 @@ var ISOBAR = {
 				// console.log({ 'a': anchor, 'tag': tag, 'hx': hx[i] });
 				
 				if (tag === 'h1') {
-					hx[i].innerHTML += '<a href="#" class="back-anchor" title="Top">Back to Top</a>';
+					//hx[i].innerHTML += '<a href="#" class="back-anchor" title="Top">Back to Top</a>';
 				}
 			}
 			toc.style.display = 'block';
@@ -67,6 +67,9 @@ var UTIL = {
 		} 
 	}, 
 	loadEvents : function(){
+		//Add event to window.resize. function will be used to adjust changing widths.
+		window.addEventListener('resize', UTIL.debounce(UTIL.setLayout, 50));
+
 		var bodyId = document.body.id;
 		// hit up common first.
 		UTIL.fire('common');
@@ -75,8 +78,41 @@ var UTIL = {
 			UTIL.fire(classnm);
 			UTIL.fire(classnm,bodyId);
 		});
+		$('#menu-button').on('click',function(e){
+			$('body').toggleClass('menu-open');
+			
+		});
+		UTIL.setLayout();
 		UTIL.fire('common','finalize');
-	} 
+	},
+	debounce : function(func, wait, immediate) {
+		var timeout;
+		return function() {
+			var context = this, args = arguments;
+			var later = function() {
+				timeout = null;
+				if (!immediate) func.apply(context, args);
+			};
+			var callNow = immediate && !timeout;
+			clearTimeout(timeout);
+			timeout = setTimeout(later, wait);
+			if (callNow) func.apply(context, args);
+		};
+	},
+	setLayout : function(){
+		//Set classes on the body based on screen width.
+		//Display the, 'hamburger' button & menu through css based on these classes added.
+		var screenWidth = window.innerWidth;
+		screenWidth > 768 ? $('body').removeClass('tablet') : true;
+		screenWidth > 420 && screenWidth < 768 ? $('body').addClass('tablet') : true;
+		screenWidth < 420 ? $('body').addClass('mobile') : $('body').removeClass('mobile');
+
+	}
 }; 
 // kick it all off here 
 $(document).ready(UTIL.loadEvents);
+
+
+
+
+
