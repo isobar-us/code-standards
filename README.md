@@ -43,7 +43,7 @@ To make changes using the process in place, please use the build process. The ne
 
 ### Requirements
 
-The build system uses [Grunt.js](http://gruntjs.com) via [Node.js](http://nodejs.org/) and [SASS](http://sass-lang.com/) via [Compass](http://compass-style.org/).
+The build system uses [Grunt.js](http://gruntjs.com) via [Node.js](http://nodejs.org/) and [SASS](http://sass-lang.com/) via [libsass](http://libsass.org/).
 
 First, install [Node.js](http://nodejs.org) from their Web site.
 
@@ -113,7 +113,8 @@ The file is `./_layouts/main.hbs`.
 
 ### Structure of CSS
 
-The CSS files are generated via Compass from the SCSS files located in the SCSS folder, which is run as part of the Grunt task. 
+The CSS files are generated via LibSass from the SCSS files located in the SCSS folder, which is run as part of the Grunt task.
+
 
 ### Deploy
 
