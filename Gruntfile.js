@@ -38,7 +38,7 @@ module.exports = function(grunt) {
     watch: {
       css: {
         files: ['scss/**/*.scss'],
-        tasks: ['compass']
+        tasks: ['libsass']
       },
       html: {
         files: ['content/en/**.*'],
@@ -46,11 +46,21 @@ module.exports = function(grunt) {
       }
     },
 
-    compass: {
-      dist: {
+    libsass: {
+      global: {
         options: {
-          config: 'config.rb'
-        }
+          sourceMap: true,
+          sourceComments: false,
+          outputStyle: 'expanded'
+        },
+        files: [{
+          expand: true,
+          cwd: 'scss/',
+          src: ['*.scss'],
+          dest: 'css/generated/',
+          ext: '.css'
+        },
+        ],
       }
     },
 
@@ -103,7 +113,7 @@ module.exports = function(grunt) {
 });
 
   // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-libsass');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
@@ -113,6 +123,7 @@ module.exports = function(grunt) {
   // Default task.
   grunt.registerTask('cleanup', ['clean']);
   grunt.registerTask('server', ['connect']);
+  grunt.registerTask('default', ['clean', 'libsass', 'assemble', 'copy']);
   grunt.registerTask('dev', ['watch']);
 
 };
