@@ -18,6 +18,7 @@ var ISOBAR = {
 				hx_len = hx.length,
 				anchor, tag, the_text;
 
+
 			// this code is awful. talk about a set up for multiple dom updates...
 			for (var i = 0, j = hx_len; i < j; i++) {
 				tag = hx[i].tagName.toLowerCase();
@@ -41,7 +42,7 @@ var ISOBAR = {
 		},
 		// just hooking up back to top
 		stuff : function(){
-			$('a.back-anchor').live('click',function(){
+			$('a.back-anchor').on('click',function(){
 				window.scrollTo(0, 0);
 				return false;
 			});
@@ -82,6 +83,9 @@ var UTIL = {
 			$('body').toggleClass('menu-open');
 			
 		});
+		$('#grey-overlay').on('click',function(e){
+			$('body').toggleClass('menu-open');
+		});
 		UTIL.setLayout();
 		UTIL.fire('common','finalize');
 	},
@@ -103,9 +107,9 @@ var UTIL = {
 		//Set classes on the body based on screen width.
 		//Display the, 'hamburger' button & menu through css based on these classes added.
 		var screenWidth = window.innerWidth;
-		screenWidth > 768 ? $('body').removeClass('tablet') : true;
+		screenWidth > 768 ? $('body').removeClass('tablet').removeClass('menu-open') : true;
 		screenWidth > 420 && screenWidth < 768 ? $('body').addClass('tablet') : true;
-		screenWidth < 420 ? $('body').addClass('mobile') : $('body').removeClass('mobile');
+		screenWidth < 420 ? $('body').addClass('mobile').addClass('tablet') : $('body').removeClass('mobile');
 
 	}
 }; 
