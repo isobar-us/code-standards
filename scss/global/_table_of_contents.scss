@@ -12,7 +12,7 @@
     text-decoration: none;
     top: 0;
     left: 5px;
-    z-index: 100;
+    z-index: 0;
 }
 
 .back-anchor, .back-anchor a {
@@ -28,5 +28,18 @@
 .no-anchor .back-anchor { display: none; }
 
 /* @todo - temp style for nav to "work" */
-.h3 { font-size: 90%; text-indent: 5%; }
+.h3 { 
+    font-size: 90%; 
+    /*text-indent: 5%;*/
+    a {
+        text-decoration: none;
+    }
+    }
+.h2 {
+    font-size: 120%;
+    font-weight: bolder;
+    a {
+        text-decoration: none;
+    }
+}
 

@@ -11,10 +11,22 @@ footer {
 	overflow: hidden;
 	line-height: 35px;
 	width: 100%;
+	padding: 0px 0px;
+
+	.footer-inner{
+		width: 960px;
+		margin: 0px auto;
+		padding: 20px;
+	}
+}
+.mobile footer{
+	.footer-inner{
+		width: 960px;
+		margin: 0px auto;
+		padding: 10px;
+	}
+}
+footer p {
+	padding: 5px 0px;
 }
 
-footer p {
-	width: 960px;
-	margin: 0 auto;
-	padding: 5px 0;
-}
