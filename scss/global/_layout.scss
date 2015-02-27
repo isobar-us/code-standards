@@ -3,17 +3,17 @@
 /* Logo + Container + Main + Section + Aside 
 ----------------------------------------------------------------------------------------------------*/
 #grey-overlay{
-position: fixed;
-height: 100%;
-width: 100%;
-top: 0px;
-left: 0px;
-background-color: rgba(0,0,0,0.8);
-z-index:1;
-display: none;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+	background-color: rgba(0,0,0,0.8);
+	z-index:1;
+	display: none;
 }
 .menu-open #grey-overlay{
-display: block;
+	display: block;
 }
 .box-sizing{
 	box-sizing: border-box;
@@ -40,15 +40,11 @@ main {
 	
 }
 body.tablet main{
-padding: 20px;
-width: 100%;
+	padding: 20px;
+	width: 100%;
 }
 body.tablet.mobile main{
-padding: 10px;
-}
-body.tablet{
-	min-width:320px;
-	border-top: 90px solid #f5f5f5;
+	padding: 10px;
 }
 .tablet main {
 	margin-left: 0px;
@@ -77,7 +73,7 @@ body.tablet{
 	-moz-transition: right .5s;
 	transition: right .5s;
 }
-.tablet .nav-toc{
+body.tablet .nav-toc{
 	width: 250px;
 	right: -250px;
 	left: auto;
@@ -87,7 +83,10 @@ body.tablet{
 	overflow-y: scroll;
 	border-top: 90px solid #f5f5f5;
 }
-.tablet.menu-open .nav-toc{
+body.mobile.tablet .nav-toc{
+	border-top: 60px solid #f5f5f5;
+}
+body.tablet.menu-open .nav-toc{
 	right: 0px;
 }
 
@@ -97,10 +96,18 @@ main > section { padding-bottom: 20px; }
 	.h2{
 		margin-top: 20px;
 	}
-	.h2:nth-child{
+	.h2:nth-child(1){
 		margin-top: 0px;
 	}
 	.h3{
 		margin-top: 6px;
 	}
+}
+
+body.fix-desktop-toc .nav-toc{
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	left:auto;
+	overflow-y: scroll;
 }

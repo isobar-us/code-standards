@@ -26,6 +26,7 @@ header {
 	background-color: #ffffff;
 }
 .tablet header{
+	border-top: 5px solid $isobar-orange;
 	position: fixed;
 	padding-left: 0px;
 	z-index:5;
@@ -48,6 +49,9 @@ header h1 {
 .tablet header h1{
 	
 }
+.mobile header h1{
+margin-top: 12px;
+}
 
 //todo: what is this for?
 header canvas {
@@ -59,30 +63,33 @@ header canvas {
 
 #menu-button{
 	display: none;
-	height: 22px;
-	width: 40px;
+	height: 16px;
+	width: 32px;
 	position: absolute;
-	top: 32px;
+	top: 29px;
 	right: 19px;
-	border-bottom: 5px solid #2b2b2b;
-	-webkit-transition: border .5s;
-	-moz-transition: border .5s;
-	transition: border .5s;
+	border-bottom: 5px solid #2b2b21;
+	-webkit-transition: border 0.5s;
+	-moz-transition: border 0.5s;
+	transition: border 0.5s;
+}
+body.mobile #menu-button{
+	top: 21px;
 }
 #menu-button::after, #menu-button::before{
 	content: '';
-	display:block;
+	display: block;
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
-	display:block;
+	display: block;
 	width: 100%;
 	height: 5px;
 	background-color: #2b2b2b;
-	margin-bottom: 6px;
-	-webkit-transition: background-color .5s;
-	-moz-transition: background-color .5s;
-	transition: background-color .5s;
+	margin-bottom: 3px;
+	-webkit-transition: background-color 0.5s;
+	-moz-transition: background-color 0.5s;
+	transition: background-color 0.5s;
 }
 .menu-open{
 		#menu-button:after, #menu-button:before{
@@ -110,6 +117,9 @@ header .social #linkback:hover {
 }
 .tablet .social{
 display: none;
+}
+.mobile.tablet header{
+height: 60px;
 }
 .social{
 	margin: 0px;

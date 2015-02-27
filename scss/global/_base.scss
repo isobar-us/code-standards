@@ -123,6 +123,13 @@ body {
 	color: $default-2-text;
 	border-top: 5px solid $isobar-orange;
 }
+body.tablet{
+	min-width:320px;
+	border-top: 90px solid #f5f5f5;
+}
+body.mobile.tablet{
+	border-top: 60px solid #f5f5f5;
+}
 
 figure {
 	background: $gray-background;

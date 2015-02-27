@@ -149,6 +149,13 @@ body {
   color: #444444;
   border-top: 5px solid #f23109; }
 
+body.tablet {
+  min-width: 320px;
+  border-top: 90px solid #f5f5f5; }
+
+body.mobile.tablet {
+  border-top: 60px solid #f5f5f5; }
+
 figure {
   background: #f0f0f0;
   display: block;
@@ -358,10 +365,6 @@ body.tablet main {
 body.tablet.mobile main {
   padding: 10px; }
 
-body.tablet {
-  min-width: 320px;
-  border-top: 90px solid #f5f5f5; }
-
 .tablet main {
   margin-left: 0px;
   width: auto;
@@ -389,7 +392,7 @@ body.tablet {
   -moz-transition: right 0.5s;
   transition: right 0.5s; }
 
-.tablet .nav-toc {
+body.tablet .nav-toc {
   width: 250px;
   right: -250px;
   left: auto;
@@ -399,7 +402,10 @@ body.tablet {
   overflow-y: scroll;
   border-top: 90px solid #f5f5f5; }
 
-.tablet.menu-open .nav-toc {
+body.mobile.tablet .nav-toc {
+  border-top: 60px solid #f5f5f5; }
+
+body.tablet.menu-open .nav-toc {
   right: 0px; }
 
 main > section {
@@ -407,10 +413,17 @@ main > section {
 
 #toc .h2 {
   margin-top: 20px; }
-#toc .h2:nth-child {
+#toc .h2:nth-child(1) {
   margin-top: 0px; }
 #toc .h3 {
   margin-top: 6px; }
+
+body.fix-desktop-toc .nav-toc {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  left: auto;
+  overflow-y: scroll; }
 
 /* Shoes + Footer
 ----------------------------------------------------------------------------------------------------*/
@@ -459,6 +472,7 @@ header {
   background-color: #ffffff; }
 
 .tablet header {
+  border-top: 5px solid #f23109;
   position: fixed;
   padding-left: 0px;
   z-index: 5; }
@@ -475,6 +489,9 @@ header h1 {
   margin-left: 20px; }
 
 
+.mobile header h1 {
+  margin-top: 12px; }
+
 header canvas {
   position: absolute;
   visibility: hidden;
@@ -483,15 +500,18 @@ header canvas {
 
 #menu-button {
   display: none;
-  height: 22px;
-  width: 40px;
+  height: 16px;
+  width: 32px;
   position: absolute;
-  top: 32px;
+  top: 29px;
   right: 19px;
-  border-bottom: 5px solid #2b2b2b;
+  border-bottom: 5px solid #2b2b21;
   -webkit-transition: border 0.5s;
   -moz-transition: border 0.5s;
   transition: border 0.5s; }
+
+body.mobile #menu-button {
+  top: 21px; }
 
 #menu-button::after, #menu-button::before {
   content: '';
@@ -503,7 +523,7 @@ header canvas {
   width: 100%;
   height: 5px;
   background-color: #2b2b2b;
-  margin-bottom: 6px;
+  margin-bottom: 3px;
   -webkit-transition: background-color 0.5s;
   -moz-transition: background-color 0.5s;
   transition: background-color 0.5s; }
@@ -527,6 +547,9 @@ header h1 a {
 
 .tablet .social {
   display: none; }
+
+.mobile.tablet header {
+  height: 60px; }
 
 .social {
   margin: 0px;
