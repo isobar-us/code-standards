@@ -13,7 +13,6 @@
     <link rel="shortcut icon" href="favicon.ico"/>
     <link rel="apple-touch-icon-precomposed" href="ios-icon.png"/>
     <link rel="stylesheet" href="css/generated/style.css">
-
 <!--
                 _^_
                / _)
@@ -26,23 +25,22 @@
 </head>
     <body>
         <a class="fork" href="https://github.com/isobar-idev/code-standards/" target="_blank"></a>
-        <div id="grey-overlay"></div>
         <div class="container">
         
             <header role="banner">
                 <h1><a class="header-logo" href="http://www.isobar.com/us/home">Isobar</a></h1>
+                
                 <ul class="social">
-                    <li><a class="icon icon-facebook" href="http://www.shareaholic.com/api/share/?v=1&apitype=1&apikey=8943b7fd64cd8b1770ff5affa9a9437b&service=5&title=Isobar%20North%20America's%20Coding%20Standards%20and%20Frontend%20development%20Best%20Practices&link=http://na.isobar.com/standards/&source=Shareaholic"></a></li>
-                    <li><a class="icon icon-twitter" href="http://www.shareaholic.com/api/share/?v=1&apitype=1&apikey=8943b7fd64cd8b1770ff5affa9a9437b&service=7&title=Isobar%20North%20America's%20Coding%20Standards%20and%20Frontend%20development%20Best%20Practices&link=http://na.isobar.com/standards/&source=Shareaholic"></a></li>
-                    <li><a class="icon icon-delecious" href="http://www.shareaholic.com/api/share/?v=1&apitype=1&apikey=8943b7fd64cd8b1770ff5affa9a9437b&service=2&title=Isobar%20North%20America's%20Coding%20Standards%20and%20Frontend%20development%20Best%20Practices&link=http://na.isobar.com/standards/&source=Shareaholic"></a></li>
+                    <li><a class="icon" href="http://www.shareaholic.com/api/share/?v=1&apitype=1&apikey=8943b7fd64cd8b1770ff5affa9a9437b&service=5&title=Isobar%20North%20America's%20Coding%20Standards%20and%20Frontend%20development%20Best%20Practices&link=http://na.isobar.com/standards/&source=Shareaholic" id="facebook"></a></li>
+                    <li><a class="icon" href="http://www.shareaholic.com/api/share/?v=1&apitype=1&apikey=8943b7fd64cd8b1770ff5affa9a9437b&service=7&title=Isobar%20North%20America's%20Coding%20Standards%20and%20Frontend%20development%20Best%20Practices&link=http://na.isobar.com/standards/&source=Shareaholic" id="twitter"></a></li>
+                    <li><a class="icon" href="http://www.shareaholic.com/api/share/?v=1&apitype=1&apikey=8943b7fd64cd8b1770ff5affa9a9437b&service=2&title=Isobar%20North%20America's%20Coding%20Standards%20and%20Frontend%20development%20Best%20Practices&link=http://na.isobar.com/standards/&source=Shareaholic" id="delicious"></a></li>
                     <li><a href="http://www.isobar.com/us/home" id="linkback">Return to Isobar</a></li>
                 </ul>
-                <div id="menu-button">
-                </div>
             </header>
 
+            
             <main role="document">
-                
+
 <article>
 
 <section><h1 id="front-end-code-standards">Front-End Code Standards</h1>
@@ -138,7 +136,7 @@ What works well can be submitted and discussed as new recommendations moving for
 <h3 id="general-markup-standards">General Markup Standards</h3>
 <p>As noted these guidelines are flexible for projects as long as consensus or need determines a particular path, consistency is what matters most.</p>
 <p>Indent nested elements and tags with single indentation settings, whatever they may be, for each level in the hierarchy of the document.</p>
-<pre><code class="language-HTML">&lt;div&gt;
+<pre><code>&lt;div&gt;
     &lt;p&gt;Lorem ipsumLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.&lt;/p&gt;
     &lt;ul&gt;
         &lt;li&gt;tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,&lt;/li&gt;
@@ -451,6 +449,7 @@ var max = parseInt($(this).attr(&#39;max&#39;), 10);</code></pre>
             </main>
             
             <nav class="nav-toc" role="navigation">
+                <h3 class="toc-title">Table of Contents</h3>
                 <ul id="toc" style="display:none"></ul>
                 <noscript><p><a href="http://enable-javascript.com">Please enable JavaScript</a>.</p></noscript>
             </nav>
@@ -458,10 +457,8 @@ var max = parseInt($(this).attr(&#39;max&#39;), 10);</code></pre>
         </div>
 
         <footer role="contentinfo">
-            <div class="footer-inner box-sizing">
-                <p class="copyright">2015 Isobar, All rights reserved.</p>
-                <p class="license">All content licensed under Creative Commons Attribution 3.0 Unported License</p>
-            </div>
+            <p class="copyright">2015 Isobar, All rights reserved.</p>
+            <p class="license">All content licensed under Creative Commons Attribution 3.0 Unported License</p>
         </footer>
         
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
