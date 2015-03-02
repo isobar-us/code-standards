@@ -68,10 +68,9 @@ var UTIL = {
 		} 
 	}, 
 	loadEvents : function(){
-		//Add event to window.resize. function will be used to adjust changing widths.
-		window.addEventListener('resize', UTIL.debounce(UTIL.setLayout, 50));
-
 		var bodyId = document.body.id;
+		//Fire resize event and call setLayout(). Put onresize events in there.
+		window.addEventListener('resize', UTIL.debounce(UTIL.setLayout, 50));
 		// hit up common first.
 		UTIL.fire('common');
 		// do all the classes too.
@@ -79,11 +78,11 @@ var UTIL = {
 			UTIL.fire(classnm);
 			UTIL.fire(classnm,bodyId);
 		});
-		$('#menu-button').on('click',function(e){
+		$('.menu-button').on('click',function(e){
 			$('body').toggleClass('menu-open');
 			
 		});
-		$('#grey-overlay').on('click',function(e){
+		$('.overlay').on('click',function(e){
 			$('body').toggleClass('menu-open');
 		});
 		UTIL.setLayout();
@@ -107,10 +106,7 @@ var UTIL = {
 		//Set classes on the body based on screen width.
 		//Display the, 'hamburger' button & menu through css based on these classes added.
 		var screenWidth = window.innerWidth;
-		screenWidth > 768 ? $('body').removeClass('tablet').removeClass('menu-open') : true;
-		screenWidth > 420 && screenWidth < 768 ? $('body').addClass('tablet') : true;
-		screenWidth < 420 ? $('body').addClass('mobile').addClass('tablet') : $('body').removeClass('mobile');
-
+		screenWidth > 769 ? $('body').removeClass('menu-open') : true;
 	}
 }; 
 // kick it all off here 

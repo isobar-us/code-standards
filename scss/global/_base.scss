@@ -81,16 +81,15 @@ button, input, select, textarea { margin: 0; }
 /* Colors for form validity */
 input:valid, textarea:valid   { }
 input:invalid, textarea:invalid {
-	-ms-border-radius: 1px;
-	-moz-border-radius: 1px;
-	-webkit-border-radius: 1px;
-	-o-border-radius: 1px;
-	border-radius: 1px;
-
-	-moz-box-shadow: 0 0 5px red;
-	-webkit-box-shadow: 0 0 5px red;
-	-o-box-shadow: 0 0 5px red;
-	box-shadow: 0 0 5px red;
+    -ms-border-radius: 1px;
+    -moz-border-radius: 1px;
+    -webkit-border-radius: 1px;
+    -o-border-radius: 1px;
+    border-radius: 1px;
+    -moz-box-shadow: 0 0 5px red;
+    -webkit-box-shadow: 0 0 5px red;
+    -o-box-shadow: 0 0 5px red;
+    box-shadow: 0 0 5px red;
 }
 
 .no-boxshadow input:invalid, .no-boxshadow textarea:invalid { background-color: #f0dddd; }
@@ -119,40 +118,33 @@ button { width: auto; overflow: visible; }
 ----------------------------------------------------------------------------------------------------*/
 
 body {
-	background: $white; 
-	color: $default-2-text;
-	border-top: 5px solid $isobar-orange;
-}
-body.tablet{
-	min-width:320px;
-	border-top: 90px solid #f5f5f5;
-}
-body.mobile.tablet{
-	border-top: 60px solid #f5f5f5;
+  background: $white; 
+  color: $default-2-text;
+  border-top: 5px solid $isobar-orange;
 }
 
 figure {
-	background: $gray-background;
-	display: block;
-	margin: 10px;
-	padding: 1px;
-	text-align: center;
-	@include box-shadow();
+  background: $gray-background;
+  display: block;
+  margin: 10px;
+  padding: 1px;
+  text-align: center;
+  @include box-shadow();
 }
 
 //todo: check what this is used for
 figure.extra { margin-top: 10px; }
 
 figcaption {
-	font-size: 10px; 
-	font-style: italic;
-	text-align: left;
+  font-size: 10px; 
+  font-style: italic;
+  text-align: left;
 }
-	
+    
 abbr { border-bottom: 1px dotted; }
 
 p, dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address, fieldset {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 //todo: check what this is used for
@@ -164,5 +156,5 @@ dt:after { content: ':'; }
 dd { margin-bottom: 10px; }
 
 dd{
-	margin-bottom:10px
+  margin-bottom:10px
 }
