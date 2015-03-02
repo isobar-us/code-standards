@@ -13,6 +13,7 @@
     <link rel="shortcut icon" href="favicon.ico"/>
     <link rel="apple-touch-icon-precomposed" href="ios-icon.png"/>
     <link rel="stylesheet" href="css/generated/style.css">
+
 <!--
                 _^_
                / _)
@@ -25,22 +26,23 @@
 </head>
     <body>
         <a class="fork" href="https://github.com/isobar-idev/code-standards/" target="_blank"></a>
-        <div id="container">
+        <div id="grey-overlay"></div>
+        <div class="container">
         
-            <header role=banner>
-                <h1><a id="logo" href="http://www.isobar.com/us/home">Isobar</a></h1>
-                
-                <ul id="social">
-                    <li><a class="icon" href="http://www.shareaholic.com/api/share/?v=1&apitype=1&apikey=8943b7fd64cd8b1770ff5affa9a9437b&service=5&title=Isobar%20North%20America's%20Coding%20Standards%20and%20Frontend%20development%20Best%20Practices&link=http://na.isobar.com/standards/&source=Shareaholic" id="facebook"></a></li>
-                    <li><a class="icon" href="http://www.shareaholic.com/api/share/?v=1&apitype=1&apikey=8943b7fd64cd8b1770ff5affa9a9437b&service=7&title=Isobar%20North%20America's%20Coding%20Standards%20and%20Frontend%20development%20Best%20Practices&link=http://na.isobar.com/standards/&source=Shareaholic" id="twitter"></a></li>
-                    <li><a class="icon" href="http://www.shareaholic.com/api/share/?v=1&apitype=1&apikey=8943b7fd64cd8b1770ff5affa9a9437b&service=2&title=Isobar%20North%20America's%20Coding%20Standards%20and%20Frontend%20development%20Best%20Practices&link=http://na.isobar.com/standards/&source=Shareaholic" id="delicious"></a></li>
+            <header role="banner">
+                <h1><a class="header-logo" href="http://www.isobar.com/us/home">Isobar</a></h1>
+                <ul class="social">
+                    <li><a class="icon icon-facebook" href="http://www.shareaholic.com/api/share/?v=1&apitype=1&apikey=8943b7fd64cd8b1770ff5affa9a9437b&service=5&title=Isobar%20North%20America's%20Coding%20Standards%20and%20Frontend%20development%20Best%20Practices&link=http://na.isobar.com/standards/&source=Shareaholic"></a></li>
+                    <li><a class="icon icon-twitter" href="http://www.shareaholic.com/api/share/?v=1&apitype=1&apikey=8943b7fd64cd8b1770ff5affa9a9437b&service=7&title=Isobar%20North%20America's%20Coding%20Standards%20and%20Frontend%20development%20Best%20Practices&link=http://na.isobar.com/standards/&source=Shareaholic"></a></li>
+                    <li><a class="icon icon-delecious" href="http://www.shareaholic.com/api/share/?v=1&apitype=1&apikey=8943b7fd64cd8b1770ff5affa9a9437b&service=2&title=Isobar%20North%20America's%20Coding%20Standards%20and%20Frontend%20development%20Best%20Practices&link=http://na.isobar.com/standards/&source=Shareaholic"></a></li>
                     <li><a href="http://www.isobar.com/us/home" id="linkback">Vuelva a Isobar</a></li>
                 </ul>
+                <div id="menu-button">
+                </div>
             </header>
 
-            
-            <div id="main" role="document">
-
+            <main role="document">
+                
 <!-- #### GENERAL SECTION #### -->
 
 <h1>Estándares y Prácticas Recomendadas de Desarrollo Front-end</h1>
@@ -1780,10 +1782,9 @@
 	
 </aside>
 
-            </div>
+            </main>
             
-            <nav id="side" class="nav-right" role="navigation">
-                <h3 class="toc-title">Table of Contents</h3>
+            <nav class="nav-toc" role="navigation">
                 <ul id="toc" style="display:none"></ul>
                 <noscript><p><a href="http://enable-javascript.com">Please enable JavaScript</a>.</p></noscript>
             </nav>
@@ -1791,10 +1792,10 @@
         </div>
 
         <footer role="contentinfo">
-            <p>
-                <span class="float_left">2014 Isobar, All rights reserved.</span>
-                <span class="float_right">All content licensed under Creative Commons Attribution 3.0 Unported License</span>
-            </p>
+            <div class="footer-inner box-sizing">
+                <p class="copyright">2015 Isobar, All rights reserved.</p>
+                <p class="license">All content licensed under Creative Commons Attribution 3.0 Unported License</p>
+            </div>
         </footer>
         
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>

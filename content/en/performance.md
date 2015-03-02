@@ -1,15 +1,21 @@
 ## Performance
 
+Golden rule
+
 ### Goals
+
 ... 
 
 ### Getting Started
+
 ...
 
 ### Standards
+
 ...
 
-### Next Steps
+### Front-end Performance Resources
+
 ...
 
-### Resources
+For current links and references, please see our Wiki on Github.

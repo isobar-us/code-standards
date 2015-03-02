@@ -25,7 +25,7 @@ We hope to encourage other developers to think about how to best standardize the
 
 ## Intent for Build and Content
 
-We hope to seperate the structure of the document from the content contained in the standards themselves. Effectively, our goal is to be able to easily update the content without having to worry about the structure.
+We hope to separate the structure of the document from the content contained in the standards themselves. Effectively, our goal is to be able to easily update the content without having to worry about the structure.
 
 This also enables pull requests to focus on content and forks to the content to be easily re-branded.
 
@@ -43,7 +43,7 @@ To make changes using the process in place, please use the build process. The ne
 
 ### Requirements
 
-The build system uses [Grunt.js](http://gruntjs.com) via [Node.js](http://nodejs.org/) and [SASS](http://sass-lang.com/) via [Compass](http://compass-style.org/).
+The build system uses [Grunt.js](http://gruntjs.com) via [Node.js](http://nodejs.org/) and [SASS](http://sass-lang.com/) via [libsass](http://libsass.org/).
 
 First, install [Node.js](http://nodejs.org) from their Web site.
 
@@ -113,7 +113,8 @@ The file is `./_layouts/main.hbs`.
 
 ### Structure of CSS
 
-The CSS files are generated via Compass from the SCSS files located in the SCSS folder, which is run as part of the Grunt task. 
+The CSS files are generated via LibSass from the SCSS files located in the SCSS folder, which is run as part of the Grunt task.
+
 
 ### Deploy
 

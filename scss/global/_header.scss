@@ -1,38 +1,59 @@
-
+@import '../helpers/variables';
+@import '../helpers/mixins';
 /* `Topper + Header (who called it a topper in old version? lol)
 ----------------------------------------------------------------------------------------------------*/
 
 body .fork { 
 	position: fixed; 
-	top: 0; 
+	top: 0;
 	right: -15px; 
-	z-index: 2; 
+	z-index:4; 
 	width: 149px; 
 	height: 149px; 
 	background: url(../../img/fork-me.png) no-repeat -15px top;
 }
 
-header { 
-	height: 60px;
-	width: 100%;
-	position: relative;
-	border-bottom: 3px solid #eee;
+body.tablet .fork{
+display:none;
 }
 
-header a { 
+header {
+	position: relative;
+	height: 90px;
+	top: 0px;
+	width: 100%;
+	z-index:3;
+	background-color: #ffffff;
+}
+.tablet header{
+	border-top: 5px solid $isobar-orange;
+	position: fixed;
+	padding-left: 0px;
+	z-index:5;
+}
+
+
+//social links in header?
+header a {
 	width: 137px;
 	height: 39px;
 	display: inline-block;
 }
 
 header h1 {
-	position: absolute;
-	top: 60px;
 	width: 137px;
 	padding: 0;
 	height: 40px;
+	margin-left: 20px;
+}
+.tablet header h1{
+	
+}
+.mobile header h1{
+margin-top: 12px;
 }
 
+//todo: what is this for?
 header canvas {
 	position: absolute;
 	visibility: hidden;
@@ -40,58 +61,112 @@ header canvas {
 	top: -40px;
 }
 
+#menu-button{
+	display: none;
+	height: 16px;
+	width: 32px;
+	position: absolute;
+	top: 29px;
+	right: 19px;
+	border-bottom: 5px solid #2b2b21;
+	-webkit-transition: border 0.5s;
+	-moz-transition: border 0.5s;
+	transition: border 0.5s;
+}
+body.mobile #menu-button{
+	top: 21px;
+}
+#menu-button::after, #menu-button::before{
+	content: '';
+	display: block;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	display: block;
+	width: 100%;
+	height: 5px;
+	background-color: #2b2b2b;
+	margin-bottom: 3px;
+	-webkit-transition: background-color 0.5s;
+	-moz-transition: background-color 0.5s;
+	transition: background-color 0.5s;
+}
+.menu-open{
+		#menu-button:after, #menu-button:before{
+			background-color: $isobar-orange;
+		}
+		#menu-button{
+			border-bottom: 5px solid $isobar-orange;
+		}
+}
+
+.tablet #menu-button{
+	display: block;
+}
 header h1 a { 
 	background:url("../../img/orange.svg") no-repeat 0 0;
-    background-size: auto 100%;
+  	background-size: auto 80%;
  	overflow: hidden;
-    text-indent: 100%;
-    white-space: nowrap;
-    display:block;
+  	text-indent: 200%;
+  	white-space: nowrap;
+  	display:block;
 }
 
-header #social {
-	/* background:rgba(64,64,64,0.9); */
-    float: right;
-    margin-bottom: 0;
-    padding: 7px;
-    position: absolute;
-    right: 0;
-    top: 1px;
-    width: 304px;
-    z-index: 1;
+header .social #linkback:hover { 
+/*color: $isobar-orange;*/
 }
-
-header #social li {
-    display: inline-block;
-    height: 35px;
-    margin-left: 6px;
-    vertical-align: top;
+.tablet .social{
+display: none;
 }
-
-header #social li a { 
-	width: 35px; 
-	background: url('../../img/layout/sprite-social.png') no-repeat 0 0;
+.mobile.tablet header{
+height: 60px;
 }
-
-header #social #facebook { background-position: -5px -5px; }
-header #social #facebook:hover { background-position: -5px -47px; }
-
-header #social #twitter { background-position: -46px -5px; }
-header #social #twitter:hover { background-position: -46px -47px; }
-
-header #social #delicious { background-position: -88px -5px; }
-header #social #delicious:hover { background-position: -88px -47px; }
-
-header #social #linkback { 
-	color: #ccc; 
-	font-family: Georgia, serif; 
-	font-size: 12px; 
-	font-style: italic; 
-	text-decoration: none; 
-	text-align: center; 
-	width:110px;
-	height: 15px; 
-	background: none;
+.social{
+	margin: 0px;
+	position: absolute;
+	right: 0px;
+	top: 9px;
+	li {
+   		display: inline-block;
+    	height: 22px;
+    	width: 22px;
+    	margin-right: 6px;
+    	vertical-align: top;
+		.icon-facebook {
+			background-image: url('data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0D%0A%3C%21--%20Generator%3A%20Adobe%20Illustrator%2016.0.4%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%206.00%20Build%200%29%20%20--%3E%0D%0A%3C%21DOCTYPE%20svg%20PUBLIC%20%22-//W3C//DTD%20SVG%201.1//EN%22%20%22http%3A//www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd%22%3E%0D%0A%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20x%3D%220px%22%20y%3D%220px%22%0D%0A%09%20width%3D%2275px%22%20height%3D%2275px%22%20viewBox%3D%220%200%2075%2075%22%20enable-background%3D%22new%200%200%2075%2075%22%20xml%3Aspace%3D%22preserve%22%3E%0D%0A%3Cg%3E%0D%0A%09%3Crect%20fill%3D%22%234B4B4B%22%20width%3D%2275%22%20height%3D%2275%22/%3E%0D%0A%09%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M65.409%2C44.896l1.48-11.48H55.521v-7.33c0-3.324%2C0.927-5.589%2C5.692-5.589l6.074-0.003V10.228%0D%0A%09%09c-1.049-0.14-4.654-0.453-8.856-0.453c-8.766%2C0-14.763%2C5.351-14.763%2C15.176v8.465h-9.914v11.48h9.914v29.456h11.853V44.896H65.409z%0D%0A%09%09%22/%3E%0D%0A%3C/g%3E%0D%0A%3C/svg%3E%0D%0A');
+			background-repeat: no-repeat; 
+		}
+		.icon-twitter {
+			background-image: url('data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0D%0A%3C%21--%20Generator%3A%20Adobe%20Illustrator%2016.0.4%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%206.00%20Build%200%29%20%20--%3E%0D%0A%3C%21DOCTYPE%20svg%20PUBLIC%20%22-//W3C//DTD%20SVG%201.1//EN%22%20%22http%3A//www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd%22%3E%0D%0A%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20x%3D%220px%22%20y%3D%220px%22%0D%0A%09%20width%3D%2275.361px%22%20height%3D%2275.362px%22%20viewBox%3D%220%200%2075.361%2075.362%22%20enable-background%3D%22new%200%200%2075.361%2075.362%22%20xml%3Aspace%3D%22preserve%22%3E%0D%0A%3Cg%3E%0D%0A%09%3Crect%20fill%3D%22%23B1B1B1%22%20width%3D%2275.361%22%20height%3D%2275.362%22/%3E%0D%0A%09%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M62.799%2C22.1c-1.849%2C0.82-3.836%2C1.375-5.92%2C1.623c2.128-1.276%2C3.765-3.294%2C4.532-5.702%0D%0A%09%09c-1.989%2C1.181-4.194%2C2.04-6.543%2C2.502c-1.882-2.005-4.562-3.256-7.525-3.256c-5.692%2C0-10.308%2C4.616-10.308%2C10.307%0D%0A%09%09c0%2C0.81%2C0.091%2C1.594%2C0.266%2C2.348c-8.565-0.428-16.159-4.531-21.245-10.77c-0.886%2C1.525-1.395%2C3.294-1.395%2C5.184%0D%0A%09%09c0%2C3.575%2C1.819%2C6.732%2C4.583%2C8.579c-1.688-0.052-3.277-0.519-4.667-1.29v0.13c0%2C4.993%2C3.554%2C9.16%2C8.267%2C10.107%0D%0A%09%09c-0.864%2C0.234-1.777%2C0.363-2.716%2C0.363c-0.663%2C0-1.311-0.066-1.938-0.188c1.311%2C4.096%2C5.117%2C7.074%2C9.627%2C7.16%0D%0A%09%09c-3.525%2C2.764-7.969%2C4.412-12.802%2C4.412c-0.831%2C0-1.65-0.051-2.457-0.145c4.561%2C2.922%2C9.979%2C4.629%2C15.802%2C4.629%0D%0A%09%09c18.958%2C0%2C29.325-15.703%2C29.325-29.325c0-0.445-0.012-0.89-0.028-1.335C59.668%2C25.983%2C61.415%2C24.167%2C62.799%2C22.1z%22/%3E%0D%0A%3C/g%3E%0D%0A%3C/svg%3E%0D%0A');
+			background-repeat: no-repeat;
+		}
+		.icon-delecious {
+			background-image: url('data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0D%0A%3C%21--%20Generator%3A%20Adobe%20Illustrator%2016.0.4%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%206.00%20Build%200%29%20%20--%3E%0D%0A%3C%21DOCTYPE%20svg%20PUBLIC%20%22-//W3C//DTD%20SVG%201.1//EN%22%20%22http%3A//www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd%22%3E%0D%0A%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20x%3D%220px%22%20y%3D%220px%22%0D%0A%09%20width%3D%2275.361px%22%20height%3D%2275.361px%22%20viewBox%3D%220%200%2075.361%2075.361%22%20enable-background%3D%22new%200%200%2075.361%2075.361%22%20xml%3Aspace%3D%22preserve%22%3E%0D%0A%3Cg%3E%0D%0A%09%3Crect%20x%3D%2237.681%22%20y%3D%2237.681%22%20fill%3D%22%23F7F7F7%22%20width%3D%2237.681%22%20height%3D%2237.681%22/%3E%0D%0A%09%3Crect%20y%3D%2237.681%22%20width%3D%2237.681%22%20height%3D%2237.681%22/%3E%0D%0A%09%3Crect%20fill%3D%22%23FFFFFF%22%20width%3D%2237.681%22%20height%3D%2237.681%22/%3E%0D%0A%09%3Crect%20x%3D%2237.681%22%20y%3D%220%22%20fill%3D%22%23989898%22%20width%3D%2237.681%22%20height%3D%2237.681%22/%3E%0D%0A%3C/g%3E%0D%0A%3C/svg%3E%0D%0A');
+			background-repeat: no-repeat;
+		}
+		a { 
+			width: 100%; 
+			height: 100%;
+			display: block;
+			background-size: 100%;
+		}
+	}
+	li:last-child{
+		width: auto;
+		#linkback { 
+			color: $medium-gray;
+			text-decoration: none;
+			text-align: center;
+			background: none;
+			/*text-transform: uppercase;*/
+			line-height: 25px;
+			padding: 0px 0px;
+			span{
+				color: $isobar-orange;
+			}
+		}
+		#linkback:hover {
+			text-decoration: underline;
+		}
+	}
 }
-
-header #social #linkback:hover { color: #dcdcdc; }

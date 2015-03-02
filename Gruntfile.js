@@ -5,7 +5,7 @@ module.exports = function(grunt) {
 
   // @todo: move to json file
   var standards = {
-    ourLanguages : ['en', 'es', 'nglayout'], // nglayout? just showing my age
+    ourLanguages : ['en', 'es'],
     defaultFile : 'index',
     defaultExt : '.html',
     // change this to have the 'index' file be another language
@@ -37,16 +37,30 @@ module.exports = function(grunt) {
     // watch the file system for new changes
     watch: {
       css: {
-        files: ['scss/*.scss'],
-        tasks: ['compass']
+        files: ['scss/**/*.scss'],
+        tasks: ['libsass']
+      },
+      html: {
+        files: ['content/en/**.*'],
+        tasks: ['assemble','copy']
       }
     },
 
-    compass: {
-      dist: {
+    libsass: {
+      global: {
         options: {
-          config: 'config.rb'
-        }
+          sourceMap: true,
+          sourceComments: false,
+          outputStyle: 'expanded'
+        },
+        files: [{
+          expand: true,
+          cwd: 'scss/',
+          src: ['*.scss'],
+          dest: 'css/generated/',
+          ext: '.css'
+        },
+        ],
       }
     },
 
@@ -61,11 +75,10 @@ module.exports = function(grunt) {
       },
       en: {
         options : {
-          data : 'sections/en/build/data.json',
-          partials: ['sections/en/*.html']
+          data : 'content/en/build/data.json'
         },
         files : {
-          'en.html' : ['sections/en/build/en.hbs']
+          'en.html' : ['content/en/build/en.hbs']
         }
       },
       es: {
@@ -76,15 +89,7 @@ module.exports = function(grunt) {
         files : {
           'es.html' : ['sections/es/build/es.hbs']
         }
-      },
-      // this is a new test layout + new content
-      nglayout: {
-        options : {
-          data : 'content/en/build/data.json'
-        },
-        src : 'content/en/build/en.hbs',
-        dest : 'nglayout.html'
-      },
+      }
     },
 
     // copy the specified default language to the specified file
@@ -93,12 +98,23 @@ module.exports = function(grunt) {
         src : standards.defaultLanguage + standards.defaultExt,
         dest : standards.defaultFile + standards.defaultExt
       }
+    },
+
+    connect: {
+      server: {
+        options: {
+          port: 8000,
+          hostname: '127.0.0.1',
+          keepalive: true
+        }
+      }
     }
 
 });
 
   // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-libsass');
+  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
@@ -107,6 +123,8 @@ module.exports = function(grunt) {
   // Default task.
   grunt.registerTask('cleanup', ['clean']);
   grunt.registerTask('default', ['clean', 'compass', 'assemble', 'copy']);
-  grunt.registerTask('watch', ['watch']);
+  grunt.registerTask('server', ['connect']);
+  grunt.registerTask('default', ['clean', 'libsass', 'assemble', 'copy']);
+  grunt.registerTask('dev', ['watch']);
 
 };
