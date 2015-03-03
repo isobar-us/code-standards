@@ -4,7 +4,7 @@
 textarea[class~="brush:js"], textarea[class~="brush:css"], 
 textarea[class~="brush:php"], textarea[class~="brush:html"], 
 textarea[class~="brush:csharp"] {
-	display: none;
+  display: none;
 }
 
 
@@ -12,21 +12,21 @@ textarea[class~="brush:csharp"] {
 ----------------------------------------------------------------------------------------------------*/
 
 html body div.syntaxhighlighter {
-	border: 1px solid #fff !important;
-	box-shadow: #666 0 1px 3px !important;
-	-moz-box-shadow: #666 0 1px 3px !important;
-	-webkit-box-shadow: #666 0 1px 3px !important;
-	font-size: 11px !important;
-	margin: -1px -1px 20px !important;
-	padding: 5px 0 !important;
+  border: 1px solid #fff !important;
+  box-shadow: #666 0 1px 3px !important;
+  -moz-box-shadow: #666 0 1px 3px !important;
+  -webkit-box-shadow: #666 0 1px 3px !important;
+  font-size: 11px !important;
+  margin: -1px -1px 20px !important;
+  padding: 5px 0 !important;
 }
 
 html body div.syntaxhighlighter div.line span.content span.block {
-	background-image: none !important;
+  background-image: none !important;
 }
 
 html body div.syntaxhighlighter * {
-	line-height: 1.5 !important;
+  line-height: 1.5 !important;
 }
 
 /**

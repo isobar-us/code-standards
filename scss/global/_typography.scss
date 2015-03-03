@@ -24,18 +24,18 @@ sub { bottom: -0.25em; }
 pre {
   /* www.pathf.com/blogs/2008/05/formatting-quoted-code-in-blog-posts-css21-white-space-pre-wrap/ */
   white-space: pre; white-space: pre-wrap; word-wrap: break-word; padding: 15px;
-	background: $alt-background; 
-	color: $alt-text;
-	padding: 10px;
-	display: block;
-	margin: 8px 0 20px 0;
-	line-height: 1.2em;
+  background: $alt-background; 
+  color: $alt-text;
+  padding: 10px;
+  display: block;
+  margin: 8px 0 20px 0;
+  line-height: 1.2em;
 }
 
 
 body, select, input, textarea {
   /* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */
-	color: $default-2-text;
+  color: $default-2-text;
   /* Set your base font here, to apply evenly */
   font-family: $font-stack;
   font-size: 16px;
@@ -43,12 +43,12 @@ body, select, input, textarea {
 
 
 p {
-	margin: 0 0 10px 0;
+  margin: 0 0 10px 0;
 }
 
 p, ol, ul {
-	font-size: 14px;
-	line-height: 20px;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 
@@ -57,37 +57,37 @@ p, ol, ul {
 
 /* Headers (h1, h2, etc) have no default font-size or margin;define those yourself */
 h1, h2, h3, h4, h5, h6 { 
-	font-family: $heading-font-stack;
-	color: $isobar-orange;
-	position: relative;
-	margin-top:20px
+  font-family: $heading-font-stack;
+  color: $isobar-orange;
+  position: relative;
+  margin-top:20px
 }
 
 h3, h4, h5, h6 { font-weight: normal; }
 
 h1 {
-	color: $default-text;
-	font-size: 34px;	
-	font-weight: 700;
-	line-height: 1.1em;
-	margin-bottom: 14px;
+  color: $default-text;
+  font-size: 34px;  
+  font-weight: 700;
+  line-height: 1.1em;
+  margin-bottom: 14px;
 }
 
 h2 {
-	color: $default-text;
-	font-size: 24px;
-	margin-bottom: 12px;
+  color: $default-text;
+  font-size: 24px;
+  margin-bottom: 12px;
 }
 
 h3 {
-	font-size: 20px;
-	margin-bottom: 11px;
+  font-size: 20px;
+  margin-bottom: 11px;
 }
 
 h4 {
-	font-size: 18px;
-	color: $default-3-text;
-	margin-bottom: 8px;
+  font-size: 18px;
+  color: $default-3-text;
+  margin-bottom: 8px;
 }
 
 h2::before{
