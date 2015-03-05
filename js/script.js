@@ -80,10 +80,6 @@ var UTIL = {
 		});
 		$('.menu-button').on('click',function(e){
 			$('body').toggleClass('menu-open');
-			
-		});
-		$('.overlay').on('click',function(e){
-			$('body').toggleClass('menu-open');
 		});
 		UTIL.setLayout();
 		UTIL.fire('common','finalize');
@@ -106,7 +102,15 @@ var UTIL = {
 		//Set classes on the body based on screen width.
 		//Display the, 'hamburger' button & menu through css based on these classes added.
 		var screenWidth = window.innerWidth;
-		screenWidth > 769 ? $('body').removeClass('menu-open') : true;
+		screenWidth > 769 ? $('body').removeClass('menu-open') : UTIL.overlay();
+	},
+	overlay : function(){
+		if($('.overlay').length == 0){
+			$('body').append('<div class="overlay"></div>');
+			$('.overlay').on('click',function(e){
+				$('body').toggleClass('menu-open');
+			});
+		}
 	}
 }; 
 // kick it all off here 
