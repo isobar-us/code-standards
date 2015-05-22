@@ -12,6 +12,9 @@ module.exports = function(grunt) {
     defaultLanguage : 'en'
   };
 
+  // output build time stats
+  require('time-grunt')(grunt);
+
   // Project configuration.
   grunt.initConfig({
     // Metadata.
@@ -38,7 +41,7 @@ module.exports = function(grunt) {
     watch: {
       css: {
         files: ['scss/**/*.scss'],
-        tasks: ['libsass']
+        tasks: ['sass']
       },
       html: {
         files: ['content/en/**.*'],
@@ -46,7 +49,7 @@ module.exports = function(grunt) {
       }
     },
 
-    libsass: {
+    sass: {
       global: {
         options: {
           sourceMap: true,
@@ -113,7 +116,8 @@ module.exports = function(grunt) {
 });
 
   // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-libsass');
+  // grunt.loadNpmTasks('grunt-libsass');
+  grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
@@ -122,9 +126,8 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('cleanup', ['clean']);
-  grunt.registerTask('default', ['clean', 'compass', 'assemble', 'copy']);
   grunt.registerTask('server', ['connect']);
-  grunt.registerTask('default', ['clean', 'libsass', 'assemble', 'copy']);
+  grunt.registerTask('default', ['clean', 'sass', 'assemble', 'copy']);
   grunt.registerTask('dev', ['watch']);
 
 };
