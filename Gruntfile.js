@@ -44,7 +44,7 @@ module.exports = function(grunt) {
         tasks: ['sass']
       },
       html: {
-        files: ['content/en/**.*'],
+        files: ['_layouts/**.*', 'content/en/**/*.*', 'sections/es/**/*.*'],
         tasks: ['assemble','copy']
       }
     },
