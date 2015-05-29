@@ -41,7 +41,7 @@ As noted these guidelines are flexible for projects as long as consensus or need
 
 Indent nested elements and tags with single indentation settings, whatever they may be, for each level in the hierarchy of the document.
 
-```HTML
+```markup
 <div>
     <p>Lorem ipsumLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
     <ul>
@@ -74,7 +74,7 @@ Please use a common HTML5 polyfill or HTML5 Shiv to enable styling and recogniti
 
 Always include a proper doctype to trigger standards mode. Omitting the doctype triggers quirks mode and should always be avoided. The HTML5 doctype is simple and easy to remember.
 
-```
+```markup
 <!doctype html>
 ```
 
@@ -82,7 +82,7 @@ Always include a proper doctype to trigger standards mode. Omitting the doctype 
 
 All markup should be delivered as UTF-8, since it has the best support for internationalization. The character encoding should be designated in both the HTTP header and the head of the document via a meta tag. If the server happens to omit the HTTP header, browsers can take a guess at the character encoding and begins parsing and rendering the markup in a particular way. If there are inconsistencies, the browser will re-parse and re-render, throwing away all that work and starting over if it encounters the meta tag and its guess was incorrect. As a best practice, we always put the meta tag as early in the `<head>` tag as early as possible — however server-settings are ideal.
 
-```
+```markup
 <meta charset="UTF-8">
 ```
 
@@ -96,7 +96,7 @@ Generally speaking, self-closing XML (i.e. XHTML, XML) style tags are not necess
 
 To provide additional semantic value to our documents, make use of HTML5 elements such as `<header>`, `<article>`, and `<section>` where appropriate. However, in cases where the HTML needs to be as backwards-compatible as possible, do not apply IDs or classes to them, since older browsers do not understand these elements by default and will not apply styling to them.
 
-```
+```markup
 <header>
     <div class="site-header">
         ...
@@ -108,7 +108,7 @@ To provide additional semantic value to our documents, make use of HTML5 element
 
 Use quotes to surround all attribute values in HTML, despite quotes being optional in HTML5. This maintains consistency between attribute values that contain whitespace and those that don't.
 
-```
+```markup
 <form class="registration module" action="/register" method="POST">
 ```
 
@@ -116,7 +116,7 @@ Use quotes to surround all attribute values in HTML, despite quotes being option
 
 HTML elements can be identified by using the `id` and `class` attributes. An ID is a unique identifier for that particular element; no other element on the page should use the same ID. This uniqueness allows `<label>` elements to associate themselves with a particular input and URLs to jump to a particular scroll position on a page. Classes are not unique. The same class can be used on multiple elements within a page, and a single element can have more than one class.
 
-```
+```markup
 <ul id="categories">
     <li class="category">Jackets</li>
     <li class="category">Accessories</li>
@@ -144,7 +144,7 @@ Tables should not be used for page layout; only use them when you need to displa
 
 The `<caption>` element is the recommended way to describe a table for both sighted and sight-impaired users, though this can also be done less semantically in the normal page text around the table. Use the `<thead>` and `<tbody>` elements to denote which row contains column headers so when a user prints the website and the table runs onto another page, browsers can display the `<thead>` on each page for easier readability. Remember to use the `scope` attribute on the `<th>` element to indicate whether the header applies to the row or column.
 
-```
+```markup
 <table>
     <caption>First two U.S. presidents</caption>
     <thead>
@@ -179,7 +179,7 @@ Do not nest HTML form elements.
 
 All input fields should be associated with a `<label>` element. The `for` attribute of the `<label>` element should contain the ID of the corresponding input field. This means the input field will receive focus when a user clicks the label and also enables screen readers for sight-impaired users to read out an appropriate description of the input field.
 
-```
+```markup
 <label for="home-address">Home Address</label>
 <input id="home-address" type="text">
 ```

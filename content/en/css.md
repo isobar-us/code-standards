@@ -29,7 +29,7 @@ Try to segment code in logical ways:
 
 Use the `<link>` tag to include all your stylesheets in the `<head>` of the document. For optimal page performance, concatenate your CSS into as few files as possible and do not use the `@import` command to include other stylesheets, as this will fire an additional HTTP request and block page rendering until its completion.
 
-```
+```markup
 <link rel="stylesheet" type="text/css" href="main.css" />
 ```
 
@@ -41,7 +41,7 @@ Do not put styling information into your HTML markup directly, either with the `
 
 Put each selector on its own line and each property on its own line for easy readability and so version control systems can clearly show which parts have changed. The attributes within a selector should be alphabetized for easy scanning and so that compression algorithms like gzip have a greater chance of finding repeatable patterns.
 
-```
+```css
 #content {
     margin-left: -2%;
 }
@@ -60,7 +60,7 @@ Do not indent child styles underneath their parent styles for a few reasons. Whe
 
 To simplify CSS authoring, we set the `box-sizing` attribute to `border-box` for all page elements. This enables us to use round numbers for width like 50% and then apply a padding or border to that same element without needing to (1) adjust the width accordingly using calc (since borders use pixels rather than percents) or (2) create an element inside it to take the padding and border. This is the only case where we use the inefficient universal selector (`*`).
 
-```
+```css
 * {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -74,7 +74,7 @@ CSS is most efficient when its selectors are [extremely specific with limited DO
 
 The descendant selector (the space character) is the most expensive selector in CSS. The child selector (the &quot;`>`&quot; character) is also expensive, especially when the rules are tag names rather than classes or IDs. Avoid both. Try applying a class to the element you want to target instead.
 
-```
+```css
 /* BAD */
 button#back-button { ... }
 .popular ul li a { ... }
