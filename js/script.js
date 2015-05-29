@@ -10,16 +10,14 @@ var ISOBAR = {
 			this.stuff();
 		},
 		// generate table of contents
-		toc : function(){
-			var main = document.getElementById('main'),
-				toc = document.getElementById('toc'),
-				hx = $('section h1, section h2, section h3, section h4, section h5'),
-				frag = document.createDocumentFragment(),
-				hx_len = hx.length,
-				anchor, tag, the_text;
+		toc : function() {
+			var toc = document.getElementById('toc');
+			var hx = $('section h1, section h2, section h3, section h4, section h5');
+			var frag = document.createDocumentFragment();
+			var hx_len = hx.length;
+			var toc_contents = '';
+			var anchor, tag, the_text;
 
-
-			// this code is awful. talk about a set up for multiple dom updates...
 			for (var i = 0, j = hx_len; i < j; i++) {
 				tag = hx[i].tagName.toLowerCase();
 
@@ -29,15 +27,14 @@ var ISOBAR = {
 
 					hx[i].id = anchor;
 					hx[i].innerHTML += '<a href="#' + anchor + '" class="anchor_link" title="Permalink">◊</a>';
-					toc.innerHTML += '<li class="' + tag + '"><a href="#' + anchor + '">' + the_text + '</a></li>';
+					toc_contents += '<li class="' + tag + '"><a href="#' + anchor + '">' + the_text + '</a></li>';
 				}
-				
-				// console.log({ 'a': anchor, 'tag': tag, 'hx': hx[i] });
 				
 				if (tag === 'h1') {
 					//hx[i].innerHTML += '<a href="#" class="back-anchor" title="Top">Back to Top</a>';
 				}
 			}
+			toc.innerHTML = toc_contents;
 			toc.style.display = 'block';
 		},
 		// just hooking up back to top
