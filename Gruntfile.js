@@ -84,15 +84,14 @@ module.exports = function(grunt) {
           'en.html' : ['content/en/build/en.hbs']
         }
       },
-      es: {
+      /*es: {
         options : {
-          data : 'sections/es/build/data.json',
-          partials: ['sections/es/*.html']
+          data : 'content/es/build/data.json'
         },
         files : {
-          'es.html' : ['sections/es/build/es.hbs']
+          'es.html' : ['content/es/build/es.hbs']
         }
-      }
+      },*/
     },
 
     // copy the specified default language to the specified file
