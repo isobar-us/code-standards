@@ -283,20 +283,6 @@ sub {
   bottom: -0.25em;
 }
 
-pre {
-  /* www.pathf.com/blogs/2008/05/formatting-quoted-code-in-blog-posts-css21-white-space-pre-wrap/ */
-  white-space: pre;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  padding: 15px;
-  background: #1e1e1e;
-  color: #ffffff;
-  padding: 10px;
-  display: block;
-  margin: 8px 0 20px 0;
-  line-height: 1.2em;
-}
-
 body, select, input, textarea {
   /* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */
   color: #444444;

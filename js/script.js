@@ -6,7 +6,6 @@ var ISOBAR = {
 	common : {
 		init: function(){
 			this.toc();
-			this.syntax();
 			this.stuff();
 		},
 		// generate table of contents
@@ -43,15 +42,6 @@ var ISOBAR = {
 				window.scrollTo(0, 0);
 				return false;
 			});
-		},
-		// set up syntax highlighter
-		syntax : function(){
-			SyntaxHighlighter.config.tagName = 'textarea';
-			SyntaxHighlighter.defaults['wrap-lines'] = false;
-			SyntaxHighlighter.defaults['auto-links'] = false;
-			SyntaxHighlighter.defaults['toolbar'] = false;
-			SyntaxHighlighter.defaults['tab-size'] = 4;
-			SyntaxHighlighter.all();
 		}
 	}
 };
