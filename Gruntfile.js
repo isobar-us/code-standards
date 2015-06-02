@@ -20,53 +20,6 @@ module.exports = function(grunt) {
     // Metadata.
     pkg: grunt.file.readJSON('package.json'),
 
-    // clean up after the previous build
-    clean : {
-      build : (function(){
-        var arr = [];
-
-          // we iterate over the languages and create our list of output files
-          standards.ourLanguages.forEach(function(val){
-            arr.push(val + standards.defaultExt);
-          });
-
-          // add the default file to the list since it will be replaced by "copy"
-          arr.push(standards.defaultFile + standards.defaultExt);
-
-        return arr;
-      }())
-    },
-
-    // watch the file system for new changes
-    watch: {
-      css: {
-        files: ['scss/**/*.scss'],
-        tasks: ['sass']
-      },
-      html: {
-        files: ['_layouts/**.*', 'content/en/**/*.*', 'sections/es/**/*.*'],
-        tasks: ['assemble','copy']
-      }
-    },
-
-    sass: {
-      global: {
-        options: {
-          sourceMap: true,
-          sourceComments: false,
-          outputStyle: 'expanded'
-        },
-        files: [{
-          expand: true,
-          cwd: 'scss/',
-          src: ['*.scss'],
-          dest: 'css/generated/',
-          ext: '.css'
-        },
-        ],
-      }
-    },
-
     // combine our files into one file, language by language
     assemble: {
       options: {
@@ -94,14 +47,37 @@ module.exports = function(grunt) {
       },*/
     },
 
-    // copy the specified default language to the specified file
-    copy : {
-      realeaseLanguage : {
-        src : standards.defaultLanguage + standards.defaultExt,
-        dest : standards.defaultFile + standards.defaultExt
+    // clean up after the previous build
+    clean: {
+      build : (function(){
+        var arr = [];
+
+          // we iterate over the languages and create our list of output files
+          standards.ourLanguages.forEach(function(val){
+            arr.push(val + standards.defaultExt);
+          });
+
+          // add the default file to the list since it will be replaced by "copy"
+          arr.push(standards.defaultFile + standards.defaultExt);
+
+        return arr;
+      }())
+    },
+
+    // concatenate the js files into one
+    concat: {
+      js: {
+        options: {
+          separator: ';',
+        },
+        files: {
+          'js/generated/head.js': ['js/head/*.js'],
+          'js/generated/main.js': ['js/main-vendor/*.js', 'js/main-custom/*.js']
+        }
       }
     },
 
+    // connect to the local server
     connect: {
       server: {
         options: {
@@ -110,23 +86,77 @@ module.exports = function(grunt) {
           keepalive: true
         }
       }
+    },
+
+    // copy the specified default language to the specified file
+    copy: {
+      realeaseLanguage : {
+        src : standards.defaultLanguage + standards.defaultExt,
+        dest : standards.defaultFile + standards.defaultExt
+      }
+    },
+
+    // run sass to generate the css
+    sass: {
+      global: {
+        options: {
+          sourceMap: true,
+          sourceComments: false,
+          outputStyle: 'expanded'
+        },
+        files: [{
+          expand: true,
+          cwd: 'scss/',
+          src: ['*.scss'],
+          dest: 'css/generated/',
+          ext: '.css'
+        },
+        ],
+      }
+    },
+
+    // watch the file system for new changes
+    watch: {
+      css: {
+        files: ['scss/**/*.scss'],
+        tasks: ['sass']
+      },
+      html: {
+        files: ['_layouts/**.*', 'content/en/**/*.*', 'sections/es/**/*.*'],
+        tasks: ['assemble','copy']
+      },
+      js: {
+        files: ['js/head/*.js', 'js/main-custom/*.js', 'js/main-vendor/*.js'],
+        tasks: ['concat', 'uglify']
+      }
+    },
+
+    // minify the js
+    uglify: {
+      my_target: {
+        files: {
+          'js/generated/head.min.js': ['js/generated/head.js'],
+          'js/generated/main.min.js': ['js/generated/main.js']
+        }
+      }
     }
 
 });
 
   // These plugins provide necessary tasks.
-  // grunt.loadNpmTasks('grunt-libsass');
   grunt.loadNpmTasks('grunt-sass');
-  grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('assemble');
 
   // Default task.
   grunt.registerTask('cleanup', ['clean']);
   grunt.registerTask('server', ['connect']);
-  grunt.registerTask('default', ['clean', 'sass', 'assemble', 'copy']);
+  grunt.registerTask('default', ['clean', 'sass', 'concat', 'uglify', 'assemble', 'copy']);
   grunt.registerTask('dev', ['watch']);
 
 };
