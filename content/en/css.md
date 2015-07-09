@@ -15,7 +15,7 @@ Always consider maintenance, next steps growth, and where and how new code for n
  - Patterns
  - Division of site-wide styles, section-specific styles
  - Grid Systems or frameworks — if you use a grid-system or framework, avoid modifying the original source and please simply extend it
- - On a large site never develop using a single CSS style sheet, though a single file delivered via contatenation is best, to this end we recommend the use of CSS preprocessors to break stylesheets into smaller, better organized files
+ - On a large site never develop using a single CSS style sheet, though a single file delivered via concatenation is best, to this end we recommend the use of CSS preprocessors to break stylesheets into smaller, better organized files
 
 ### General CSS Standards
 
@@ -29,7 +29,7 @@ Try to segment code in logical ways:
 
 Use the `<link>` tag to include all your stylesheets in the `<head>` of the document. For optimal page performance, concatenate your CSS into as few files as possible and do not use the `@import` command to include other stylesheets, as this will fire an additional HTTP request and block page rendering until its completion.
 
-```
+```markup
 <link rel="stylesheet" type="text/css" href="main.css" />
 ```
 
@@ -39,13 +39,13 @@ Do not put styling information into your HTML markup directly, either with the `
 
 ##### Caveat
 
-In some cases, it is considered good practice to inline critical styles in a `style` block in the document's `head`. In this case critical inline styles are identified either manually or through the use of a tool. Non critical styles can then be asyncronously loaded, increasing the perceived page load speed.
+For performance reasons in some cases, it is good practice to inline critical styles in a `style` block in the document's `head`. In this case critical inline styles are identified either manually or through the use of a tool. Non critical styles can then be asynchronously loaded, increasing the perceived page load speed. 
 
 #### Formatting
 
 Put each selector on its own line and each property on its own line for easy readability and so version control systems can clearly show which parts have changed. The attributes within a selector should be alphabetized for easy scanning and so that compression algorithms like gzip have a greater chance of finding repeatable patterns.
 
-```
+```css
 #content {
     margin-left: -2%;
 }
@@ -64,7 +64,7 @@ Do not indent child styles underneath their parent styles for a few reasons. Whe
 
 To simplify CSS authoring, we set the `box-sizing` attribute to `border-box` for all page elements. This enables us to use round numbers for width like 50% and then apply a padding or border to that same element without needing to (1) adjust the width accordingly using calc (since borders use pixels rather than percents) or (2) create an element inside it to take the padding and border. This is the only case where we use the inefficient universal selector (`*`).
 
-```
+```css
 * {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -78,7 +78,7 @@ CSS is most efficient when its selectors are [extremely specific with limited DO
 
 The descendant selector (the space character) is the most expensive selector in CSS. The child selector (the &quot;`>`&quot; character) is also expensive, especially when the rules are tag names rather than classes or IDs. Avoid both. Try applying a class to the element you want to target instead.
 
-```
+```css
 /* BAD */
 button#back-button { ... }
 .popular ul li a { ... }
@@ -92,13 +92,13 @@ button#back-button { ... }
 
 Avoid using the `!important` keyword. Treat it like the nuclear option, only to be used in the most extreme of cases. There is usually another way to achieve the same goal without causing headaches for developers in the future who are either trying to debug a styling issue or trying to use normal specificity to override a style for a particular element only to find that they can't.
 
-While the ID selector is the most efficient selector, it's use should be minimized as it's highly specific nature makes it difficult to override. It is recommended to restrict selectors to purely class names, preferrably selectors that utilize only one class name so that all selectors have a comparable level of specificity. 
+Use the lowest level of specificity necessary to get the desired results. This means the use of the ID selector should be minimized. Often creating a new class is preferable to using inheritance or additional specificity to target an element or elements. 
 
-The one caveat here is base styles. Defining a solid styleguide to be applied to tag names can significiantly reduce the size of the CSS if that styleguide is adheared to by both the design and development teams. It is recommended that a styleguide is agreed upon at the begining of a project, defined in HTML and then iterated on by both the design and development teams.
+The one caveat here is base styles. Defining a solid styleguide to be applied to tag names can significantly reduce the size of the CSS if that styleguide is adhered to by both the design and development teams. It is recommended that a styleguide is agreed upon at the beginning of a project, defined in HTML and then iterated on by both the design and development teams.
 
 ### CSS Deliverables
 
-Please be aware of potential conflicts between the origional development environment for CSS and an ulitimate deployment to production systems, if continuous integration will allow the continued use of CSS preprocessors, or if there should a cross-platform development strategy.
+Please be aware of potential conflicts between the original development environment for CSS and an ultimate deployment to production systems, if continuous integration will allow the continued use of CSS preprocessors, or if there should a cross-platform development strategy.
 
 ### Next Steps &amp; CSS Resources
 
