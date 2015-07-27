@@ -71,7 +71,6 @@ module.exports = function(grunt) {
           separator: ';',
         },
         files: {
-          'js/generated/head.js': ['js/head/*.js'],
           'js/generated/main.js': ['js/main-vendor/*.js', 'js/main-custom/*.js']
         }
       }
@@ -126,7 +125,7 @@ module.exports = function(grunt) {
         tasks: ['assemble','copy']
       },
       js: {
-        files: ['js/head/*.js', 'js/main-custom/*.js', 'js/main-vendor/*.js'],
+        files: ['js/main-custom/*.js', 'js/main-vendor/*.js'],
         tasks: ['concat', 'uglify']
       }
     },
@@ -135,7 +134,6 @@ module.exports = function(grunt) {
     uglify: {
       my_target: {
         files: {
-          'js/generated/head.min.js': ['js/generated/head.js'],
           'js/generated/main.min.js': ['js/generated/main.js']
         }
       }

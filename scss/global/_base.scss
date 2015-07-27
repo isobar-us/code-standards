@@ -92,8 +92,6 @@ input:invalid, textarea:invalid {
     box-shadow: 0 0 5px red;
 }
 
-.no-boxshadow input:invalid, .no-boxshadow textarea:invalid { background-color: #f0dddd; }
-
 
 /* These selection declarations have to be separate
    No text-shadow: twitter.com/miketaylr/status/12228805301
