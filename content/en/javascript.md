@@ -1,12 +1,42 @@
 ## JavaScript
 
+JavaScript is where extra behaviors, features, and functionality not offered natively by Web browsers through CSS and HTML is created. 
+
 ### Goals
+
+JavaScript should be used carefully and deliberately. Any and all JavaScript code that's added to a Web page should be there *if and only if* it is necessary for the page to achieve the desired ends.
+
+JavaScript should be:
+
+ - included deliberately, after careful consideration 
+ - have the performance overhead and file size evaluated
+ - have a feature set that is clearly understood
+ - perform only the necessary tasks
+ - have maintainability carefully assessed
+ - following patterns established for the project
+ - tested in various devices and platforms
+
+Likewise, the absense of the code should be carefully considered:
+
+ - What happens if for some reason this code is missing or does not run? 
+ - What happens if the code triggers an error?
+
+Please understand what the JavaScript does and how it does it if you are including third party code.
 
 ### Getting Started
 
- - JavaScript Libraries
+Client buy-in may be necessary for the usage of JavaScript for various features. It may be a forgone conclusion but usage of libraries or custom code should be discussed with the team and client technical leads for various features.
+
+#### JavaScript Libraries
+
+It is quite common for different libraries and frameworks be used on projects.
+
+#### Have Control Over the Page Lifecycle
+
  - Single execution and entry point
- - Control page life cycle
+
+#### Understanding the Code's Place in the Project
+
  - Understand where your code will live vs. any code introduced in a destination environment
 
 ### JavaScript Standards
