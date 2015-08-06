@@ -2,18 +2,20 @@
 
 ## General Introduction
 
-This document contains the guidelines and best practices for the front-end web development team at Isobar. There are many ways of leveraging browser-based technologies to create a website. 
+This document contains the guidelines and best practices for the front-end web development team at Isobar. 
 
 Each item here represents either:
 
-1. A decision we've made favoring one method over its alternatives,
-1. A reminder to follow existing standards or industry conventions, or
-1. Guidance on what constitutes professional patterns and organization
+1. A reminder to follow existing standards or industry conventions,
+1. Guidance on what constitutes professional patterns and organization, or 
+1. A decision we've made favoring one method over its alternatives.
 
 What this document is _not_ is a series of explanations as to how front-end technologies work; a basic familiarity is assumed. It also does _not_ provide evaluations of the pros and cons of various alternatives; when appropriate we pick what we consider to be the best solutions and present them. Issues that don't yet have a clear solution are considered flexible and may or may not be listed.
 
-> It's recognized that the same conventions for all projects, clients, and teams isn't practical. For these reasons forks of this document are encouraged for various projects and teams. 
-What works well can be submitted and discussed as new recommendations moving forward. 
+<aside class="box">
+<p>It's recognized that the same conventions for all projects, clients, and teams isn't practical. For these reasons forks of this document are encouraged for various projects and teams.</p>
+<p>What works well can be submitted and discussed as new recommendations moving forward.</p>
+</aside>
 
 ### Goals
 
@@ -28,7 +30,7 @@ This document is not intended to replace common sense, conventions requested by 
 
 #### Professional Responsibility
 
-We are experts in our field creating solutions for our clients and their target audiences, not for ourselves. Every technology and code choice needs to measured against the potential benefits to the project objectives versus maintainability as opposed to the _cool factor_ or how _trendy_ a particular solution may be. 
+We are experts in our field creating solutions for our clients and their target audiences, not for ourselves. Every technology and code choice needs to be measured against the potential benefits to the project objectives and  maintainability versus the _cool factor_ or how _trendy_ a particular solution may be. 
 
 Our industry is wrought with the flavor of the month, so please be deliberate. 
 
@@ -56,9 +58,9 @@ For any project:
 
  - Consistency and conventions between team members is paramount
  - Solutions should be as simple and clear as possible, while serving a specific purpose
- - Clever does not necessarily mean good; readability is critical
+ - Clever does not necessarily mean good; readability is *critical*
 
-A key hallmark of professional software engineering includes a notion that while we are writing code that must reach a desired goal, we are also creating code that must be read and understood by others.
+A key hallmark of professional code includes a notion that while we are writing code that must reach a desired goal, we are also creating code that must be read and understood by others.
 
 #### Code Consistency
 
@@ -72,7 +74,7 @@ Please consistently indent, nest, include braces, quotes, and new lines so that 
 
 For all code languages, we recommend the use soft tabs comprised of four spaces per tab. Hitting the Tab key in your text editor should generate four space characters rather than one tab character. This results in our code appearing identical across platforms.
 
-If tab stops are favored by a team, the most important aspect is maintaining consistency for a project and it's deliverables so developers can make adjustments to their editing environments a single time.
+If tab stops are favored by a team, simply *maintain consistency* for a project and it's deliverables so developers can make adjustments to their editing environments a *single* time.
 
 #### Readability
 
@@ -82,11 +84,13 @@ We encourage liberal use of whitespace, comments, and descriptive variable names
 
 Un-minified libraries and third-party scripts should be leveraged in local development environments for easier debugging if available. The code should be committed to source control in an unmodified state, or simply referenced in dependency management components that resolve the files in a build. The final products will be compressed with the rest of the source for delivery.
 
-Likewise, third-party code and libraries should never be modified and their original source and license must be documented and be appropriate for a project. Any changes to third party code must be agreed upon and must be for specific reasons. If changes are mandated by bug fixes then the appropriate upstream project should have the changes submitted (assuming the code is part of an open source repository).
+Likewise, third-party code and libraries should never be modified and their original source and the license must be documented and be appropriate for a project. Any changes to third party code must be agreed upon and must be for specific reasons. If changes are mandated by bug fixes then the appropriate upstream project should have the changes submitted (assuming the code is part of an open source repository).
 
 Library code should be treated as an external dependency and should be considered something that may need to be wholesale updated or replaced at a later time.
 
-Inclusion of any third-party code should be carefully considered and verified with the project team as the appropriate solution to a given problem. "Adding another plug-in" is not always the best solution. Finally, selection of third party libraries should be done carefully and not be out of alignment with the nature of the problem being addressed. To be blunt, _use the right tool for the right job_.
+Inclusion of any third-party code should be carefully considered and verified with the project team as the appropriate solution to a given problem. "Adding another plug-in" is not always the best solution. Finally, selection of third party libraries should be done carefully and not be out of alignment with the nature of the problem being addressed. 
+
+To be blunt, _use the right tool for the right job_.
 
 ### Deliverables
 
