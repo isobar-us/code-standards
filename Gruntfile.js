@@ -106,7 +106,7 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: 'scss/',
-          src: ['*.scss'],
+          src: ['*.scss', '!js-only.scss'],
           dest: 'css/generated/',
           ext: '.css'
         },
