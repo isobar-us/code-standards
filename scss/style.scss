@@ -1,6 +1,8 @@
+// Styles and Settings
 @import 'helpers/variables';
 @import 'helpers/mixins';
 
+// Core Styles
 @import 'global/base';
 @import 'global/typography';
 @import 'global/links';
@@ -13,6 +15,9 @@
 //queries
 @import 'global/print';
 @import 'global/mediaqueries';
+
+//Styles specific to the JS features.
+@import 'js-only';
 
 // this include greatly improves performance.
 @import 'global/cat';
