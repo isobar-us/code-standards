@@ -1,0 +1,7 @@
+@import 'js-only/_prism';
+
+/* for code blocks if JS isn't running */
+pre {
+	background-color: #000;
+	overflow-x: scroll;
+}

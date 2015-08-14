@@ -10,7 +10,7 @@ body .fork {
   z-index:4; 
   width: 149px; 
   height: 149px; 
-  background: url(../../img/fork-me.png) no-repeat -15px top;
+  background: url(../img/fork-me.png) no-repeat -15px top;
 }
 
 header {
@@ -81,7 +81,7 @@ header canvas {
   }
 }
 header h1 a { 
-  background:url("../../img/orange.svg") no-repeat 0 0;
+  background:url("../img/orange.svg") no-repeat 0 0;
     background-size: auto 80%;
   overflow: hidden;
     text-indent: 200%;

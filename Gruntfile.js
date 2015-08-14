@@ -71,7 +71,7 @@ module.exports = function(grunt) {
           separator: ';',
         },
         files: {
-          'js/generated/main.js': ['js/main-vendor/*.js', 'js/main-custom/*.js']
+          '_assets/js/main.js': ['src/js/**/*.js','!src/js/vendor/jquery*.js']
         }
       }
     },
@@ -89,6 +89,19 @@ module.exports = function(grunt) {
 
     // copy the specified default language to the specified file
     copy: {
+      assets: {
+        expand: true,
+        cwd: 'src/js/vendor/',
+        src: ['jquery*.js'],
+        dest: '_assets/js/vendor/'
+      },
+      // mat be replaced by imagemin
+      images: {
+          expand: true,
+          cwd: 'src/img',
+          src: ['**/*.{png,jpg,gif,svg,ico}'],
+          dest: '_assets/img/'
+      },
       realeaseLanguage : {
         src : standards.defaultLanguage + standards.defaultExt,
         dest : standards.defaultFile + standards.defaultExt
@@ -105,9 +118,9 @@ module.exports = function(grunt) {
         },
         files: [{
           expand: true,
-          cwd: 'scss/',
-          src: ['*.scss'],
-          dest: 'css/generated/',
+          cwd: 'src/scss/',
+          src: ['*.scss', '!js-only.scss'],
+          dest: '_assets/css/',
           ext: '.css'
         },
         ],
@@ -121,20 +134,24 @@ module.exports = function(grunt) {
         tasks: ['sass']
       },
       html: {
-        files: ['_layouts/**.*', 'content/en/**/*.*', 'sections/es/**/*.*'],
+        files: ['_layouts/**.*', 'content/en/**/*.*'],
         tasks: ['assemble','copy']
       },
+      img: { 
+        files: ['img/**/*.{png,jpg,gif}'],
+        tasks: ['copy:images'] // may be replaced by imagemin
+      },
       js: {
-        files: ['js/main-custom/*.js', 'js/main-vendor/*.js'],
-        tasks: ['concat', 'uglify']
+        files: ['src/js/**/*.js'],
+        tasks: ['concat', 'uglify', 'copy:assets']
       }
     },
 
     // minify the js
     uglify: {
-      my_target: {
+      target: {
         files: {
-          'js/generated/main.min.js': ['js/generated/main.js']
+          '_assets/js/main.min.js': ['_assets/js/main.js']
         }
       }
     }
