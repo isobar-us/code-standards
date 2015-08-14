@@ -234,47 +234,103 @@
 <p>For current links and references, please see our Wiki on Github.</p>
 </section>
 <section><h2 id="css">CSS</h2>
-<p>CSS is where the visual presentation rules of a website belongs. Well-written CSS makes good use of its cascading nature - general styles are applied first, and those styles are overridden for more specific instances as necessary.</p>
+<p>Cascading Style Sheets (CSS) is where the visual presentation and design rules for a website belong. Well-written CSS makes good use of its cascading nature - general styles are applied first, and those styles are overridden for more specific instances as necessary.</p>
 <h3 id="goals-for-effective-css">Goals for Effective CSS</h3>
-<p>CSS is an unusual language which can easily lead to code bloat, inconsistencies in design or code technique. It is easy to end up with CSS code that is difficult to manage, or so fragile it causes site-wide regressions.</p>
+<p>CSS is an unusual language which can easily lead to code bloat, inconsistencies in design or clashing code techniques. It is easy to end up with CSS code that is difficult to manage, or so fragile it can cause site-wide regressions with small changes.</p>
+<p>CSS should:</p>
+<ul>
+<li>Be easy to maintain.</li>
+<li>Follow clear enough patterns to understand and be readable.</li>
+<li>Offer a clear place for new styles going forwards.</li>
+<li>Not be a drag on the loading performance or page rendering.</li>
+<li>Address different devices, browser versions, and do as much as it can with as little code as possible.</li>
+</ul>
 <p>Always consider:</p>
 <ul>
-<li>What your core, global, baseline might be, </li>
-<li>What styles are branding vs. design extension</li>
-<li>Ease of maintenance</li>
+<li>What your core, default styles for HTML elements are going to be</li>
+<li>What styles are branding, global styles, and specific one-off use-cases</li>
+<li>Layout, verus content, versus style</li>
+<li>Ease of maintenance and how the code will evole and grow</li>
 <li>Impact of styles for a given fix versus other elements on the site</li>
-<li>Next steps, how the styles for the site will evolve and grow</li>
-<li>Content versus style</li>
-<li>How global styles will be managed versus specific use-cases</li>
+<li>What type of artwork is acceptable to be CSS background images vs. inline HTML</li>
 </ul>
-<p>Having a plan going into large site development of CSS is critical.</p>
+<p>Going into large site development with a plan for the CSS is critical.</p>
 <h3 id="getting-started-with-css">Getting Started with CSS</h3>
+<p>Planning for a design implementation isn&#39;t that different than any other software requirements for Web development.</p>
+<p>You should always:</p>
 <ul>
-<li>Patterns</li>
-<li>Division of site-wide styles, section-specific styles</li>
-<li>Grid Systems or frameworks — if you use a grid-system or framework, avoid modifying the original source and please simply extend it</li>
+<li>review the design</li>
+<li>plan around technical constraints</li>
+<li>identify how content will be managed</li>
+<li>be certain who will be able to modify the design directly via code</li>
+</ul>
+<p>Try to segment code in logical ways:</p>
+<ul>
+<li>Separate page structure from design.</li>
+<li>Separate containers and grids on a page from the content</li>
+<li>Create baseline components which may be extended, but rarely modified directly</li>
+</ul>
+<p>More specifically, you may have:</p>
+<ul>
+<li>Core brand styles</li>
+<li>Site-wide styles</li>
+<li>Distinct sections of the site</li>
+<li>Page layouts, component layouts</li>
+<li>Micro-sites and landing pages</li>
+<li>Components, widgets, or re-usable modules</li>
+</ul>
+<h4 id="tools">Tools</h4>
+<p>Sometimes third party library are necessary or helpful — but please be certain to not include extra code for no reason. Libraries or tools should be picked based on benefit and advantages that they provide.</p>
+<ul>
+<li>Concatentation</li>
+<li>Precompilers</li>
+<li>Minifiers</li>
+<li>Post processors</li>
+</ul>
+<p>The difficulty is that these tools can also introduce unnecessary complexity unless used wisely. Avoid needless nesting and &quot;functional&quot; features offered by the tools if it can be handled another way.</p>
+<h4 id="frameworks">Frameworks</h4>
+<p>Pre-built UI components, CSS frameworks, and code bases can be beneficial, however just like tools </p>
+<p>choose wisely ... </p>
+<ul>
+<li>UI Component Libraries (e.g. Foundation, Bootstrap)</li>
+<li>Grid Systems</li>
+<li>Typography adjustments</li>
+</ul>
+<blockquote>
+<p>External libraries should always be assessed for the pros/cons and potential benefits, vs. the barrier to entry and level of effort involved in their usage. </p>
+</blockquote>
+<p>For instance, a grid system may not match the grids in the design, and it may not be adjustable enough for a given design.</p>
+<h4 id="establishing-conventions">Establishing Conventions</h4>
+<p>Like other aspects of the code on a site, consistency is key.</p>
+<ul>
+<li>Code patterns</li>
+<li><p>Naming conventions</p>
+</li>
+<li><p>Grid Systems or frameworks — if you use a grid-system or framework, avoid modifying the original source and please simply extend it</p>
+</li>
 <li>On a large site never develop using a single CSS style sheet, though a single file delivered via concatenation is best, to this end we recommend the use of CSS preprocessors to break stylesheets into smaller, better organized files</li>
 </ul>
 <p>One technique to consider is taht maintaining reference style implementations well into integration with server-side / back-end systems helps reduce regressions that can happen across the board as the code for the site evolves. Continue to test these reference implementations as they will be the &quot;source of record&quot; for the styles created on the site.</p>
+<p>These refernece implementations can serve as a living style guide and broken components easily spotted over time.</p>
 <h3 id="general-css-standards">General CSS Standards</h3>
-<p>Try to segment code in logical ways:</p>
-<ul>
-<li>Separate structure from design</li>
-<li>Separate containers from content</li>
-<li>Create baseline components which may be extended, but rarely modified directly</li>
-</ul>
-<h4 id="inclusion">Inclusion</h4>
+<h3 id="inclusion">Inclusion</h3>
 <p>Use the <code>&lt;link&gt;</code> tag to include all your stylesheets in the <code>&lt;head&gt;</code> of the document. For optimal page performance, concatenate your CSS into as few files as possible and do not use the <code>@import</code> command to include other stylesheets, as this will fire an additional HTTP request and block page rendering until its completion.</p>
 <pre><code class="language-markup">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;main.css&quot; /&gt;</code></pre>
-<h4 id="inline-styling">Inline Styling</h4>
-<p>Do not put styling information into your HTML markup directly, either with the <code>style</code> attribute that accepts CSS or with deprecated attributes such as <code>align</code>, <code>border</code>, or <code>width</code>. These are difficult to maintain and make it harder to track down what is causing an element to appear as it does.</p>
-<h5 id="caveat">Caveat</h5>
-<p>For performance reasons in some cases, it is good practice to inline critical styles in a <code>style</code> block in the document&#39;s <code>head</code>. In this case critical inline styles are identified either manually or through the use of a tool. Non critical styles can then be asynchronously loaded, increasing the perceived page load speed. </p>
 <h4 id="formatting">Formatting</h4>
+<p>Basic rules:</p>
+<ul>
+<li>Use a new line for every selector and every declaration.</li>
+<li>Use a single blank line between rules.</li>
+<li>Add a single space between the property and value, for example <code>prop: value;</code> and not <code>prop:value;</code>.</li>
+<li>Hyphenate class selector names; do not use underscores or camelCase for class names</li>
+<li>If and when an <code>ID</code> (i.e. #elementById) then camelCase is permitted</li>
+<li>Use shorthand when appropriate, like <code>padding: 15px 0;</code> and not <code>padding: 15px 0px 15px 0px;</code></li>
+</ul>
 <p>Put each selector on its own line and each property on its own line for easy readability and so version control systems can clearly show which parts have changed. The attributes within a selector should be alphabetized for easy scanning and so that compression algorithms like gzip have a greater chance of finding repeatable patterns.</p>
 <pre><code class="language-css"><span class="id">#content</span> <span class="rules">{
     <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> -<span class="number">2</span>%</span></span>;
 <span class="rule">}</span></span>
+
 <span class="class">.most-popular</span>,
 <span class="class">.my-favorites</span>,
 <span class="class">.twitter-feed</span> <span class="rules">{
@@ -283,6 +339,16 @@
     <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">33.3333333</span>%</span></span>;
 <span class="rule">}</span></span></code></pre>
 <p>Do not indent child styles underneath their parent styles for a few reasons. When scanning through a CSS file to locate media queries, we generally look for indented styles, so indenting selectors that are not within a media query causes confusion. It also hinders maintainability. HTML and CSS structure can change frequently over the course of a project, quickly rendering obsolete the parent-child relationship the indentation used to represent. And the more levels of indentation there are, the harder it is to update.</p>
+<h5 id="vendor-prefixes">Vendor Prefixes</h5>
+<p>When using vendor prefixed features, put the standardized rule at the end. </p>
+<p>For example: </p>
+<pre><code class="language-css"><span class="tag">-webkit-transition</span>: <span class="tag">all</span> 100<span class="tag">ms</span>;
+<span class="tag">transition</span>: <span class="tag">all</span> 100<span class="tag">ms</span>;</code></pre>
+<p>(Note: Browsers will optimize the standard declaration, but continue to keep the old one around for compatibility. Putting the standard declaration after the vendor one means it will get used and you get the most optimized version.)</p>
+<h4 id="inline-styling">Inline Styling</h4>
+<p>Do not put styling information into your HTML markup directly, either with the <code>style</code> attribute that accepts CSS or with deprecated attributes such as <code>align</code>, <code>border</code>, or <code>width</code>. These are difficult to maintain and make it harder to track down what is causing an element to appear as it does.</p>
+<h5 id="caveat">Caveat</h5>
+<p>For performance reasons in some cases, it is good practice to inline critical styles in a <code>style</code> block in the document&#39;s <code>head</code>. In this case critical inline styles are identified either manually or through the use of a tool. Non critical styles can then be asynchronously loaded, increasing the perceived page load speed. </p>
 <h4 id="box-model">Box Model</h4>
 <p>To simplify CSS authoring, we set the <code>box-sizing</code> attribute to <code>border-box</code> for all page elements. This enables us to use round numbers for width like 50% and then apply a padding or border to that same element without needing to (1) adjust the width accordingly using calc (since borders use pixels rather than percents) or (2) create an element inside it to take the padding and border. This is the only case where we use the inefficient universal selector (<code>*</code>).</p>
 <pre><code class="language-css">* <span class="rules">{
