@@ -15,7 +15,7 @@ Always consider maintenance, next steps growth, and where and how new code for n
  - Patterns
  - Division of site-wide styles, section-specific styles
  - Grid Systems or frameworks — if you use a grid-system or framework, avoid modifying the original source and please simply extend it
- - On a large site never develop using a single CSS style sheet, though a single file delivered via contatenation is best
+ - On a large site never develop using a single CSS style sheet, though a single file delivered via concatenation is best, to this end we recommend the use of CSS preprocessors to break stylesheets into smaller, better organized files
 
 ### General CSS Standards
 
@@ -36,6 +36,10 @@ Use the `<link>` tag to include all your stylesheets in the `<head>` of the docu
 #### Inline Styling
 
 Do not put styling information into your HTML markup directly, either with the `style` attribute that accepts CSS or with deprecated attributes such as `align`, `border`, or `width`. These are difficult to maintain and make it harder to track down what is causing an element to appear as it does.
+
+##### Caveat
+
+For performance reasons in some cases, it is good practice to inline critical styles in a `style` block in the document's `head`. In this case critical inline styles are identified either manually or through the use of a tool. Non critical styles can then be asynchronously loaded, increasing the perceived page load speed. 
 
 #### Formatting
 
@@ -81,16 +85,20 @@ button#back-button { ... }
 .popular > ul > li > a { ... }
 
 /* GOOD */
-#back-button { ... }
+.back-button { ... }
 .popular-link { ... }
 .popular-link { ... }
 ```
 
 Avoid using the `!important` keyword. Treat it like the nuclear option, only to be used in the most extreme of cases. There is usually another way to achieve the same goal without causing headaches for developers in the future who are either trying to debug a styling issue or trying to use normal specificity to override a style for a particular element only to find that they can't.
 
+Use the lowest level of specificity necessary to get the desired results. This means the use of the ID selector should be minimized. Often creating a new class is preferable to using inheritance or additional specificity to target an element or elements. 
+
+The one caveat here is base styles. Defining a solid styleguide to be applied to tag names can significantly reduce the size of the CSS if that styleguide is adhered to by both the design and development teams. It is recommended that a styleguide is agreed upon at the beginning of a project, defined in HTML and then iterated on by both the design and development teams.
+
 ### CSS Deliverables
 
-Please be aware of potential conflicts between the origional development environment for CSS and an ulitimate deployment to production systems, if continuous integration will allow the continued use of CSS preprocessors, or if there should a cross-platform development strategy.
+Please be aware of potential conflicts between the original development environment for CSS and an ultimate deployment to production systems, if continuous integration will allow the continued use of CSS preprocessors, or if there should a cross-platform development strategy.
 
 ### Next Steps &amp; CSS Resources
 
@@ -100,5 +108,6 @@ Please be aware of potential conflicts between the origional development environ
  - Usage of CSS3
  - Vendor prefixes
  - Color Management
+ - CSS Performance Analysis
 
 For current links and references, please see our Wiki on Github.
