@@ -1,14 +1,22 @@
 ## CSS
 
-CSS is where the visual presentation logic of a website belongs. Well-written CSS makes good use of its cascading nature - general styles are applied first, and those styles are overridden for more specific instances as necessary.
+CSS is where the visual presentation rules of a website belongs. Well-written CSS makes good use of its cascading nature - general styles are applied first, and those styles are overridden for more specific instances as necessary.
 
-### Goals for CSS
+### Goals for Effective CSS
 
-CSS is an unusual language which can easily lead to code bloat, inconsistent approaches, and regressions of a site-wide nature.
+CSS is an unusual language which can easily lead to code bloat, inconsistencies in design or code technique. It is easy to end up with CSS code that is difficult to manage, or so fragile it causes site-wide regressions.
 
-Maintaining reference style implementations well into integration with server-side / back-end systems helps reduce regressions that can happen across the board as the code for the site evolves. Continue to test these reference implementations as they will be the "source of record" for the styles created on the site
+Always consider:
 
-Always consider maintenance, next steps growth, and where and how new code for new enhancements might be added later.
+ - What your core, global, baseline might be, 
+ - What styles are branding vs. design extension
+ - Ease of maintenance
+ - Impact of styles for a given fix versus other elements on the site
+ - Next steps, how the styles for the site will evolve and grow
+ - Content versus style
+ - How global styles will be managed versus specific use-cases
+
+Having a plan going into large site development of CSS is critical.
 
 ### Getting Started with CSS
 
@@ -16,6 +24,8 @@ Always consider maintenance, next steps growth, and where and how new code for n
  - Division of site-wide styles, section-specific styles
  - Grid Systems or frameworks — if you use a grid-system or framework, avoid modifying the original source and please simply extend it
  - On a large site never develop using a single CSS style sheet, though a single file delivered via concatenation is best, to this end we recommend the use of CSS preprocessors to break stylesheets into smaller, better organized files
+
+One technique to consider is taht maintaining reference style implementations well into integration with server-side / back-end systems helps reduce regressions that can happen across the board as the code for the site evolves. Continue to test these reference implementations as they will be the "source of record" for the styles created on the site.
 
 ### General CSS Standards
 

@@ -237,11 +237,20 @@
 <p>For current links and references, please see our Wiki on Github.</p>
 </section>
 <section><h2 id="css">CSS</h2>
-<p>CSS is where the visual presentation logic of a website belongs. Well-written CSS makes good use of its cascading nature - general styles are applied first, and those styles are overridden for more specific instances as necessary.</p>
-<h3 id="goals-for-css">Goals for CSS</h3>
-<p>CSS is an unusual language which can easily lead to code bloat, inconsistent approaches, and regressions of a site-wide nature.</p>
-<p>Maintaining reference style implementations well into integration with server-side / back-end systems helps reduce regressions that can happen across the board as the code for the site evolves. Continue to test these reference implementations as they will be the &quot;source of record&quot; for the styles created on the site</p>
-<p>Always consider maintenance, next steps growth, and where and how new code for new enhancements might be added later.</p>
+<p>CSS is where the visual presentation rules of a website belongs. Well-written CSS makes good use of its cascading nature - general styles are applied first, and those styles are overridden for more specific instances as necessary.</p>
+<h3 id="goals-for-effective-css">Goals for Effective CSS</h3>
+<p>CSS is an unusual language which can easily lead to code bloat, inconsistencies in design or code technique. It is easy to end up with CSS code that is difficult to manage, or so fragile it causes site-wide regressions.</p>
+<p>Always consider:</p>
+<ul>
+<li>What your core, global, baseline might be, </li>
+<li>What styles are branding vs. design extension</li>
+<li>Ease of maintenance</li>
+<li>Impact of styles for a given fix versus other elements on the site</li>
+<li>Next steps, how the styles for the site will evolve and grow</li>
+<li>Content versus style</li>
+<li>How global styles will be managed versus specific use-cases</li>
+</ul>
+<p>Having a plan going into large site development of CSS is critical.</p>
 <h3 id="getting-started-with-css">Getting Started with CSS</h3>
 <ul>
 <li>Patterns</li>
@@ -249,6 +258,7 @@
 <li>Grid Systems or frameworks — if you use a grid-system or framework, avoid modifying the original source and please simply extend it</li>
 <li>On a large site never develop using a single CSS style sheet, though a single file delivered via concatenation is best, to this end we recommend the use of CSS preprocessors to break stylesheets into smaller, better organized files</li>
 </ul>
+<p>One technique to consider is taht maintaining reference style implementations well into integration with server-side / back-end systems helps reduce regressions that can happen across the board as the code for the site evolves. Continue to test these reference implementations as they will be the &quot;source of record&quot; for the styles created on the site.</p>
 <h3 id="general-css-standards">General CSS Standards</h3>
 <p>Try to segment code in logical ways:</p>
 <ul>
