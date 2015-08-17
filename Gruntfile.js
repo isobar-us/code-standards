@@ -27,22 +27,22 @@ module.exports = function(grunt) {
           sanitize: false
         },
         flatten : true,
-        layout: './_layouts/main.hbs'
+        layout: './src/_layouts/main.hbs'
       },
       en: {
         options : {
-          data : 'content/en/build/data.json'
+          data : 'src/content/en/build/data.json'
         },
         files : {
-          'en.html' : ['content/en/build/en.hbs']
+          'en.html' : ['src/content/en/build/en.hbs']
         }
       },
       /*es: {
         options : {
-          data : 'content/es/build/data.json'
+          data : 'src/content/es/build/data.json'
         },
         files : {
-          'es.html' : ['content/es/build/es.hbs']
+          'es.html' : ['src/content/es/build/es.hbs']
         }
       },*/
     },
@@ -130,15 +130,15 @@ module.exports = function(grunt) {
     // watch the file system for new changes
     watch: {
       css: {
-        files: ['scss/**/*.scss'],
+        files: ['src/scss/**/*.scss'],
         tasks: ['sass']
       },
       html: {
-        files: ['_layouts/**.*', 'content/en/**/*.*'],
+        files: ['src/_layouts/**.*', 'src/content/en/**/*.*'],
         tasks: ['assemble','copy']
       },
       img: { 
-        files: ['img/**/*.{png,jpg,gif}'],
+        files: ['src/img/**/*.{png,jpg,gif}'],
         tasks: ['copy:images'] // may be replaced by imagemin
       },
       js: {
