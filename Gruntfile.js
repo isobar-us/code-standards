@@ -31,18 +31,18 @@ module.exports = function(grunt) {
       },
       en: {
         options : {
-          data : 'content/en/build/data.json'
+          data : 'src/content/en/build/data.json'
         },
         files : {
-          'en.html' : ['content/en/build/en.hbs']
+          'en.html' : ['src/content/en/build/en.hbs']
         }
       },
       /*es: {
         options : {
-          data : 'content/es/build/data.json'
+          data : 'src/content/es/build/data.json'
         },
         files : {
-          'es.html' : ['content/es/build/es.hbs']
+          'es.html' : ['src/content/es/build/es.hbs']
         }
       },*/
     },
