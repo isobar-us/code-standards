@@ -41,8 +41,6 @@ The build system uses [Grunt.js](http://gruntjs.com) via [Node.js](http://nodejs
 
 First, install [Node.js](http://nodejs.org) from their Web site.
 
-Then, prior to running the build commands, make sure you have ruby 1.9.3 installed, ideally using [RVM](https://rvm.io/rvm/install) (Mac OS X and Linux) or [RubyInstaller](http://rubyinstaller.org/downloads/) (Windows).
-
 ### Build Details
 
 We are using [Grunt](https://github.com/gruntjs/) to run the [Assemble](https://github.com/assemble/assemble/) task to parse, populate variables, and combine files for the HTML, Markdown, and [Handlebars](http://handlebarsjs.com/) templates.
