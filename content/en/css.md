@@ -89,16 +89,14 @@ Like other aspects of the code on a site, consistency is key. Areas of critical 
  - File and folder structure
  - Example or sample code
 
-On a large site never develop using a single CSS style sheet, though a single file delivered via concatenation is best, to this end we often recommend the use of CSS preprocessors to break stylesheets into smaller, better organized files.
+On a large site never develop using a single CSS style sheet, though a single file served for a page is best. To this end we often recommend the use of CSS preprocessors to break stylesheets into smaller, better organized files, or use a build process to combine files for serving via HTTP.
 
-One technique to consider is maintaining static HTML style reference implementations well into integration with server-side / back-end systems. These would be a series of templates or widgets that use the live styles being built. This helps reduce regressions that can happen across the board as the code for the site evolves. Continue to test these reference implementations as they will be the "source of record" for the styles created on the site. They also allow you to more easily distinguish the front-end bugs from the bugs potentially intriduced by integration with a complex back-end.
+One technique to consider is maintaining static HTML style reference implementations well into integration with server-side / back-end systems. These could be a series of templates or widgets that use the live styles being built. This helps reduce regressions that can happen across the board as the code for the site evolves. Continue to test these reference implementations as they will be the "source of record" for the styles created on the site. They also allow you to more easily distinguish the front-end bugs from the bugs potentially intriduced by integration with a complex back-end.
 
 These refernece implementations can serve as a *living style guide* and broken components are easily spotted in testing over time.
 
 
 ### General CSS Standards
-
-
 
 #### Inclusion
 
@@ -119,18 +117,17 @@ Basic rules:
  - Hyphenate class selector names; do not use underscores or camelCase for class names
  - If and when an `ID` (i.e. #elementById) then camelCase is permitted
  - Use shorthand when appropriate, like `padding: 15px 0;` and not `padding: 15px 0px 15px 0px;`
- 
-Note that values of `0` do not need units.
+ - Values of `0` do not need units.
 
-Put each selector on its own line and each property on its own line for easy readability and so version control systems can clearly show which parts have changed. The attributes within a selector should be alphabetized for easy scanning and so that compression algorithms like gzip have a greater chance of finding repeatable patterns.
+Put each selector on its own line and each property on its own line for easy readability and so version control systems can clearly show which parts have changed in a diff. The attributes within a selector should be alphabetized for easy scanning and so that compression algorithms like gzip have a greater chance of finding repeatable patterns.
 
 ```css
-#content {
+.content {
     margin-left: -2%;
 }
 
-.most-popular,
-.my-favorites,
+.twitter-popular,
+.twitter-favorites,
 .twitter-feed {
     float: left;
     padding-left: 2%;
@@ -245,7 +242,6 @@ Group styles under a simple namespace using a **prefix-suffix-modifier** type pa
 
 /* component elements */
 .component-header { ... }
-
 .component-content { ... }
 
 /* component descendant */
@@ -253,9 +249,7 @@ Group styles under a simple namespace using a **prefix-suffix-modifier** type pa
 
 /* component descendant element */
 .component-content-group-header { ... }
-
 .component-content-group-imgs { ... }
-
 ```
 
 This type of pattern is easy to read, extend, and follow in the absence of something more sophisticated.
@@ -279,7 +273,7 @@ Then, when used in the HTML, the class stands out:
 <div class="component-content mod-modifier-a">...</div>
 ```
 
-Additionally, the modifier classes can stand on their own in the CSS and may also be altered via more complex rules:
+This is a strong technique because the modifier classes can stand on their own in the CSS. Further, they may also be altered via more complex rules:
 
 ```css
 .component-header.mod-modifier-a { ... }
@@ -316,14 +310,23 @@ The usage of a `js-` prefix is present in the markup but should never really app
 <button class="component-button js-execute">...</button>
 ```
 
-The `js-changer` rule should not appear in the CSS file, but only in JS files they are tied to behavior. These are events, verbs, or action related, and are access points for JavaScript not a toggle or state changer. It's best to think of these classes as closer to and ID attribute in the html.
+The `js-execute` rule should not appear in the CSS file, but only in JS files they are tied to behavior. These are events, verbs, or action related, and are access points for JavaScript not a toggle or state changer. It's best to think of these classes as closer to and ID attribute in the html.
 
 ##### Utilities
 
-A utility is a type of component modifier that is specifically designed to be used on more than one component type. If the utility is 
+A utility is a type of component modifier that is specifically designed to be used on more than one component type. If it was restricted to a single component, it would simply be a modifier.
 
 Utilities will use the prefix of `u-` and should serve only the modifier purpose intended without side effects when applied to any component, or component decendant.
 
+```css
+.u-warning {
+
+}
+.u-scroll-infobox {
+    overflow-x: scroll;
+    width: auto;
+}
+```
 
 #### The Mobile Web, Media Queries, Responsive Design
 
