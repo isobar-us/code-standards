@@ -6,15 +6,9 @@ All content licensed under Creative Commons Attribution 3.0 Unported License
 
 ## Summary:
 
-> **Updated 24 June, 2014**
-> 
-> A new branch has been created where we will swap the new markdown content and the new HTML/CSS layout for the next version. We will also clean up and remove the older unused files there as it will be virtually rewritten.  
-> 
-> Keep a watch on the `master.next` branch.
-
 This document contains guidelines for web applications built by the Front-end development practice of Isobar (previously Roundarch Isobar & Molecular). It is to be readily available to anyone who wishes to check or contribute to the iterative progress of our discipline's best practices.
 
-This document's primary motivation is two- fold: 
+This document's primary motivation is two-fold: 
 
  1. code consistency and 
  2. best practices. 
@@ -87,20 +81,25 @@ Finally, the `standards.defaultLanguage` setting determines which `*.html` file 
 
 #### Content
 
+The content is written in Markdown files and the build converts it to HTML. Example:
+
 ```
-./sections/[lang]/*.html
-./sections/[lang]/*.md
+./src/content/[lang]/css.md
+./src/content/[lang]/general.md
+./src/content/[lang]/html.md
 ```
 
-Each of the `.html` files (and soon `.md` - Markdown) contained within these directories is a portion of the final output file. We have separated the different sections that make up the page into individual files so that it is easier to edit.
+...and so on.
+
+Each of the `.md` files contained within these directories is a portion of the final output file. We have separated the different sections that make up the page into individual files so that it is easier to edit.
 
 #### Including A Content File
 
 The content files are included as partials and the data and order is defined in the following folder and files:
 
 ```
-./sections/[lang]/build/[lang].hbs
-./sections/[lang]/build/data.json
+./src/content/[lang]/build/[lang].hbs
+./src/content/[lang]/build/data.json
 ```
 
 The `data.json` file has special significance to Assemble, *do not rename this file*.
@@ -109,7 +108,7 @@ The `data.json` file has special significance to Assemble, *do not rename this f
 
 The main layout is a Handlebars file that the content is injected into and language specific attributes are updated.
 
-The file is `./_layouts/main.hbs`.
+The file is `./src/_layouts/main.hbs`.
 
 ### Structure of CSS
 
