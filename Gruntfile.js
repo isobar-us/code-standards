@@ -61,7 +61,8 @@ module.exports = function(grunt) {
           arr.push(standards.defaultFile + standards.defaultExt);
 
         return arr;
-      }())
+      }()),
+      assets: ['_assets/**/*']
     },
 
     // concatenate the js files into one
@@ -71,7 +72,7 @@ module.exports = function(grunt) {
           separator: ';',
         },
         files: {
-          '_assets/js/main.js': ['src/js/**/*.js','!src/js/vendor/jquery*.js']
+          '_assets/js/main.js': ['src/js/**/*.js','!src/js/vendor/jquery-*min.js']
         }
       }
     },
