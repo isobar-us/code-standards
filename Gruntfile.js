@@ -93,7 +93,7 @@ module.exports = function(grunt) {
       assets: {
         expand: true,
         cwd: 'src/js/vendor/',
-        src: ['jquery*.js'],
+        src: ['jquery*min.js'],
         dest: '_assets/js/vendor/'
       },
       // mat be replaced by imagemin
