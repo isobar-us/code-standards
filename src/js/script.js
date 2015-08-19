@@ -10,8 +10,6 @@ var ISOBAR = {
         $body: {},
 
         init: function() {
-            console.log('init()')
-            
             this.$body = ISOBAR.util.$body;
 
             this.toc();
@@ -64,14 +62,12 @@ var ISOBAR = {
         // just hooking up back to top
         anchors: function() {
             this.$body.on('click', '.back-anchor', function() {
-                console.log('click 002');
                 window.scrollTo(0, 0);
                 window.location.hash = '';
                 return false;
             });
         },
         toggleMenu: function(e){
-            console.log('click 001')
             var iso = ISOBAR.util;
             iso.$body.toggleClass('menu-open');
 
@@ -84,7 +80,7 @@ var ISOBAR = {
             // console.log('here we will use the scroll');
             var target = e.target.getAttribute('href');
             if (target[0] === '#') {
-                $.scrollTo(target, { offset: -100, duration: 500 });
+                $.scrollTo(target, { offset: -85, duration: 500 });
             };
         }
     },
