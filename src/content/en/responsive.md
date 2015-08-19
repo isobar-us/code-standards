@@ -1,5 +1,10 @@
 ## Responsive Web Design
-With the ever expanding mobile landscape and the evolution of the Internet of Things (IoT), the idea of a "standard" screen size (or print-esque notion of a fixed sized canvas) has fallen to the wayside in favor of the rise of a devise agnostic experience. To achieve this aim a series of front-end practices have been grouped together to allow the visual rendering of a website that adjusts based off of the device/browser's specifications (ei. width, height, pixel density, orientation, etc). These practices and creating visual compositions with them in mind has come to be called Responsive Web Design (RWD) and is often interchangeably referred to as _adaptive web design_.
+
+Responsive Web Design (RWD) is the term used for the practice of creating layouts and experiences that work over a variety of devices and screen sizes.
+
+With the ever expanding mobile landscape and the evolution of the Internet of Things (IoT), the idea of a "standard" screen size (or print-esque notion of a fixed sized canvas) has fallen to the wayside in favor of the rise of a device agnostic experience.
+
+To achieve this aim a series of front-end practices have been grouped together to allow the visual rendering of a website that adjusts based off of the device/browser's specifications (ei. width, height, pixel density, orientation, etc). These practices and creating visual compositions with them in mind has come to be called Responsive Web Design (RWD) and is another technique in the toolbox of *progressive enhancement* and *adaptive web design*.
 
 ### Goal of Responsive Web Design
 The goal of RWD is to seamlessly offer an optimized user experience regardless of the screen the site is being view from, whether it is a stadium jumbotron or the screen of a watch and of course everything between. 
