@@ -1,0 +1,63 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html lang="{{ lang }}" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="{{ lang }}" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="{{ lang }}" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="{{ lang }}" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{{ title }} | Isobar</title>
+    <meta name="description" content="{{ meta.description }}">
+    <meta name="keywords" content="{{ meta.keywords }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <link rel="apple-touch-icon-precomposed" href="ios-icon.png"/>
+    <link rel="stylesheet" href="_assets/css/style.css">
+
+<!--
+                _^_
+               / _)
+        .-^^^-/ /          we like dinosaurs as much as you do.
+    __/       /
+    <__.|_|-|_|
+
+    -->
+</head>
+    <body>
+        <a class="fork" href="https://github.com/isobar-idev/code-standards/" target="_blank"></a>
+        <div class="container">
+        
+            <header role="banner">
+                <h1><a class="header-logo" href="http://www.isobar.com/us/home">Isobar</a></h1>
+                <ul class="social">
+                    <li><a href="http://www.isobar.com/us/home" id="linkback">{{return_link}}</a></li>
+                </ul>
+                <div class="menu-button">
+                </div>
+            </header>
+
+            <main role="document">
+                {{>body}}
+            </main>
+            
+            <nav class="nav-toc" role="navigation">
+                <ul id="toc" style="display:none"></ul>
+                <noscript><p><a href="http://enable-javascript.com">Please enable JavaScript</a>.</p></noscript>
+            </nav>
+            
+        </div>
+
+        <footer role="contentinfo">
+            <div class="footer-inner">
+                <p class="copyright">{{now '%Y'}} Isobar, All rights reserved.</p>
+                <p class="license">All content licensed under Creative Commons Attribution 3.0 Unported License</p>
+            </div>
+        </footer>
+        
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script>window.jQuery||document.write("<script src='_assets/js/vendor/jquery-1.11.3.min.js'>\x3C/script>");</script>
+        <script src='_assets/js/main.min.js'></script>
+
+        <script>var _gaq=[["_setAccount","UA-1745698-2"],["_trackPageview"]];(function(e,a){var c=e.createElement(a),b=e.getElementsByTagName(a)[0];c.async=1;c.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";b.parentNode.insertBefore(c,b)}(document,"script"));</script>
+    </body>
+</html>

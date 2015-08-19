@@ -27,22 +27,22 @@ module.exports = function(grunt) {
           sanitize: false
         },
         flatten : true,
-        layout: './_layouts/main.hbs'
+        layout: './src/_layouts/main.hbs'
       },
       en: {
         options : {
-          data : 'content/en/build/data.json'
+          data : 'src/content/en/build/data.json'
         },
         files : {
-          'en.html' : ['content/en/build/en.hbs']
+          'en.html' : ['src/content/en/build/en.hbs']
         }
       },
       /*es: {
         options : {
-          data : 'content/es/build/data.json'
+          data : 'src/content/es/build/data.json'
         },
         files : {
-          'es.html' : ['content/es/build/es.hbs']
+          'es.html' : ['src/content/es/build/es.hbs']
         }
       },*/
     },
@@ -61,7 +61,8 @@ module.exports = function(grunt) {
           arr.push(standards.defaultFile + standards.defaultExt);
 
         return arr;
-      }())
+      }()),
+      assets: ['_assets/**/*']
     },
 
     // concatenate the js files into one
@@ -71,7 +72,7 @@ module.exports = function(grunt) {
           separator: ';',
         },
         files: {
-          'js/generated/main.js': ['js/main-vendor/*.js', 'js/main-custom/*.js']
+          '_assets/js/main.js': ['src/js/**/*.js','!src/js/vendor/jquery-*min.js']
         }
       }
     },
@@ -89,6 +90,19 @@ module.exports = function(grunt) {
 
     // copy the specified default language to the specified file
     copy: {
+      assets: {
+        expand: true,
+        cwd: 'src/js/vendor/',
+        src: ['jquery*.js'],
+        dest: '_assets/js/vendor/'
+      },
+      // mat be replaced by imagemin
+      images: {
+          expand: true,
+          cwd: 'src/img',
+          src: ['**/*.{png,jpg,gif,svg,ico}'],
+          dest: '_assets/img/'
+      },
       realeaseLanguage : {
         src : standards.defaultLanguage + standards.defaultExt,
         dest : standards.defaultFile + standards.defaultExt
@@ -105,9 +119,9 @@ module.exports = function(grunt) {
         },
         files: [{
           expand: true,
-          cwd: 'scss/',
-          src: ['*.scss'],
-          dest: 'css/generated/',
+          cwd: 'src/scss/',
+          src: ['*.scss', '!js-only.scss'],
+          dest: '_assets/css/',
           ext: '.css'
         },
         ],
@@ -117,24 +131,28 @@ module.exports = function(grunt) {
     // watch the file system for new changes
     watch: {
       css: {
-        files: ['scss/**/*.scss'],
+        files: ['src/scss/**/*.scss'],
         tasks: ['sass']
       },
       html: {
-        files: ['_layouts/**.*', 'content/en/**/*.*', 'sections/es/**/*.*'],
+        files: ['src/_layouts/**.*', 'src/content/en/**/*.*'],
         tasks: ['assemble','copy']
       },
+      img: { 
+        files: ['src/img/**/*.{png,jpg,gif}'],
+        tasks: ['copy:images'] // may be replaced by imagemin
+      },
       js: {
-        files: ['js/main-custom/*.js', 'js/main-vendor/*.js'],
-        tasks: ['concat', 'uglify']
+        files: ['src/js/**/*.js'],
+        tasks: ['concat', 'uglify', 'copy:assets']
       }
     },
 
     // minify the js
     uglify: {
-      my_target: {
+      target: {
         files: {
-          'js/generated/main.min.js': ['js/generated/main.js']
+          '_assets/js/main.min.js': ['_assets/js/main.js']
         }
       }
     }

@@ -1,0 +1,27 @@
+@import '../helpers/variables';
+@import '../helpers/mixins';
+//todo: cleanup styling
+/* Alignments
+----------------------------------------------------------------------------------------------------*/
+
+.box, .box_notice {
+  background: $gray-background;
+  margin: 0 0 20px;
+  padding: 20px 20px 10px;
+  @include box-shadow();
+}
+
+.box_notice { 
+  background: $isobar-orange; 
+  color: $alt-text;
+}
+
+.box_title {
+  background: $alt-background;
+  background: rgba(10, 10, 10, 0.5);
+  color: $white;
+  font-size: 13px;
+  font-weight: bold;
+  margin: 20px;
+  padding: 5px 10px;
+}
