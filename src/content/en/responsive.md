@@ -1,23 +1,55 @@
 ## Responsive Web Design
 
-Responsive Web Design (RWD) is the term used for the practice of creating layouts and experiences that work over a variety of devices and screen sizes.
+Responsive Web Design (RWD) is the term used for the practice of creating page layouts and experiences that work on a variety of devices and screen sizes.
 
-With the ever expanding mobile landscape and the evolution of the Internet of Things (IoT), the idea of a "standard" screen size (or print-esque notion of a fixed sized canvas) has fallen to the wayside in favor of the rise of a device agnostic experience.
+With the ever expanding mobile landscape and the evolution of the Internet of Things (IoT), the idea of a "standard" screen size has fallen by the wayside in favor of the rise of a device-agnostic approach.
 
-To achieve this aim a series of front-end practices have been grouped together to allow the visual rendering of a website that adjusts based off of the device/browser's specifications (ei. width, height, pixel density, orientation, etc). These practices and creating visual compositions with them in mind has come to be called Responsive Web Design (RWD) and is another technique in the toolbox of *progressive enhancement* and *adaptive web design*.
+To this end a series of techniques have been put together for pages to adjust based off browsers' current specs (e.g. width, height, pixel density, orientation, etc).
 
-### Goal of Responsive Web Design
-The goal of RWD is to seamlessly offer an optimized user experience regardless of the screen the site is being view from, whether it is a stadium jumbotron or the screen of a watch and of course everything between. 
+The techniques are referred to as Responsive Web Design (RWD) and is another technique in the toolbox of *progressive enhancement* and *adaptive web design*.
 
-Despite this lofty ideal, the term responsive web design has more generally been used in reference to an optimized experience for a set of target devices, usually a particular cellphone, tablet and desktop screen (depending upon your audience), with reasonable effort applied to accommodate the experience for devices with screen sizes that fall outside and between the target devices' specifications. 
+### Goals of Responsive Web Design
+
+The stated goals of RWD are to:
+
+ - Offer an optimized user experience (UX)
+ - regardless of the user's screen size or device supported features.
+ 
+This is true whether it is a stadium jumbotron or the screen of a watch — and of course everything between.
+
+Despite this lofty ideal, on Web projects the term "responsive web design" has more generally been used in reference to an optimized experience for a set of target devices, usually:
+
+ - A particular set of cell (smart) phones,
+ - various tablets,
+ - or desktop computer monitors (depending upon the target audience).
+
+Reasonable effort is applied to accommodate the ideal UX for devices with screen sizes that fall outside of and in between.
+
+Overall, critical content and features on a site should be:
+
+ - Adjustable to different types of user interaction (e.g. click, swipe, pinch)
+ - Realistically accessible based on the capabilities of different devices.
+
+If meeting desktop browsers' feature sets and dealing with different platforms was difficult before, RWD introduces an almost infite ecosystem of hardware and software that Web pages need to work on.
 
 ### Getting Started
-As the title implies responsive web design, starts with design. Careful consideration needs to be taken when innovating a design to be sure that the components will be able to translate to a responsive website. Some of the things to consider:
- - The visual experience will **not** be 100% the same across all devices, browsers and screens, nor should it be!
- - What happens to X feature when the screen gets smaller and larger than the static canvas size it is being designed on. 
- - For placement of content and decorative elements, is there some sort of mathematical/algorithmic pattern that can describe where it falls and thus can adjust proportionally as the screen size changes?
- - Will some components be better suited as vector graphics (svg or fonts) instead of raster files to allow for distortion free scaling (assuming that your project can accommodate such technology)
- - Progressive enhancement.
+
+As the name of RWD implies, it all starts with a flexible design that considers components with mutable characteristics based on the available screen canvas. Careful consideration needs to be taken when innovating to derive a design that can respond to various screens.
+
+For a given project, always consider:
+
+ - The breadth of the use cases for each feature on the site.
+ - If all target devices will support all the technologies required.
+ - That the UX will **not** be 100% the same across all devices, browsers and screens — nor should it be!
+ - What happens to the design when the screen gets smaller and larger than the static canvas size it is being designed on.
+ - For placement of content and decorative elements, are there patterns or rules that can describe where it falls and adjust with screen sizes?
+ - Will some components be better suited as vector graphics (svg or fonts) instead of raster files to allow for distortion free scaling?
+ - Will assets need to be produced in different formats for different devices (e.g. Flash video vs. HTML5 video, lower resolution artwork vs. high resolution artwork, smaller file sizes vs. larger sizes)
+ - If the device offers a superior UX for some types of interaction (e.g.  native date-pickers vs. traditional browser controls, or swiping instead of clicking on dots).
+
+#### Progressive Enhancement
+
+Progressive enhancement is the practice of ... 
 
 ### Standards For Developing a Responsive Website
 RWD is achieved through the use of percentage based grids, flexible images and CSS media queries. Like all programming and creative processes there is flexibility in how you go about achieving these  so long as there is consistency within your team. Despite this flexibility there are some core guidelines:
