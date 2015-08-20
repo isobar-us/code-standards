@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Front-end Code Standards &amp;amp; Best Practices | Isobar</title>
+    <title>ISOBAR Front-end Code Standards &amp; Best Practices | Isobar</title>
     <meta name="description" content="Isobar&#x27;s Coding Standards and Frontend development Best Practices">
     <meta name="keywords" content="Isobar code standards, coding standards, frontend development, frontend best practices, html code standards, html5 code standards, css code standards, best code practices, development, frontend development">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,7 +40,7 @@
                 
 <article>
 
-<section><h1 id="front-end-code-standards">Front-End Code Standards</h1>
+<section><h1 id="isobar-front-end-code-standards">Isobar Front-end Code Standards</h1>
 <h2 id="general-introduction">General Introduction</h2>
 <p>This document contains the guidelines and best practices for the front-end web development team at Isobar. </p>
 <p>Each item here represents either:</p>
@@ -542,41 +542,82 @@ button#back-button { ... }
 <section><h2 id="javascript">JavaScript</h2>
 <p>JavaScript is where extra behaviors, features, and functionality not offered natively by Web browsers through CSS and HTML is created. </p>
 <h3 id="goals">Goals</h3>
-<p>JavaScript should be used carefully and deliberately. Any and all JavaScript code that&#39;s added to a Web page should be there <em>if and only if</em> it is necessary for the page to achieve the desired ends.</p>
-<p>JavaScript should be:</p>
+<p>JavaScript should be used sparingly, and when a deliberate choice is made to not perform a task on the server or by another means. </p>
+<p>Any and all JavaScript code that&#39;s added to a Web page should be there <em>if and only if</em> it is needed for the page to achieve the desired ends or if there aren&#39;t any negative impacts with it there.</p>
+<p>Included JavaScript should:</p>
 <ul>
-<li>included deliberately, after careful consideration </li>
-<li>have the performance overhead and file size evaluated</li>
-<li>have a feature set that is clearly understood</li>
-<li>perform only the necessary tasks</li>
-<li>have maintainability carefully assessed</li>
-<li>following patterns established for the project</li>
-<li>tested in various devices and platforms</li>
+<li>Be included after careful consideration.</li>
+<li>Have the performance overhead and file size evaluated.</li>
+<li>Have a feature set that is understood and appropriate.</li>
+<li>Perform only the necessary tasks without needless overhead.</li>
+<li>Have maintainability carefully assessed.</li>
+</ul>
+<p>While being:</p>
+<ul>
+<li>Fast, efficient, and perform well.</li>
+<li>Re-usable if possible.</li>
+<li>Not conflict with other code on a given page or sets of pages.</li>
+<li>Executed only when necessary on a given page or sets of pages.</li>
 </ul>
 <p>Likewise, the absense of the code should be carefully considered:</p>
 <ul>
 <li>What happens if for some reason this code is missing or does not run? </li>
 <li>What happens if the code triggers an error?</li>
 </ul>
-<p>Please understand what the JavaScript does and how it does it if you are including third party code.</p>
 <h3 id="getting-started">Getting Started</h3>
-<p>Client buy-in may be necessary for the usage of JavaScript for various features. It may be a forgone conclusion but usage of libraries or custom code should be discussed with the team and client technical leads for various features.</p>
-<h4 id="javascript-libraries">JavaScript Libraries</h4>
-<p>It is quite common for different libraries and frameworks be used on projects.</p>
-<h4 id="have-control-over-the-page-lifecycle">Have Control Over the Page Lifecycle</h4>
+<p>Client buy-in may be necessary for the usage of JavaScript for some features. It may be a forgone conclusion but usage of libraries or custom code should be discussed with the team and client technical leads to be certain the teams are on the same page.</p>
+<p>A JavaScript developer should be thinking about:</p>
 <ul>
-<li>Single execution and entry point</li>
+<li>If there is code that does this task already?</li>
+<li>Code formatting rules, naming conventions, file locations, etc.</li>
+<li>Testing the code on various browsers and devices.</li>
+<li>If <code>strings</code> of text should be external for content management or translation.</li>
+<li>If code being added might be useful outside of the current problem.</li>
 </ul>
-<h4 id="understanding-the-code-s-place-in-the-project">Understanding the Code&#39;s Place in the Project</h4>
+<p>All too often a developer will solve a problem in a closed context and not consider the whole picture. It is well worth considering if parts or all of the code being added can be useful elsewhere. Centralized code is excellent because it can be updated once and re-used everywhere.</p>
+<p>Examples of possible things to centralize:</p>
 <ul>
-<li>Understand where your code will live vs. any code introduced in a destination environment</li>
+<li>UI controls (e.g. spinners, modals, tabs, etc.)</li>
+<li>Date handling utilities</li>
+<li>Query string parsing utilities</li>
+<li>Ajax, validation, or other libraries</li>
+<li>Tests for global conditions (e.g. window size, feature support, etc.)</li>
+<li>Settings and configuration options (e.g. paths to services, debug flags, duration settings, minimum or maximum values, etc.)</li>
+<li>Page, window, or document level events (e.g. Ajax, resize, etc.)</li>
 </ul>
+<p>Bottom line, please understand what the JavaScript does and how it does it if you are including third party code.</p>
+<h4 id="javascript-libraries-frameworks-and-plugins">JavaScript Libraries, Frameworks, and Plugins</h4>
+<p>These days it is common for complex libraries and frameworks to be used on sites, especially when the client-side is become more and more responsible for larger parts of applications and Web sites.</p>
+<ul>
+<li><strong>Libraries</strong> are code you use within your structure and organizational patterns, featuring code that is available to you and you call upon.</li>
+<li><strong>Frameworks</strong> are code structures that serve specific purposes and call your code for specific goals. </li>
+</ul>
+<p>The basic idea is an &quot;inversion of control&quot; in the code. This is debatable, but something like jQuery could be said to be a library, while Angular, React, or Backbone would be a framework.</p>
+<p>Either way, these are <em>third party code</em> that should be carefully considered when it is determined to be included in a project or not.</p>
+<h5 id="selection-of-third-party-code">Selection of Third Party Code</h5>
+<ul>
+<li>Technical Requirements</li>
+<li>Quality and maturity of code</li>
+<li>Future support</li>
+<li>Staff skill sets</li>
+<li>How tightly coupled to the layers of the application the code may be</li>
+<li>Open source community activity</li>
+<li>Be tested against various devices and platform requirements</li>
+</ul>
+<h4 id="code-architecture">Code Architecture</h4>
 <h3 id="javascript-standards">JavaScript Standards</h3>
 <h4 id="inclusion">Inclusion</h4>
 <p>Use the <code>&lt;script&gt;</code> tag to include your JavaScript files at the bottom of your HTML document just before the closing <code>&lt;/body&gt;</code> tag. For optimal page performance, concatenate your JavaScript into as few files as possible.</p>
-<pre><code class="language-markup">&lt;script type=&quot;text/javascript&quot; src=&quot;main.js&quot;&gt;&lt;/script&gt;</code></pre>
+<pre><code class="language-markup">&lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt;</code></pre>
 <h4 id="formatting">Formatting</h4>
-<p>The use of whitespace should follow long-standing English writing conventions. Specifically, each comma and colon (and semi-colons that don&#39;t end a line) should be followed by a single space. Binary and ternary operators should have a single space on each side. There should be no space characters between parentheses and their contents. Opening braces should appear on the same line as their preceding argument.</p>
+<p>The use of whitespace should follow long-standing English writing conventions. </p>
+<p>Specifically:</p>
+<ul>
+<li>Each comma and colon (and semi-colons that don&#39;t end a line) should be followed by a single space.</li>
+<li>Binary and ternary operators should have a single space on each side.</li>
+<li>There should be no space characters between parentheses and their contents.</li>
+<li>Opening braces should appear on the same line as their preceding argument.</li>
+</ul>
 <pre><code class="language-javascript"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = arr.length; i &lt; len; i++) {
     <span class="comment">// do something</span>
 }</code></pre>
@@ -586,14 +627,37 @@ button#back-button { ... }
 }</code></pre>
 <h4 id="variable-declaration">Variable Declaration</h4>
 <p>To avoid confusion between global and local variables, we declare each variable on its own line with the <code>var</code> keyword. We do not use a single <code>var</code> keyword and then chain several variable declarations onto it separated by a comma.</p>
-<pre><code class="language-javascript"><span class="keyword">var</span> currentVal = $(<span class="keyword">this</span>).val();
-<span class="keyword">var</span> min = parseInt($(<span class="keyword">this</span>).attr(<span class="string">'min'</span>), <span class="number">10</span>);
-<span class="keyword">var</span> max = parseInt($(<span class="keyword">this</span>).attr(<span class="string">'max'</span>), <span class="number">10</span>);</code></pre>
+<pre><code class="language-javascript"><span class="keyword">var</span> width;
+<span class="keyword">var</span> height;
+<span class="keyword">var</span> newObject = {};
+<span class="keyword">var</span> newArray = [];
+<span class="keyword">var</span> $body = $(<span class="string">'body'</span>);
+<span class="keyword">var</span> currentVal = $(<span class="keyword">this</span>).val();
+<span class="keyword">var</span> min = parseInt($(<span class="keyword">this</span>).attr(<span class="string">'min'</span>), <span class="number">10</span>);</code></pre>
+<p>This has been <a href="http://benalman.com/news/2012/05/multiple-var-statements-javascript/">debated at length</a> and is controversial, however we believe this is a better practice due to serveral technical reasons:</p>
+<ul>
+<li>Easier debugging with dubuggers</li>
+<li>Easier merges with version control and diff utilities</li>
+<li>Most technical issues are resolved by &#39;use strict&#39;</li>
+<li></li>
+<li>... </li>
+</ul>
 <h4 id="feature-detection">Feature Detection</h4>
 <p>Always test for the existence of a browser API, function, or object property before you use it, and make sure the user experience is still functional (to the extent possible) if it&#39;s not found. We rely on JavaScript-based feature detection rather than server-side device detection because it&#39;s more robust, easily maintained, and future-proof.</p>
 <h3 id="deliverables">Deliverables</h3>
+<h4 id="understanding-the-code-s-place-in-the-project">Understanding the Code&#39;s Place in the Project</h4>
 <ul>
-<li>...</li>
+<li>Understand where your code will live vs. any code introduced in a destination environment</li>
+</ul>
+<h4 id="have-control-over-the-page-lifecycle">Have Control Over the Page Lifecycle</h4>
+<ul>
+<li>Single execution and entry point</li>
+</ul>
+<h4 id="clean-code">Clean Code</h4>
+<ul>
+<li>As bug free as possible.</li>
+<li>Have <code>console</code> and debugging statements be removed or a plan in place for suppression during the build or deployment.</li>
+<li>Remove code that is no longer used.</li>
 </ul>
 <h3 id="next-steps-amp-javascript-resources">Next Steps &amp; JavaScript Resources</h3>
 <ul>
@@ -605,67 +669,191 @@ button#back-button { ... }
 <p>For current links and references, please see our Wiki on Github.</p>
 </section>
 <section><h2 id="responsive-web-design">Responsive Web Design</h2>
-<p>With the ever expanding mobile landscape and the evolution of the Internet of Things (IoT), the idea of a &quot;standard&quot; screen size (or print-esque notion of a fixed sized canvas) has fallen to the wayside in favor of the rise of a devise agnostic experience. To achieve this aim a series of front-end practices have been grouped together to allow the visual rendering of a website that adjusts based off of the device/browser&#39;s specifications (ei. width, height, pixel density, orientation, etc). These practices and creating visual compositions with them in mind has come to be called Responsive Web Design (RWD) and is often interchangeably referred to as <em>adaptive web design</em>.</p>
-<h3 id="goal-of-responsive-web-design">Goal of Responsive Web Design</h3>
-<p>The goal of RWD is to seamlessly offer an optimized user experience regardless of the screen the site is being view from, whether it is a stadium jumbotron or the screen of a watch and of course everything between. </p>
-<p>Despite this lofty ideal, the term responsive web design has more generally been used in reference to an optimized experience for a set of target devices, usually a particular cellphone, tablet and desktop screen (depending upon your audience), with reasonable effort applied to accommodate the experience for devices with screen sizes that fall outside and between the target devices&#39; specifications. </p>
-<h3 id="getting-started">Getting Started</h3>
-<p>As the title implies responsive web design, starts with design. Careful consideration needs to be taken when innovating a design to be sure that the components will be able to translate to a responsive website. Some of the things to consider:</p>
+<p>Responsive Web Design (RWD) is the term used for the practice of creating page layouts and user experiences that work on a variety of devices and screen sizes.</p>
+<p>With the ever expanding mobile landscape and the evolution of the Internet of Things (IoT), the idea of a &quot;standard&quot; screen size has fallen by the wayside in favor of the rise of a device-agnostic approach. It is less and less common to launch two versions of a site, one for desktop and one for mobile.</p>
+<p>To this end a series of techniques have been put together for pages to adjust based off browsers&#39; current specs (e.g. width, height, pixel density, orientation, etc).</p>
+<p>The techniques are referred to as Responsive Web Design (RWD) and it is another technique in the toolbox of <em>progressive enhancement</em> and <em>adaptive web design</em>.</p>
+<h3 id="goals-of-responsive-web-design">Goals of Responsive Web Design</h3>
+<p>The goals of RWD are:</p>
 <ul>
-<li>The visual experience will <strong>not</strong> be 100% the same across all devices, browsers and screens, nor should it be!</li>
-<li>What happens to X feature when the screen gets smaller and larger than the static canvas size it is being designed on. </li>
-<li>For placement of content and decorative elements, is there some sort of mathematical/algorithmic pattern that can describe where it falls and thus can adjust proportionally as the screen size changes?</li>
-<li>Will some components be better suited as vector graphics (svg or fonts) instead of raster files to allow for distortion free scaling (assuming that your project can accommodate such technology)</li>
-<li>Progressive enhancement.</li>
+<li>Offer an optimized user experience (UX),</li>
+<li>regardless of the user&#39;s screen size or features supported on their device.</li>
 </ul>
-<h3 id="standards-for-developing-a-responsive-website">Standards For Developing a Responsive Website</h3>
-<p>RWD is achieved through the use of percentage based grids, flexible images and CSS media queries. Like all programming and creative processes there is flexibility in how you go about achieving these  so long as there is consistency within your team. Despite this flexibility there are some core guidelines:</p>
+<p>This is true whether it is a stadium jumbotron or the screen of a watch — and of course everything between.</p>
+<p>Despite this lofty ideal, on Web projects the term &quot;responsive web design&quot; has generally been used in reference to an optimized experience for a set of target devices, usually:</p>
 <ul>
-<li>Always design and develop mobile first (thus use <code>min-width</code>, <strong>not</strong> <code>max-width</code> breakpoint definitions, more to follow)</li>
-<li>Take advantage of CSS breakpoints, but don&#39;t go breakpoint crazy, set the base breakpoints as a team and try to stick to them as much as possible (there will of course be exceptions). </li>
-<li>Build for speed and the minimum viable product</li>
-<li>Be careful of images, just because you are rendering a 5GB image at 100px by 100px does not change the bandwidth needed to download the file! Similarly if you are hiding an image with <code>display:none</code>, <code>visiblity:hidden</code> or similar, the image is likely still being downloaded. </li>
+<li>A particular set of cell (smart) phones,</li>
+<li>various tablets,</li>
+<li>or desktop computer monitors (depending upon the target audience).</li>
 </ul>
-<h4 id="mobile-first">Mobile First</h4>
-<p>Speaks to a mentality of considering the lowest common denominator first, which is likely to be your mobile devices due to bandwidth limitations and loading times (not just screen size!). </p>
+<p>Typically reasonable effort is applied to accommodate the ideal UX for devices with screen sizes that fall outside of and in between.</p>
+<p>Overall, critical content and features on a site should be:</p>
 <ul>
-<li>Start with global styles that apply across all breakpoints</li>
-<li>Next add the styles that are seen below the smallest break point -- remember that using the <code>min-width</code> approach means that the &quot;first breakpoint&quot; will not be for small screens (like mobile size screens) but rather for lager ones (like mobile landscape or fablet size screens).</li>
-<li>From here add additional styles at successive breakpoints using <code>min-width</code> media queries leveraging the CSS cascade to progressively add additional styles.<ul>
-<li>Very generally speaking smaller screen designs are a bit less complex (fewer images, effects, etc). Thus as the screens get larger the complexity tends to increase conveniently lending to an additive approach to styling, very much in line with a mobile first pattern. </li>
+<li>Adjustable to different types of user interaction (e.g. click, swipe, pinch)</li>
+<li>Realistically accessible based on the capabilities of different devices.</li>
+</ul>
+<p>If meeting desktop browsers&#39; feature sets and dealing with different platforms was difficult before, RWD introduces an almost infite ecosystem of hardware and software that Web pages need to work on. The level of effort does often increase on projects featuring RWD.</p>
+<h3 id="getting-started-with-rwd">Getting Started with RWD</h3>
+<p>As the name of RWD implies, it all starts with a flexible design that features components having mutable characteristics based on the available screen canvas and varied types of user interactions. Careful consideration needs to be taken when innovating to derive a design that can respond to various screens.</p>
+<p>For a given project, always consider:</p>
+<ul>
+<li>The extent of the use cases for each feature on the site.</li>
+<li>The target audience and likelihood they may be using an alternative device to conduct certain activities on the site.</li>
+<li>If all target devices will support all the technologies required.</li>
+<li>That the UX will <strong>not</strong> be 100% the same across all devices, browsers and screens — nor should it be!</li>
+<li>What happens to the design when the screen gets smaller and larger than the static canvas size it is being designed on.</li>
+<li>For placement of content and decorative elements, are there patterns or rules that can describe where it falls and adjust with screen sizes?</li>
+<li>Will some components be better suited as vector graphics (SVG or fonts) instead of raster files to allow for distortion free scaling?</li>
+<li>Will assets need to be produced in different formats for different devices (e.g. Flash video vs. HTML5 video, lower resolution artwork vs. high resolution artwork, smaller file sizes vs. larger sizes).</li>
+<li>If a device offers a superior UX for some types of interaction (e.g.  native date-pickers vs. traditional browser controls, or swiping instead of clicking on dots).</li>
+<li>What happens when a feature is not supported by a device, or if a feature were to fail in a given device?</li>
+<li>What if a device went offline during usage of a feature?</li>
+<li>The best ways to detect support for various features (e.g. Modernizr, etc.).</li>
+</ul>
+<aside class="box">
+  <p>Brad Frost&#39;s <a href="https://bradfrost.github.io/this-is-responsive/patterns.html">Responsive Design Patterns</a> and <a href="https://bradfrost.github.io/this-is-responsive/resources.html">Responsive Design Resources</a> are two great resources that continue to grow due to user contributions.</p>
+</aside>
+
+<h4 id="to-use-a-prebuilt-grid-or-not-">To Use A Prebuilt Grid Or Not?</h4>
+<!-- @todo: content on grid systems -->
+
+<p>Sometimes CSS grid frameworks are a good place to start ... but sometimes not.</p>
+<p>They must match the design in terms of flexibility.</p>
+<p>It&#39;s critical a developer learn the basics of how grid systems</p>
+<p>It may be beneficial to learn the coming Flexbox techniques as well.</p>
+<aside class="box">
+  <p>While using a Framework isn&#39;t always the way to go, there is much to be learned from examining <a href="https://bradfrost.github.io/this-is-responsive/resources.html#frameworks">how they work and how they are put together</a>.</p>
+</aside>
+
+<h4 id="progressive-enhancement">Progressive Enhancement</h4>
+<p>Since mobile phones and tablets are frequently the lower end in terms of capabilities, it is recommended to start with building the mobile experience first, and gradually add features. With this in mind, RWD could be considered a type of <a href="https://www.filamentgroup.com/dwpe/">Progressive Enhancement</a>, whereby users with basic devices can access basic content and features, however care is taken to layer on more sophisticated features for more powerful devices and desktop users.</p>
+<p>With these techniques, users only get what their device or browser can handle, and feature detection can be used to add more features when appropriate — without breaking on less capable devices.</p>
+<h4 id="setting-target-device-requirements">Setting Target Device Requirements</h4>
+<p>For a given project, check Web server logs, current industry statistics and trends, and consult with a client on their audience and proposed use cases when determining a baseline set of devices to build the site and test for.</p>
+<p>What types of users are there? Is an audience:</p>
+<ul>
+<li>Working on their commute from a bus or train?</li>
+<li>Paying bills or their taxes on the go?</li>
+<li>Accessinging financial information with their clients on the go, over lunch?</li>
+<li>Entering sales figures remotely?</li>
+<li>Enjoying witty content or editorials?</li>
+<li>Comfortably browsing for fun at home?</li>
+</ul>
+<p>It is near impossible to test on every version of every platform, particularly with something like Android where fragmentation of the feature set is totally unpredictable. Comparison of platforms and statistics regarding particular releases of particular versions of an operating system may need to be considered.</p>
+<!-- @todo: @link to android fragmentation presentation -->
+<!-- @todo: @link to sources for mobile device use? statcounter? etc? -->
+
+<h3 id="general-responsive-design-standards">General Responsive Design Standards</h3>
+<p>RWD is frequently said to be achieved through the use of:</p>
+<ol>
+<li>Percentage-based grids, </li>
+<li>flexible images that scale, </li>
+<li>and <strong>CSS media queries</strong>. </li>
+</ol>
+<p>These are the core ideas behind RWD, though other techniques are often employed as the term grows in popularity and the use cases evolve. </p>
+<p>Like all programming and creative processes there is flexibility in how you go about achieving these, so long as there is consistency within your team. </p>
+<p>Some core guidelines:</p>
+<ul>
+<li>Always design and develop the <strong>mobile UX first</strong> (thus start with small defaults and scale upwards; please see Mobile First)</li>
+<li>Set the <strong>baseline Media Queries as a team</strong> for various types of devices, and try to stick to them as much as possible. </li>
+<li><strong>Add additional Media Queries</strong> — <strong>as necessary</strong> — for less than ideal experiences at the sizes in between, as appropriate for different types of content and components.</li>
+<li><strong>Build for speed</strong> (load time and interaction) and the minimum viable product for slower connection speeds and less able devices.</li>
+<li>Be careful of <strong>images</strong>. Do not render a 5GB image at 100px by 100px. This does not change the bandwidth needed to download the file! Similarly if you are hiding an image with <code>display: none</code>, <code>visiblity: hidden</code> or similar, the image may still be downloaded.</li>
+<li>Test on <strong>real hardware</strong>. Actual testing on <em>actual devices</em> cannot be substituted with resizing a browser window, or even an &quot;emulation&quot; mode offered by a desktop browser.</li>
+<li>A <strong>mobile browser</strong> is not a small desktop browser. Mobile versions of desktop browsers are frequently woefully different (or a totally different product) than their desktop counterparts, so do not assume that just because it works on Chrome desktop that it will work on an Android device.</li>
+</ul>
+<p>Initial work, and first pass tests of media queries, may be performed in desktop browsers by resizing the screen or using a browser&#39;s developer tools that may feature an emulation mode (e.g. Chrome DevTools).</p>
+<p>However, this is <em>never a substition</em> for actual testing on actual devices with various Operating System versions and </p>
+<!-- @todo: 
+  @link to article about comparing different types of downloading/hiding -->
+
+<h4 id="media-queries-and-css-breakpoints">Media Queries and CSS Breakpoints</h4>
+<p>Added as part of the CSS3 specification, <strong>media queries</strong> consist of a media type and at least one expression of a media feature (such as height, width and orientation) that describe the conditions under which a set of CSS rules apply. </p>
+<p>For example:</p>
+<pre><code class="language-css"><span class="at_rule">@<span class="keyword">media</span> screen (min-width: <span class="number">300</span>px) and (max-width: <span class="number">800</span>px) </span>{
+  <span class="class">.some-selector</span><span class="rules">{
+    <span class="comment">/* CSS declarations go here */</span>
+  <span class="rule">}</span></span>
+}</code></pre>
+<p>These widths are referred to as <em>breakpoints</em> as they are the point at which layout behavior breaks with the design at the prior size. This is typically screen size, and sometimes other conditions such as pixel density or even screen orientation (e.g. landscape or portrait; although this isn&#39;t that useful).</p>
+<p>These are applied with CSS Media Queries test the device or browsers current feature set for various conditions and feature support. The most common example is screen size.</p>
+<p>The golden rule is:</p>
+<ul>
+<li><strong>Don’t specify vendor- or device-specific widths</strong></li>
+</ul>
+<p>Let the content and the design dictate the breakpoints.</p>
+<ul>
+<li>For instance, targeting an ipad in portrait or an ipad landscape.</li>
+<li>Popular devices will come and go and even within devices the specifications will change over time. </li>
+<li>Avoid orientation/resolution based specifications in favor of width based ones (remember you are <strong>not</strong> targeting devices!). </li>
+</ul>
+<aside class="box">
+  <p><a href="https://bradfrost.github.io/this-is-responsive/resources.html#media-queries">Media Query Resources</a></p>
+  <p><a href="http://www.smashingmagazine.com/2012/03/device-agnostic-approach-to-responsive-web-design/">A Device Agnostic Approach to Responsive Web Design</a> is a great read on responsive techniques that do not favor one device over another, and are driven by content elements.</p>
+</aside>
+
+<p>If you are placing breakpoints every 50-100px you are doing something wrong. While there is not a correct number of breakpoints there must be a balance between the control of the design and a manageable code base.</p>
+<p>While working with media queries here are a few things to consider:</p>
+<ul>
+<li>All modern browsers support CSS3 Media Queries (including browsers as far back as the stock Android 2.1 browser)</li>
+<li>IE8 and below do not support Media Queries.<ul>
+<li><a href="https://github.com/scottjehl/Respond">Respond.js</a> (and similar JavaScript libraries) can be used to enable support for Media Queries in these older browsers (if needed).</li>
+<li>Attempting to ployfill Media Query behavior in older browsers is usually not advisable. This is because the JS needed will cause an additional performace hit to the already slow Javascript and rendering engine. </li>
 </ul>
 </li>
 </ul>
+<p>Instead, you are better off forcing older browsers to experience the site through a desktop experience (optionally tailored specifically for these older browsers).</p>
+<ul>
+<li>This can be done either through feature detection (with the likes of Modernizr) or with IE conditional statements and optionally including additional CSS stylesheets.</li>
+</ul>
+<h4 id="mobile-first">Mobile First</h4>
+<p>The &quot;Mobile First&quot; techniques consider the lowest common denominator first, which is likely to be your mobile devices due to bandwidth limitations, loading times (not just screen size!), and even CPU speed of the devices.</p>
+<p>Key considerations and techniques include:</p>
+<ul>
+<li>Starting small, and work upwards. Use <code>min-width</code>, <strong>not</strong> <code>max-width</code> breakpoint definitions). </li>
+<li>Begin with global content styles that apply across all breakpoints.</li>
+<li>Next, add the styles that are seen below the smallest break point -- remember that using the <code>min-width</code> approach means that the &quot;first breakpoint&quot; will not be for small screens (like mobile size screens) but rather for larger ones (like mobile landscape or phablet size screens).</li>
+<li>From here add additional styles at successive breakpoints using <code>min-width</code> media queries leveraging the CSS cascade to progressively add additional styles.</li>
+<li>As the queries increase in minimum sizes, add the markup and styles necessary to lay components out differently on larger screens.</li>
+<li>Examine site features for mobile-specific JavaScript events (e.g. touch, pointer, vs. mouse) and interactions (e.g. swipe).</li>
+</ul>
+<p>Generally speaking smaller screen designs are a bit less complex (fewer images, effects, etc). Thus as the screens get larger the complexity tends to increase, conveniently lending to an additive approach to styling, very much in line with a mobile first pattern. </p>
+<p>An example of working upwards in a CSS file might be:</p>
 <pre><code class="language-css">/* GENERAL STYLES */
-*{...}
+.example {...}
 
 /* SECTION SPECIFIC STYLES - aimed at the smallest devices*/
-.hero{...}
+.hero {...}
 
-@media(min-width:600px){
-  .hero{
+@media(min-width: 600px) {
+  .hero {
     /* just the new stuff here, no need to be repetitive... */   
   }  
 }
 
-@media(min-width:800px){
-  .hero{
+@media(min-width: 800px) {
+  .hero {
+    /* just the new stuff here, no need to be repetitive... */   
+  }  
+}
 
+@media(min-width: 1400px) {
+  .hero {
+    /* might need larger font sizes at largest screen sizes */   
   }  
 }</code></pre>
-<p>_note: the breakpoints specified above are <strong>not</strong> intended to be recommended breakpoints, but rather just illustrative of this general concept.</p>
-<p>Another way of thinking about a mobile first pattern (from a design and development standpoint) is to innovate for your smallest reasonable target device. Then start &quot;sizing your window up&quot; until the user experience or the design degrades, at which point you throw in a breakpoint and make some design modifications to fix the degradation. Resume sizing up your view port until you reach a similar breakdown in design and repeat this exercise. Recurse on this until you reach your largest reasonable target device - this is the mobile first pattern. </p>
-<h4 id="breakpoints">Breakpoints</h4>
-<p>A CSS breakpoint refers to a specific browser or device based condition under which a set of CSS rules will take effect. </p>
+<aside class="box">
+  <p>Note: the breakpoints specified above are <strong>not</strong> intended to be recommended breakpoints, but rather just illustrative of this general concept.</p>
+</aside>
+
+<p>Another way of thinking about a mobile first pattern (from a design and development standpoint) is to:</p>
 <ul>
-<li>Don’t specify device-specific widths (ipad portrait, ipad landscape)<ul>
-<li>Popular devices will come and go and even within devices the specifications will change over time. </li>
-<li>Avoid orientation/resolution based specifications in favor of width based ones (remember you are <strong>not</strong> targeting devices!). </li>
+<li>Innovate for your smallest reasonable target device.</li>
+<li>Then start &quot;sizing your window up&quot; until the user experience or the design degrades.</li>
+<li>Add in a breakpoint and make some design modifications to fix the degradation.</li>
+<li>Resume sizing up your view port until you reach a similar breakdown in design and repeat this exercise.</li>
 </ul>
-</li>
-<li>Let the content and the design dictate the breakpoints.</li>
-<li>If you are placing breakpoints every 50-100px you are doing something wrong. While there is not a correct number of breakpoints there must be a balance between the control of the design and a manageable code base.</li>
-</ul>
+<p>Recurse on this until you reach your largest reasonable target device - this is the mobile first pattern. </p>
 <h4 id="speed-is-a-feature">Speed is a feature</h4>
 <p>People expect page load time to be as fast if not faster on their mobile phones in comparison to a desktop experience. </p>
 <ul>
@@ -683,75 +871,111 @@ button#back-button { ... }
 <li>Wherever possible include script files at the end of your HTML document just before the <code>&lt;/body&gt;</code> tag.</li>
 </ul>
 </li>
-<li>Advanced CSS3 techniques are easy to implement, but when you start combining them, rendering and scrolling performance can be affected</li>
-<li>Be careful of images! <ul>
-<li>Use a responsive image pattern that starts by serving a mobile optimized image first.</li>
 </ul>
-</li>
-</ul>
-<h4 id="media-queries">Media Queries</h4>
-<p>Added as part of the CSS3 specification, media queries consist of a media type and at least one expression of a media feature (such as height, width and orientation) that describe the conditions under which a set of CSS rules apply. For example:</p>
-<pre><code class="language-css"><span class="at_rule">@<span class="keyword">media</span> screen (min-width: <span class="number">300</span>px) and (max-width: <span class="number">800</span>px)</span>{
-  <span class="class">.some-selector</span><span class="rules">{
-    <span class="comment">/* CSS declarations go here */</span>
-  <span class="rule">}</span></span>
-}</code></pre>
-<p>In the example above the CSS rules defined between the outer curly brackets will apply for the media type of <em>screen</em> on those browsers with window widths between the sizes of <em>300px</em> and <em>800px</em>.</p>
-<p>While working with media queries here are a few things to consider:</p>
+<p>Advanced CSS3 techniques are easy to implement, but when you start combining them, rendering and scrolling performance can be affected.</p>
+<p>Be careful of images! </p>
 <ul>
-<li>All modern browsers support CSS3 Media Queries (including browsers as far back as the stock Android 2.1 browser)</li>
-<li>IE8 and below do not support Media Queries.<ul>
-<li>Respond.js (and similar JavaScript libraries) can be used to enable support for Media Queries in these older browsers (if needed).</li>
-<li>Attempting to ployfill Media Query behavior in older browsers is usually not advisable. This is because the JS needed will cause an additional performace hit to the already slow Javascript and rendering engine. Instead you are better off forcing older browsers to experience the site through a desktop experience (optionally tailored specifically for these older browsers).<ul>
-<li>This can be done either through feature detection (with the likes of Modernizr) or with IE conditional statements and optionally including additional CSS stylesheets.</li>
-</ul>
-</li>
-</ul>
-</li>
+<li>Use a responsive image pattern that starts by serving a mobile optimized (and thus smaller file size) image first.</li>
 </ul>
 <h4 id="responsive-images">Responsive Images</h4>
-<p>Currently there is no native support/specification for responsive images. There are a number of proposals which have been set forth, but none have yet been integrated as part of the living HTML5 document.</p>
+<p>Currently there is little to no native support for responsive images. </p>
+<p>The proposal with the most traction appears to be the <code>&lt;picture&gt;</code> element and related <code>srcset</code> and <code>sizes</code> attributes. </p>
+<aside class="box">
+  <p>You can read about this element and the evolution and standard at <a href="http://responsiveimages.org/">ResponsiveImages.org</a></p>
+  <p>At this time the best application of the <code>&lt;picture&gt;</code> is with the <a href="https://scottjehl.github.io/picturefill/">Picturefill polyfill</a>.</p>
+</aside>
+
+<p>It can be cumbersome to set up, so take care and be certain the benefits are worth it on a given site.</p>
+<p>Some basic rules to follow:</p>
 <ul>
 <li><strong>Always</strong> optimize your images using a tool such as Adobe Photoshop to assure you have the ideal image size and right amount of lossy compression. </li>
-<li>Run all images though a lossless compressor like Compressor.io (<a href="https://compressor.io/">https://compressor.io/</a>), Smush.it (<a href="https://smush.it">https://smush.it</a>) or ImageOptim.</li>
-<li>Picturefill is a very good HTML5 polyfill designed to mimic the proposed <code>&lt;picture&gt;</code> element schema.</li>
-<li>Follow updates on Responsive Images here: <a href="http://responsiveimages.org/">http://responsiveimages.org/</a></li>
+<li>Run all images though a lossless compressor like <a href="https://compressor.io/">Compressor.io</a>, <a href="https://smush.it">Smush.it</a> or <a href="https://imageoptim.com/">ImageOptim</a> (which has related tools also available as build-time scripts).</li>
 </ul>
+<p>You can also consider “Compressive Images”, which are basically higher-resolution jpegs compressed at a higher percentage rate:</p>
 <ul>
-<li>Consider “Compressive Images”<ul>
-<li>Basically higher-resolution jpegs compressed at a higher percentage rate</li>
-<li><a href="http://www.vanseodesign.com/web-design/compressive-image-tests/">http://www.vanseodesign.com/web-design/compressive-image-tests/</a></li>
-<li><a href="http://blog.netvlies.nl/design-interactie/retina-revolution/">http://blog.netvlies.nl/design-interactie/retina-revolution/</a></li>
-<li><a href="http://filamentgroup.com/lab/rwd_img_compression/">http://filamentgroup.com/lab/rwd_img_compression/</a></li>
+<li><a href="http://filamentgroup.com/lab/rwd_img_compression/">Compressive Images</a></li>
+<li><a href="http://blog.netvlies.nl/design-interactie/retina-revolution/">Retina Revolution</a></li>
+<li><a href="http://www.vanseodesign.com/web-design/compressive-image-tests/">Compressive Image Tests</a></li>
 </ul>
-</li>
-<li>Drawbacks<ul>
+<p>However, there are drawbacks:</p>
+<ul>
 <li>The browser tends to use significantly more memory when storing and resizing these higher resolution images than scaling them to fit a container</li>
 </ul>
-</li>
-<li>What’s important to realize is that this is changing faster than we can develop. What you do now will be obsolete very soon, so be sure to stay on top of current trends</li>
-</ul>
-<h4 id="vector-graphics">Vector Graphics</h4>
+<p>What’s important to realize is that this is changing faster than we can develop. What you do now will be obsolete very soon, so be sure to stay on top of current trends.</p>
+<h4 id="vector-graphics-svg-">Vector Graphics (SVG)</h4>
 <p>When working with an audience on unknown screen sizes and resolutions, as is the pretense in RWD, having graphics that can scale without degrading is a very appealing prospect. There are several vector implementation options.  </p>
+<p>Web fonts: Fonts are vectors. With the exposure of custom web fonts as part of the CSS level 2 specification, many developers have turned to custom font packages as a solution for icons and simple vectors.</p>
 <ul>
-<li>Web fonts: Fonts are vectors. With the exposure of custom web fonts as part of the CSS level 2 specification, many developers have turned to custom font packages as a solution for icons and simple vectors.<ul>
 <li>Pros: this option allows for easy control of vector color, size and usage</li>
 <li>Cons: all of the vectors single color and must be grouped others in one file.</li>
 </ul>
-</li>
-<li>SVG: SVG is an XML syntax for describing vector shapes. <ul>
-<li>Pros: vectors can be manipulated by CSS and/or JavaScript and allows for complex filters, animations and transitions.</li>
-<li>Cons: SVG is supported by IE9+</li>
-<li>Grumpicon is a script that will detect SVG support and server the appropriate CSS (or needed fallback CSS code to assure compatibility (<a href="http://www.filamentgroup.com/lab/grumpicon-workflow.html">http://www.filamentgroup.com/lab/grumpicon-workflow.html</a>).</li>
-</ul>
-</li>
-</ul>
-<h3 id="next-steps-amp-resources-for-mobile">Next Steps &amp; Resources for Mobile</h3>
-<p>???</p>
-<h3 id="resources">Resources</h3>
+<p>SVG: SVG is an XML syntax for describing vector shapes. </p>
 <ul>
-<li><a href="http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/">http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/</a> Excellent article that still holds up.
-???</li>
+<li>Pros: vectors can be manipulated by CSS and/or JavaScript and allows for complex filters, animations and transitions.</li>
+<li>Cons: SVG is only supported by IE9+</li>
+</ul>
+<aside class="box"><p><a href="http://www.filamentgroup.com/lab/grumpicon-workflow.html">Grumpicon</a> is a script that will detect SVG support and server the appropriate CSS (or needed fallback CSS code to assure compatibility.</p></aside>
+
+<h4 id="other-categories">Other Categories</h4>
+<p>Virtually everything can change when screen sizes change:</p>
+<ul>
+<li>Grids</li>
+<li>Typography</li>
+<li>Accessible forms / validation messages</li>
+<li>Main site navigation</li>
+<li>Header or Footer content</li>
+<li>In-page navigation, such as tabbed navigation, or accordions</li>
+<li>Images</li>
+<li>Data tables</li>
+<li>Interactions and animations</li>
+<li>Advertising types</li>
+<li>Performance metrics</li>
+</ul>
+<aside class="box">
+  <p>More thoughts and ideas: <a href="http://www.lukew.com/ff/entry.asp?1514">Multi-device Layout Patterns</a></p></aside>
+
+<h5 id="navigation-changes">Navigation Changes</h5>
+<p>Large horizontal navigation and mega-drop downs are not always practical on smaller screens. Frequently this means off-canvas navigation, collapsing menus into select boxes, or other approaches such as a full-screen overlay.</p>
+<!-- @todo: @link: examples? -->
+
+<aside class="box">
+  <p><a href="http://www.smashingmagazine.com/2012/02/progressive-and-responsive-navigation/">Progressive and Responsive Navigation</a> is a great example of modifying the types of menu based on screen size.</p>
+  <p><a href="http://bradfrost.com/blog/web/responsive-nav-patterns/">Responsive Navigation Patterns</a> and <a href="http://bradfrost.com/blog/web/complex-navigation-patterns-for-responsive-design/">Complex Navigation Patterns</a></p>
+</aside>
+
+<p>How navigation changes per screen size will depend entirely on the requirements and design for the project.</p>
+
+<h5 id="responsive-data-tables">Responsive Data Tables</h5>
+<p>Displaying data tables in a responsive way on Mobile sites is a challenge. There are only so many good ways to address this.</p>
+<ul>
+<li>Simply make a wrapper around the table and scroll horizontally.</li>
+<li>Have CSS rules which collapse the tables.</li>
+<li>Sometimes JavaScript might be used to hide/show certain less critical columns, however this does add overhead.</li>
+</ul>
+<aside class="box">
+<p>The always excellent Brad Frost has a nice collection of links regarding <a href="https://bradfrost.github.io/this-is-responsive/resources.html#tables">responsive data tables</a>.</p>
+</aside>
+
+<!-- ### Responsive Web Design Deliverables ... @todo: content on responsive design deliverables -->
+
+<h3 id="next-steps-amp-rwd-resources">Next Steps &amp; RWD Resources</h3>
+<p>Big collections:</p>
+<ul>
+<li><a href="https://bradfrost.github.io/this-is-responsive/resources.html">https://bradfrost.github.io/this-is-responsive/resources.html</a></li>
+<li><a href="https://www.usertesting.com/blog/2015/02/03/responsive-web-design-resources/">https://www.usertesting.com/blog/2015/02/03/responsive-web-design-resources/</a></li>
+<li><a href="http://www.smashingmagazine.com/responsive-web-design-guidelines-tutorials/">http://www.smashingmagazine.com/responsive-web-design-guidelines-tutorials/</a></li>
+</ul>
+<p>Articles:</p>
+<ul>
+<li><a href="http://www.alistapart.com/articles/responsive-web-design/">http://www.alistapart.com/articles/responsive-web-design/</a></li>
+<li><a href="http://blog.teamtreehouse.com/responsive-design-patterns">http://blog.teamtreehouse.com/responsive-design-patterns</a></li>
+<li><a href="http://alistapart.com/column/what-we-mean-when-we-say-responsive">http://alistapart.com/column/what-we-mean-when-we-say-responsive</a></li>
+<li><a href="http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/">http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/</a></li>
+</ul>
+<p>Blogs:</p>
+<ul>
+<li><a href="http://responsive.rga.com/">http://responsive.rga.com/</a></li>
+<li><a href="https://responsivedesign.is">https://responsivedesign.is</a></li>
 </ul>
 </section>
 <section><h2 id="appendix">Appendix</h2>
