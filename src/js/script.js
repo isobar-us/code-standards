@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /**
  * Author: Isobar
  */
@@ -40,7 +40,7 @@ var ISOBAR = {
 
                 the_text = $.trim(hx[i].innerHTML);
                 anchor = currentMatch + '_' + the_text.replace(/\s+|\-/g, '_').replace(/[^A-Z0-9_]/gi, '').replace(/_+/g, '_').toLowerCase();
-                inner += '<a href="#' + anchor + '" class="anchor_link" title="Permalink">◊</a>';
+                inner += '<a href="#' + anchor + '" class="anchor_link js-here" title="Permalink">◊</a>';
 
                 if (tag === 'h2' || tag === 'h3') {
                     toc_contents += '<li class="' + tag + '"><a href="#' + anchor + '">' + the_text + '</a></li>';
@@ -61,10 +61,17 @@ var ISOBAR = {
         },
         // just hooking up back to top
         anchors: function() {
+            var iso = ISOBAR.util;
+
             this.$body.on('click', '.back-anchor', function() {
                 window.scrollTo(0, 0);
                 window.location.hash = '';
                 return false;
+            });
+            this.$body.on('click', '.js-here', function(e){
+                if (iso.$body.hasClass('mob')) {
+                    ISOBAR.common.scrollNow(e);
+                }
             });
         },
         toggleMenu: function(e){
@@ -77,16 +84,14 @@ var ISOBAR = {
         },
         scrollNow: function(e){
             e.preventDefault;
-            // console.log('here we will use the scroll');
             var target = e.target.getAttribute('href');
             if (target[0] === '#') {
-                $.scrollTo(target, { offset: -85, duration: 500 });
+                $.scrollTo(target, { offset: -85, duration: 250 });
             };
         }
     },
     util: {
         $body : $('body'), // cache the body
-        
         settings: {},
 
         fire: function(func, funcname, args) {
@@ -100,8 +105,13 @@ var ISOBAR = {
             var iso = ISOBAR.util;
                 iso.settings = ISOBAR.settings; // convenience
 
+            $('html').removeClass('no-js');
+
             //Fire resize event and call setLayout(). Put onresize events in there.
             window.addEventListener('resize', iso.debounce(iso.setLayout, 50));
+
+            // enable pointer events for touch devices
+            FastClick.attach(document.body);
 
             // hit up common first.
             iso.fire('common');
