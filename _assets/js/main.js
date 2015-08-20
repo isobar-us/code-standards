@@ -86,7 +86,7 @@ var ISOBAR = {
             e.preventDefault;
             var target = e.target.getAttribute('href');
             if (target[0] === '#') {
-                $.scrollTo(target, { offset: -85, duration: 250 });
+                $.scrollTo(target, { offset: -95, duration: 250 });
             };
         }
     },

@@ -26,13 +26,12 @@ main {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   display: block;
-  /*float: left;*/
   overflow: hidden;
   padding: 10px 20px 60px 20px;
   max-width: 620px;
   width: 66%;
   float: left;
-  
+  border-right: 1px solid $border-color;
 }
 .nav-toc {
   box-sizing: border-box;
