@@ -291,8 +291,7 @@ SVG: SVG is an XML syntax for describing vector shapes.
  - Pros: vectors can be manipulated by CSS and/or JavaScript and allows for complex filters, animations and transitions.
  - Cons: SVG is only supported by IE9+
 
-<aside class="box"><p>[Grumpicon][link-grump] is a script that will detect SVG support and server the appropriate CSS (or needed fallback CSS code to assure compatibility.</p>
-</aside>
+<aside class="box"><p>[Grumpicon][link-grump] is a script that will detect SVG support and server the appropriate CSS (or needed fallback CSS code to assure compatibility.</p></aside>
 
 #### Other Categories
 
@@ -314,6 +313,8 @@ Virtually everything can change when screen sizes change:
   <p>More thoughts and ideas: [Multi-device Layout Patterns][link-multipattern]</p>
 </aside>
 
+test
+
 ##### Navigation Changes
 
 Large horizontal navigations and mega-drop downs are not always practical on smaller screens. Frequently this means off-canvas navigation, collapsing menus into select boxes, or other approaches such as a full-screen overlay.
@@ -322,6 +323,7 @@ Large horizontal navigations and mega-drop downs are not always practical on sma
 <aside class="box">
   <p>[Progressive and Responsive Navigation][link-respnav]</p>
 </aside>
+
 
 ##### Responsive Data Tables
 
