@@ -27,7 +27,7 @@ body, select, input, textarea {
   color: $default-2-text;
   /* Set your base font here, to apply evenly */
   font-family: $font-stack;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 
@@ -56,7 +56,7 @@ h3, h4, h5, h6 { font-weight: normal; }
 
 h1 {
   color: $default-text;
-  font-size: 34px;  
+  font-size: 36px;  
   font-weight: 700;
   line-height: 1.1em;
   margin-bottom: 14px;
@@ -64,19 +64,23 @@ h1 {
 
 h2 {
   color: $default-text;
-  font-size: 24px;
+  font-size: 28px;
   margin: 40px 0 12px;
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 24px;
   margin-bottom: 11px;
 }
 
 h4 {
-  font-size: 18px;
+  font-size: 20px;
   color: $default-3-text;
   margin-bottom: 8px;
+}
+h5 { 
+  font-size: 18px;
+  color: $default-2-text;
 }
 
 h2::before{
