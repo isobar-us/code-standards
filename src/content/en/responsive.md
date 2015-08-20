@@ -2,7 +2,7 @@
 
 Responsive Web Design (RWD) is the term used for the practice of creating page layouts and user experiences that work on a variety of devices and screen sizes.
 
-With the ever expanding mobile landscape and the evolution of the Internet of Things (IoT), the idea of a "standard" screen size has fallen by the wayside in favor of the rise of a device-agnostic approach.
+With the ever expanding mobile landscape and the evolution of the Internet of Things (IoT), the idea of a "standard" screen size has fallen by the wayside in favor of the rise of a device-agnostic approach. It is less and less common to launch two versions of a site, one for desktop and one for mobile.
 
 To this end a series of techniques have been put together for pages to adjust based off browsers' current specs (e.g. width, height, pixel density, orientation, etc).
 
@@ -51,35 +51,51 @@ For a given project, always consider:
  - What if a device went offline during usage of a feature?
  - The best ways to detect support for various features (e.g. Modernizr, etc.).
 
+<aside class="box">
+  <p>Brad Frost's [Responsive Design Patterns][link-patterns] and [Responsive Design Resources][link-resources] are two great resources that continue to grow due to user contributions.</p>
+</aside>
+
 #### To Use A Prebuilt Grid Or Not?
+
+<!-- @todo: content on grid systems -->
 
 Sometimes CSS grid frameworks are a good place to start ... but sometimes not.
 
 They must match the design in terms of flexibility.
 
+It's critical a developer learn the basics of how grid systems
+
+It may be beneficial to learn the coming Flexbox techniques as well.
+
+<aside class="box">
+  <p>While using a Framework isn't always the way to go, there is much to be learned from examining [how they work and how they are put together][link-frameworks].</p>
+</aside>
+
 #### Progressive Enhancement
 
-Since mobile phones and tablets are frequently the lower end in terms of capabilities, it is recommended to start with building the mobile experience first, and gradually add features. With this in mind, RWD could be considered a type of Progressive Enhancement, whereby users with basic devices can access basic content and features, however care is taken to layer on more sophisticated features for more powerful devices and desktop users.
+Since mobile phones and tablets are frequently the lower end in terms of capabilities, it is recommended to start with building the mobile experience first, and gradually add features. With this in mind, RWD could be considered a type of [Progressive Enhancement][link-progen], whereby users with basic devices can access basic content and features, however care is taken to layer on more sophisticated features for more powerful devices and desktop users.
 
 With these techniques, users only get what their device or browser can handle, and feature detection can be used to add more features when appropriate — without breaking on less capable devices.
 
 #### Setting Target Device Requirements
 
-Check logs, check current industry statistics and trends, and consult with a client on their audience and proposed use cases when determining a baseline set of devices to build the site and test on.
+For a given project, check Web server logs, current industry statistics and trends, and consult with a client on their audience and proposed use cases when determining a baseline set of devices to build the site and test for.
 
-Is an audience:
+What types of users are there? Is an audience:
 
  - Working on their commute from a bus or train?
- - Paying bills on the go?
+ - Paying bills or their taxes on the go?
  - Accessinging financial information with their clients on the go, over lunch?
+ - Entering sales figures remotely?
+ - Enjoying witty content or editorials?
  - Comfortably browsing for fun at home?
 
 It is near impossible to test on every version of every platform, particularly with something like Android where fragmentation of the feature set is totally unpredictable. Comparison of platforms and statistics regarding particular releases of particular versions of an operating system may need to be considered.
 
-<!-- link to android fragmentation presentation -->
-<!-- link to sources for mobile device use? statcounter? etc? -->
+<!-- @todo: @link to android fragmentation presentation -->
+<!-- @todo: @link to sources for mobile device use? statcounter? etc? -->
 
-### Standards For Developing a Responsive Website
+### General Responsive Design Standards
 
 RWD is frequently said to be achieved through the use of:
 
@@ -89,40 +105,92 @@ RWD is frequently said to be achieved through the use of:
 
 These are the core ideas behind RWD, though other techniques are often employed as the term grows in popularity and the use cases evolve. 
 
-Like all programming and creative processes there is flexibility in how you go about achieving these so long as there is consistency within your team. 
+Like all programming and creative processes there is flexibility in how you go about achieving these, so long as there is consistency within your team. 
 
 Some core guidelines:
 
- - Always design and develop the mobile UX first (thus start with small defaults and scale up using `min-width`, **not** `max-width` breakpoint definitions). That is to say, start small, and work upwards.
- - Set the baseline Media Queries as a team for various types of devices, and try to stick to them as much as possible. 
- - Add additional Media Queries — as necessary — for less than ideal experiences at the sizes in between, as appropriate for different types of content and components.
- - Build for speed (load time and interaction) and the minimum viable product for slower connection speeds and less able devices.
- - Be careful of images. Do not render a 5GB image at 100px by 100px. This does not change the bandwidth needed to download the file! Similarly if you are hiding an image with `display: none`, `visiblity: hidden` or similar, the image may still be downloaded.
- - Test on real hardware. Actual testing on *actual devices* cannot be substituted with resizing a browser window, or even an "emulation" mode offered by a desktop browser.
- - Additionally, mobile versions of desktop browsers are frequently woefully different (or a totally different product) than their desktop counterparts, so do not assume that just because it works on Chrome desktop that it will work on an Android device.
+ - Always design and develop the **mobile UX first** (thus start with small defaults and scale upwards; please see Mobile First)
+ - Set the **baseline Media Queries as a team** for various types of devices, and try to stick to them as much as possible. 
+ - **Add additional Media Queries** — **as necessary** — for less than ideal experiences at the sizes in between, as appropriate for different types of content and components.
+ - **Build for speed** (load time and interaction) and the minimum viable product for slower connection speeds and less able devices.
+ - Be careful of **images**. Do not render a 5GB image at 100px by 100px. This does not change the bandwidth needed to download the file! Similarly if you are hiding an image with `display: none`, `visiblity: hidden` or similar, the image may still be downloaded.
+ - Test on **real hardware**. Actual testing on *actual devices* cannot be substituted with resizing a browser window, or even an "emulation" mode offered by a desktop browser.
+ - A **mobile browser** is not a small desktop browser. Mobile versions of desktop browsers are frequently woefully different (or a totally different product) than their desktop counterparts, so do not assume that just because it works on Chrome desktop that it will work on an Android device.
 
 Initial work, and first pass tests of media queries, may be performed in desktop browsers by resizing the screen or using a browser's developer tools that may feature an emulation mode (e.g. Chrome DevTools).
 
 However, this is *never a substition* for actual testing on actual devices with various Operating System versions and 
 
-<!-- link to article about comparing different types of downloading/hiding -->
+<!-- @todo: 
+  @link to article about comparing different types of downloading/hiding -->
+
+#### Media Queries and CSS Breakpoints
+
+Added as part of the CSS3 specification, **media queries** consist of a media type and at least one expression of a media feature (such as height, width and orientation) that describe the conditions under which a set of CSS rules apply. 
+
+For example:
+
+```css
+@media screen (min-width: 300px) and (max-width: 800px) {
+  .some-selector{
+    /* CSS declarations go here */
+  }
+}
+```
+
+These widths are referred to as _breakpoints_ as they are the point at which layout behavior breaks with the design at the prior size. This is typically screen size, and sometimes other conditions such as pixel density or even screen orientation (e.g. landscape or portrait; although this isn't that useful).
+
+These are applied with CSS Media Queries test the device or browsers current feature set for various conditions and feature support. The most common example is screen size.
+
+The golden rule is:
+
+ - **Don’t specify vendor- or device-specific widths**
+
+Let the content and the design dictate the breakpoints.
+
+ - For instance, targeting an ipad in portrait or an ipad landscape.
+ - Popular devices will come and go and even within devices the specifications will change over time. 
+ - Avoid orientation/resolution based specifications in favor of width based ones (remember you are **not** targeting devices!). 
+
+<aside class="box">
+  <p>[Media Query Resources][link-mediaqueries]</p>
+  <p>[A Device Agnostic Approach to Responsive Web Design][link-devices] is a great read on responsive techniques that do not favor one device over another, and are driven by content elements.</p>
+</aside>
+
+If you are placing breakpoints every 50-100px you are doing something wrong. While there is not a correct number of breakpoints there must be a balance between the control of the design and a manageable code base.
+
+While working with media queries here are a few things to consider:
+
+ - All modern browsers support CSS3 Media Queries (including browsers as far back as the stock Android 2.1 browser)
+ - IE8 and below do not support Media Queries.
+  - [Respond.js][link-respondjs] (and similar JavaScript libraries) can be used to enable support for Media Queries in these older browsers (if needed).
+  - Attempting to ployfill Media Query behavior in older browsers is usually not advisable. This is because the JS needed will cause an additional performace hit to the already slow Javascript and rendering engine. 
+
+Instead, you are better off forcing older browsers to experience the site through a desktop experience (optionally tailored specifically for these older browsers).
+
+ - This can be done either through feature detection (with the likes of Modernizr) or with IE conditional statements and optionally including additional CSS stylesheets.
+
 
 #### Mobile First
 
-The Mobile First philosophy speaks to considering the lowest common denominator first, which is likely to be your mobile devices due to bandwidth limitations, loading times (not just screen size!), and even CPU speed of the devices.
+The "Mobile First" techniques consider the lowest common denominator first, which is likely to be your mobile devices due to bandwidth limitations, loading times (not just screen size!), and even CPU speed of the devices.
 
 Key considerations and techniques include:
 
- - Start with global content styles that apply across all breakpoints.
+ - Starting small, and work upwards. Use `min-width`, **not** `max-width` breakpoint definitions). 
+ - Begin with global content styles that apply across all breakpoints.
  - Next, add the styles that are seen below the smallest break point -- remember that using the `min-width` approach means that the "first breakpoint" will not be for small screens (like mobile size screens) but rather for larger ones (like mobile landscape or phablet size screens).
  - From here add additional styles at successive breakpoints using `min-width` media queries leveraging the CSS cascade to progressively add additional styles.
  - As the queries increase in minimum sizes, add the markup and styles necessary to lay components out differently on larger screens.
+ - Examine site features for mobile-specific JavaScript events (e.g. touch, pointer, vs. mouse) and interactions (e.g. swipe).
 
-Very generally speaking smaller screen designs are a bit less complex (fewer images, effects, etc). Thus as the screens get larger the complexity tends to increase conveniently lending to an additive approach to styling, very much in line with a mobile first pattern. 
+Generally speaking smaller screen designs are a bit less complex (fewer images, effects, etc). Thus as the screens get larger the complexity tends to increase, conveniently lending to an additive approach to styling, very much in line with a mobile first pattern. 
+
+An example of working upwards in a CSS file might be:
 
 ```css
 /* GENERAL STYLES */
-* {...}
+.example {...}
 
 /* SECTION SPECIFIC STYLES - aimed at the smallest devices*/
 .hero {...}
@@ -133,25 +201,32 @@ Very generally speaking smaller screen designs are a bit less complex (fewer ima
   }  
 }
 
-@media(min-width:800px) {
+@media(min-width: 800px) {
   .hero {
-    
+    /* just the new stuff here, no need to be repetitive... */   
   }  
 }
+
+@media(min-width: 1400px) {
+  .hero {
+    /* might need larger font sizes at largest screen sizes */   
+  }  
+}
+
 ```
-_note: the breakpoints specified above are **not** intended to be recommended breakpoints, but rather just illustrative of this general concept.
 
-Another way of thinking about a mobile first pattern (from a design and development standpoint) is to innovate for your smallest reasonable target device. Then start "sizing your window up" until the user experience or the design degrades, at which point you throw in a breakpoint and make some design modifications to fix the degradation. Resume sizing up your view port until you reach a similar breakdown in design and repeat this exercise. Recurse on this until you reach your largest reasonable target device - this is the mobile first pattern. 
+<aside class="box">
+  <p>Note: the breakpoints specified above are **not** intended to be recommended breakpoints, but rather just illustrative of this general concept.</p>
+</aside>
 
-#### Breakpoints
+Another way of thinking about a mobile first pattern (from a design and development standpoint) is to:
 
-A CSS breakpoint refers to a specific browser or device based condition under which a set of CSS rules will take effect. This is typically screen size, and sometimes other conditions such as pixel density or screen orientation (i.e. landscape or portrait).
+ - Innovate for your smallest reasonable target device.
+ - Then start "sizing your window up" until the user experience or the design degrades.
+ - Add in a breakpoint and make some design modifications to fix the degradation.
+ - Resume sizing up your view port until you reach a similar breakdown in design and repeat this exercise.
 
- - Don’t specify device-specific widths (ipad portrait, ipad landscape)
-  - Popular devices will come and go and even within devices the specifications will change over time. 
-  - Avoid orientation/resolution based specifications in favor of width based ones (remember you are **not** targeting devices!). 
- - Let the content and the design dictate the breakpoints.
- - If you are placing breakpoints every 50-100px you are doing something wrong. While there is not a correct number of breakpoints there must be a balance between the control of the design and a manageable code base.
+Recurse on this until you reach your largest reasonable target device - this is the mobile first pattern. 
 
 #### Speed is a feature
 
@@ -165,71 +240,143 @@ People expect page load time to be as fast if not faster on their mobile phones 
  - Concatenate, gzip and minified your production CSS/JS where possible as this will lower page load size and time.2
  - Load the least amount of JavaScript that is needed.
   - Wherever possible include script files at the end of your HTML document just before the `</body>` tag.
- - Advanced CSS3 techniques are easy to implement, but when you start combining them, rendering and scrolling performance can be affected
- - Be careful of images! 
-  - Use a responsive image pattern that starts by serving a mobile optimized image first.
 
-#### Media Queries
+Advanced CSS3 techniques are easy to implement, but when you start combining them, rendering and scrolling performance can be affected.
 
-Added as part of the CSS3 specification, media queries consist of a media type and at least one expression of a media feature (such as height, width and orientation) that describe the conditions under which a set of CSS rules apply. For example:
+Be careful of images! 
 
-```css
-@media screen (min-width: 300px) and (max-width: 800px) {
-  .some-selector{
-    /* CSS declarations go here */
-  }
-}
-```
-
-In the example above the CSS rules defined between the outer curly brackets will apply for the media type of _screen_ on those browsers with window widths between the sizes of _300px_ and _800px_.
-
-While working with media queries here are a few things to consider:
-
- - All modern browsers support CSS3 Media Queries (including browsers as far back as the stock Android 2.1 browser)
- - IE8 and below do not support Media Queries.
-  -  Respond.js (and similar JavaScript libraries) can be used to enable support for Media Queries in these older browsers (if needed).
-  - Attempting to ployfill Media Query behavior in older browsers is usually not advisable. This is because the JS needed will cause an additional performace hit to the already slow Javascript and rendering engine. Instead you are better off forcing older browsers to experience the site through a desktop experience (optionally tailored specifically for these older browsers).
-    - This can be done either through feature detection (with the likes of Modernizr) or with IE conditional statements and optionally including additional CSS stylesheets.
+ - Use a responsive image pattern that starts by serving a mobile optimized (and thus smaller file size) image first.
 
 #### Responsive Images
 
-Currently there is no native support/specification for responsive images. There are a number of proposals which have been set forth, but none have yet been integrated as part of the living HTML5 document.
+Currently there is little to no native support for responsive images. 
+
+The proposal with the most traction appears to be the `<picture>` element and related `srcset` and `sizes` attributes. 
+
+<aside class="box">
+  <p>You can read about this element and the evolution and standard at [ResponsiveImages.org][link-respimages]</p>
+  <p>At this time the best application of the `<picture>` is with the [Picturefill polyfill][link-picturefill].</p>
+</aside>
+
+It can be cumbersome to set up, so take care and be certain the benefits are worth it on a given site.
+
+Some basic rules to follow:
 
  - **Always** optimize your images using a tool such as Adobe Photoshop to assure you have the ideal image size and right amount of lossy compression. 
- - Run all images though a lossless compressor like Compressor.io (https://compressor.io/), Smush.it (https://smush.it) or ImageOptim.
- - Picturefill is a very good HTML5 polyfill designed to mimic the proposed `<picture>` element schema.
- - Follow updates on Responsive Images here: http://responsiveimages.org/
- - Consider “Compressive Images”
-  -  Basically higher-resolution jpegs compressed at a higher percentage rate
-  -  http://www.vanseodesign.com/web-design/compressive-image-tests/
-  -  http://blog.netvlies.nl/design-interactie/retina-revolution/
-  -  http://filamentgroup.com/lab/rwd_img_compression/
- - Drawbacks
-  -  The browser tends to use significantly more memory when storing and resizing these higher resolution images than scaling them to fit a container
- - What’s important to realize is that this is changing faster than we can develop. What you do now will be obsolete very soon, so be sure to stay on top of current trends
+ - Run all images though a lossless compressor like [Compressor.io][link-compressor], [Smush.it][link-smush] or [ImageOptim][link-optim] (which has related tools also available as build-time scripts).
 
+You can also consider “Compressive Images”, which are basically higher-resolution jpegs compressed at a higher percentage rate:
 
-#### Vector Graphics
+ - [Compressive Images][link-compressive]
+ - [Retina Revolution][link-retinarev]
+ - [Compressive Image Tests][link-imagetests]
+
+However, there are drawbacks:
+
+ -  The browser tends to use significantly more memory when storing and resizing these higher resolution images than scaling them to fit a container
+
+What’s important to realize is that this is changing faster than we can develop. What you do now will be obsolete very soon, so be sure to stay on top of current trends.
+
+#### Vector Graphics (SVG)
 
 When working with an audience on unknown screen sizes and resolutions, as is the pretense in RWD, having graphics that can scale without degrading is a very appealing prospect. There are several vector implementation options.  
 
- - Web fonts: Fonts are vectors. With the exposure of custom web fonts as part of the CSS level 2 specification, many developers have turned to custom font packages as a solution for icons and simple vectors.
-  - Pros: this option allows for easy control of vector color, size and usage
-  - Cons: all of the vectors single color and must be grouped others in one file.
- - SVG: SVG is an XML syntax for describing vector shapes. 
-  - Pros: vectors can be manipulated by CSS and/or JavaScript and allows for complex filters, animations and transitions.
-  - Cons: SVG is supported by IE9+
-  - Grumpicon is a script that will detect SVG support and server the appropriate CSS (or needed fallback CSS code to assure compatibility (http://www.filamentgroup.com/lab/grumpicon-workflow.html).
+Web fonts: Fonts are vectors. With the exposure of custom web fonts as part of the CSS level 2 specification, many developers have turned to custom font packages as a solution for icons and simple vectors.
 
+ - Pros: this option allows for easy control of vector color, size and usage
+ - Cons: all of the vectors single color and must be grouped others in one file.
 
-### Next Steps &amp; Resources for Mobile
-???
+SVG: SVG is an XML syntax for describing vector shapes. 
 
-### Resources
- - http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/ Excellent article that still holds up.
- ???
+ - Pros: vectors can be manipulated by CSS and/or JavaScript and allows for complex filters, animations and transitions.
+ - Cons: SVG is only supported by IE9+
 
+<aside class="box"><p>[Grumpicon][link-grump] is a script that will detect SVG support and server the appropriate CSS (or needed fallback CSS code to assure compatibility.</p>
+</aside>
 
+#### Other Categories
+
+Virtually everything can change when screen sizes change:
+
+ - Grids
+ - Typography
+ - Accessible forms / validation messages
+ - Main site navigation
+ - Header or Footer content
+ - In-page navigation, such as tabbed navigation, or accordions
+ - Images
+ - Data tables
+ - Interactions and animations
+ - Advertising types
+ - Performance metrics
+
+<aside class="box">
+  <p>More thoughts and ideas: [Multi-device Layout Patterns][link-multipattern]</p>
+</aside>
+
+##### Navigation Changes
+
+Large horizontal navigations and mega-drop downs are not always practical on smaller screens. Frequently this means off-canvas navigation, collapsing menus into select boxes, or other approaches such as a full-screen overlay.
+
+<!-- @todo: @link: examples? -->
+<aside class="box">
+  <p>[Progressive and Responsive Navigation][link-respnav]</p>
+</aside>
+
+##### Responsive Data Tables
+
+Displaying data tables in a responsive way on Mobile sites is a challenge. There are only so many good ways to address this.
+
+ - Simply make a wrapper around the table and scroll horizontally.
+ - Have CSS rules which collapse the tables.
+ - Sometimes JavaScript might be used to hide/show certain less critical columns, however this does add overhead.
+
+<aside class="box">
+<p>The always excellent Brad Frost has a nice collection of links regarding [responsive data tables][link-tables].</p>
+</aside>
+
+### Responsive Web Design Deliverables
+
+... <!-- @todo: content on responsive design deliverables -->
+
+### Next Steps &amp; RWD Resources
+
+Big collections:
+ - https://bradfrost.github.io/this-is-responsive/resources.html
+ - https://www.usertesting.com/blog/2015/02/03/responsive-web-design-resources/
+ - http://www.smashingmagazine.com/responsive-web-design-guidelines-tutorials/
+
+Articles:
+ - http://www.alistapart.com/articles/responsive-web-design/
+ - http://blog.teamtreehouse.com/responsive-design-patterns
+ - http://alistapart.com/column/what-we-mean-when-we-say-responsive
+ - http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
+
+blogs
+ - http://responsive.rga.com/
+ - https://responsivedesign.is
+ - Luke W
+ - Brad Frost
+
+[link-compressive]: http://filamentgroup.com/lab/rwd_img_compression/
+[link-compressor]: https://compressor.io/
+[link-devices]: http://www.smashingmagazine.com/2012/03/device-agnostic-approach-to-responsive-web-design/
+[link-frameworks]: https://bradfrost.github.io/this-is-responsive/resources.html#frameworks
+[link-grump]: http://www.filamentgroup.com/lab/grumpicon-workflow.html
+[link-imagetests]: http://www.vanseodesign.com/web-design/compressive-image-tests/
+[link-mediaqueries]: https://bradfrost.github.io/this-is-responsive/resources.html#media-queries
+[link-optim]: https://imageoptim.com/
+[link-patterns]: https://bradfrost.github.io/this-is-responsive/patterns.html
+[link-picturefill]: https://scottjehl.github.io/picturefill/
+[link-progen]: https://www.filamentgroup.com/dwpe/
+[link-resources]: https://bradfrost.github.io/this-is-responsive/resources.html
+[link-respimages]: http://responsiveimages.org/
+[link-multipattern]: http://www.lukew.com/ff/entry.asp?1514
+[link-retinarev]: http://blog.netvlies.nl/design-interactie/retina-revolution/
+[link-respondjs]: https://github.com/scottjehl/Respond
+[link-respnav]: http://www.smashingmagazine.com/2012/02/progressive-and-responsive-navigation/
+[link-smush]: https://smush.it
+[link-tables]: https://bradfrost.github.io/this-is-responsive/resources.html#tables
 
 
 
