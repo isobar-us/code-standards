@@ -336,6 +336,11 @@ h4 {
   margin-bottom: 8px;
 }
 
+h5 {
+  font-size: 18px;
+  color: #444444;
+}
+
 h2::before {
   content: '{ }';
   font-family: Calibri,AlexandriaBold,Arial,Helvetica,sans-serif;
