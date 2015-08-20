@@ -242,7 +242,7 @@ dd {
  * Font normalization inspired by YUI Library's fonts.css: developer.yahoo.com/yui/
  */
 body {
-  font: 13px/1.231 sans-serif;
+  font: 13px/1.231 Calibri, sans-serif;
   *font-size: small;
 }
 
@@ -284,8 +284,8 @@ body, select, input, textarea {
   /* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */
   color: #444444;
   /* Set your base font here, to apply evenly */
-  font-family: sans-serif;
-  font-size: 16px;
+  font-family: Calibri, sans-serif;
+  font-size: 14px;
 }
 
 p {
@@ -301,7 +301,7 @@ p, ol, ul {
 ----------------------------------------------------------------------------------------------------*/
 /* Headers (h1, h2, etc) have no default font-size or margin;define those yourself */
 h1, h2, h3, h4, h5, h6 {
-  font-family: sans-serif;
+  font-family: "Helvetica Neue", sans-serif;
   color: #f23109;
   position: relative;
   margin-top: 20px;
@@ -313,7 +313,7 @@ h3, h4, h5, h6 {
 
 h1 {
   color: #000;
-  font-size: 34px;
+  font-size: 36px;
   font-weight: 700;
   line-height: 1.1em;
   margin-bottom: 14px;
@@ -321,17 +321,17 @@ h1 {
 
 h2 {
   color: #000;
-  font-size: 24px;
+  font-size: 28px;
   margin: 40px 0 12px;
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 24px;
   margin-bottom: 11px;
 }
 
 h4 {
-  font-size: 18px;
+  font-size: 20px;
   color: #999999;
   margin-bottom: 8px;
 }
@@ -393,12 +393,12 @@ main {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   display: block;
-  /*float: left;*/
   overflow: hidden;
   padding: 10px 20px 60px 20px;
   max-width: 620px;
   width: 66%;
   float: left;
+  border-right: 1px solid #f0f0f0;
 }
 
 .nav-toc {
@@ -798,6 +798,7 @@ header .social #linkback:hover {
     width: auto;
     margin-left: 0px;
     float: none;
+    border-right: none;
   }
   .nav-toc {
     width: 250px;
@@ -837,6 +838,12 @@ header .social #linkback:hover {
 
 /* Grade-A Mobile Browsers (Opera Mobile, Mobile Safari, Android Chrome)
    consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
+@media screen and (min-width: 770px) {
+  p, ol, ul {
+    font-size: 16px;
+  }
+}
+
 /* http://prismjs.com/download.html?themes=prism-twilight&languages=markup+css+clike+javascript&plugins=line-numbers */
 /**
  * prism.js Twilight theme
