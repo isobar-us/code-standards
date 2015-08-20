@@ -310,20 +310,20 @@ Virtually everything can change when screen sizes change:
  - Performance metrics
 
 <aside class="box">
-  <p>More thoughts and ideas: [Multi-device Layout Patterns][link-multipattern]</p>
-</aside>
-
-test
+  <p>More thoughts and ideas: [Multi-device Layout Patterns][link-multipattern]</p></aside>
 
 ##### Navigation Changes
 
-Large horizontal navigations and mega-drop downs are not always practical on smaller screens. Frequently this means off-canvas navigation, collapsing menus into select boxes, or other approaches such as a full-screen overlay.
+Large horizontal navigation and mega-drop downs are not always practical on smaller screens. Frequently this means off-canvas navigation, collapsing menus into select boxes, or other approaches such as a full-screen overlay.
 
 <!-- @todo: @link: examples? -->
+
 <aside class="box">
-  <p>[Progressive and Responsive Navigation][link-respnav]</p>
+  <p>[Progressive and Responsive Navigation][link-respnav] is a great example of modifying the types of menu based on screen size.</p>
+  <p>[Responsive Navigation Patterns][link-nav] and [Complex Navigation Patterns][link-navcomplex]</p>
 </aside>
 
+<p>How navigation changes per screen size will depend entirely on the requirements and design for the project.</p>
 
 ##### Responsive Data Tables
 
@@ -337,9 +337,7 @@ Displaying data tables in a responsive way on Mobile sites is a challenge. There
 <p>The always excellent Brad Frost has a nice collection of links regarding [responsive data tables][link-tables].</p>
 </aside>
 
-### Responsive Web Design Deliverables
-
-... <!-- @todo: content on responsive design deliverables -->
+<!-- ### Responsive Web Design Deliverables ... @todo: content on responsive design deliverables -->
 
 ### Next Steps &amp; RWD Resources
 
@@ -354,11 +352,10 @@ Articles:
  - http://alistapart.com/column/what-we-mean-when-we-say-responsive
  - http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
 
-blogs
+Blogs:
  - http://responsive.rga.com/
  - https://responsivedesign.is
- - Luke W
- - Brad Frost
+
 
 [link-compressive]: http://filamentgroup.com/lab/rwd_img_compression/
 [link-compressor]: https://compressor.io/
@@ -379,6 +376,7 @@ blogs
 [link-respnav]: http://www.smashingmagazine.com/2012/02/progressive-and-responsive-navigation/
 [link-smush]: https://smush.it
 [link-tables]: https://bradfrost.github.io/this-is-responsive/resources.html#tables
-
+[link-nav]: http://bradfrost.com/blog/web/responsive-nav-patterns/
+[link-navcomplex]: http://bradfrost.com/blog/web/complex-navigation-patterns-for-responsive-design/
 
 

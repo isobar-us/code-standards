@@ -1,4 +1,4 @@
-# Front-End Code Standards
+# Isobar Front-end Code Standards
 
 ## General Introduction
 
