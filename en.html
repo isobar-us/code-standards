@@ -669,84 +669,120 @@ button#back-button { ... }
 <p>For current links and references, please see our Wiki on Github.</p>
 </section>
 <section><h2 id="responsive-web-design">Responsive Web Design</h2>
-<p>Responsive Web Design (RWD) is the term used for the practice of creating page layouts and experiences that work on a variety of devices and screen sizes.</p>
+<p>Responsive Web Design (RWD) is the term used for the practice of creating page layouts and user experiences that work on a variety of devices and screen sizes.</p>
 <p>With the ever expanding mobile landscape and the evolution of the Internet of Things (IoT), the idea of a &quot;standard&quot; screen size has fallen by the wayside in favor of the rise of a device-agnostic approach.</p>
 <p>To this end a series of techniques have been put together for pages to adjust based off browsers&#39; current specs (e.g. width, height, pixel density, orientation, etc).</p>
-<p>The techniques are referred to as Responsive Web Design (RWD) and is another technique in the toolbox of <em>progressive enhancement</em> and <em>adaptive web design</em>.</p>
+<p>The techniques are referred to as Responsive Web Design (RWD) and it is another technique in the toolbox of <em>progressive enhancement</em> and <em>adaptive web design</em>.</p>
 <h3 id="goals-of-responsive-web-design">Goals of Responsive Web Design</h3>
-<p>The stated goals of RWD are to:</p>
+<p>The goals of RWD are:</p>
 <ul>
-<li>Offer an optimized user experience (UX)</li>
-<li>regardless of the user&#39;s screen size or device supported features.</li>
+<li>Offer an optimized user experience (UX),</li>
+<li>regardless of the user&#39;s screen size or features supported on their device.</li>
 </ul>
 <p>This is true whether it is a stadium jumbotron or the screen of a watch — and of course everything between.</p>
-<p>Despite this lofty ideal, on Web projects the term &quot;responsive web design&quot; has more generally been used in reference to an optimized experience for a set of target devices, usually:</p>
+<p>Despite this lofty ideal, on Web projects the term &quot;responsive web design&quot; has generally been used in reference to an optimized experience for a set of target devices, usually:</p>
 <ul>
 <li>A particular set of cell (smart) phones,</li>
 <li>various tablets,</li>
 <li>or desktop computer monitors (depending upon the target audience).</li>
 </ul>
-<p>Reasonable effort is applied to accommodate the ideal UX for devices with screen sizes that fall outside of and in between.</p>
+<p>Typically reasonable effort is applied to accommodate the ideal UX for devices with screen sizes that fall outside of and in between.</p>
 <p>Overall, critical content and features on a site should be:</p>
 <ul>
 <li>Adjustable to different types of user interaction (e.g. click, swipe, pinch)</li>
 <li>Realistically accessible based on the capabilities of different devices.</li>
 </ul>
-<p>If meeting desktop browsers&#39; feature sets and dealing with different platforms was difficult before, RWD introduces an almost infite ecosystem of hardware and software that Web pages need to work on.</p>
-<h3 id="getting-started">Getting Started</h3>
-<p>As the name of RWD implies, it all starts with a flexible design that considers components with mutable characteristics based on the available screen canvas. Careful consideration needs to be taken when innovating to derive a design that can respond to various screens.</p>
+<p>If meeting desktop browsers&#39; feature sets and dealing with different platforms was difficult before, RWD introduces an almost infite ecosystem of hardware and software that Web pages need to work on. The level of effort does often increase on projects featuring RWD.</p>
+<h3 id="getting-started-with-rwd">Getting Started with RWD</h3>
+<p>As the name of RWD implies, it all starts with a flexible design that features components having mutable characteristics based on the available screen canvas and varied types of user interactions. Careful consideration needs to be taken when innovating to derive a design that can respond to various screens.</p>
 <p>For a given project, always consider:</p>
 <ul>
-<li>The breadth of the use cases for each feature on the site.</li>
+<li>The extent of the use cases for each feature on the site.</li>
+<li>The target audience and likelihood they may be using an alternative device to conduct certain activities on the site.</li>
 <li>If all target devices will support all the technologies required.</li>
 <li>That the UX will <strong>not</strong> be 100% the same across all devices, browsers and screens — nor should it be!</li>
 <li>What happens to the design when the screen gets smaller and larger than the static canvas size it is being designed on.</li>
 <li>For placement of content and decorative elements, are there patterns or rules that can describe where it falls and adjust with screen sizes?</li>
-<li>Will some components be better suited as vector graphics (svg or fonts) instead of raster files to allow for distortion free scaling?</li>
-<li>Will assets need to be produced in different formats for different devices (e.g. Flash video vs. HTML5 video, lower resolution artwork vs. high resolution artwork, smaller file sizes vs. larger sizes)</li>
-<li>If the device offers a superior UX for some types of interaction (e.g.  native date-pickers vs. traditional browser controls, or swiping instead of clicking on dots).</li>
+<li>Will some components be better suited as vector graphics (SVG or fonts) instead of raster files to allow for distortion free scaling?</li>
+<li>Will assets need to be produced in different formats for different devices (e.g. Flash video vs. HTML5 video, lower resolution artwork vs. high resolution artwork, smaller file sizes vs. larger sizes).</li>
+<li>If a device offers a superior UX for some types of interaction (e.g.  native date-pickers vs. traditional browser controls, or swiping instead of clicking on dots).</li>
+<li>What happens when a feature is not supported by a device, or if a feature were to fail in a given device?</li>
+<li>What if a device went offline during usage of a feature?</li>
+<li>The best ways to detect support for various features (e.g. Modernizr, etc.).</li>
 </ul>
+<h4 id="to-use-a-prebuilt-grid-or-not-">To Use A Prebuilt Grid Or Not?</h4>
+<p>Sometimes CSS grid frameworks are a good place to start ... but sometimes not.</p>
+<p>They must match the design in terms of flexibility.</p>
 <h4 id="progressive-enhancement">Progressive Enhancement</h4>
-<p>Progressive enhancement is the practice of ... </p>
+<p>Since mobile phones and tablets are frequently the lower end in terms of capabilities, it is recommended to start with building the mobile experience first, and gradually add features. With this in mind, RWD could be considered a type of Progressive Enhancement, whereby users with basic devices can access basic content and features, however care is taken to layer on more sophisticated features for more powerful devices and desktop users.</p>
+<p>With these techniques, users only get what their device or browser can handle, and feature detection can be used to add more features when appropriate — without breaking on less capable devices.</p>
+<h4 id="setting-target-device-requirements">Setting Target Device Requirements</h4>
+<p>Check logs, check current industry statistics and trends, and consult with a client on their audience and proposed use cases when determining a baseline set of devices to build the site and test on.</p>
+<p>Is an audience:</p>
+<ul>
+<li>Working on their commute from a bus or train?</li>
+<li>Paying bills on the go?</li>
+<li>Accessinging financial information with their clients on the go, over lunch?</li>
+<li>Comfortably browsing for fun at home?</li>
+</ul>
+<p>It is near impossible to test on every version of every platform, particularly with something like Android where fragmentation of the feature set is totally unpredictable. Comparison of platforms and statistics regarding particular releases of particular versions of an operating system may need to be considered.</p>
+<!-- link to android fragmentation presentation -->
+<!-- link to sources for mobile device use? statcounter? etc? -->
+
 <h3 id="standards-for-developing-a-responsive-website">Standards For Developing a Responsive Website</h3>
-<p>RWD is achieved through the use of percentage based grids, flexible images and CSS media queries. Like all programming and creative processes there is flexibility in how you go about achieving these  so long as there is consistency within your team. Despite this flexibility there are some core guidelines:</p>
+<p>RWD is frequently said to be achieved through the use of:</p>
+<ol>
+<li>Percentage-based grids, </li>
+<li>flexible images that scale, </li>
+<li>and <strong>CSS media queries</strong>. </li>
+</ol>
+<p>These are the core ideas behind RWD, though other techniques are often employed as the term grows in popularity and the use cases evolve. </p>
+<p>Like all programming and creative processes there is flexibility in how you go about achieving these so long as there is consistency within your team. </p>
+<p>Some core guidelines:</p>
 <ul>
-<li>Always design and develop mobile first (thus use <code>min-width</code>, <strong>not</strong> <code>max-width</code> breakpoint definitions, more to follow)</li>
-<li>Take advantage of CSS breakpoints, but don&#39;t go breakpoint crazy, set the base breakpoints as a team and try to stick to them as much as possible (there will of course be exceptions). </li>
-<li>Build for speed and the minimum viable product</li>
-<li>Be careful of images, just because you are rendering a 5GB image at 100px by 100px does not change the bandwidth needed to download the file! Similarly if you are hiding an image with <code>display:none</code>, <code>visiblity:hidden</code> or similar, the image is likely still being downloaded. </li>
+<li>Always design and develop the mobile UX first (thus start with small defaults and scale up using <code>min-width</code>, <strong>not</strong> <code>max-width</code> breakpoint definitions). That is to say, start small, and work upwards.</li>
+<li>Set the baseline Media Queries as a team for various types of devices, and try to stick to them as much as possible. </li>
+<li>Add additional Media Queries — as necessary — for less than ideal experiences at the sizes in between, as appropriate for different types of content and components.</li>
+<li>Build for speed (load time and interaction) and the minimum viable product for slower connection speeds and less able devices.</li>
+<li>Be careful of images. Do not render a 5GB image at 100px by 100px. This does not change the bandwidth needed to download the file! Similarly if you are hiding an image with <code>display: none</code>, <code>visiblity: hidden</code> or similar, the image may still be downloaded.</li>
+<li>Test on real hardware. Actual testing on <em>actual devices</em> cannot be substituted with resizing a browser window, or even an &quot;emulation&quot; mode offered by a desktop browser.</li>
+<li>Additionally, mobile versions of desktop browsers are frequently woefully different (or a totally different product) than their desktop counterparts, so do not assume that just because it works on Chrome desktop that it will work on an Android device.</li>
 </ul>
+<p>Initial work, and first pass tests of media queries, may be performed in desktop browsers by resizing the screen or using a browser&#39;s developer tools that may feature an emulation mode (e.g. Chrome DevTools).</p>
+<p>However, this is <em>never a substition</em> for actual testing on actual devices with various Operating System versions and </p>
+<!-- link to article about comparing different types of downloading/hiding -->
+
 <h4 id="mobile-first">Mobile First</h4>
-<p>Speaks to a mentality of considering the lowest common denominator first, which is likely to be your mobile devices due to bandwidth limitations and loading times (not just screen size!). </p>
+<p>The Mobile First philosophy speaks to considering the lowest common denominator first, which is likely to be your mobile devices due to bandwidth limitations, loading times (not just screen size!), and even CPU speed of the devices.</p>
+<p>Key considerations and techniques include:</p>
 <ul>
-<li>Start with global styles that apply across all breakpoints</li>
-<li>Next add the styles that are seen below the smallest break point -- remember that using the <code>min-width</code> approach means that the &quot;first breakpoint&quot; will not be for small screens (like mobile size screens) but rather for lager ones (like mobile landscape or fablet size screens).</li>
-<li>From here add additional styles at successive breakpoints using <code>min-width</code> media queries leveraging the CSS cascade to progressively add additional styles.<ul>
-<li>Very generally speaking smaller screen designs are a bit less complex (fewer images, effects, etc). Thus as the screens get larger the complexity tends to increase conveniently lending to an additive approach to styling, very much in line with a mobile first pattern. </li>
+<li>Start with global content styles that apply across all breakpoints.</li>
+<li>Next, add the styles that are seen below the smallest break point -- remember that using the <code>min-width</code> approach means that the &quot;first breakpoint&quot; will not be for small screens (like mobile size screens) but rather for larger ones (like mobile landscape or phablet size screens).</li>
+<li>From here add additional styles at successive breakpoints using <code>min-width</code> media queries leveraging the CSS cascade to progressively add additional styles.</li>
+<li>As the queries increase in minimum sizes, add the markup and styles necessary to lay components out differently on larger screens.</li>
 </ul>
-</li>
-</ul>
+<p>Very generally speaking smaller screen designs are a bit less complex (fewer images, effects, etc). Thus as the screens get larger the complexity tends to increase conveniently lending to an additive approach to styling, very much in line with a mobile first pattern. </p>
 <pre><code class="language-css">/* GENERAL STYLES */
-*{...}
+* {...}
 
 /* SECTION SPECIFIC STYLES - aimed at the smallest devices*/
-.hero{...}
+.hero {...}
 
-@media(min-width:600px){
-  .hero{
+@media(min-width: 600px) {
+  .hero {
     /* just the new stuff here, no need to be repetitive... */   
   }  
 }
 
-@media(min-width:800px){
-  .hero{
+@media(min-width:800px) {
+  .hero {
 
   }  
 }</code></pre>
 <p>_note: the breakpoints specified above are <strong>not</strong> intended to be recommended breakpoints, but rather just illustrative of this general concept.</p>
 <p>Another way of thinking about a mobile first pattern (from a design and development standpoint) is to innovate for your smallest reasonable target device. Then start &quot;sizing your window up&quot; until the user experience or the design degrades, at which point you throw in a breakpoint and make some design modifications to fix the degradation. Resume sizing up your view port until you reach a similar breakdown in design and repeat this exercise. Recurse on this until you reach your largest reasonable target device - this is the mobile first pattern. </p>
 <h4 id="breakpoints">Breakpoints</h4>
-<p>A CSS breakpoint refers to a specific browser or device based condition under which a set of CSS rules will take effect. </p>
+<p>A CSS breakpoint refers to a specific browser or device based condition under which a set of CSS rules will take effect. This is typically screen size, and sometimes other conditions such as pixel density or screen orientation (i.e. landscape or portrait).</p>
 <ul>
 <li>Don’t specify device-specific widths (ipad portrait, ipad landscape)<ul>
 <li>Popular devices will come and go and even within devices the specifications will change over time. </li>
@@ -781,7 +817,7 @@ button#back-button { ... }
 </ul>
 <h4 id="media-queries">Media Queries</h4>
 <p>Added as part of the CSS3 specification, media queries consist of a media type and at least one expression of a media feature (such as height, width and orientation) that describe the conditions under which a set of CSS rules apply. For example:</p>
-<pre><code class="language-css"><span class="at_rule">@<span class="keyword">media</span> screen (min-width: <span class="number">300</span>px) and (max-width: <span class="number">800</span>px)</span>{
+<pre><code class="language-css"><span class="at_rule">@<span class="keyword">media</span> screen (min-width: <span class="number">300</span>px) and (max-width: <span class="number">800</span>px) </span>{
   <span class="class">.some-selector</span><span class="rules">{
     <span class="comment">/* CSS declarations go here */</span>
   <span class="rule">}</span></span>
@@ -806,8 +842,6 @@ button#back-button { ... }
 <li>Run all images though a lossless compressor like Compressor.io (<a href="https://compressor.io/">https://compressor.io/</a>), Smush.it (<a href="https://smush.it">https://smush.it</a>) or ImageOptim.</li>
 <li>Picturefill is a very good HTML5 polyfill designed to mimic the proposed <code>&lt;picture&gt;</code> element schema.</li>
 <li>Follow updates on Responsive Images here: <a href="http://responsiveimages.org/">http://responsiveimages.org/</a></li>
-</ul>
-<ul>
 <li>Consider “Compressive Images”<ul>
 <li>Basically higher-resolution jpegs compressed at a higher percentage rate</li>
 <li><a href="http://www.vanseodesign.com/web-design/compressive-image-tests/">http://www.vanseodesign.com/web-design/compressive-image-tests/</a></li>
