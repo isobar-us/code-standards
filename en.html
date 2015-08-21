@@ -132,7 +132,7 @@
 <li>Server-Side delivery platforms</li>
 </ul>
 <p><em>Note that it is vital to take into account how the site will ultimately be maintained and who will be doing that work.</em></p>
-<h3 id="general-markup-standards">General Markup Standards</h3>
+<h3 id="html-markup-best-practices">HTML Markup Best Practices</h3>
 <p>As noted these guidelines are flexible for projects as long as consensus or need determines a particular path, consistency is what matters most.</p>
 <p>Indent nested elements and tags with single indentation settings, whatever they may be, for each level in the hierarchy of the document.</p>
 <pre><code class="language-markup">&lt;div&gt;
@@ -317,7 +317,7 @@
 <p>One technique to consider is maintaining static HTML style reference implementations well into integration with server-side / back-end systems. These could be a series of templates or widgets that use the live styles being built. This helps reduce regressions that can happen across the board as the code for the site evolves. Continue to test these reference implementations as they will be the &quot;source of record&quot; for the styles created on the site. They also allow you to more easily distinguish the front-end bugs from the bugs potentially intriduced by integration with a complex back-end.</p>
 <p>These refernece implementations can serve as a <em>living style guide</em> and broken components are easily spotted in testing over time.</p>
 <p>Defining a solid style guide to be applied to tag names can significantly reduce the size of the CSS if that styleguide is adhered to by both the design and development teams. It is recommended that a styleguide is agreed upon at the beginning of a project, defined in HTML and then iterated on by both the design and development teams.</p>
-<h3 id="general-css-standards">General CSS Standards</h3>
+<h3 id="css-best-practices">CSS Best Practices</h3>
 <p>What follows are some basic concepts for standardization of CSS code. Naturally, feel free to fork, update per project, and even issue pull requests for further discussion based upon experience.</p>
 <h4 id="inclusion">Inclusion</h4>
 <p>Use the <code>&lt;link&gt;</code> tag to include all your stylesheets in the <code>&lt;head&gt;</code> of the document. For optimal page performance, concatenate your CSS into as few files as possible and do not use the <code>@import</code> command to include other stylesheets, as this will fire an additional HTTP request and block page rendering until its completion.</p>
@@ -566,7 +566,7 @@ button#back-button { ... }
 <li>What happens if for some reason this code is missing or does not run? </li>
 <li>What happens if the code triggers an error?</li>
 </ul>
-<h3 id="getting-started">Getting Started</h3>
+<h3 id="getting-started-on-javascript">Getting Started on JavaScript</h3>
 <p>All too often a developer will solve a problem in a closed context and not consider the whole picture. &quot;Add another plugin&quot; is not always a good answer. </p>
 <p>It is well worth considering if parts or all of the code being added can be useful elsewhere. Centralized code is excellent because it can be updated once and re-used everywhere.</p>
 <p>For JavaScript, a Front-end developer should be thinking about:</p>
@@ -629,7 +629,11 @@ The basic idea is an &quot;inversion of control&quot; in the code. This is debat
 <li>Commercial code must be approved if necessary.</li>
 </ul>
 <p>A team may decide to write wrapper code around the third party libary and provide a more simple API for the code.</p>
-<h3 id="javascript-standards">JavaScript Standards</h3>
+<h4 id="ecmascript-6-es6-ecmascript-2015">ECMAScript 6, ES6, ECMAScript 2015</h4>
+<p>Developers are encouraged to begin learning and using the <a href="https://leanpub.com/understandinges6/read/">latest version of JavaScript, ES6</a>. Please use appropriate transpilers and never release untested or unsupported code in the deliverables. Do <strong>not</strong> assume a feature <a href="https://kangax.github.io/compat-table/es6/">is supported</a> in a browser.</p>
+<!-- @todo: add links to resources and transpilers -->
+
+<h3 id="javascript-best-practices">JavaScript Best Practices</h3>
 <h4 id="inclusion-of-code">Inclusion of Code</h4>
 <p>Use external JavaScript files. <strong>Do NOT include JavaScript inline in the page unless there is a good reason</strong>.</p>
 <p>Use the <code>&lt;script&gt;</code> tag to include your JavaScript files at the bottom of your HTML document just before the closing <code>&lt;/body&gt;</code> tag. For optimal page performance, concatenate your JavaScript into as few files as possible.</p>
@@ -761,41 +765,6 @@ The basic idea is an &quot;inversion of control&quot; in the code. This is debat
 <li><a href="http://www.smashingmagazine.com/2012/11/writing-fast-memory-efficient-javascript/">Writing Fast, Memory-Efficient JavaScript</a></li>
 <li><a href="http://www.punkchip.com/javascript-efficiency/">Front-end developer essentials – 5 tips for efficient jQuery</a></li>
 </ul>
-<h4 id="ecmascript-6-es6-ecmascript-2015">ECMAScript 6, ES6, ECMAScript 2015</h4>
-<p>Developers are encouraged to begin learning and using the <a href="https://leanpub.com/understandinges6/read/">latest version of JavaScript, ES6</a>. Please use appropriate transpilers and never release untested or unsupported code in the deliverables. Do <strong>not</strong> assume a feature <a href="https://kangax.github.io/compat-table/es6/">is supported</a> in a browser.</p>
-<!-- @todo: add links to resources and transpilers -->
-
-<h3 id="deliverables">Deliverables</h3>
-<h4 id="understanding-the-code-s-place-in-the-project">Understanding the Code&#39;s Place in the Project</h4>
-<ul>
-<li>Understand where your code will live vs. any code introduced in a destination environment</li>
-<li>Understand if the code will need to coexist with other code.</li>
-</ul>
-<h4 id="clean-clear-organized-readable-code">Clean, Clear, Organized, Readable Code</h4>
-<ul>
-<li>As bug free as possible.</li>
-<li>Always remember we write code for other developers, not for a runtime or a browser.</li>
-<li>Remove code that is no longer used. Remove excess &quot;noise&quot; or distractions from source code such as large commented out blocks of unused code. Source control can solve problems like this.</li>
-<li>Have <code>console</code> and debugging statements be removed or a plan in place for suppression during the build or deployment.</li>
-</ul>
-<aside class="box">
-    <p><strong>Learn more:</strong><br><a href="http://code.tutsplus.com/tutorials/the-essentials-of-writing-high-quality-javascript--net-15145">The Essentials of Writing High Quality JavaScript</a> is an older article but still holds up today.</p>
-</aside>
-
-<p>Delivery of a flat folder full of JavaScript files is not advised.</p>
-<pre><code class="language-markup">├── _assets/
-│   ├── js/
-│   │   ├── app.js
-│   │   ├── tools.js
-│   │   ├── ...
-│   │   ├── vendor
-│   │   │   ├── source01.js
-│   │   │   ├── source02.js
-│   │   │   ├── ...
-│   │   ├── views
-│   │   │   ├── view01.js
-│   │   │   ├── view02.js
-│   │   │   ├── ...</code></pre>
 <h4 id="basic-javascript-architecture">Basic JavaScript Architecture</h4>
 <p>Today it is common for the JavaScript code on a site to be a vast collection of &quot;Modules&quot; brought together by build scripts, dependency tools, or even manually by the developer (not really recommended).</p>
 <p>Smaller sites can get away with more simple structures, but for longer term, JavaScript-heavy code bases the following rule is critical:</p>
@@ -850,6 +819,38 @@ The basic idea is an &quot;inversion of control&quot; in the code. This is debat
 
 <!-- @todo: @link: ES6 link -->
 
+<h3 id="javascript-deliverables">JavaScript Deliverables</h3>
+<p>The most obvious fact is you will need to provide working files that are error-free and will work in a variety of scenarios. We can&#39;t assume that clients will always leave scripts and pages as we leave them, though we can provide direction as to how scripts should be used.</p>
+<h4 id="understanding-the-code-s-place-in-the-project">Understanding the Code&#39;s Place in the Project</h4>
+<ul>
+<li>Understand where your code will live vs. any code introduced in a destination environment</li>
+<li>Understand if the code will need to coexist with other code.</li>
+</ul>
+<h4 id="clean-clear-organized-readable-code">Clean, Clear, Organized, Readable Code</h4>
+<ul>
+<li>As bug free as possible.</li>
+<li>Always remember we write code for other developers, not for a runtime or a browser.</li>
+<li>Remove code that is no longer used. Remove excess &quot;noise&quot; or distractions from source code such as large commented out blocks of unused code. Source control can solve problems like this.</li>
+<li>Have <code>console</code> and debugging statements be removed or a plan in place for suppression during the build or deployment.</li>
+</ul>
+<aside class="box">
+    <p><strong>Learn more:</strong><br><a href="http://code.tutsplus.com/tutorials/the-essentials-of-writing-high-quality-javascript--net-15145">The Essentials of Writing High Quality JavaScript</a> is an older article but still holds up today.</p>
+</aside>
+
+<p>Delivery of a flat folder full of JavaScript files is not advised.</p>
+<pre><code class="language-markup">├── _assets/
+│   ├── js/
+│   │   ├── app.js
+│   │   ├── tools.js
+│   │   ├── ...
+│   │   ├── vendor
+│   │   │   ├── source01.js
+│   │   │   ├── source02.js
+│   │   │   ├── ...
+│   │   ├── views
+│   │   │   ├── view01.js
+│   │   │   ├── view02.js
+│   │   │   ├── ...</code></pre>
 <h3 id="next-steps-amp-javascript-resources">Next Steps &amp; JavaScript Resources</h3>
 <p>There is an enormous volume of JavaScript reference material out in the wild today. We hope to add more at some point but here are various topics worth following up on:</p>
 <!-- @todo: clean this up, add links -->
@@ -874,9 +875,6 @@ The basic idea is an &quot;inversion of control&quot; in the code. This is debat
 </aside>
 
 <!-- 
-
-
-
 
 Exceptional Sources
 Eloquent JavaScript
@@ -939,7 +937,7 @@ http://javascriptweekly.com/archive/
 <li>Realistically accessible based on the capabilities of different devices.</li>
 </ul>
 <p>If meeting desktop browsers&#39; feature sets and dealing with different platforms was difficult before, RWD introduces an almost infite ecosystem of hardware and software that Web pages need to work on. The level of effort does often increase on projects featuring RWD.</p>
-<h3 id="getting-started-with-rwd">Getting Started with RWD</h3>
+<h3 id="getting-started-with-mobile-development">Getting Started with Mobile Development</h3>
 <p>As the name of RWD implies, it all starts with a flexible design that features components having mutable characteristics based on the available screen canvas and varied types of user interactions. Careful consideration needs to be taken when innovating to derive a design that can respond to various screens.</p>
 <p>For a given project, always consider:</p>
 <ul>
@@ -989,7 +987,7 @@ http://javascriptweekly.com/archive/
 <!-- @todo: @link to android fragmentation presentation -->
 <!-- @todo: @link to sources for mobile device use? statcounter? etc? -->
 
-<h3 id="general-responsive-design-standards">General Responsive Design Standards</h3>
+<h3 id="responsive-design-best-practices">Responsive Design Best Practices</h3>
 <p>RWD is frequently said to be achieved through the use of:</p>
 <ol>
 <li>Percentage-based grids, </li>

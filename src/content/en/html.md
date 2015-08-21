@@ -35,7 +35,7 @@ Discuss types of:
 
 *Note that it is vital to take into account how the site will ultimately be maintained and who will be doing that work.*
 
-### General Markup Standards
+### HTML Markup Best Practices
 
 As noted these guidelines are flexible for projects as long as consensus or need determines a particular path, consistency is what matters most.
 

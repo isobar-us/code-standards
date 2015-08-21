@@ -18,7 +18,7 @@ var ISOBAR = {
         // generate table of contents
         toc: function() {
             var toc = document.getElementById('toc');
-            var hx = $('section h2, section h3, section h4, section h5');
+            var hx = $('h2, h3, h4, h5', 'section');
             // var frag = document.createDocumentFragment();
             var hx_len = hx.length;
             var toc_contents = '';
@@ -96,7 +96,7 @@ var ISOBAR = {
 
         fire: function(func, funcname, args) {
             var namespace = ISOBAR; // indicate your obj literal namespace here
-            funcname = (funcname === undefined) ? 'init' : funcname;
+            funcname = (typeof funcname === 'undefined') ? 'init' : funcname;
             if (func !== '' && namespace[func] && typeof namespace[func][funcname] == 'function') {
                 namespace[func][funcname](args);
             }
@@ -109,6 +109,11 @@ var ISOBAR = {
 
             //Fire resize event and call setLayout(). Put onresize events in there.
             window.addEventListener('resize', iso.debounce(iso.setLayout, 50));
+
+            // may want this to track the menu at some point (future)
+            // window.addEventListener('scroll', iso.debounce(function(){
+            //     console.log('scroll');
+            // }, 100))
 
             // enable pointer events for touch devices
             FastClick.attach(document.body);

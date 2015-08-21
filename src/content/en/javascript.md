@@ -32,7 +32,7 @@ Likewise, the absense or failure of the code should be carefully considered:
  - What happens if for some reason this code is missing or does not run? 
  - What happens if the code triggers an error?
 
-### Getting Started
+### Getting Started on JavaScript
 
 All too often a developer will solve a problem in a closed context and not consider the whole picture. "Add another plugin" is not always a good answer. 
 
@@ -105,7 +105,13 @@ Third party code should be included as-is and:
 
 A team may decide to write wrapper code around the third party libary and provide a more simple API for the code.
 
-### JavaScript Standards
+#### ECMAScript 6, ES6, ECMAScript 2015
+
+Developers are encouraged to begin learning and using the [latest version of JavaScript, ES6][link-es6book]. Please use appropriate transpilers and never release untested or unsupported code in the deliverables. Do **not** assume a feature [is supported][link-es6support] in a browser.
+
+<!-- @todo: add links to resources and transpilers -->
+
+### JavaScript Best Practices
 
 #### Inclusion of Code
 
@@ -283,48 +289,6 @@ A book could be written on the subject, but here's a taste of various references
  - [Writing Fast, Memory-Efficient JavaScript](http://www.smashingmagazine.com/2012/11/writing-fast-memory-efficient-javascript/)
  - [Front-end developer essentials – 5 tips for efficient jQuery](http://www.punkchip.com/javascript-efficiency/)
 
-#### ECMAScript 6, ES6, ECMAScript 2015
-
-Developers are encouraged to begin learning and using the [latest version of JavaScript, ES6][link-es6book]. Please use appropriate transpilers and never release untested or unsupported code in the deliverables. Do **not** assume a feature [is supported][link-es6support] in a browser.
-
-<!-- @todo: add links to resources and transpilers -->
-
-### Deliverables
-
-#### Understanding the Code's Place in the Project
-
- - Understand where your code will live vs. any code introduced in a destination environment
- - Understand if the code will need to coexist with other code.
-
-#### Clean, Clear, Organized, Readable Code
-
- - As bug free as possible.
- - Always remember we write code for other developers, not for a runtime or a browser.
- - Remove code that is no longer used. Remove excess "noise" or distractions from source code such as large commented out blocks of unused code. Source control can solve problems like this.
- - Have `console` and debugging statements be removed or a plan in place for suppression during the build or deployment.
-
-<aside class="box">
-    <p>**Learn more:**<br>[The Essentials of Writing High Quality JavaScript](http://code.tutsplus.com/tutorials/the-essentials-of-writing-high-quality-javascript--net-15145) is an older article but still holds up today.</p>
-</aside>
-
-Delivery of a flat folder full of JavaScript files is not advised.
-
-```markup
-├── _assets/
-│   ├── js/
-│   │   ├── app.js
-│   │   ├── tools.js
-│   │   ├── ...
-│   │   ├── vendor
-│   │   │   ├── source01.js
-│   │   │   ├── source02.js
-│   │   │   ├── ...
-│   │   ├── views
-│   │   │   ├── view01.js
-│   │   │   ├── view02.js
-│   │   │   ├── ...
-```
-
 #### Basic JavaScript Architecture
 
 Today it is common for the JavaScript code on a site to be a vast collection of "Modules" brought together by build scripts, dependency tools, or even manually by the developer (not really recommended).
@@ -388,6 +352,44 @@ Or, a **common standard**, used by many dependency tools:
 
 <!-- @todo: @link: ES6 link -->
 
+### JavaScript Deliverables
+
+The most obvious fact is you will need to provide working files that are error-free and will work in a variety of scenarios. We can't assume that clients will always leave scripts and pages as we leave them, though we can provide direction as to how scripts should be used.
+
+#### Understanding the Code's Place in the Project
+
+ - Understand where your code will live vs. any code introduced in a destination environment
+ - Understand if the code will need to coexist with other code.
+
+#### Clean, Clear, Organized, Readable Code
+
+ - As bug free as possible.
+ - Always remember we write code for other developers, not for a runtime or a browser.
+ - Remove code that is no longer used. Remove excess "noise" or distractions from source code such as large commented out blocks of unused code. Source control can solve problems like this.
+ - Have `console` and debugging statements be removed or a plan in place for suppression during the build or deployment.
+
+<aside class="box">
+    <p>**Learn more:**<br>[The Essentials of Writing High Quality JavaScript](http://code.tutsplus.com/tutorials/the-essentials-of-writing-high-quality-javascript--net-15145) is an older article but still holds up today.</p>
+</aside>
+
+Delivery of a flat folder full of JavaScript files is not advised.
+
+```markup
+├── _assets/
+│   ├── js/
+│   │   ├── app.js
+│   │   ├── tools.js
+│   │   ├── ...
+│   │   ├── vendor
+│   │   │   ├── source01.js
+│   │   │   ├── source02.js
+│   │   │   ├── ...
+│   │   ├── views
+│   │   │   ├── view01.js
+│   │   │   ├── view02.js
+│   │   │   ├── ...
+```
+
 ### Next Steps &amp; JavaScript Resources
 
 There is an enormous volume of JavaScript reference material out in the wild today. We hope to add more at some point but here are various topics worth following up on:
@@ -433,9 +435,6 @@ For more current links and references, please see [our Wiki on Github](https://g
 [link-jspatterns]: http://addyosmani.com/resources/essentialjsdesignpatterns
 
 <!-- 
-
-
-
 
 Exceptional Sources
 Eloquent JavaScript

@@ -101,7 +101,7 @@ These refernece implementations can serve as a *living style guide* and broken c
 
 Defining a solid style guide to be applied to tag names can significantly reduce the size of the CSS if that styleguide is adhered to by both the design and development teams. It is recommended that a styleguide is agreed upon at the beginning of a project, defined in HTML and then iterated on by both the design and development teams.
 
-### General CSS Standards
+### CSS Best Practices
 
 What follows are some basic concepts for standardization of CSS code. Naturally, feel free to fork, update per project, and even issue pull requests for further discussion based upon experience.
 
