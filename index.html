@@ -132,7 +132,7 @@
 <li>Server-Side delivery platforms</li>
 </ul>
 <p><em>Note that it is vital to take into account how the site will ultimately be maintained and who will be doing that work.</em></p>
-<h3 id="general-markup-standards">General Markup Standards</h3>
+<h3 id="html-markup-best-practices">HTML Markup Best Practices</h3>
 <p>As noted these guidelines are flexible for projects as long as consensus or need determines a particular path, consistency is what matters most.</p>
 <p>Indent nested elements and tags with single indentation settings, whatever they may be, for each level in the hierarchy of the document.</p>
 <pre><code class="language-markup">&lt;div&gt;
@@ -317,7 +317,7 @@
 <p>One technique to consider is maintaining static HTML style reference implementations well into integration with server-side / back-end systems. These could be a series of templates or widgets that use the live styles being built. This helps reduce regressions that can happen across the board as the code for the site evolves. Continue to test these reference implementations as they will be the &quot;source of record&quot; for the styles created on the site. They also allow you to more easily distinguish the front-end bugs from the bugs potentially intriduced by integration with a complex back-end.</p>
 <p>These refernece implementations can serve as a <em>living style guide</em> and broken components are easily spotted in testing over time.</p>
 <p>Defining a solid style guide to be applied to tag names can significantly reduce the size of the CSS if that styleguide is adhered to by both the design and development teams. It is recommended that a styleguide is agreed upon at the beginning of a project, defined in HTML and then iterated on by both the design and development teams.</p>
-<h3 id="general-css-standards">General CSS Standards</h3>
+<h3 id="css-best-practices">CSS Best Practices</h3>
 <p>What follows are some basic concepts for standardization of CSS code. Naturally, feel free to fork, update per project, and even issue pull requests for further discussion based upon experience.</p>
 <h4 id="inclusion">Inclusion</h4>
 <p>Use the <code>&lt;link&gt;</code> tag to include all your stylesheets in the <code>&lt;head&gt;</code> of the document. For optimal page performance, concatenate your CSS into as few files as possible and do not use the <code>@import</code> command to include other stylesheets, as this will fire an additional HTTP request and block page rendering until its completion.</p>
@@ -541,8 +541,10 @@ button#back-button { ... }
 </section>
 <section><h2 id="javascript">JavaScript</h2>
 <p>JavaScript is where extra behaviors, features, and functionality not offered natively by Web browsers through CSS and HTML is created. </p>
+<p>JavaScript has gained an enourmous amount of attention in recent years due to more feature rich, faster browsers and server runtimes such as Node.js. For the purposes, general discussion here focuses on client-side JavaScript development, with references to where it crosses over.</p>
+<p>It is of note that many techniques identified these days as &quot;HTML5&quot; are actually enabled by the related JavaScript APIs.</p>
 <h3 id="goals">Goals</h3>
-<p>JavaScript should be used sparingly, and when a deliberate choice is made to not perform a task on the server or by another means. </p>
+<p>Unless we are talking about a complex client-side Single Page Application (SPA), JavaScript should be used sparingly, and when a deliberate choice is made to not perform a task with other available technologies. The decision to add more scripts to a Web page should be made carefully. Even with a SPA, it is critical to make controlled choices so as to not include too much unorganized impossible to maintain code.</p>
 <p>Any and all JavaScript code that&#39;s added to a Web page should be there <em>if and only if</em> it is needed for the page to achieve the desired ends or if there aren&#39;t any negative impacts with it there.</p>
 <p>Included JavaScript should:</p>
 <ul>
@@ -559,14 +561,15 @@ button#back-button { ... }
 <li>Not conflict with other code on a given page or sets of pages.</li>
 <li>Executed only when necessary on a given page or sets of pages.</li>
 </ul>
-<p>Likewise, the absense of the code should be carefully considered:</p>
+<p>Likewise, the absense or failure of the code should be carefully considered:</p>
 <ul>
 <li>What happens if for some reason this code is missing or does not run? </li>
 <li>What happens if the code triggers an error?</li>
 </ul>
-<h3 id="getting-started">Getting Started</h3>
-<p>Client buy-in may be necessary for the usage of JavaScript for some features. It may be a forgone conclusion but usage of libraries or custom code should be discussed with the team and client technical leads to be certain the teams are on the same page.</p>
-<p>A JavaScript developer should be thinking about:</p>
+<h3 id="getting-started-on-javascript">Getting Started on JavaScript</h3>
+<p>All too often a developer will solve a problem in a closed context and not consider the whole picture. &quot;Add another plugin&quot; is not always a good answer. </p>
+<p>It is well worth considering if parts or all of the code being added can be useful elsewhere. Centralized code is excellent because it can be updated once and re-used everywhere.</p>
+<p>For JavaScript, a Front-end developer should be thinking about:</p>
 <ul>
 <li>If there is code that does this task already?</li>
 <li>Code formatting rules, naming conventions, file locations, etc.</li>
@@ -574,52 +577,106 @@ button#back-button { ... }
 <li>If <code>strings</code> of text should be external for content management or translation.</li>
 <li>If code being added might be useful outside of the current problem.</li>
 </ul>
-<p>All too often a developer will solve a problem in a closed context and not consider the whole picture. It is well worth considering if parts or all of the code being added can be useful elsewhere. Centralized code is excellent because it can be updated once and re-used everywhere.</p>
 <p>Examples of possible things to centralize:</p>
 <ul>
+<li>Code that modifies the DOM</li>
+<li>Ajax, validation, or other libraries</li>
+<li>Query string parsing utilities, router-type code</li>
+<li>Tests for global conditions (e.g. window size, feature support, etc.)</li>
+<li>Page, window, or document level events (e.g. Ajax, resize, etc.)</li>
 <li>UI controls (e.g. spinners, modals, tabs, etc.)</li>
 <li>Date handling utilities</li>
-<li>Query string parsing utilities</li>
-<li>Ajax, validation, or other libraries</li>
-<li>Tests for global conditions (e.g. window size, feature support, etc.)</li>
-<li>Settings and configuration options (e.g. paths to services, debug flags, duration settings, minimum or maximum values, etc.)</li>
-<li>Page, window, or document level events (e.g. Ajax, resize, etc.)</li>
+<li>Files with strings of text in a given language</li>
+<li>Finally, settings and configuration options (e.g. paths to services, debug flags, duration settings, minimum or maximum values, etc.) are common things to set in a centralized, distinct place.</li>
 </ul>
 <p>Bottom line, please understand what the JavaScript does and how it does it if you are including third party code.</p>
+<aside class="box">
+    <p><strong>Note:</strong><br>
+    Client buy-in may be necessary for the usage of JavaScript for some features. It may be a forgone conclusion but usage of libraries or custom code should be discussed with the team and client technical leads to be certain the teams are on the same page.</p></aside>
+
 <h4 id="javascript-libraries-frameworks-and-plugins">JavaScript Libraries, Frameworks, and Plugins</h4>
-<p>These days it is common for complex libraries and frameworks to be used on sites, especially when the client-side is become more and more responsible for larger parts of applications and Web sites.</p>
+<p>Recent years have seen a virtual explosion in new JavaScript libraries sometimes calling themselves &quot;frameworks&quot;.</p>
+<p>Libraries and frameworks can be useful, especially when the client-side is become more responsible for larger parts of applications and Web sites.</p>
 <ul>
-<li><strong>Libraries</strong> are code you use within your structure and organizational patterns, featuring code that is available to you and you call upon.</li>
-<li><strong>Frameworks</strong> are code structures that serve specific purposes and call your code for specific goals. </li>
+<li><strong>Libraries</strong> are code you use within your structure, featuring code that is available for you call upon.</li>
+<li><strong>Frameworks</strong> are code collections that serve specific purposes in a particular way, and call your code that is included following their patterns. </li>
 </ul>
-<p>The basic idea is an &quot;inversion of control&quot; in the code. This is debatable, but something like jQuery could be said to be a library, while Angular, React, or Backbone would be a framework.</p>
-<p>Either way, these are <em>third party code</em> that should be carefully considered when it is determined to be included in a project or not.</p>
+<aside class="box"><p><strong>Learn more:</strong><br>
+The basic idea is an &quot;inversion of control&quot; in the code. This is debatable, but something like jQuery could be said to be a library, while Angular, React, or Backbone could be a framework.</p></aside>
+
+<p>Either way, this is typically <em>third party code</em> that should be carefully considered when it is determined to be included in a project or not.</p>
 <h5 id="selection-of-third-party-code">Selection of Third Party Code</h5>
+<!-- @todo: beef up this section about framework selection -->
+
+<p>Selection of a library or framework is never an easy task. Things that should be considered include:</p>
 <ul>
-<li>Technical Requirements</li>
-<li>Quality and maturity of code</li>
-<li>Future support</li>
-<li>Staff skill sets</li>
-<li>How tightly coupled to the layers of the application the code may be</li>
-<li>Open source community activity</li>
-<li>Be tested against various devices and platform requirements</li>
+<li>Technical Requirements for the project.</li>
+<li>Quality and maturity of code in question.</li>
+<li>Future support for the code.</li>
+<li>Staffing skill sets required to support the code.</li>
+<li>How tightly coupled to the layers of the application the code may be.</li>
+<li>How actively supported its open source community may be.</li>
+<li>Be tested against various devices and platform requirements to verify it works for the project.</li>
 </ul>
-<h4 id="code-architecture">Code Architecture</h4>
-<h3 id="javascript-standards">JavaScript Standards</h3>
-<h4 id="inclusion">Inclusion</h4>
-<p>Use the <code>&lt;script&gt;</code> tag to include your JavaScript files at the bottom of your HTML document just before the closing <code>&lt;/body&gt;</code> tag. For optimal page performance, concatenate your JavaScript into as few files as possible.</p>
-<pre><code class="language-markup">&lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt;</code></pre>
-<h4 id="formatting">Formatting</h4>
-<p>The use of whitespace should follow long-standing English writing conventions. </p>
-<p>Specifically:</p>
+<h5 id="usage-of-third-party-code">Usage of Third Party Code</h5>
+<p>Third party code should be included as-is and:</p>
 <ul>
-<li>Each comma and colon (and semi-colons that don&#39;t end a line) should be followed by a single space.</li>
-<li>Binary and ternary operators should have a single space on each side.</li>
-<li>There should be no space characters between parentheses and their contents.</li>
-<li>Opening braces should appear on the same line as their preceding argument.</li>
+<li>Treated as it may be updated (i.e. verions) at some point in the future.</li>
+<li>Should <strong>never be modified</strong> unless documented thoroughly for the project.</li>
+<li>As many convensions of its use followed in their recommended standard ways.</li>
+<li>Unminified code should be included.</li>
+<li>Any required licenses should be included as specified by the library.</li>
+<li>Commercial code must be approved if necessary.</li>
+</ul>
+<p>A team may decide to write wrapper code around the third party libary and provide a more simple API for the code.</p>
+<h4 id="ecmascript-6-es6-ecmascript-2015">ECMAScript 6, ES6, ECMAScript 2015</h4>
+<p>Developers are encouraged to begin learning and using the <a href="https://leanpub.com/understandinges6/read/">latest version of JavaScript, ES6</a>. Please use appropriate transpilers and never release untested or unsupported code in the deliverables. Do <strong>not</strong> assume a feature <a href="https://kangax.github.io/compat-table/es6/">is supported</a> in a browser.</p>
+<!-- @todo: add links to resources and transpilers -->
+
+<h3 id="javascript-best-practices">JavaScript Best Practices</h3>
+<h4 id="inclusion-of-code">Inclusion of Code</h4>
+<p>Use external JavaScript files. <strong>Do NOT include JavaScript inline in the page unless there is a good reason</strong>.</p>
+<p>Use the <code>&lt;script&gt;</code> tag to include your JavaScript files at the bottom of your HTML document just before the closing <code>&lt;/body&gt;</code> tag. For optimal page performance, concatenate your JavaScript into as few files as possible.</p>
+<pre><code class="language-markup">&lt;script src=&quot;bundle.js&quot;&gt;&lt;/script&gt;</code></pre>
+<ul>
+<li>This should link to concatenated and minified, finalized JavaScript files. </li>
+<li>Enable source maps to assist with debugging and testing. </li>
+</ul>
+<p>In development environments, this may point at a non-optimized file, however having techniques in place to toggle optimized files on and off is often beneficial.</p>
+<p>A reference similar to this may need to include a build-specific file name based upon a hash or something along those lines for HTTP cache purposes.</p>
+<aside class="box">
+    <p><strong>Learn more:</strong><br>
+    For information about build tools that help with these techniques, please see the <a href="#appendix_appendix">Appendix</a>.</p>
+</aside>
+
+<h5 id="loading-files-on-demand">Loading Files On Demand</h5>
+<p>On some sites it may be appropriate to load a single JavaScript file with all dependencies bundled together, or it may be more appropriate (such as in a very large SPA) to load files <em>on demand</em>, as they are needed, asychronously.</p>
+<!-- @todo: more information -->
+
+<h4 id="writing-and-formatting-javascript">Writing and Formatting JavaScript</h4>
+<p>The use of whitespace should follow long-standing English writing conventions, with blank lines between ideas and groups of code such as objects, functions, and new lines for new statements.</p>
+<p>Formatting the language statements and patterns should follow these basics:</p>
+<ul>
+<li><strong>Open braces</strong> are preceded by a single space.</li>
+<li><strong>Open braces</strong> should appear on the same line as their preceding argument.</li>
+<li><strong>Close braces</strong> should appear at the same indendation as the statement preceding the opening brace</li>
+<li>There should be no space characters between <strong>parentheses</strong> and their contents.</li>
+<li>Use <strong>semicolons</strong> and do not rely on automatic semicolon insertion.</li>
+<li>Each <strong>comma</strong> and <strong>colon</strong> (and semi-colons that don&#39;t end a line) should be followed by a single space.</li>
+<li><strong>Binary</strong> and <strong>ternary operators</strong> should have a single space on each side.</li>
+<li><strong>Quoted values</strong> should be in &#39;single quotes&#39; so that double quotes may easily exist inside them.</li>
+<li><strong>Comment JavaScript</strong> code thoroughly and consider using a pattern such as those described by <a href="http://usejsdoc.org/">JSDocs</a> so that documentation may be generated automatically.</li>
+<li>Conditional statements go on a new line followed by the opening brace.</li>
+<li>Else/else go on the same line as the brace.</li>
+<li>Use type strict checks with <code>===</code> as opposed to <code>==</code> whenever possible.</li>
 </ul>
 <pre><code class="language-javascript"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = arr.length; i &lt; len; i++) {
-    <span class="comment">// do something</span>
+    <span class="keyword">var</span> example = <span class="number">1</span>;
+    <span class="keyword">if</span> (example === i) {
+        <span class="comment">// we are looping</span>
+    } <span class="keyword">else</span> {
+        <span class="comment">// this will never happen</span>
+    }
 }</code></pre>
 <p>To maximize readability without worrying about which boolean operators bind more tightly than others, each segment of a boolean expression should be enclosed in parentheses.</p>
 <pre><code class="language-javascript"><span class="keyword">if</span> ((allowUpdate) &amp;&amp; ((user.isAdmin) || (user.role === item.owner))) {
@@ -627,46 +684,233 @@ button#back-button { ... }
 }</code></pre>
 <h4 id="variable-declaration">Variable Declaration</h4>
 <p>To avoid confusion between global and local variables, we declare each variable on its own line with the <code>var</code> keyword. We do not use a single <code>var</code> keyword and then chain several variable declarations onto it separated by a comma.</p>
-<pre><code class="language-javascript"><span class="keyword">var</span> width;
-<span class="keyword">var</span> height;
-<span class="keyword">var</span> newObject = {};
-<span class="keyword">var</span> newArray = [];
-<span class="keyword">var</span> $body = $(<span class="string">'body'</span>);
+<pre><code class="language-javascript"><span class="keyword">var</span> windowWidth;
+<span class="keyword">var</span> windowHeight;
 <span class="keyword">var</span> currentVal = $(<span class="keyword">this</span>).val();
 <span class="keyword">var</span> min = parseInt($(<span class="keyword">this</span>).attr(<span class="string">'min'</span>), <span class="number">10</span>);</code></pre>
 <p>This has been <a href="http://benalman.com/news/2012/05/multiple-var-statements-javascript/">debated at length</a> and is controversial, however we believe this is a better practice due to serveral technical reasons:</p>
 <ul>
-<li>Easier debugging with dubuggers</li>
-<li>Easier merges with version control and diff utilities</li>
-<li>Most technical issues are resolved by &#39;use strict&#39;</li>
-<li></li>
-<li>... </li>
+<li>Easier debugging with dubuggers.</li>
+<li>Easier merges with version control and diff utilities.</li>
+<li>Most technical issues are resolved by &#39;use strict&#39;.</li>
 </ul>
-<h4 id="feature-detection">Feature Detection</h4>
+<h4 id="best-practices">Best Practices</h4>
+<ul>
+<li>Avoid user-agent sniffing and rely on <a href="#javascript_feature-detection">feature detection</a> instead. Browser detection is dangerous and error-prone.</li>
+<li>Avoid using <code>document.write</code>.</li>
+<li>Only run scripts on a page that are needed for that page.</li>
+<li>Don&#39;t repeat yourself (i.e. keep your code <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY</a>)</li>
+<li>Do not modify JavaScript core objects <code>.prototype</code> unless you really know what you&#39;re doing.</li>
+<li>Use method names that make sense, such as <code>init()</code> or <code>setup()</code> for code that starts things off. Be consistent on your project.</li>
+</ul>
+<h5 id="variable-scope">Variable Scope</h5>
+<p>Minimize the use of <code>global</code> or <code>window</code> level variables and namespaces. Pollution of the global namespace is error prone and a bad practice.</p>
+<p>If referencing a <code>window</code> or <code>global</code> level variable that isn&#39;t obvious, please comment as such or explicitly state it.</p>
+<pre><code class="language-javascript"><span class="keyword">var</span> window.thing = {};</code></pre>
+<h5 id="variable-names-and-types">Variable Names and Types</h5>
+<p>Always use meaningful variable names that can be read as words, not as silly abbreviations only you understand.</p>
+<ul>
+<li>Variable names should be <code>camelCase</code>. </li>
+<li>Objects, classes, and namespaces should be <code>TitleCase</code>. </li>
+<li>Boolean values should be prefixed with <code>is</code> if at all possible.</li>
+<li>Cached jQuery objects can be prefixed with <code>$</code>.</li>
+<li>Use shorthand versions of empty <code>Arrays</code> and <code>Objects</code>.</li>
+</ul>
+<pre><code class="language-javascript"><span class="comment">// some examples</span>
+<span class="keyword">var</span> exampleValue = <span class="string">'my example variable value'</span>;
+<span class="keyword">var</span> numberOfTimes = <span class="number">3</span>;
+<span class="comment">// booleans</span>
+<span class="keyword">var</span> isThisWorking = <span class="literal">true</span>;
+<span class="keyword">var</span> isNotWorking = <span class="number">0</span>;
+<span class="comment">// cache a selector</span>
+<span class="keyword">var</span> $body = $(<span class="string">'body'</span>);
+<span class="comment">// short hand objects and arrays</span>
+<span class="keyword">var</span> newObject = {};
+<span class="keyword">var</span> newArray = [];</code></pre>
+<h5 id="settings-constants">Settings, Constants</h5>
+<p>Put settings together in obvious places such as an Object literal space inside your module. Make settings that are possibly to be considered &quot;constants&quot; to be obvious -- some developers like to use <code>ALLCAPS</code>.</p>
+<aside class="box">
+    <p><strong>Learn more:</strong><br>
+    Did you know that <a href="https://strongloop.com/strongblog/es6-variable-declarations/">ES6 now features</a> real life <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const">constants</a>?</p>
+</aside>
+
+<h5 id="feature-detection">Feature Detection</h5>
 <p>Always test for the existence of a browser API, function, or object property before you use it, and make sure the user experience is still functional (to the extent possible) if it&#39;s not found. We rely on JavaScript-based feature detection rather than server-side device detection because it&#39;s more robust, easily maintained, and future-proof.</p>
-<h3 id="deliverables">Deliverables</h3>
+<aside class="box">
+    <p><strong>Learn More:</strong><br>The goto library for feature detection is of course <a href="http://modernizr.com/">Modernizr</a>.</p>
+</aside>
+
+<h5 id="limit-events-use-event-delegation">Limit Events — Use Event Delegation</h5>
+<p>It is always preferrable to use fewer events being bound to objects on a page as possible. Too many events bound on a page can mean memory leaks or just an accumulation of handlers bound to DOM elements which becomes less and less efficient over time. Additionally, event delegation has the added benefit of persisting events over dynamic page updates when items are added or removed from the DOM.</p>
+<p>With jQuery this is easy, simply use the <code>on</code> method with a selector:</p>
+<pre><code class="language-javascript">$(<span class="string">'body'</span>).on(<span class="string">'click'</span>, <span class="string">'a.scroller'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+   <span class="comment">// this only runs if the a.scroller is matched</span>
+});</code></pre>
+<!-- @todo: move the link to the bottom -->
+
+<aside class="box">
+    <p><strong>Learn more:</strong><br>The jQuery API site has an excellent overview of the <a href="http://api.jquery.com/on/">on</a> method.</p>
+</aside>
+
+<h5 id="javascript-performance">JavaScript Performance</h5>
+<p>One of the most costly operations a browser can perform is updating the DOM in the page via ineffecient JavaScript techniques. The most important thing to know is that the more you do on a Web page with JavaScript, the more work is being done, the more memory and the bigger the footprint it can generate. Additionally, updating a complex DOM structure over and over in JavaScript can cause reflow, repainting, and jank.</p>
+<p>A book could be written on the subject, but here&#39;s a taste of various references:</p>
+<ul>
+<li><a href="https://developers.google.com/speed/articles/reflow?hl=en">Minimizing browser reflow</a></li>
+<li><a href="http://blog.letitialew.com/post/30425074101/repaints-and-reflows-manipulating-the-dom">Repaints and Reflows, Manipulating the DOM Responsibly</a></li>
+<li><a href="http://www.stubbornella.org/content/2009/03/27/reflows-repaints-css-performance-making-your-javascript-slow/">Reflows &amp; Repaints: Css Performance Making Your Javascript Slow?</a></li>
+<li><a href="http://www.phpied.com/rendering-repaint-reflowrelayout-restyle/">Rendering: repaint, reflow/relayout, restyle</a></li>
+<li><a href="http://www.nczonline.net/blog/2009/02/03/speed-up-your-javascript-part-4/">Speed Up Your JavaScript (part 4)</a></li>
+<li><a href="https://gist.github.com/dypsilon/4252079">Memory Management and Performance</a></li>
+<li><a href="http://www.smashingmagazine.com/2012/11/writing-fast-memory-efficient-javascript/">Writing Fast, Memory-Efficient JavaScript</a></li>
+<li><a href="http://www.punkchip.com/javascript-efficiency/">Front-end developer essentials – 5 tips for efficient jQuery</a></li>
+</ul>
+<h4 id="basic-javascript-architecture">Basic JavaScript Architecture</h4>
+<p>Today it is common for the JavaScript code on a site to be a vast collection of &quot;Modules&quot; brought together by build scripts, dependency tools, or even manually by the developer (not really recommended).</p>
+<p>Smaller sites can get away with more simple structures, but for longer term, JavaScript-heavy code bases the following rule is critical:</p>
+<ul>
+<li>For a complex site, never use a single JavaScript file for development, unless it is tiny and serves a very targeted purpose.</li>
+</ul>
+<p>This is so that the code is maintainable and scalable. Smaller files are easier to debug, swap in and out, and blocks of code should serve as small a purpose as possible (<a href="http://blog.codinghorror.com/curlys-law-do-one-thing/">single responsibility principle</a>).</p>
+<p>In most simple terms, most sites benefit from a basic structure similar to:</p>
+<ul>
+<li>Global site-wide JavaScript</li>
+<li>Specific modules for specific sections of the site</li>
+<li>Specific modules used for specific purposes / features</li>
+<li>Available vendor libraries</li>
+</ul>
+<p>With this in mind, for strict control over the code base it&#39;s best to consider:</p>
+<ul>
+<li>What is the <strong>central entry point</strong>, or the central point of execution? This is to say, what kicks off the JavaScript? This may be a simple jQuery <code>document.ready()</code> or some other mechanism to run the site&#39;s code, such as a router.</li>
+</ul>
+<p>Having explicit control over the page lifecycle is preferable to having a dozen jQuery <code>document.ready()</code> statements all competing for the first chance to execute on a page.</p>
+<p>Effectively the application core, it should kick off the rest of the code to run. Typically this has module-management baked in in some way.</p>
+<aside class="box">
+    <p><strong>Note:</strong><br>One way to control which code runs on a page is through <a href="http://paulirish.com/2009/markup-based-unobtrusive-comprehensive-dom-ready-execution/">DOM-based routing</a>.</p>
+</aside>
+
+<p>Additional considerations:</p>
+<ul>
+<li>How are the modules going to communicate with each other?</li>
+<li>How tightly coupled are the modules in the code base?</li>
+<li>How much JavaScript code would need to be updated if/when the HTML / CSS changes on the project?</li>
+<li>Can individual parts call as few libraries or plugins as indirectly as possible, to facilitate changes later?</li>
+<li>Does the server need to provide the scripts dynamic values for JavaScript?</li>
+</ul>
+<h5 id="about-javascript-modules">About JavaScript Modules</h5>
+<p>The term &quot;module&quot; in JavaScript has probably been over-used. It can refer to specific patterns used by specific tools and frameworks, or simple blocks of code following some typical <a href="http://www.slideshare.net/stoyan/javascript-patterns">JavaScript design patterns</a>.</p>
+<p>These days options for JavaScript modules include some of the following.</p>
+<p><strong>Vanilla JavaScript</strong>:</p>
+<ul>
+<li><a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript">Object literal notation</a></li>
+<li>The <a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/#revealingmodulepatternjavascript">Revealing Module Pattern</a></li>
+</ul>
+<p>Or, a <strong>common standard</strong>, used by many dependency tools:</p>
+<ul>
+<li><a href="http://requirejs.org/docs/whyamd.html">AMD modules</a>  (most commonly used by <a href="http://requirejs.org/">require.js</a>)</li>
+<li>CommonJS modules (most common used by node.js and browserify)</li>
+<li><a href="https://leanpub.com/understandinges6/read/#leanpub-auto-modules">ES6 modules</a></li>
+</ul>
+<p><strong>Frameworks</strong> will have their own unique set ups.</p>
+<aside class="box">
+    <p><strong>Learn more:</strong><br>
+    ES6 has just recently standardized how script loading, importing, and more about <a href="https://leanpub.com/understandinges6/read/#leanpub-auto-modules">how modules will be handled</a> as part of the standard spec going forward.</p>
+</aside>
+
+<!-- @todo: @link: ES6 link -->
+
+<h3 id="javascript-deliverables">JavaScript Deliverables</h3>
+<p>The most obvious fact is you will need to provide working files that are error-free and will work in a variety of scenarios. We can&#39;t assume that clients will always leave scripts and pages as we leave them, though we can provide direction as to how scripts should be used.</p>
 <h4 id="understanding-the-code-s-place-in-the-project">Understanding the Code&#39;s Place in the Project</h4>
 <ul>
 <li>Understand where your code will live vs. any code introduced in a destination environment</li>
+<li>Understand if the code will need to coexist with other code.</li>
 </ul>
-<h4 id="have-control-over-the-page-lifecycle">Have Control Over the Page Lifecycle</h4>
-<ul>
-<li>Single execution and entry point</li>
-</ul>
-<h4 id="clean-code">Clean Code</h4>
+<h4 id="clean-clear-organized-readable-code">Clean, Clear, Organized, Readable Code</h4>
 <ul>
 <li>As bug free as possible.</li>
+<li>Always remember we write code for other developers, not for a runtime or a browser.</li>
+<li>Remove code that is no longer used. Remove excess &quot;noise&quot; or distractions from source code such as large commented out blocks of unused code. Source control can solve problems like this.</li>
 <li>Have <code>console</code> and debugging statements be removed or a plan in place for suppression during the build or deployment.</li>
-<li>Remove code that is no longer used.</li>
 </ul>
+<aside class="box">
+    <p><strong>Learn more:</strong><br><a href="http://code.tutsplus.com/tutorials/the-essentials-of-writing-high-quality-javascript--net-15145">The Essentials of Writing High Quality JavaScript</a> is an older article but still holds up today.</p>
+</aside>
+
+<p>Delivery of a flat folder full of JavaScript files is not advised.</p>
+<pre><code class="language-markup">├── _assets/
+│   ├── js/
+│   │   ├── app.js
+│   │   ├── tools.js
+│   │   ├── ...
+│   │   ├── vendor
+│   │   │   ├── source01.js
+│   │   │   ├── source02.js
+│   │   │   ├── ...
+│   │   ├── views
+│   │   │   ├── view01.js
+│   │   │   ├── view02.js
+│   │   │   ├── ...</code></pre>
 <h3 id="next-steps-amp-javascript-resources">Next Steps &amp; JavaScript Resources</h3>
+<p>There is an enormous volume of JavaScript reference material out in the wild today. We hope to add more at some point but here are various topics worth following up on:</p>
+<!-- @todo: clean this up, add links -->
+
 <ul>
-<li>Debugging</li>
-<li>Patterns for Better JavaScript</li>
-<li>Unit Testing</li>
-<li>Node.js</li>
+<li>Debugging JavaScript</li>
+<li><a href="https://github.com/addyosmani/es6-equivalents-in-es5">Learning more about ES6</a></li>
+<li><a href="http://addyosmani.com/resources/essentialjsdesignpatterns">JavaScript Design Patterns</a></li>
+<li>Unit Testing JavaScript code</li>
+<li><a href="https://nodejs.org/">Node.js</a></li>
+<li>Compare <a href="http://todomvc.com/">JS Frameworks, Frameworks, and more Frameworks</a></li>
+<li><a href="http://rmurphey.com/blog/2012/04/12/a-baseline-for-front-end-developers/">Baseline For Front End Developers</a></li>
+<li><a href="http://addyosmani.com/blog/javascript-style-guides-and-beautifiers/">JavaScript Style Guides and Beautifiers</a></li>
+<li><a href="http://javascript.crockford.com/code.html">Douglas Crockford&#39;s JS Code Conventions</a></li>
+<li><a href="http://shop.oreilly.com/product/0636920025245.do">Maintainable JavaScript Book</a></li>
+<li><a href="http://www.slideshare.net/nzakas/maintainable-javascript-2012">Maintainable JavaScript Presentation</a></li>
+<li><a href="https://speakerdeck.com/addyosmani/large-scale-javascript-application-architecture">Large Scale JavaScript Applications</a></li>
 </ul>
-<p>For current links and references, please see our Wiki on Github.</p>
+<p>For more current links and references, please see <a href="https://github.com/isobar-idev/code-standards/wiki/Useful-Links-and-Resources">our Wiki on Github</a>.</p>
+<aside class="box">
+<p><strong>Note:</strong><br>We could write a book on JavaScript frameworks and what we&#39;ve learned there, but this isn&#39;t the time. We may add more in the near future.</p>
+</aside>
+
+<!-- 
+
+Exceptional Sources
+Eloquent JavaScript
+    http://eloquentjavascript.net/
+http://perfectionkills.com/
+
+JavaScript Weekly
+http://javascriptweekly.com/archive/
+
+├── _assets/
+│   ├── readme.md
+│   ├── css
+│   │   ├── example01.css
+│   │   ├── example02.css
+│   │   ├── vendor
+│   │   │   ├── source01.css
+│   │   │   ├── source02.css
+│   │   │   ├── ...
+│   ├── js
+│   │   ├── app.js
+│   │   ├── tools.js
+│   │   ├── ...
+│   │   ├── vendor
+│   │   │   ├── source01.js
+│   │   │   ├── source02.js
+│   │   │   ├── ...
+│   ├── img
+│   │   ├── example00.png
+│   │   ├── ...
+│   │   ├── icons
+│   │   │   ├── example01.gif
+│   │   │   ├── example02.png
+│   │   │   ├── ...
+ -->
+
+
 </section>
 <section><h2 id="responsive-web-design">Responsive Web Design</h2>
 <p>Responsive Web Design (RWD) is the term used for the practice of creating page layouts and user experiences that work on a variety of devices and screen sizes.</p>
@@ -693,7 +937,7 @@ button#back-button { ... }
 <li>Realistically accessible based on the capabilities of different devices.</li>
 </ul>
 <p>If meeting desktop browsers&#39; feature sets and dealing with different platforms was difficult before, RWD introduces an almost infite ecosystem of hardware and software that Web pages need to work on. The level of effort does often increase on projects featuring RWD.</p>
-<h3 id="getting-started-with-rwd">Getting Started with RWD</h3>
+<h3 id="getting-started-with-mobile-development">Getting Started with Mobile Development</h3>
 <p>As the name of RWD implies, it all starts with a flexible design that features components having mutable characteristics based on the available screen canvas and varied types of user interactions. Careful consideration needs to be taken when innovating to derive a design that can respond to various screens.</p>
 <p>For a given project, always consider:</p>
 <ul>
@@ -743,7 +987,7 @@ button#back-button { ... }
 <!-- @todo: @link to android fragmentation presentation -->
 <!-- @todo: @link to sources for mobile device use? statcounter? etc? -->
 
-<h3 id="general-responsive-design-standards">General Responsive Design Standards</h3>
+<h3 id="responsive-design-best-practices">Responsive Design Best Practices</h3>
 <p>RWD is frequently said to be achieved through the use of:</p>
 <ol>
 <li>Percentage-based grids, </li>

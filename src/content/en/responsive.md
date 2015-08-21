@@ -32,7 +32,7 @@ Overall, critical content and features on a site should be:
 
 If meeting desktop browsers' feature sets and dealing with different platforms was difficult before, RWD introduces an almost infite ecosystem of hardware and software that Web pages need to work on. The level of effort does often increase on projects featuring RWD.
 
-### Getting Started with RWD
+### Getting Started with Mobile Development
 
 As the name of RWD implies, it all starts with a flexible design that features components having mutable characteristics based on the available screen canvas and varied types of user interactions. Careful consideration needs to be taken when innovating to derive a design that can respond to various screens.
 
@@ -95,7 +95,7 @@ It is near impossible to test on every version of every platform, particularly w
 <!-- @todo: @link to android fragmentation presentation -->
 <!-- @todo: @link to sources for mobile device use? statcounter? etc? -->
 
-### General Responsive Design Standards
+### Responsive Design Best Practices
 
 RWD is frequently said to be achieved through the use of:
 
