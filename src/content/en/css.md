@@ -58,7 +58,7 @@ Sometimes a third party library helpful — but please be certain to not includ
 Common types CSS-related tools might include:
 
  - File concatentation
- - Precompilers
+ - Preprocessors
  - Minifiers
  - Post processors
 

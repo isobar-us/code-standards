@@ -342,9 +342,9 @@ Displaying data tables in a responsive way on Mobile sites is a challenge. There
 ### Next Steps &amp; RWD Resources
 
 Big collections:
- - https://bradfrost.github.io/this-is-responsive/resources.html
- - https://www.usertesting.com/blog/2015/02/03/responsive-web-design-resources/
- - http://www.smashingmagazine.com/responsive-web-design-guidelines-tutorials/
+ - [Responsive Design Resources](https://bradfrost.github.io/this-is-responsive/resources.html)
+ - (more) [Responsive Design Resources](https://www.usertesting.com/blog/2015/02/03/responsive-web-design-resources/)
+ - [Responsive Design Guidelines and Tutorials](http://www.smashingmagazine.com/responsive-web-design-guidelines-tutorials/)
 
 Articles:
  - http://www.alistapart.com/articles/responsive-web-design/
