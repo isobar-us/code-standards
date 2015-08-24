@@ -1,0 +1,133 @@
+@import '../helpers/variables';
+@import '../helpers/mixins';
+/* `Topper + Header (who called it a topper in old version? lol)
+----------------------------------------------------------------------------------------------------*/
+
+body .fork { 
+  position: fixed; 
+  top: 0;
+  right: -15px; 
+  z-index:4; 
+  width: 149px; 
+  height: 149px; 
+  background: url(../img/fork-me.png) no-repeat -15px top;
+}
+
+header {
+  position: relative;
+  height: 90px;
+  top: 0px;
+  width: 100%;
+  z-index:3;
+  background-color: #ffffff;
+}
+
+//social links in header?
+header a {
+  width: 137px;
+  height: 39px;
+  display: inline-block;
+}
+
+header h1 {
+  width: 137px;
+  padding: 0;
+  height: 40px;
+  margin-left: 20px;
+}
+
+//todo: what is this for?
+header canvas {
+  position: absolute;
+  visibility: hidden;
+  padding: 0;
+  top: -40px;
+}
+
+.menu-button{
+  cursor: pointer;
+  display: none;
+  height: 16px;
+  width: 32px;
+  position: absolute;
+  top: 29px;
+  right: 19px;
+  border-bottom: 5px solid #2b2b21;
+  -webkit-transition: border 0.5s;
+  -moz-transition: border 0.5s;
+  transition: border 0.5s;
+}
+
+.menu-button::after, .menu-button::before{
+  content: '';
+  display: block;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 5px;
+  background-color: #2b2b2b;
+  margin-bottom: 3px;
+  -webkit-transition: background-color 0.5s;
+  -moz-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+}
+.menu-open{
+  .menu-button:after, .menu-button:before{
+    background-color: $isobar-orange;
+  }
+  .menu-button{
+    border-bottom: 5px solid $isobar-orange;
+  }
+}
+header h1 a { 
+  background:url("../img/orange.svg") no-repeat 0 0;
+    background-size: auto 80%;
+  overflow: hidden;
+    text-indent: 200%;
+    white-space: nowrap;
+    display:block;
+}
+
+header .social #linkback:hover { 
+/*color: $isobar-orange;*/
+}
+
+.social{
+  margin: 0px;
+  position: absolute;
+  right: 0px;
+  top: 9px;
+  li {
+      display: inline-block;
+      height: 22px;
+      width: 22px;
+      margin-right: 6px;
+      vertical-align: top;
+    a { 
+      width: 100%; 
+      height: 100%;
+      display: block;
+      background-size: 100%;
+    }
+  }
+  li:last-child{
+    width: auto;
+  }
+}
+#linkback { 
+  color: $medium-gray;
+  text-decoration: none;
+  text-align: center;
+  background: none;
+  /*text-transform: uppercase;*/
+  line-height: 25px;
+  padding: 0px 0px;
+  span{
+    color: $isobar-orange;
+  }
+}
+#linkback:hover {
+  text-decoration: underline;
+}

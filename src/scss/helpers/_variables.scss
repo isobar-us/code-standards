@@ -1,0 +1,34 @@
+//colors
+$isobar-orange: #f23109;
+$link-color: #000;
+$link-hover-color: #F74902;
+
+$highlight-color: #ff9;
+$white: #fff;
+$black: #000;
+$border-color: #f0f0f0;//todo: confirm is correct color for borders
+$shadow-color: #ccc;
+
+
+//colors from isobar.com
+$default-text: $black;
+$default-background: #ffffff;
+$default-2-text: #444444;
+$default-3-text: #999999;
+
+$alt-text: #ffffff;
+$alt-background: #1e1e1e;
+$alt-2-text: #ededed;//secondary text color
+
+$gray-background: #f0f0f0;
+$medium-gray: #4b4b4b;
+$dark-gray: #333;
+$very-dark-gray: #1e1e1e;
+$separator-gray: #999;
+
+
+
+//fonts
+$font-stack: Calibri, sans-serif;
+$heading-font-stack: "Helvetica Neue", sans-serif; //should be Kyrial if we get webfonts
+$pre-font-stack: Consolas, monaco, monospace;

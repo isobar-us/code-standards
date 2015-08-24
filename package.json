@@ -1,6 +1,6 @@
 {
   "name": "code-standards",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "Gruntfile.js",
   "scripts": {},
@@ -8,31 +8,27 @@
     "type": "git",
     "url": "https://github.com/isobar-idev/code-standards.git"
   },
-  "author": "Roundarch Isobar",
+  "author": "Isobar",
   "bugs": {
     "url": "https://github.com/isobar-idev/code-standards/issues"
   },
-  "dependencies": {
-    "assemble": "~0.4.37"
-  },
   "devDependencies": {
-    "assemble-handlebars": "~0.2.0",
-    "assemble-yaml": "^0.1.8",
+    "assemble": "^0.4.42",
     "async": "^0.2.10",
     "chai": "^1.8.1",
     "frep": "^0.1.8",
-    "grunt": "^0.4.2",
-    "grunt-cli": "~0.1.13",
+    "grunt": "~0.4.5",
     "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-compass": "^0.5.0",
     "grunt-contrib-concat": "^0.2.0",
     "grunt-contrib-copy": "^0.4.1",
     "grunt-contrib-jshint": "^0.7.2",
     "grunt-contrib-watch": "^0.5.3",
+    "grunt-contrib-uglify": "^0.9.1",
     "grunt-prettify": "~0.3.1",
     "grunt-readme": "~0.4.0",
     "grunt-release": "^0.6.0",
     "grunt-repos": "~0.1.2",
+    "grunt-sass": "^1.0.0",
     "grunt-sync-pkg": "~0.1.1",
     "handlebars-helper-eachitems": "~0.1.2",
     "inflection": "^1.2.7",
@@ -40,7 +36,10 @@
     "marked": "^0.3.2",
     "pretty": "~0.1.1",
     "resolve-dep": "^0.1.3",
-    "time-grunt": "^0.1.2",
+    "time-grunt": "^1.2.1",
     "underscore.string": "~2.3.3"
+  },
+  "dependencies": {
+    "grunt-contrib-connect": "^0.9.0"
   }
 }

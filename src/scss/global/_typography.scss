@@ -1,0 +1,99 @@
+@import '../helpers/variables';
+@import '../helpers/mixins';
+//todo: refactor, consider switching to rems
+
+/**
+ * Font normalization inspired by YUI Library's fonts.css: developer.yahoo.com/yui/
+ */
+
+body { font: 13px/1.231 $font-stack; *font-size: small; } /* Hack retained to preserve specificity */
+select, input, textarea, button { font: 99% sans-serif; }
+
+/* Normalize monospace sizing:
+   en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome */
+pre, code, kbd, samp { font-family: $pre-font-stack; }
+
+small { font-size: 85%; }
+strong, th { font-weight: bold; }
+
+/* Set sub, sup without affecting line-height: gist.github.com/413930 */
+sub, sup { font-size: 75%; line-height: 0; position: relative; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+
+body, select, input, textarea {
+  /* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */
+  color: $default-2-text;
+  /* Set your base font here, to apply evenly */
+  font-family: $font-stack;
+  font-size: 14px;
+}
+
+
+p {
+  margin: 0 0 10px 0;
+}
+
+p, ol, ul {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+
+/* `Headings
+----------------------------------------------------------------------------------------------------*/
+
+/* Headers (h1, h2, etc) have no default font-size or margin;define those yourself */
+h1, h2, h3, h4, h5, h6 { 
+  font-family: $heading-font-stack;
+  color: $isobar-orange;
+  position: relative;
+  margin-top:20px
+}
+
+h3, h4, h5, h6 { font-weight: normal; }
+
+h1 {
+  color: $default-text;
+  font-size: 36px;  
+  font-weight: 700;
+  line-height: 1.1em;
+  margin-bottom: 14px;
+}
+
+h2 {
+  color: $default-text;
+  font-size: 28px;
+  margin: 40px 0 12px;
+}
+
+h3 {
+  font-size: 24px;
+  margin-bottom: 11px;
+}
+
+h4 {
+  font-size: 20px;
+  color: $default-3-text;
+  margin-bottom: 8px;
+}
+h5 { 
+  font-size: 18px;
+  color: $default-2-text;
+}
+
+h2::before{
+    content: '{ }';
+    font-family: Calibri,AlexandriaBold,Arial,Helvetica,sans-serif;
+    color: white;
+    border-radius: 100px;
+    padding-top: 6px;
+    padding-left: 20px;
+    height: 94px;
+    font-size:65px;
+    width: 80px;
+    background: none repeat scroll 0% 0% #F74902;
+    float: left;
+    margin: 0px 20px 20px 0px;
+}

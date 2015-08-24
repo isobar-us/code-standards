@@ -1,0 +1,27 @@
+@import '../helpers/variables';
+@import '../helpers/mixins';
+/* Shoes + Footer
+----------------------------------------------------------------------------------------------------*/
+
+footer {
+  background: $dark-gray;
+  color: $white;
+  font-size: 11px;
+  margin: 0;
+  overflow: hidden;
+  line-height: 35px;
+  width: 100%;
+  padding: 0px 0px;
+}
+.footer-inner{
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  max-width: 960px;
+  margin: 0px auto;
+  padding: 20px;
+}
+footer p {
+  padding: 5px 0px;
+}
+

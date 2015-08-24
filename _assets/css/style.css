@@ -1,0 +1,1130 @@
+@charset "UTF-8";
+/**
+ * html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline)
+ * v1.6.1 2010-09-17 | Authors: Eric Meyer & Richard Clark
+ * html5doctor.com/html-5-reset-stylesheet/
+ */
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #f0f0f0;
+  margin: 1em 0;
+  padding: 0;
+}
+
+input, select {
+  vertical-align: middle;
+}
+
+/**
+ * Minimal base styles.
+ */
+/* Always force a scrollbar in non-IE */
+html {
+  overflow-y: scroll;
+}
+
+/* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
+a:hover, a:active {
+  outline: none;
+}
+
+ul, ol {
+  margin-left: 2em;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+/* Remove margins for navigation lists */
+nav ul, nav li {
+  margin: 0;
+  list-style: none;
+  list-style-image: none;
+}
+
+td {
+  vertical-align: top;
+}
+
+textarea {
+  overflow: auto;
+}
+
+/* www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ */
+/* Align checkboxes, radios, text inputs with their label by: Thierry Koblentz tjkdesign.com/ez-css/css/base.css  */
+input[type="radio"] {
+  vertical-align: text-bottom;
+}
+
+input[type="checkbox"] {
+  vertical-align: bottom;
+}
+
+/* Hand cursor on clickable input elements */
+label, input[type="button"], input[type="submit"], input[type="image"], button {
+  cursor: pointer;
+}
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea {
+  margin: 0;
+}
+
+/* Colors for form validity */
+input:invalid, textarea:invalid {
+  -ms-border-radius: 1px;
+  -moz-border-radius: 1px;
+  -webkit-border-radius: 1px;
+  -o-border-radius: 1px;
+  border-radius: 1px;
+  -moz-box-shadow: 0 0 5px red;
+  -webkit-box-shadow: 0 0 5px red;
+  -o-box-shadow: 0 0 5px red;
+  box-shadow: 0 0 5px red;
+}
+
+/* These selection declarations have to be separate
+   No text-shadow: twitter.com/miketaylr/status/12228805301
+   Also: hot pink! */
+::-moz-selection {
+  background: #FF5E99;
+  color: #fff;
+  text-shadow: none;
+}
+
+::selection {
+  background: #FF5E99;
+  color: #fff;
+  text-shadow: none;
+}
+
+/* j.mp/webkit-tap-highlight-color */
+a:link {
+  -webkit-tap-highlight-color: #FF5E99;
+}
+
+/* Make buttons play nice in IE:
+   www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
+button {
+  width: auto;
+  overflow: visible;
+}
+
+/**
+----------------------------------------------------------------------------------------------------
+ * Primary styles
+ *
+ * Author: ISOBAR
+----------------------------------------------------------------------------------------------------*/
+body {
+  background: #fff;
+  color: #444444;
+  border-top: 5px solid #f23109;
+}
+
+figure {
+  background: #f0f0f0;
+  display: block;
+  margin: 10px;
+  padding: 1px;
+  text-align: center;
+  box-shadow: #ccc 0 1px 3px;
+  -moz-box-shadow: #ccc 0 1px 3px;
+  -webkit-box-shadow: #ccc 0 1px 3px;
+  -o-box-shadow: #ccc 0 1px 3px;
+}
+
+figure.extra {
+  margin-top: 10px;
+}
+
+figcaption {
+  font-size: 10px;
+  font-style: italic;
+  text-align: left;
+}
+
+abbr {
+  border-bottom: 1px dotted;
+}
+
+p, dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address, fieldset {
+  margin-bottom: 10px;
+}
+
+p.indent {
+  margin: 0 0 5px 0;
+}
+
+dl {
+  margin-left: 15px;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dt:after {
+  content: ':';
+}
+
+dd {
+  margin-bottom: 10px;
+}
+
+dd {
+  margin-bottom: 10px;
+}
+
+/**
+ * Font normalization inspired by YUI Library's fonts.css: developer.yahoo.com/yui/
+ */
+body {
+  font: 13px/1.231 Calibri, sans-serif;
+  *font-size: small;
+}
+
+/* Hack retained to preserve specificity */
+select, input, textarea, button {
+  font: 99% sans-serif;
+}
+
+/* Normalize monospace sizing:
+   en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome */
+pre, code, kbd, samp {
+  font-family: Consolas, monaco, monospace;
+}
+
+small {
+  font-size: 85%;
+}
+
+strong, th {
+  font-weight: bold;
+}
+
+/* Set sub, sup without affecting line-height: gist.github.com/413930 */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+body, select, input, textarea {
+  /* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */
+  color: #444444;
+  /* Set your base font here, to apply evenly */
+  font-family: Calibri, sans-serif;
+  font-size: 14px;
+}
+
+p {
+  margin: 0 0 10px 0;
+}
+
+p, ol, ul {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* `Headings
+----------------------------------------------------------------------------------------------------*/
+/* Headers (h1, h2, etc) have no default font-size or margin;define those yourself */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Helvetica Neue", sans-serif;
+  color: #f23109;
+  position: relative;
+  margin-top: 20px;
+}
+
+h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+h1 {
+  color: #000;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.1em;
+  margin-bottom: 14px;
+}
+
+h2 {
+  color: #000;
+  font-size: 28px;
+  margin: 40px 0 12px;
+}
+
+h3 {
+  font-size: 24px;
+  margin-bottom: 11px;
+}
+
+h4 {
+  font-size: 20px;
+  color: #999999;
+  margin-bottom: 8px;
+}
+
+h5 {
+  font-size: 18px;
+  color: #444444;
+}
+
+h2::before {
+  content: '{ }';
+  font-family: Calibri,AlexandriaBold,Arial,Helvetica,sans-serif;
+  color: white;
+  border-radius: 100px;
+  padding-top: 6px;
+  padding-left: 20px;
+  height: 94px;
+  font-size: 65px;
+  width: 80px;
+  background: none repeat scroll 0% 0% #F74902;
+  float: left;
+  margin: 0px 20px 20px 0px;
+}
+
+a {
+  color: #000;
+  /* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
+}
+
+a:hover, a:active {
+  outline: none;
+}
+
+a:hover {
+  color: #F74902;
+}
+
+/* Logo + Container + Main + Section + Aside 
+----------------------------------------------------------------------------------------------------*/
+.overlay {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1;
+  display: none;
+}
+
+.menu-open .overlay {
+  display: block;
+}
+
+.container {
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  max-width: 970px;
+}
+
+main {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  display: block;
+  overflow: hidden;
+  padding: 10px 20px 60px 20px;
+  max-width: 620px;
+  width: 66%;
+  float: left;
+  border-right: 1px solid #f0f0f0;
+}
+
+.nav-toc {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 100%;
+  z-index: 3;
+  display: block;
+  position: relative;
+  font-size: 13px;
+  padding: 20px 20px;
+  width: 33.33%;
+  max-width: 340px;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  float: right;
+  background-color: #ffffff;
+  -webkit-transition: right 0.5s;
+  -moz-transition: right 0.5s;
+  transition: right 0.5s;
+}
+
+main > section {
+  padding-bottom: 20px;
+}
+
+#toc .h2 {
+  margin-top: 20px;
+}
+
+#toc .h2:nth-child(1) {
+  margin-top: 0px;
+}
+
+#toc .h3 {
+  margin-top: 6px;
+}
+
+body.fix-desktop-toc .nav-toc {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  left: auto;
+  overflow-y: scroll;
+}
+
+/* Shoes + Footer
+----------------------------------------------------------------------------------------------------*/
+footer {
+  background: #333;
+  color: #fff;
+  font-size: 11px;
+  margin: 0;
+  overflow: hidden;
+  line-height: 35px;
+  width: 100%;
+  padding: 0px 0px;
+}
+
+.footer-inner {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  max-width: 960px;
+  margin: 0px auto;
+  padding: 20px;
+}
+
+footer p {
+  padding: 5px 0px;
+}
+
+/* `Topper + Header (who called it a topper in old version? lol)
+----------------------------------------------------------------------------------------------------*/
+body .fork {
+  position: fixed;
+  top: 0;
+  right: -15px;
+  z-index: 4;
+  width: 149px;
+  height: 149px;
+  background: url(../img/fork-me.png) no-repeat -15px top;
+}
+
+header {
+  position: relative;
+  height: 90px;
+  top: 0px;
+  width: 100%;
+  z-index: 3;
+  background-color: #ffffff;
+}
+
+header a {
+  width: 137px;
+  height: 39px;
+  display: inline-block;
+}
+
+header h1 {
+  width: 137px;
+  padding: 0;
+  height: 40px;
+  margin-left: 20px;
+}
+
+header canvas {
+  position: absolute;
+  visibility: hidden;
+  padding: 0;
+  top: -40px;
+}
+
+.menu-button {
+  cursor: pointer;
+  display: none;
+  height: 16px;
+  width: 32px;
+  position: absolute;
+  top: 29px;
+  right: 19px;
+  border-bottom: 5px solid #2b2b21;
+  -webkit-transition: border 0.5s;
+  -moz-transition: border 0.5s;
+  transition: border 0.5s;
+}
+
+.menu-button::after, .menu-button::before {
+  content: '';
+  display: block;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 5px;
+  background-color: #2b2b2b;
+  margin-bottom: 3px;
+  -webkit-transition: background-color 0.5s;
+  -moz-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+}
+
+.menu-open .menu-button:after, .menu-open .menu-button:before {
+  background-color: #f23109;
+}
+
+.menu-open .menu-button {
+  border-bottom: 5px solid #f23109;
+}
+
+header h1 a {
+  background: url("../img/orange.svg") no-repeat 0 0;
+  background-size: auto 80%;
+  overflow: hidden;
+  text-indent: 200%;
+  white-space: nowrap;
+  display: block;
+}
+
+header .social #linkback:hover {
+  /*color: $isobar-orange;*/
+}
+
+.social {
+  margin: 0px;
+  position: absolute;
+  right: 0px;
+  top: 9px;
+}
+
+.social li {
+  display: inline-block;
+  height: 22px;
+  width: 22px;
+  margin-right: 6px;
+  vertical-align: top;
+}
+
+.social li a {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-size: 100%;
+}
+
+.social li:last-child {
+  width: auto;
+}
+
+#linkback {
+  color: #4b4b4b;
+  text-decoration: none;
+  text-align: center;
+  background: none;
+  /*text-transform: uppercase;*/
+  line-height: 25px;
+  padding: 0px 0px;
+}
+
+#linkback span {
+  color: #f23109;
+}
+
+#linkback:hover {
+  text-decoration: underline;
+}
+
+/* Alignments
+----------------------------------------------------------------------------------------------------*/
+.box, .box_notice {
+  background: #f0f0f0;
+  margin: 0 0 20px;
+  padding: 20px 20px 10px;
+  box-shadow: #ccc 0 1px 3px;
+  -moz-box-shadow: #ccc 0 1px 3px;
+  -webkit-box-shadow: #ccc 0 1px 3px;
+  -o-box-shadow: #ccc 0 1px 3px;
+}
+
+.box_notice {
+  background: #f23109;
+  color: #ffffff;
+}
+
+.box_title {
+  background: #1e1e1e;
+  background: rgba(10, 10, 10, 0.5);
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+  margin: 20px;
+  padding: 5px 10px;
+}
+
+/* Table of Contents
+----------------------------------------------------------------------------------------------------*/
+.anchor_link {
+  color: rgba(137, 137, 137, 0.4);
+  font-size: 20px;
+  font-weight: normal;
+  position: relative;
+  text-decoration: none;
+  top: 0;
+  left: 5px;
+  z-index: 0;
+}
+
+.back-anchor, .back-anchor a {
+  display: inline-block;
+  color: #333;
+  font-size: 12px;
+  margin: 0;
+  padding: 3px 4px;
+  position: absolute;
+  right: 0;
+  top: -20px;
+  text-decoration: none;
+}
+
+.no-anchor .back-anchor {
+  display: none;
+}
+
+/* @todo - temp style for nav to "work" */
+.h3 {
+  font-size: 90%;
+  /*text-indent: 5%;*/
+}
+
+.h3 a {
+  text-decoration: none;
+}
+
+.h2 {
+  font-size: 120%;
+  font-weight: bolder;
+}
+
+.h2 a {
+  text-decoration: none;
+}
+
+/**
+ * Print styles.
+ *
+ * Inlined to avoid required HTTP connection: www.phpied.com/delay-loading-your-print-css/
+ */
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    text-shadow: none !important;
+    filter: none !important;
+    -ms-filter: none !important;
+  }
+  /* Black prints faster: sanbeiji.com/archives/953 */
+  a, a:visited {
+    color: #444 !important;
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
+    content: "";
+  }
+  /* Don't show links for images, or javascript/internal links */
+  pre, blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  thead {
+    display: table-header-group;
+  }
+  /* css-discuss.incutio.com/wiki/Printing_Tables */
+  tr, img {
+    page-break-inside: avoid;
+  }
+  @page {
+    margin: 0.5cm;
+  }
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2, h3 {
+    page-break-after: avoid;
+  }
+  body {
+    width: 80%;
+    font-family: Calibri, Arial, Helvetica, sans-serif;
+  }
+  header {
+    width: 100%;
+  }
+  .header-logo {
+    background: url("../img/logo-roundarchisobar.png") no-repeat 0 0;
+  }
+  h1, h2, h3 {
+    /* color:#f30; */
+    color: #F74902;
+    position: relative;
+    margin-top: 20px;
+    font-weight: 200;
+  }
+  h1 {
+    padding: 0;
+    margin: 0;
+    color: #00050a;
+  }
+  header h1 a {
+    font-size: 48px;
+  }
+  a, a:visited {
+    text-decoration: none;
+    /* color:#f30 */
+    color: #F74902;
+  }
+  body .fork, #side, header #social, canvas, .anchor_link, .back-anchor {
+    visibility: hidden;
+  }
+  .syntaxhighlighter {
+    background: #ccc;
+  }
+}
+
+/**
+ * Media queries for responsive design.
+ *
+ * These follow after primary styles so they will successfully override.
+ */
+@media all and (max-width: 770px) {
+  body {
+    border-top: 90px solid #fff;
+  }
+  header {
+    border-top: 5px solid #f23109;
+    position: fixed;
+    padding-left: 0px;
+    z-index: 5;
+  }
+  .menu-button {
+    display: block;
+  }
+  .fork,
+  .social {
+    display: none;
+  }
+  main {
+    padding: 20px;
+    width: auto;
+    margin-left: 0px;
+    float: none;
+    border-right: none;
+  }
+  .nav-toc {
+    width: 250px;
+    right: -250px;
+    left: auto;
+    float: none;
+    position: fixed;
+    z-index: 4;
+    overflow-y: scroll;
+    border-top: 90px solid #fff;
+  }
+  body.menu-open .nav-toc {
+    right: 0px;
+  }
+}
+
+@media all and (max-width: 400px) {
+  body {
+    border-top: 60px solid #fff;
+  }
+  header {
+    height: 60px;
+  }
+  header h1 {
+    margin-top: 12px;
+  }
+  .menu-button {
+    top: 21px;
+  }
+  main {
+    padding: 10px;
+  }
+  .nav-toc {
+    border-top: 60px solid #f5f5f5;
+  }
+}
+
+/* Grade-A Mobile Browsers (Opera Mobile, Mobile Safari, Android Chrome)
+   consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
+@media screen and (min-width: 770px) {
+  p, ol, ul {
+    font-size: 16px;
+  }
+}
+
+/* http://prismjs.com/download.html?themes=prism-twilight&languages=markup+css+clike+javascript&plugins=line-numbers */
+/**
+ * prism.js Twilight theme
+ * Based (more or less) on the Twilight theme originally of Textmate fame.
+ * @author Remy Bach
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: white;
+  direction: ltr;
+  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+  text-align: left;
+  text-shadow: 0 -0.1em 0.2em black;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+pre[class*="language-"],
+:not(pre) > code[class*="language-"] {
+  background: #141414;
+  /* #141414 */
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  border-radius: .5em;
+  border: 0.3em solid #545454;
+  /* #282A2B */
+  box-shadow: 1px 1px 0.5em black inset;
+  margin: .5em 0;
+  overflow: auto;
+  padding: 1em;
+}
+
+pre[class*="language-"]::selection {
+  /* Safari */
+  background: #27292a;
+  /* #282A2B */
+}
+
+pre[class*="language-"]::selection {
+  /* Firefox */
+  background: #27292a;
+  /* #282A2B */
+}
+
+/* Text Selection colour */
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+  text-shadow: none;
+  background: rgba(237, 237, 237, 0.15);
+  /* #EDEDED */
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+  text-shadow: none;
+  background: rgba(237, 237, 237, 0.15);
+  /* #EDEDED */
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  border-radius: .3em;
+  border: 0.13em solid #545454;
+  /* #545454 */
+  box-shadow: 1px 1px 0.3em -0.1em black inset;
+  padding: 0.15em 0.2em 0.05em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #787878;
+  /* #777777 */
+}
+
+.token.punctuation {
+  opacity: .7;
+}
+
+.namespace {
+  opacity: .7;
+}
+
+.token.tag,
+.token.boolean,
+.token.number,
+.token.deleted {
+  color: #cf694a;
+  /* #CF6A4C */
+}
+
+.token.keyword,
+.token.property,
+.token.selector,
+.token.constant,
+.token.symbol,
+.token.builtin {
+  color: #f9ee9a;
+  /* #F9EE98 */
+}
+
+.token.attr-name,
+.token.attr-value,
+.token.string,
+.token.char,
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable,
+.token.inserted {
+  color: #919e6b;
+  /* #8F9D6A */
+}
+
+.token.atrule {
+  color: #7386a5;
+  /* #7587A6 */
+}
+
+.token.regex,
+.token.important {
+  color: #e9c163;
+  /* #E9C062 */
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+pre[data-line] {
+  padding: 1em 0 1em 3em;
+  position: relative;
+}
+
+/* Markup */
+.language-markup .token.tag,
+.language-markup .token.attr-name,
+.language-markup .token.punctuation {
+  color: #ad895c;
+  /* #AC885B */
+}
+
+/* Make the tokens sit above the line highlight so the colours don't look faded. */
+.token {
+  position: relative;
+  z-index: 1;
+}
+
+.line-highlight {
+  background: -moz-linear-gradient(left, rgba(84, 84, 84, 0.1) 70%, rgba(84, 84, 84, 0));
+  /* #545454 */
+  background: -o-linear-gradient(left, rgba(84, 84, 84, 0.1) 70%, rgba(84, 84, 84, 0));
+  /* #545454 */
+  background: -webkit-linear-gradient(left, rgba(84, 84, 84, 0.1) 70%, rgba(84, 84, 84, 0));
+  /* #545454 */
+  background: rgba(84, 84, 84, 0.25);
+  /* #545454 */
+  background: linear-gradient(left, rgba(84, 84, 84, 0.1) 70%, rgba(84, 84, 84, 0));
+  /* #545454 */
+  border-bottom: 1px dashed #545454;
+  /* #545454 */
+  border-top: 1px dashed #545454;
+  /* #545454 */
+  left: 0;
+  line-height: inherit;
+  margin-top: 0.75em;
+  /* Same as .prism’s padding-top */
+  padding: inherit 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  white-space: pre;
+  z-index: 0;
+}
+
+.line-highlight:before,
+.line-highlight[data-end]:after {
+  background-color: #8794a6;
+  /* #8794A6 */
+  border-radius: 999px;
+  box-shadow: 0 1px white;
+  color: #f5f2f0;
+  /* #F5F2F0 */
+  content: attr(data-start);
+  font: bold 65%/1.5 sans-serif;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 0.5em;
+  position: absolute;
+  text-align: center;
+  text-shadow: none;
+  top: .4em;
+  vertical-align: .3em;
+}
+
+.line-highlight[data-end]:after {
+  bottom: .4em;
+  content: attr(data-end);
+  top: auto;
+}
+
+pre.line-numbers {
+  position: relative;
+  padding-left: 3.8em;
+  counter-reset: linenumber;
+}
+
+pre.line-numbers > code {
+  position: relative;
+}
+
+.line-numbers .line-numbers-rows {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  font-size: 100%;
+  left: -3.8em;
+  width: 3em;
+  /* works for line-numbers below 1000 lines */
+  letter-spacing: -1px;
+  border-right: 1px solid #999;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.line-numbers-rows > span {
+  pointer-events: none;
+  display: block;
+  counter-increment: linenumber;
+}
+
+.line-numbers-rows > span:before {
+  content: counter(linenumber);
+  color: #999;
+  display: block;
+  padding-right: 0.8em;
+  text-align: right;
+}
+
+/* for code blocks if JS isn't running */
+pre {
+  background-color: #000;
+  overflow-x: scroll;
+  font-size: 14px;
+}
+
+/* 
+   |\      _,,,---,,__
+   /,`.-'`'     -.  ;-;;,_/|
+  |,4-  ) ) -,_..;\ (  `'-'
+ '---''(_/--'  `-'\_)  
+----------------------------*/
+
+/*# sourceMappingURL=style.css.map */

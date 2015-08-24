@@ -6,15 +6,9 @@ All content licensed under Creative Commons Attribution 3.0 Unported License
 
 ## Summary:
 
-> **Updated 24 June, 2014**
-> 
-> A new branch has been created where we will swap the new markdown content and the new HTML/CSS layout for the next version. We will also clean up and remove the older unused files there as it will be virtually rewritten.  
-> 
-> Keep a watch on the `master.next` branch.
-
 This document contains guidelines for web applications built by the Front-end development practice of Isobar. It is to be readily available to anyone who wishes to check or contribute to the iterative progress of our discipline's best practices.
 
-This document's primary motivation is two- fold: 
+This document's primary motivation is two-fold: 
 
  1. code consistency and 
  2. best practices. 
@@ -25,7 +19,7 @@ We hope to encourage other developers to think about how to best standardize the
 
 ## Intent for Build and Content
 
-We hope to seperate the structure of the document from the content contained in the standards themselves. Effectively, our goal is to be able to easily update the content without having to worry about the structure.
+We hope to separate the structure of the document from the content contained in the standards themselves. Effectively, our goal is to be able to easily update the content without having to worry about the structure.
 
 This also enables pull requests to focus on content and forks to the content to be easily re-branded.
 
@@ -43,11 +37,9 @@ To make changes using the process in place, please use the build process. The ne
 
 ### Requirements
 
-The build system uses [Grunt.js](http://gruntjs.com) via [Node.js](http://nodejs.org/) and [SASS](http://sass-lang.com/) via [Compass](http://compass-style.org/).
+The build system uses [Grunt.js](http://gruntjs.com) via [Node.js](http://nodejs.org/) and [SASS](http://sass-lang.com/) via [libsass](http://libsass.org/).
 
 First, install [Node.js](http://nodejs.org) from their Web site.
-
-Then, prior to running the build commands, make sure you have ruby 1.9.3 installed, ideally using [RVM](https://rvm.io/rvm/install) (Mac OS X and Linux) or [RubyInstaller](http://rubyinstaller.org/downloads/) (Windows).
 
 ### Build Details
 
@@ -87,20 +79,25 @@ Finally, the `standards.defaultLanguage` setting determines which `*.html` file 
 
 #### Content
 
+The content is written in Markdown files and the build converts it to HTML. Example:
+
 ```
-./sections/[lang]/*.html
-./sections/[lang]/*.md
+./src/content/[lang]/css.md
+./src/content/[lang]/general.md
+./src/content/[lang]/html.md
 ```
 
-Each of the `.html` files (and soon `.md` - Markdown) contained within these directories is a portion of the final output file. We have separated the different sections that make up the page into individual files so that it is easier to edit.
+...and so on.
+
+Each of the `.md` files contained within these directories is a portion of the final output file. We have separated the different sections that make up the page into individual files so that it is easier to edit.
 
 #### Including A Content File
 
 The content files are included as partials and the data and order is defined in the following folder and files:
 
 ```
-./sections/[lang]/build/[lang].hbs
-./sections/[lang]/build/data.json
+./src/content/[lang]/build/[lang].hbs
+./src/content/[lang]/build/data.json
 ```
 
 The `data.json` file has special significance to Assemble, *do not rename this file*.
@@ -109,11 +106,12 @@ The `data.json` file has special significance to Assemble, *do not rename this f
 
 The main layout is a Handlebars file that the content is injected into and language specific attributes are updated.
 
-The file is `./_layouts/main.hbs`.
+The file is `./src/_layouts/main.hbs`.
 
 ### Structure of CSS
 
-The CSS files are generated via Compass from the SCSS files located in the SCSS folder, which is run as part of the Grunt task. 
+The CSS files are generated via LibSass from the SCSS files located in the SCSS folder, which is run as part of the Grunt task.
+
 
 ### Deploy
 

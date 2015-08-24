@@ -1,0 +1,78 @@
+@import '../helpers/variables';
+@import '../helpers/mixins';
+/* Logo + Container + Main + Section + Aside 
+----------------------------------------------------------------------------------------------------*/
+.overlay{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0,0,0,0.8);
+  z-index:1;
+  display: none;
+}
+.menu-open .overlay{
+  display: block;
+}
+.container { 
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  max-width: 970px;
+}
+main {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  display: block;
+  overflow: hidden;
+  padding: 10px 20px 60px 20px;
+  max-width: 620px;
+  width: 66%;
+  float: left;
+  border-right: 1px solid $border-color;
+}
+.nav-toc {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 100%;
+  z-index: 3;
+  display: block;
+  position: relative;
+  font-size: 13px;  
+  padding: 20px 20px;
+  width: 33.33%;
+  max-width: 340px;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  float: right;
+  background-color: #ffffff;
+  -webkit-transition: right .5s;
+  -moz-transition: right .5s;
+  transition: right .5s;
+}
+
+main > section { padding-bottom: 20px; }
+
+#toc{
+  .h2{
+    margin-top: 20px;
+  }
+  .h2:nth-child(1){
+    margin-top: 0px;
+  }
+  .h3{
+    margin-top: 6px;
+  }
+}
+
+body.fix-desktop-toc .nav-toc{
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  left:auto;
+  overflow-y: scroll;
+}

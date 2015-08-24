@@ -1,0 +1,47 @@
+@import '../helpers/variables';
+@import '../helpers/mixins';
+
+/* Table of Contents
+----------------------------------------------------------------------------------------------------*/
+
+.anchor_link {
+  color: rgba(137, 137, 137, 0.4);
+  font-size: 20px;
+  font-weight: normal;
+  position: relative;
+  text-decoration: none;
+  top: 0;
+  left: 5px;
+  z-index: 0;
+}
+
+.back-anchor, .back-anchor a {
+  display: inline-block;
+  color: $dark-gray;
+  font-size: 12px;
+  margin: 0;
+  padding: 3px 4px;
+  position: absolute;
+  right: 0;
+  top: -20px;
+  text-decoration: none;
+}
+
+.no-anchor .back-anchor { display: none; }
+
+/* @todo - temp style for nav to "work" */
+.h3 { 
+  font-size: 90%; 
+  /*text-indent: 5%;*/
+  a {
+    text-decoration: none;
+  }
+}
+.h2 {
+  font-size: 120%;
+  font-weight: bolder;
+  a {
+    text-decoration: none;
+  }
+}
+

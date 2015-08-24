@@ -1,0 +1,88 @@
+@import '../helpers/variables';
+@import '../helpers/mixins';
+/**
+ * Media queries for responsive design.
+ *
+ * These follow after primary styles so they will successfully override.
+ */
+
+@media all and (orientation:portrait) {
+  /* Style adjustments for portrait mode goes here */
+}
+
+@media all and (orientation:landscape) {
+  /* Style adjustments for landscape mode goes here */
+}
+
+@media all and (max-width: 770px) {
+  body{
+    border-top: 90px solid $white;
+  }
+  header{
+    border-top: 5px solid $isobar-orange;
+    position: fixed;
+    padding-left: 0px;
+    z-index:5;
+  }
+  .menu-button{
+    display: block;
+  }
+  .fork, 
+  .social{
+    display: none;
+  }
+  main{
+    padding: 20px;
+    width: auto;
+    margin-left: 0px;
+    float: none;
+    border-right: none;
+  }
+  .nav-toc{
+    width: 250px;
+    right: -250px;
+    left: auto;
+    float: none;
+    position:fixed;
+    z-index:4;
+    overflow-y: scroll;
+    border-top: 90px solid $white;
+  }
+  body.menu-open .nav-toc{
+    right: 0px;
+  }
+}
+
+@media all and (max-width: 400px) {
+  body{
+    border-top: 60px solid $white;
+  }
+  header{
+    height: 60px;
+  }
+  header h1{
+    margin-top: 12px;
+  }
+  .menu-button{
+    top: 21px;
+  }
+  main{
+    padding: 10px;
+  }
+  .nav-toc{
+    border-top: 60px solid #f5f5f5;
+  }
+}
+
+/* Grade-A Mobile Browsers (Opera Mobile, Mobile Safari, Android Chrome)
+   consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
+@media screen and (max-device-width: 480px) {
+  /* Uncomment if you don't want iOS and WinMobile to mobile-optimize the text for you: j.mp/textsizeadjust */
+  /* html { -webkit-text-size-adjust:none;-ms-text-size-adjust:none;} */
+}
+
+@media screen and (min-width: 770px) {
+  p, ol, ul {
+    font-size: 16px;
+  }
+}
