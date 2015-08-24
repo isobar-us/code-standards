@@ -1,4 +1,4 @@
-#  Roundarch Isobar Front-end Development Standards and Guidelines
+#  Isobar Front-end Development Standards and Guidelines
 
 ## License:
 
@@ -12,7 +12,7 @@ All content licensed under Creative Commons Attribution 3.0 Unported License
 > 
 > Keep a watch on the `master.next` branch.
 
-This document contains guidelines for web applications built by the Front-end development practice of Roundarch Isobar (previously Isobar & Molecular). It is to be readily available to anyone who wishes to check or contribute to the iterative progress of our discipline's best practices.
+This document contains guidelines for web applications built by the Front-end development practice of Isobar. It is to be readily available to anyone who wishes to check or contribute to the iterative progress of our discipline's best practices.
 
 This document's primary motivation is two- fold: 
 
