@@ -30,7 +30,7 @@ Overall, critical content and features on a site should be:
  - Adjustable to different types of user interaction (e.g. click, swipe, pinch)
  - Realistically accessible based on the capabilities of different devices.
 
-If meeting desktop browsers' feature sets and dealing with different platforms was difficult before, RWD introduces an almost infite ecosystem of hardware and software that Web pages need to work on. The level of effort does often increase on projects featuring RWD.
+If meeting desktop browsers' feature sets and dealing with different platforms was difficult before, RWD introduces an almost infinite ecosystem of hardware and software that Web pages need to work on. The level of effort does often increase on projects featuring RWD.
 
 ### Getting Started with Mobile Development
 
@@ -48,14 +48,14 @@ For a given project, always consider:
  - Will assets need to be produced in different formats for different devices (e.g. Flash video vs. HTML5 video, lower resolution artwork vs. high resolution artwork, smaller file sizes vs. larger sizes).
  - If a device offers a superior UX for some types of interaction (e.g.  native date-pickers vs. traditional browser controls, or swiping instead of clicking on dots).
  - What happens when a feature is not supported by a device, or if a feature were to fail in a given device?
- - What if a device went offline during usage of a feature?
+ - What if a device went off-line during usage of a feature?
  - The best ways to detect support for various features (e.g. Modernizr, etc.).
 
 <aside class="box">
   <p>Brad Frost's [Responsive Design Patterns][link-patterns] and [Responsive Design Resources][link-resources] are two great resources that continue to grow due to user contributions.</p>
 </aside>
 
-#### To Use A Prebuilt Grid Or Not?
+#### To Use A Pre-built Grid Or Not?
 
 <!-- @todo: content on grid systems -->
 
@@ -85,7 +85,7 @@ What types of users are there? Is an audience:
 
  - Working on their commute from a bus or train?
  - Paying bills or their taxes on the go?
- - Accessinging financial information with their clients on the go, over lunch?
+ - Accessioning financial information with their clients on the go, over lunch?
  - Entering sales figures remotely?
  - Enjoying witty content or editorials?
  - Comfortably browsing for fun at home?
@@ -113,13 +113,13 @@ Some core guidelines:
  - Set the **baseline Media Queries as a team** for various types of devices, and try to stick to them as much as possible. 
  - **Add additional Media Queries** — **as necessary** — for less than ideal experiences at the sizes in between, as appropriate for different types of content and components.
  - **Build for speed** (load time and interaction) and the minimum viable product for slower connection speeds and less able devices.
- - Be careful of **images**. Do not render a 5GB image at 100px by 100px. This does not change the bandwidth needed to download the file! Similarly if you are hiding an image with `display: none`, `visiblity: hidden` or similar, the image may still be downloaded.
+ - Be careful of **images**. Do not render a 5GB image at 100px by 100px. This does not change the bandwidth needed to download the file! Similarly if you are hiding an image with `display: none`, `visibility: hidden` or similar, the image may still be downloaded.
  - Test on **real hardware**. Actual testing on *actual devices* cannot be substituted with resizing a browser window, or even an "emulation" mode offered by a desktop browser.
  - A **mobile browser** is not a small desktop browser. Mobile versions of desktop browsers are frequently woefully different (or a totally different product) than their desktop counterparts, so do not assume that just because it works on Chrome desktop that it will work on an Android device.
 
 Initial work, and first pass tests of media queries, may be performed in desktop browsers by resizing the screen or using a browser's developer tools that may feature an emulation mode (e.g. Chrome DevTools).
 
-However, this is *never a substition* for actual testing on actual devices with various Operating System versions and 
+However, this is *never a substitution* for actual testing on actual devices with various Operating System versions and 
 
 <!-- @todo: 
   @link to article about comparing different types of downloading/hiding -->
@@ -164,11 +164,11 @@ While working with media queries here are a few things to consider:
  - All modern browsers support CSS3 Media Queries (including browsers as far back as the stock Android 2.1 browser)
  - IE8 and below do not support Media Queries.
   - [Respond.js][link-respondjs] (and similar JavaScript libraries) can be used to enable support for Media Queries in these older browsers (if needed).
-  - Attempting to ployfill Media Query behavior in older browsers is usually not advisable. This is because the JS needed will cause an additional performace hit to the already slow Javascript and rendering engine. 
+  - Attempting to polyfill Media Query behavior in older browsers is usually not advisable. This is because the JS needed will cause an additional performance hit to the already slow JavaScript and rendering engine. 
 
 Instead, you are better off forcing older browsers to experience the site through a desktop experience (optionally tailored specifically for these older browsers).
 
- - This can be done either through feature detection (with the likes of Modernizr) or with IE conditional statements and optionally including additional CSS stylesheets.
+ - This can be done either through feature detection (with the likes of Modernizr) or with IE conditional statements and optionally including additional CSS style sheets.
 
 
 #### Mobile First
@@ -232,12 +232,12 @@ Recurse on this until you reach your largest reasonable target device - this is 
 
 People expect page load time to be as fast if not faster on their mobile phones in comparison to a desktop experience. 
 
- - Try to keep your website's foot print as small as possible (this is a general best practice).
+ - Try to keep your Web site's foot print as small as possible (this is a general best practice).
  - Start with global styles that apply across all breakpoints
   -  Optionally in-line these vital styles for faster initial render time
  - Consider every HTTP request
   - The request itself may end up taking as much if not more time then the transfer of the data and could block downstream actions or more vital downloads.
- - Concatenate, gzip and minified your production CSS/JS where possible as this will lower page load size and time.2
+ - Concatenate, gzip and minified your production CSS/JS where possible as this will lower page load size and time
  - Load the least amount of JavaScript that is needed.
   - Wherever possible include script files at the end of your HTML document just before the `</body>` tag.
 
@@ -291,7 +291,7 @@ SVG: SVG is an XML syntax for describing vector shapes.
  - Pros: vectors can be manipulated by CSS and/or JavaScript and allows for complex filters, animations and transitions.
  - Cons: SVG is only supported by IE9+
 
-<aside class="box"><p>[Grumpicon][link-grump] is a script that will detect SVG support and server the appropriate CSS (or needed fallback CSS code to assure compatibility.</p></aside>
+<aside class="box"><p>[Grumpicon][link-grump] is a script that will detect SVG support and server the appropriate CSS (or needed fall back CSS code to assure compatibility.</p></aside>
 
 #### Other Categories
 
@@ -339,23 +339,25 @@ Displaying data tables in a responsive way on Mobile sites is a challenge. There
 
 <!-- ### Responsive Web Design Deliverables ... @todo: content on responsive design deliverables -->
 
-### Next Steps &amp; RWD Resources
+### Next Steps & RWD Resources
 
 Big collections:
+
  - [Responsive Design Resources](https://bradfrost.github.io/this-is-responsive/resources.html)
  - (more) [Responsive Design Resources](https://www.usertesting.com/blog/2015/02/03/responsive-web-design-resources/)
  - [Responsive Design Guidelines and Tutorials](http://www.smashingmagazine.com/responsive-web-design-guidelines-tutorials/)
 
 Articles:
- - http://www.alistapart.com/articles/responsive-web-design/
- - http://blog.teamtreehouse.com/responsive-design-patterns
- - http://alistapart.com/column/what-we-mean-when-we-say-responsive
- - http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
+
+ - [Responsive Web Design](http://www.alistapart.com/articles/responsive-web-design/)
+ - [Responsive Design Patterns](http://blog.teamtreehouse.com/responsive-design-patterns)
+ - [What We Mean When We Say Responsive](http://alistapart.com/column/what-we-mean-when-we-say-responsive)
+ - [Essential Considerations for Crafting Quality Media Queries](http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/)
 
 Blogs:
- - http://responsive.rga.com/
- - https://responsivedesign.is
 
+ - [This Is Responsive](http://responsive.rga.com/)
+ - [Responsive Web Design](https://responsivedesign.is)
 
 [link-compressive]: http://filamentgroup.com/lab/rwd_img_compression/
 [link-compressor]: https://compressor.io/
