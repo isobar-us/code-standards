@@ -20,13 +20,13 @@ When setting up the CSS for a site, always consider:
  - What the default styles for HTML elements are going to be.
  - Which styles are global styles versus specific one-off use-cases.
  - Distinctions between code for layout and for content.
- - How the code will evole and grow.
+ - How the code will evolve and grow.
  - Potential impact of bug fixes on the overall site.
- - Use of images as CSS background images vs. inline HTML (content).
+ - Use of images as CSS background images vs. in-line HTML (content).
 
 ### Getting Started with CSS
 
-Planning for a CSS build isn't that different than any other software requirements for Web development. A solid foundation starting point is critcal.
+Planning for a CSS build isn't that different than any other software requirements for Web development. A solid foundation starting point is critical.
 
 Before coding, you should always:
 
@@ -57,7 +57,7 @@ Sometimes a third party library helpful — but please be certain to not includ
 
 Common types CSS-related tools might include:
 
- - File concatentation
+ - File concatenation
  - Preprocessors
  - Minifiers
  - Post processors
@@ -78,28 +78,35 @@ Some examples of third party frameworks might include:
  - Normalizing code 
 
 <aside class="box">
-<p>External libraries should always be assessed for the pros/cons and potential benefits, vs. the barrier to entry and level of effort involved in their usage. </p>
+<p>**Note:**<br>External libraries should always be assessed for the pros/cons and potential benefits, vs. the barrier to entry and level of effort involved in their usage. </p>
 <p>For instance, a grid system may not match the grids in the design, and it may not be adjustable enough for a given design.</p>
 </aside>
 
 #### Establishing Conventions and Development Strategies
 
-Like other aspects of the code on a site, consistency is key. Areas of critical consistency might include:
+Like other aspects of the code on a site, consistency is key. Areas of critical consistency include:
 
- - Coding techniques
+ - Code formatting
  - Naming conventions
  - File and folder structure
  - Examples or sample code
+ - How page components might be broken down or re-used
 
-On a large site never develop using a single CSS style sheet, though a single file served for a page is best. To this end we often recommend the use of CSS preprocessors to break stylesheets into smaller, better organized files, or the use of a build process to combine files for serving via HTTP.
+On a large site never develop using a single CSS style sheet, though a single file served for a page is best. To this end we often recommend the use of CSS preprocessors to break style sheets into smaller, better organized files, or the use of a build process to combine files for serving via HTTP.
+
+<aside class="box">
+    <p>**Note:**<br>
+    It is a great idea to approach front-end development like a set of [reusable components][link-patternlab] are being created. This matches how they are designed, how they must adapt to responsive layouts, and how they will be implemented inside content management or other server-side frameworks.</p>
+    <p>[Bootstrap][link-bootstrap] is a commonly cited framework that uses an approach similar to this.</p>
+</aside>
 
 ##### Living Style Guides and Reference Implementations
 
-One technique to consider is maintaining static HTML style reference implementations well into integration with server-side / back-end systems. These could be a series of templates or widgets that use the live styles being built. This helps reduce regressions that can happen across the board as the code for the site evolves. Continue to test these reference implementations as they will be the "source of record" for the styles created on the site. They also allow you to more easily distinguish the front-end bugs from the bugs potentially intriduced by integration with a complex back-end.
+One technique to consider is maintaining static HTML style reference implementations well into integration with server-side / back-end systems. These could be a series of templates or widgets that use the live styles being built. This helps reduce regressions that can happen across the board as the code for the site evolves. Continue to test these reference implementations as they will be the "source of record" for the styles created on the site. They also allow you to more easily distinguish the front-end bugs from the bugs potentially introduced by integration with a complex back-end.
 
-These refernece implementations can serve as a *living style guide* and broken components are easily spotted in testing over time.
+These reference implementations can serve as a *living style guide* and broken components are easily spotted in testing over time.
 
-Defining a solid style guide to be applied to tag names can significantly reduce the size of the CSS if that styleguide is adhered to by both the design and development teams. It is recommended that a styleguide is agreed upon at the beginning of a project, defined in HTML and then iterated on by both the design and development teams.
+Defining a solid style guide to be applied to tag names can significantly reduce the size of the CSS if that style guide is adhered to by both the design and development teams. It is recommended that a style guide is agreed upon at the beginning of a project, defined in HTML and then iterated on by both the design and development teams.
 
 ### CSS Best Practices
 
@@ -107,10 +114,10 @@ What follows are some basic concepts for standardization of CSS code. Naturally,
 
 #### Inclusion
 
-Use the `<link>` tag to include all your stylesheets in the `<head>` of the document. For optimal page performance, concatenate your CSS into as few files as possible and do not use the `@import` command to include other stylesheets, as this will fire an additional HTTP request and block page rendering until its completion.
+Use the `<link>` tag to include all your style sheets in the `<head>` of the document. For optimal page performance, concatenate your CSS into as few files as possible and do not use the `@import` command to include other style sheets, as this will fire an additional HTTP request and block page rendering until its completion.
 
 ```markup
-<link rel="stylesheet" type="text/css" href="main.css" />
+<link rel="stylesheet" type="text/css" href="main.css">
 ```
 
 #### Formatting CSS
@@ -119,7 +126,7 @@ Basic rules for formatting CSS files:
 
  - Use a new line for every selector and every declaration.
  - Use a single space before the opening brace in a set of rules.
- - Use lowercase for elemnts and shorthand hex values, e.g., `#aaa`.
+ - Use lowercase for elements and shorthand hex values, e.g., `#aaa`.
  - Hyphenate class selector names; avoid underscores and camelCase 
  - Quote attribute values in selectors
  - Use one level of indentation for each declaration.
@@ -155,10 +162,11 @@ Some examples:
     float: left;
     padding-left: 2%;
     width: 33.33%;
+    padding: 15px 0;
 }
 ```
 
-Do not indent child styles underneath their parent styles; this is important for a number of reasons:
+**Do not indent child styles** underneath their parent styles; this is important for a number of reasons:
 
  - We usually recommend indenting media queries, so this can cause confusion.
  - Some CSS preprocessors heavily use indentation.
@@ -167,7 +175,7 @@ Do not indent child styles underneath their parent styles; this is important for
 
 #### Specificity
 
-Use the minimum specificity required to acheive the desired style. It can be difficult to quickly read and locate styles or even bugs with heavily nested styles in the CSS.
+Use the minimum specificity required to achieve the desired style. It can be difficult to quickly read and locate styles or even bugs with heavily nested styles in the CSS.
 
 The ID is the most specific selector, since it can only match one element, and the class is a close second. Use those whenever possible rather than HTML tag names. 
 
@@ -187,7 +195,8 @@ button#back-button { ... }
 As a rule, CSS is most maintainable with the simplest selectors possible. Try applying a class to the element you want to target instead.
 
 <aside class="box">
-<p>While performance of CSS selectors has been a debated topic, browsers perform quite well on most types of selectors. That said, specificity reduced to the most simple name to get the desired results is the best idea in most cases **for readabilty** and **maintainabilty**.</p>
+<p>**Note:**<br>
+While performance of CSS selectors has been a debated topic, browsers perform quite well on most types of selectors. That said, specificity reduced to the most simple name to get the desired results is the best idea in most cases **for readability** and **maintainability**.</p>
 </aside>
 
 ##### Do Not Use !important
@@ -221,7 +230,7 @@ Do not hard code style information into your HTML markup directly, either with t
 
 ##### Performance Caveats
 
-In some cases for performance reasons it may be good practice to inline critical styles in a `style` block in the document's `head`. This delivers these styles to the browser in the fastest method possible by preventing the need for an additional HTTP request. Fetching linked style sheets are a blocking operation on the rendering of a Web page in a browser in most cases. An enormous CSS file can mean a highly reduced time to first rendering because a browser may pause during loading of the page to download CSS which may not even be used on the first page. 
+In some cases for performance reasons it may be good practice to in-line critical styles in a `style` block in the document's `head`. This delivers these styles to the browser in the fastest method possible by preventing the need for an additional HTTP request. Fetching linked style sheets are a blocking operation on the rendering of a Web page in a browser in most cases. An enormous CSS file can mean a highly reduced time to first rendering because a browser may pause during loading of the page to download CSS which may not even be used on the first page. 
 
 With the above in mind it may be desirable to include the rules required to render the top portions of a page (i.e. "Above the fold") in advance of styles loaded after the rendering begins. Critical styles can be identified either manually or through the use of a tool. Non critical styles can then be asynchronously loaded, increasing the perceived page load speed.
 
@@ -244,7 +253,7 @@ Example:
 
 #### Coding Patterns
 
-There are a number of popular design patterns for naming conventions on selectors, groupings or extentions of styles in CSS files. Sometimes these are of value and may be used on projects as long as the developers are on board and they are used consistently by the team. 
+There are a number of popular design patterns for naming conventions on selectors, groupings or extensions of styles in CSS files. Sometimes these are of value and may be used on projects as long as the developers are on board and they are used consistently by the team. 
 
 <aside class="box">
 <p>Examples of pattern systems include BEM, SMACSS, Object Oriented CSS, Atomic design, and others.</p>
@@ -283,7 +292,7 @@ The following sections describe how some might work.
 
 ##### Global Defaults
 
-For the purposes of discussion we could refer to the global defaults as the baseline HTML elements and their associated styles. Frequently you may wish to use a third party library which normalizes CSS behavior accross browsers. Either way, it makes sense to keep these files in their own files.
+For the purposes of discussion we could refer to the global defaults as the baseline HTML elements and their associated styles. Frequently you may wish to use a third party library which normalizes CSS behavior across browsers. Either way, it makes sense to keep these files in their own files.
 
 ##### Page Level Rules
 
@@ -297,7 +306,7 @@ Components are a high level concept for organizing CSS files and rules. A compon
 
 Additionally, encapsulating these components into distinct files is a great option. Within this file, using a naming convention is a tremendous help here for code maintainability and readability. 
 
-Group styles under a simple namespace using a **prefix-suffix-modifier** type pattern such as:
+Group styles under a simple name-space using a **prefix-suffix-modifier** type pattern such as:
 
 ```css
 /* core component */
@@ -317,7 +326,7 @@ Group styles under a simple namespace using a **prefix-suffix-modifier** type pa
 
 This type of pattern is easy to read, extend, and follow in the absence of something more sophisticated.
 
-Addionally, generally components will be the only CSS class with distinct names that do not have prefixes before the core, root, or base name of the component (e.g. above we are usin `component`).
+Additionally, generally components will be the only CSS class with distinct names that do not have prefixes before the core, root, or base name of the component (e.g. above we are using `component`).
 
 Just to get developers thinking, these might be things like:
 
@@ -355,7 +364,7 @@ This is simplistic and easy to follow, understand, and expand upon.
 
 ##### State
 
-A *state* for an element or component is presentation information for a given component. This may be a dynamic state set by JavaScript or a user interaction, but not always. It could also be a preset from the server or the results after a transaction. State modifiers are a great way for a distinct class to be provided to engineers unfamilar with the design to be provided hooks for various things. This is slightly different than JS specific classes, however.
+A *state* for an element or component is presentation information for a given component. This may be a dynamic state set by JavaScript or a user interaction, but not always. It could also be a preset from the server or the results after a transaction. State modifiers are a great way for a distinct class to be provided to engineers unfamiliar with the design to be provided hooks for various things. This is slightly different than JS specific classes, however.
 
 State rules will use the `is-` prefix.
 
@@ -366,7 +375,7 @@ State rules will use the `is-` prefix.
 
 Treating components' *state* as a modifier that is boolean (i.e. `true` or `false`) also:
 
- - Semanticallly helps provide information about the content.
+ - Semantically helps provide information about the content.
  - Separates the code for state from default presentation.
  - Removes the need to update corresponding states or components if the name of either changes.
 
@@ -382,13 +391,13 @@ The usage of a `js-` prefix is present in the markup but should never really app
 <button class="component-button js-execute">...</button>
 ```
 
-The `js-execute` rule should not appear in the CSS file, but only in JS files they are tied to behavior. These are events, verbs, or action related, and are access points for JavaScript not a toggle or state changer. It's best to think of these classes as closer to and ID attribute in the html.
+The `js-execute` rule should not appear in the CSS file, but only in JS files they are tied to behavior. These are events, verbs, or action related, and are access points for JavaScript not a toggle or state changer. It's best to think of these classes as closer to and ID attribute in the HTML.
 
 ##### Utilities
 
 A utility is a type of component modifier that is specifically designed to be used on more than one component type. If it was restricted to a single component, it would simply be a modifier.
 
-Utilities will use the prefix of `u-` and should serve only the modifier purpose intended without side effects when applied to any component, or component decendant.
+Utilities will use the prefix of `u-` and should serve only the modifier purpose intended without side effects when applied to any component, or component descendant.
 
 ```css
 .u-warning {
@@ -404,7 +413,7 @@ Utilities will use the prefix of `u-` and should serve only the modifier purpose
 
 With the mobile Web taking off Media Queries are mandatory in CSS going forwards.
 
-We will discuss media queries in the Mobile / Responsive section of this document.
+We discuss media queries in the [Mobile / Responsive](#responsive_responsive_web_design) section of this document.
 
 ### CSS Deliverables
 
@@ -414,9 +423,9 @@ Delivered CSS should be concatenated, minified, tested against browser bugs (e.g
 
 File naming conventions should be consistent and language or use-case specific files should be clear and not be easily confused with the global style CSS.
 
-### Next Steps &amp; CSS Resources
+### Next Steps & CSS Resources
 
-This is just the tip of the iceburg where CSS is concerned. 
+This is just the tip of the iceberg where CSS is concerned. 
 
  - Browser Compatibility
  - Media Queries
@@ -428,3 +437,10 @@ This is just the tip of the iceburg where CSS is concerned.
  - Color Management
 
 For current links and references, please see our Wiki on Github.
+
+[link-patternlab]: http://patternlab.io/
+[link-bootstrap]: http://getbootstrap.com/
+
+
+
+

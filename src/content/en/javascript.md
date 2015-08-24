@@ -2,7 +2,7 @@
 
 JavaScript is where extra behaviors, features, and functionality not offered natively by Web browsers through CSS and HTML is created. 
 
-JavaScript has gained an enourmous amount of attention in recent years due to more feature rich, faster browsers and server runtimes such as Node.js. For the purposes, general discussion here focuses on client-side JavaScript development, with references to where it crosses over.
+JavaScript has gained an enormous amount of attention in recent years due to more feature rich, faster browsers and server run-times such as Node.js. For the purposes, general discussion here focuses on client-side JavaScript development, with references to where it crosses over.
 
 It is of note that many techniques identified these days as "HTML5" are actually enabled by the related JavaScript APIs.
 
@@ -27,7 +27,7 @@ While being:
  - Not conflict with other code on a given page or sets of pages.
  - Executed only when necessary on a given page or sets of pages.
 
-Likewise, the absense or failure of the code should be carefully considered:
+Likewise, the absence or failure of the code should be carefully considered:
 
  - What happens if for some reason this code is missing or does not run? 
  - What happens if the code triggers an error?
@@ -96,14 +96,14 @@ Selection of a library or framework is never an easy task. Things that should be
 
 Third party code should be included as-is and:
 
- - Treated as it may be updated (i.e. verions) at some point in the future.
+ - Treated as it may be updated (i.e. versions) at some point in the future.
  - Should **never be modified** unless documented thoroughly for the project.
- - As many convensions of its use followed in their recommended standard ways.
- - Unminified code should be included.
+ - As many conventions of its use followed in their recommended standard ways.
+ - Un-minified code should be included.
  - Any required licenses should be included as specified by the library.
  - Commercial code must be approved if necessary.
 
-A team may decide to write wrapper code around the third party libary and provide a more simple API for the code.
+A team may decide to write wrapper code around the third party library and provide a more simple API for the code.
 
 #### ECMAScript 6, ES6, ECMAScript 2015
 
@@ -115,7 +115,7 @@ Developers are encouraged to begin learning and using the [latest version of Jav
 
 #### Inclusion of Code
 
-Use external JavaScript files. **Do NOT include JavaScript inline in the page unless there is a good reason**.
+Use external JavaScript files. **Do NOT include JavaScript in-line in the page unless there is a good reason**.
 
 Use the `<script>` tag to include your JavaScript files at the bottom of your HTML document just before the closing `</body>` tag. For optimal page performance, concatenate your JavaScript into as few files as possible.
 
@@ -137,7 +137,7 @@ A reference similar to this may need to include a build-specific file name based
 
 ##### Loading Files On Demand
 
-On some sites it may be appropriate to load a single JavaScript file with all dependencies bundled together, or it may be more appropriate (such as in a very large SPA) to load files *on demand*, as they are needed, asychronously.
+On some sites it may be appropriate to load a single JavaScript file with all dependencies bundled together, or it may be more appropriate (such as in a very large SPA) to load files *on demand*, as they are needed, asynchronously.
 
 <!-- @todo: more information -->
 
@@ -149,7 +149,7 @@ Formatting the language statements and patterns should follow these basics:
 
  - **Open braces** are preceded by a single space.
  - **Open braces** should appear on the same line as their preceding argument.
- - **Close braces** should appear at the same indendation as the statement preceding the opening brace
+ - **Close braces** should appear at the same indentation as the statement preceding the opening brace
  - There should be no space characters between **parentheses** and their contents.
  - Use **semicolons** and do not rely on automatic semicolon insertion.
  - Each **comma** and **colon** (and semi-colons that don't end a line) should be followed by a single space.
@@ -190,9 +190,9 @@ var currentVal = $(this).val();
 var min = parseInt($(this).attr('min'), 10);
 ```
 
-This has been [debated at length](http://benalman.com/news/2012/05/multiple-var-statements-javascript/) and is controversial, however we believe this is a better practice due to serveral technical reasons:
+This has been [debated at length](http://benalman.com/news/2012/05/multiple-var-statements-javascript/) and is controversial, however we believe this is a better practice due to several technical reasons:
 
- - Easier debugging with dubuggers.
+ - Easier debugging with debuggers.
  - Easier merges with version control and diff utilities.
  - Most technical issues are resolved by 'use strict'.
 
@@ -207,7 +207,7 @@ This has been [debated at length](http://benalman.com/news/2012/05/multiple-var-
 
 ##### Variable Scope
 
-Minimize the use of `global` or `window` level variables and namespaces. Pollution of the global namespace is error prone and a bad practice.
+Minimize the use of `global` or `window` level variables and name-spaces. Pollution of the global name-space is error prone and a bad practice.
 
 If referencing a `window` or `global` level variable that isn't obvious, please comment as such or explicitly state it.
 
@@ -220,7 +220,7 @@ var window.thing = {};
 Always use meaningful variable names that can be read as words, not as silly abbreviations only you understand.
 
  - Variable names should be `camelCase`. 
- - Objects, classes, and namespaces should be `TitleCase`. 
+ - Objects, classes, and name-spaces should be `TitleCase`. 
  - Boolean values should be prefixed with `is` if at all possible.
  - Cached jQuery objects can be prefixed with `$`.
  - Use shorthand versions of empty `Arrays` and `Objects`.
@@ -258,7 +258,7 @@ Always test for the existence of a browser API, function, or object property bef
 
 ##### Limit Events — Use Event Delegation
 
-It is always preferrable to use fewer events being bound to objects on a page as possible. Too many events bound on a page can mean memory leaks or just an accumulation of handlers bound to DOM elements which becomes less and less efficient over time. Additionally, event delegation has the added benefit of persisting events over dynamic page updates when items are added or removed from the DOM.
+It is always preferable to use fewer events being bound to objects on a page as possible. Too many events bound on a page can mean memory leaks or just an accumulation of handlers bound to DOM elements which becomes less and less efficient over time. Additionally, event delegation has the added benefit of persisting events over dynamic page updates when items are added or removed from the DOM.
 
 With jQuery this is easy, simply use the `on` method with a selector:
 
@@ -276,11 +276,11 @@ $('body').on('click', 'a.scroller', function(){
 
 ##### JavaScript Performance
 
-One of the most costly operations a browser can perform is updating the DOM in the page via ineffecient JavaScript techniques. The most important thing to know is that the more you do on a Web page with JavaScript, the more work is being done, the more memory and the bigger the footprint it can generate. Additionally, updating a complex DOM structure over and over in JavaScript can cause reflow, repainting, and jank.
+One of the most costly operations a browser can perform is updating the DOM in the page via inefficient JavaScript techniques. The most important thing to know is that the more you do on a Web page with JavaScript, the more work is being done, the more memory and the bigger the footprint it can generate. Additionally, updating a complex DOM structure over and over in JavaScript can cause re-flow, repainting, and jank.
 
 A book could be written on the subject, but here's a taste of various references:
 
- - [Minimizing browser reflow](https://developers.google.com/speed/articles/reflow?hl=en)
+ - [Minimizing browser re-flow](https://developers.google.com/speed/articles/reflow?hl=en)
  - [Repaints and Reflows, Manipulating the DOM Responsibly](http://blog.letitialew.com/post/30425074101/repaints-and-reflows-manipulating-the-dom)
  - [Reflows &amp; Repaints: Css Performance Making Your Javascript Slow?](http://www.stubbornella.org/content/2009/03/27/reflows-repaints-css-performance-making-your-javascript-slow/)
  - [Rendering: repaint, reflow/relayout, restyle](http://www.phpied.com/rendering-repaint-reflowrelayout-restyle/)
@@ -310,7 +310,7 @@ With this in mind, for strict control over the code base it's best to consider:
 
  - What is the **central entry point**, or the central point of execution? This is to say, what kicks off the JavaScript? This may be a simple jQuery `document.ready()` or some other mechanism to run the site's code, such as a router.
 
-Having explicit control over the page lifecycle is preferable to having a dozen jQuery `document.ready()` statements all competing for the first chance to execute on a page.
+Having explicit control over the page life-cycle is preferable to having a dozen jQuery `document.ready()` statements all competing for the first chance to execute on a page.
 
 Effectively the application core, it should kick off the rest of the code to run. Typically this has module-management baked in in some way.
 

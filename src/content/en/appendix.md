@@ -14,7 +14,7 @@ There's so much to cover, and so little time. What follows is just a sample of l
  - [Node.js](http://nodejs.org)
  - [Phantom.js](http://phantomjs.org/)
 
-#### Front-end Developer Toolchain | Workflow
+#### Front-end Developer Tool Chain | Workflow
 
  - [Chrome DevTools](https://developer.chrome.com/devtools)
  - [Firefox Developer Tools](https://developer.mozilla.org/en-US/docs/Tools)
@@ -106,9 +106,9 @@ We don't claim to be the only story in town, that's for sure. We're standing on 
  - [WordPress Core Contributors JS Guide](https://make.wordpress.org/core/handbook/best-practices/coding-standards/javascript/)
 
 
-### Acknowledgements
+### Acknowledgments
 
-And acknowledgements...
+And acknowledgments...
 
 Dozens of folks have contributed to this guide either directly, through project experience, or have served as prior art that has inspired ideas in this document.
 
