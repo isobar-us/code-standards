@@ -423,9 +423,9 @@ main {
   left: 0px;
   float: right;
   background-color: #ffffff;
-  -webkit-transition: right .5s;
-  -moz-transition: right .5s;
-  transition: right .5s;
+  -webkit-transition: right 0.5s;
+  -moz-transition: right 0.5s;
+  transition: right 0.5s;
 }
 
 main > section {
@@ -861,7 +861,7 @@ pre[class*="language-"] {
   direction: ltr;
   font-family: Consolas, Monaco, 'Andale Mono', monospace;
   text-align: left;
-  text-shadow: 0 -.1em .2em black;
+  text-shadow: 0 -0.1em 0.2em black;
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
@@ -886,7 +886,7 @@ pre[class*="language-"] {
   border-radius: .5em;
   border: 0.3em solid #545454;
   /* #282A2B */
-  box-shadow: 1px 1px .5em black inset;
+  box-shadow: 1px 1px 0.5em black inset;
   margin: .5em 0;
   overflow: auto;
   padding: 1em;
@@ -924,8 +924,8 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
   border-radius: .3em;
   border: 0.13em solid #545454;
   /* #545454 */
-  box-shadow: 1px 1px .3em -.1em black inset;
-  padding: .15em .2em .05em;
+  box-shadow: 1px 1px 0.3em -0.1em black inset;
+  padding: 0.15em 0.2em 0.05em;
 }
 
 .token.comment,
@@ -1059,7 +1059,7 @@ pre[data-line] {
   font: bold 65%/1.5 sans-serif;
   left: .6em;
   min-width: 1em;
-  padding: 0 .5em;
+  padding: 0 0.5em;
   position: absolute;
   text-align: center;
   text-shadow: none;
